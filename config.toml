@@ -1,4 +1,4 @@
-baseurl = "https://curso-r.github.io/verao2017/"
+baseURL = "https://curso-r.github.io/verao2017/"
 languageCode = "en-us"
 title = "Curso-R"
 theme = "hugo-material-docs"
@@ -15,7 +15,7 @@ googleAnalytics = ""
 
 	# Repository
 	provider = "GitHub"
-	repo_url = "https://github.com/digitalcraftsman/hugo-material-docs"
+	repo_url = "https://github.com/curso-r/verao2017"
 
 	version = "1.0.0"
 	logo = "images/logo.png"
@@ -52,7 +52,7 @@ googleAnalytics = ""
 	
 [[menu.main]]
 	name   = "Hello World"
-	url    = "post/hello-world/"
+	url    = "hello-world/"
 	weight = 10
 
 
