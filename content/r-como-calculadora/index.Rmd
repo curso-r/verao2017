@@ -1,0 +1,38 @@
+---
+title: "R como calculadora"
+author: "Athos Damiani, Daniel Falbel"
+date: 2016-11-08
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, fig.path = "figures/")
+```
+
+A linguagem `R` é um tanto quanto intuitiva, muita coisa sai do jeito certo no 
+chute! Para ver um exemplo disso, é interessante começar fazendo do R uma grande calculadora. Tente jogar no console `2*2 - (4 + 4)/2`. Pronto. Com essa simples 
+expressão você já é capaz de imaginar (e certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!
+
+Além do mais, as operações e suas precedências são mantidas como na matemática, 
+ou seja, divisão e multiplicação são calculadas antes da adição e subtração. 
+E os parênteses nunca são demais!
+
+## RStudio
+
+Talvez você tenha imaginado qual seria o resultado da operação, mas ainda não 
+tenha conseguido calcular usando o R, porque você não sabe onde digitar aquilo, 
+por isso vamos apresentar o RStudio.
+
+O RStudio é um (o melhor) IDE (*integrated development environment*) para o R.
+E você pode fazer o download [aqui](https://www.rstudio.com/products/rstudio/download3/). 
+Estamos assumindo que você já instalou o próprio R. Se não instalou, [clique aqui](https://cloud.r-project.org/).
+
+Assim que abrir o RStudio você verá a seguinte tela.
+
+![rstudio-editor](figures/rstudio-editor.png)
+
+Nela estão dispostos **editor**, **console**, **environment** e **output**. 
+Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que
+preferir. Preste atenção a todos esses campos durante este tutorial.
+
+Agora que você já conhece o RStudio, digite a expressão `2*2 - (4 + 4)/2` no
+**console** e tecle `Enter`.
