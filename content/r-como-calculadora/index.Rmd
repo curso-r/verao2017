@@ -57,7 +57,7 @@ só indicam o índice do primeiro elemento impresso nessa linha.
 Quando compilamos?
 </p>
 <p>
-Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programaçãodinâmica que interpretao seu código enquanto você o executa.
+Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa.
 </p>
 </div>
 
@@ -107,3 +107,12 @@ diferente de `A`.
 > A
 Error: object 'A' not found
 ```
+
+<div class='admonition note'>
+<p class='admonition-title'>
+<- ou =?
+</p>
+<p>
+Essa pergunta é comum, e a resposta padrão é: melhor usar <-. No entanto, na maioria dos casos os dois são equivalentes. Portanto, use qual você achar melhor e seja consistente. Uma boa referência é este <a href="http://pt.stackoverflow.com/a/160092/6036">link</a>
+</p>
+</div>
