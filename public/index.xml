@@ -7,8 +7,44 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Released under the MIT license</copyright>
-    <lastBuildDate>Tue, 08 Mar 2016 21:07:13 +0100</lastBuildDate>
+    <lastBuildDate>Wed, 09 Nov 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://curso-r.github.io/verao2017/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Curso-R</title>
+      <link>https://curso-r.github.io/verao2017/</link>
+      <pubDate>Wed, 09 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://curso-r.github.io/verao2017/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;div id=&#34;objetivos&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Objetivos&lt;/h3&gt;
+&lt;p&gt;O curso-r ensinará como usar o R para auxiliar o aluno na execução de tarefas corriqueiras de forma eficiente e concisa. O aluno aprenderá a:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Carregar&lt;/strong&gt;: Carregar o banco de dados para dentro do R&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Arrumar&lt;/strong&gt;: Deixar os dados na melhor estrutura para a análise&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Transformar&lt;/strong&gt;: Agregar, criar novas variáveis, etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Visualizar&lt;/strong&gt;: Criar gráficos e visualizações&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Modelar&lt;/strong&gt;: Ajustar modelos que ajudam na interpretação dos dados&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;O curso será baseado no &lt;a href=&#34;http://r4ds.had.co.nz/&#34;&gt;&lt;em&gt;R for Data Science&lt;/em&gt;&lt;/a&gt; que por sua vez é baseado no &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;, &lt;em&gt;universo arrumado&lt;/em&gt;), um conjunto de pacotes que dividem uma mesma filosofia e foram feitos para serem utilizados conjuntamente.&lt;/p&gt;
+&lt;/div&gt;
+
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
     
     <item>
       <title>Curso R</title>
