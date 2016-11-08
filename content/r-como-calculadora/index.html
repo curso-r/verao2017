@@ -62,12 +62,45 @@ a + 1
 Error: object &#39;A&#39; not found</code></pre>
 <div class="admonition note">
 <p class="admonition-title">
-&lt;- ou =?
+&lt;- ou = ?
 </p>
 <p>
 Essa pergunta é comum, e a resposta padrão é: melhor usar &lt;-. No entanto, na maioria dos casos os dois são equivalentes. Portanto, use qual você achar melhor e seja consistente. Uma boa referência é este <a href="http://pt.stackoverflow.com/a/160092/6036">link</a>
 </p>
 </div>
+<p>O R substitui os valores de um objeto sem pedir permissão. Então, se você não deseja sobreescrever o valor de um objeto, não use o mesmo nome.</p>
+<pre class="r"><code>a &lt;- 1
+a
+## [1] 1
+a &lt;- 2
+a
+## [1] 2</code></pre>
+<p>Agora, vamos definir um novo objeto no R, chamado <code>vetor</code>.</p>
+<pre class="r"><code>vetor &lt;- 1:10</code></pre>
+<p>De forma bastante intuitiva, você pode fazer operações com vetores.</p>
+<pre class="r"><code>vetor - 1
+##  [1] 0 1 2 3 4 5 6 7 8 9
+vetor / 2
+##  [1] 0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0
+vetor * 10
+##  [1]  10  20  30  40  50  60  70  80  90 100</code></pre>
+<p>Quando você faz <code>vetor - 1</code>, o R subtrai <code>1</code> de cada um dos elementos do vetor. O mesmo acontece quando você faz qualquer operação aritmética com vetores no R.</p>
+<p>Você também pode fazer operações que envolvem mais de um vetor. Exemplo:</p>
+<pre class="r"><code>vetor * vetor
+##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<p>Neste caso, o R irá alinhar os dois vetores e multiplicar elemento por elemento. Isso pode ficar um pouco confuso quando os dois vetores não possuem o mesmo tamanho:</p>
+<pre class="r"><code>vetor2 &lt;- 1:2
+vetor2
+## [1] 1 2
+vetor * vetor2
+##  [1]  1  4  3  8  5 12  7 16  9 20</code></pre>
+<p>Agora o R alinhou os dois vetores, e como eles não possuiam o mesmo tamanho, ele foi repetindo o menor vetor até completar o vetor maior. Isso retornaria um warning se o tamanho do maior não fosse múltiplo do tamanho do vetor menor.</p>
+<pre><code>&gt; vetor * vetor3
+ [1]  1  4  9  4 10 18  7 16 27 10
+Warning message:
+In vetor * vetor3 :
+  longer object length is not a multiple of shorter object length</code></pre>
+<p>Esse comportamento é chamado de <strong>reciclagem</strong>. Isso é útil para fazer operações com os vetores elementos por elementos (vetorizadamente), mas as vezes pode ser confuso. Com o tempo você aprenderá a se aproveitar desse comportamento.</p>
 </div>
 
 

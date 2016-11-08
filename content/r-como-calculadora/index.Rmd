@@ -110,9 +110,69 @@ Error: object 'A' not found
 
 <div class='admonition note'>
 <p class='admonition-title'>
-<- ou =?
+<- ou = ?
 </p>
 <p>
 Essa pergunta é comum, e a resposta padrão é: melhor usar <-. No entanto, na maioria dos casos os dois são equivalentes. Portanto, use qual você achar melhor e seja consistente. Uma boa referência é este <a href="http://pt.stackoverflow.com/a/160092/6036">link</a>
 </p>
 </div>
+
+O R substitui os valores de um objeto sem pedir permissão. Então, se você não
+deseja sobreescrever o valor de um objeto, não use o mesmo nome.
+
+```{r}
+a <- 1
+a
+a <- 2
+a
+```
+
+Agora, vamos definir um novo objeto no R, chamado `vetor`.
+
+```{r}
+vetor <- 1:10
+```
+
+De forma bastante intuitiva, você pode fazer operações com vetores.
+
+```{r}
+vetor - 1
+vetor / 2
+vetor * 10
+```
+
+Quando você faz `vetor - 1`, o R subtrai `1` de cada um dos elementos do vetor.
+O mesmo acontece quando você faz qualquer operação aritmética com vetores no R.
+
+Você também pode fazer operações que envolvem mais de um vetor. Exemplo:
+
+```{r}
+vetor * vetor
+```
+
+Neste caso, o R irá alinhar os dois vetores e multiplicar elemento por elemento.
+Isso pode ficar um pouco confuso quando os dois vetores não possuem o mesmo
+tamanho:
+
+```{r}
+vetor2 <- 1:2
+vetor2
+vetor * vetor2
+```
+
+Agora o R alinhou os dois vetores, e como eles não possuiam o mesmo tamanho, ele
+foi repetindo o menor vetor até completar o vetor maior. Isso retornaria um warning
+se o tamanho do maior não fosse múltiplo do tamanho do vetor menor.
+
+```
+> vetor * vetor3
+ [1]  1  4  9  4 10 18  7 16 27 10
+Warning message:
+In vetor * vetor3 :
+  longer object length is not a multiple of shorter object length
+```
+
+Esse comportamento é chamado de **reciclagem**. Isso é útil para fazer operações 
+com os vetores elementos por elementos (vetorizadamente), mas as vezes pode ser
+confuso. Com o tempo você aprenderá a se aproveitar desse comportamento.
+
