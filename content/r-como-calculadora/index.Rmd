@@ -28,11 +28,56 @@ Estamos assumindo que você já instalou o próprio R. Se não instalou, [clique
 
 Assim que abrir o RStudio você verá a seguinte tela.
 
-![rstudio-editor](figures/rstudio-editor.png)
+
+![](figures/rstudio-editor.png)
 
 Nela estão dispostos **editor**, **console**, **environment** e **output**. 
 Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que
 preferir. Preste atenção a todos esses campos durante este tutorial.
 
 Agora que você já conhece o RStudio, digite a expressão `2*2 - (4 + 4)/2` no
-**console** e tecle `Enter`.
+**console** e tecle `Enter`. Uma outra forma de chamar uma expressão é escrever
+o código no **editor** e teclar `Ctrl + Enter`. Assim o comando é enviado para 
+o **console** onde é diretamente executado.
+
+## Usando o console
+
+Pelo console é possível executar qualquer comando do R.
+
+```{r}
+1:30
+```
+
+Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30.
+Você pode ignorar esses números que aparecem entre parênteses, na verdade eles 
+só indicam o índice do primeiro elemento impresso nessa linha.
+
+{{< note title="Quando compilamos?" >}}
+Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o 
+código em texto para o código de máquinas (geralmente um código binário). No R,
+isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta
+o seu código enquanto você o executa.
+{{< /note >}}
+
+Se você digitar um comando incompleto, como `5 + ` e apertar `Enter`, o R irá mostrar
+um `+`, o que não tem nada a ver com somar alguma coisa, e sim significa que o
+R está esperando que você complete o seu comando. Termine o seu comando ou aperte
+`Esc` para recomeçar.
+
+```
+> 5 -
++ 
++ 5
+[1] 0
+```
+
+Se você digitar um comando que o R não reconhecer, ele irá retornar uma mensagem
+de erro. Não entre em pânico. Ele só está avisando que não conseguiu interpretar
+o comando. Depois você já pode digitar mais um comando.
+
+```
+> 5 % 5
+Error: unexpected input in "5 % 5"
+> 5 - 5
+[1] 0
+```
