@@ -1,7 +1,8 @@
 box: debian
 build:
   steps:
-  - arjen/hugo-build
+    - arjen/hugo-build:
+      flags: -b "/"
 deploy:
   steps:
     - install-packages:
