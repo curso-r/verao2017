@@ -1,0 +1,15 @@
+---
+author: "Daniel Falbel"
+date: 2015-07-23T21:13:14-05:00
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, fig.path = "figures/")
+```
+
+## Hi
+
+This is another file in the same folder.
+
+
+
