@@ -4,6 +4,7 @@ title = "Curso-R"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
 canonifyurls = true
+relativeurls = true
 # Enable Google Analytics by entering your tracking id
 googleAnalytics = ""
 
