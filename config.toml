@@ -17,7 +17,7 @@ googleAnalytics = ""
 	provider = "GitHub"
 	repo_url = "https://github.com/curso-r/verao2017"
 
-	version = "1.0.0"
+	version = ""
 	logo = "images/logo.png"
 	favicon = ""
 
@@ -41,8 +41,8 @@ googleAnalytics = ""
 
 [social]
 	twitter = ""
-	github  = "digitalcraftsman"
-	email   = "hello@email.com"
+	github  = "curso-r"
+	email   = "dfalbel@gmail.com"
 
 
 [[menu.main]]
