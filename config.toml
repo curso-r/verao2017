@@ -18,7 +18,7 @@ googleAnalytics = ""
 	repo_url = "https://github.com/curso-r/verao2017"
 
 	version = ""
-	logo = "images/logo.png"
+	logo = "logo-curso-r.png"
 	favicon = ""
 
 	permalink = "#"
