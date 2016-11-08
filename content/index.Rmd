@@ -9,7 +9,7 @@ type: index
 knitr::opts_chunk$set(echo = TRUE, fig.path = "figures/")
 ```
 
-### Objetivos
+## Objetivos
 
 O curso-r ensinará como usar o R para auxiliar o aluno na execução de tarefas
 corriqueiras de forma eficiente e concisa. O aluno aprenderá a:
@@ -21,7 +21,7 @@ corriqueiras de forma eficiente e concisa. O aluno aprenderá a:
 - **Modelar**: Ajustar modelos que ajudam na interpretação dos dados
 
 O curso será baseado no [*R for Data Science*](http://r4ds.had.co.nz/) que por
-sua vez é baseado no [`tidyverse`](http://tidyverse.org/), *universo arrumado*),
+sua vez é baseado no [`tidyverse`](http://tidyverse.org/), *universo arrumado*,
 um conjunto de pacotes que dividem uma mesma filosofia e foram feitos para serem
 utilizados conjuntamente.
 
