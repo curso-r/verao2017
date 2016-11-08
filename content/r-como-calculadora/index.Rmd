@@ -52,12 +52,14 @@ Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30.
 Você pode ignorar esses números que aparecem entre parênteses, na verdade eles 
 só indicam o índice do primeiro elemento impresso nessa linha.
 
-{{< note title="Quando compilamos?" >}}
-Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o 
-código em texto para o código de máquinas (geralmente um código binário). No R,
-isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta
-o seu código enquanto você o executa.
-{{< /note >}}
+<div class='admonition note'>
+<p class='admonition-title'>
+Quando compilamos?
+</p>
+<p>
+Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programaçãodinâmica que interpretao seu código enquanto você o executa.
+</p>
+</div>
 
 Se você digitar um comando incompleto, como `5 + ` e apertar `Enter`, o R irá mostrar
 um `+`, o que não tem nada a ver com somar alguma coisa, e sim significa que o
@@ -80,4 +82,28 @@ o comando. Depois você já pode digitar mais um comando.
 Error: unexpected input in "5 % 5"
 > 5 - 5
 [1] 0
+```
+
+## Objetos
+
+O R permite que você salve dados guardando estes dentro de um objeto. Um objeto 
+nada mais é do que um nome, que pode ser utilizado para chamar dados armazenados.
+Por exemplo, você pode salvar dados em `a`. Sempre que o R encontrar o nome `a`
+ele o substituirá pelos dados armazenados em `a`. Por exemplo:
+
+```{r}
+a <- 1
+a + 1
+```
+
+No Rstudio, quando um objeto é criado, ele começa a aparecer no painel **environment**. Essa é uma ótima forma de acompanhar todos os objetos que estão
+disponíveis no seu *environment*. Outro ponto que é importante lembrar aqui é que 
+o R entende letras maiúsculas e minúsculas, isto é `a` é considerado um objeto
+diferente de `A`.
+
+```
+> a
+[1] 1
+> A
+Error: object 'A' not found
 ```

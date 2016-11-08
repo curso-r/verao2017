@@ -30,7 +30,14 @@ date: 2016-11-08
 ##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
 ## [24] 24 25 26 27 28 29 30</code></pre>
 <p>Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30. Você pode ignorar esses números que aparecem entre parênteses, na verdade eles só indicam o índice do primeiro elemento impresso nessa linha.</p>
-<p>{{&lt; note title=“Quando compilamos?” &gt;}} Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa. {{&lt; /note &gt;}}</p>
+<div class="admonition note">
+<p class="admonition-title">
+Quando compilamos?
+</p>
+<p>
+Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programaçãodinâmica que interpretao seu código enquanto você o executa.
+</p>
+</div>
 <p>Se você digitar um comando incompleto, como <code>5 +</code> e apertar <code>Enter</code>, o R irá mostrar um <code>+</code>, o que não tem nada a ver com somar alguma coisa, e sim significa que o R está esperando que você complete o seu comando. Termine o seu comando ou aperte <code>Esc</code> para recomeçar.</p>
 <pre><code>&gt; 5 -
 + 
@@ -41,6 +48,18 @@ date: 2016-11-08
 Error: unexpected input in &quot;5 % 5&quot;
 &gt; 5 - 5
 [1] 0</code></pre>
+</div>
+<div id="objetos" class="section level2">
+<h2>Objetos</h2>
+<p>O R permite que você salve dados guardando estes dentro de um objeto. Um objeto nada mais é do que um nome, que pode ser utilizado para chamar dados armazenados. Por exemplo, você pode salvar dados em <code>a</code>. Sempre que o R encontrar o nome <code>a</code> ele o substituirá pelos dados armazenados em <code>a</code>. Por exemplo:</p>
+<pre class="r"><code>a &lt;- 1
+a + 1
+## [1] 2</code></pre>
+<p>No Rstudio, quando um objeto é criado, ele começa a aparecer no painel <strong>environment</strong>. Essa é uma ótima forma de acompanhar todos os objetos que estão disponíveis no seu <em>environment</em>. Outro ponto que é importante lembrar aqui é que o R entende letras maiúsculas e minúsculas, isto é <code>a</code> é considerado um objeto diferente de <code>A</code>.</p>
+<pre><code>&gt; a
+[1] 1
+&gt; A
+Error: object &#39;A&#39; not found</code></pre>
 </div>
 
 
