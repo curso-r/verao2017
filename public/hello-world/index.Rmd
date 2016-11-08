@@ -5,7 +5,7 @@ date: 2015-07-23T21:13:14-05:00
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = TRUE, fig.path = "")
 ```
 
 # R Markdown
@@ -20,7 +20,7 @@ fit <- lm(dist ~ speed, data = cars)
 fit
 ```
 
-# Including Plots 
+# Including Plots
 
 You can also embed plots. See Figure \@ref(fig:pie) for example:
 
