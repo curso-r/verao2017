@@ -25,3 +25,36 @@ sua vez é baseado no [`tidyverse`](http://tidyverse.org/), *universo arrumado*,
 um conjunto de pacotes que dividem uma mesma filosofia e foram feitos para serem
 utilizados conjuntamente.
 
+## Público Alvo
+
+O curso-r é destinado a:
+
+- Estudantes de graduação em estatística que desejam ganhar tempo nos trabalhos da faculdade e entrar no mercado de trabalho com bons diferenciais.
+- Profissionais do mercado de trabalho que desejam inserir o R mo fluxo de atividades do setor/empresa.
+- Acadêmicos com interesse em tornar suas análises e códigos mais legíveis, reprodutíveis, eficientes e organizados.
+
+## Softwares
+
+O curso será realizado em um laboratório, onde os softwares já estarão instalados
+mas, para fazer os exercícios fora da aula você precisará instalar os seguintes 
+softwares/pacotes:
+
+- R: Instale pelo site do [CRAN](https://cloud.r-project.org/)
+- RStudio: Faça o download [aqui](https://www.rstudio.com/products/rstudio/download3/)
+- `tidyverse`: No console do R digite: `install.packages("tidyverse")`.
+
+## Pré-requisitos
+
+Para melhor aproveitamento do curso é importante o aluno ter alguns conhecimentos
+sobre **Lógica de programação**. Não se preocupe, se você já fez qualquer curso 
+de programação na vida, já será o suficiente. 
+
+Se o aluno não for familiarizado com
+R, recomendamos abrir o RStudio e tentar rodar e entender os comandos 
+[desta página]().
+
+Durante o curso iremos usar bastante o [Github](https://github.com/), portanto
+criar uma conta será fundamental.
+
+Tente se familiarizar com [RMarkdown](http://rmarkdown.rstudio.com/lesson-1.html). 
+O curso utilizará este formato de arquivos extensivamente.
