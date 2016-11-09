@@ -15,6 +15,7 @@
 
     <script>
       {{ "/* Add headers to scrollspy */" | safeJS }}
+      var div_h2    = document.getElementsByClassName("section level2")
       var headers   = document.getElementsByTagName("h2");
       var scrollspy = document.getElementById('scrollspy');
 
@@ -25,7 +26,7 @@
             li.setAttribute("class", "anchor");
 
             var a  = document.createElement("a");
-            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("href", "#" + div_h2[i].id);
             a.setAttribute("title", headers[i].innerHTML);
             a.innerHTML = headers[i].innerHTML;
             
@@ -38,12 +39,12 @@
         
 
         {{ "/* Add permanent link next to the headers */" | safeJS }}
-        var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+        var headers = document.querySelectorAll("h2");
 
         for(var i = 0; i < headers.length; i++) {
             var a = document.createElement("a");
             a.setAttribute("class", "headerlink");
-            a.setAttribute("href", "#" + headers[i].id);
+            a.setAttribute("href", "#" + div_h2[i].id);
             a.setAttribute("title", "Permanent link")
             a.innerHTML = {{ or .Site.Params.permalink "¶" }};
             headers[i].appendChild(a);

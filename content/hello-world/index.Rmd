@@ -33,3 +33,6 @@ pie(
   init.angle = -50, border = NA
 )
 ```
+
+```{r child = 'hi.Rmd'}
+```
