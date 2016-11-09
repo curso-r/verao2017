@@ -102,8 +102,8 @@ In vetor * vetor3 :
   longer object length is not a multiple of shorter object length</code></pre>
 <p>Esse comportamento é chamado de <strong>reciclagem</strong>. Isso é útil para fazer operações com os vetores elementos por elementos (vetorizadamente), mas as vezes pode ser confuso. Com o tempo você aprenderá a se aproveitar desse comportamento.</p>
 </div>
-<div id="funcoes" class="section level1">
-<h1>Funções</h1>
+<div id="funcoes" class="section level2">
+<h2>Funções</h2>
 <p>O R vem com muitas funções implementadas com as quais você pode fazer muitas tarefas complicadas, como gerar números aleatórios. Geralmente o nome das funções é bem intuitivo, por exemplo <code>mean</code> é a função que calcula a média, <code>round</code> é a função que arredonda um número, etc.</p>
 <pre class="r"><code>pi
 ## [1] 3.141593
@@ -119,6 +119,73 @@ round(mean(die))
 <img src="figures/round.png" alt="" />
 
 </div>
+<p>Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão documentados na página de ajuda de cada uma das funções, que pode ser acessada digitando <code>help(nome_da_funcao)</code> ou <code>?nome_da_funcao</code>.</p>
+<div id="criando-suas-proprias-funcoes" class="section level3">
+<h3>Criando suas próprias funções</h3>
+<p>Apesar de já existirem uma infinidade de funções disponíveis no R, muitas vezes você deseja criar a sua própria função. Por exemplo, para organizar uma sequência de funções que são executadas da mesma forma em diversos lugares do seu código.</p>
+<p>Funções no R também são objetos, assim como vetores. A diferença é a forma de criá-los e de executá-los. Uma nova função pode ser criada da seguinte forma:</p>
+<pre class="r"><code>my_function &lt;- function(x){
+  x/2
+}</code></pre>
+<p>Pronto. Criamos uma função que divido o argumento <code>x</code> por 2. Você pode ver o código de qualquer função do R digitando o nome dela no console (sem parênteses no final).</p>
+<pre class="r"><code>my_function
+## function(x){
+##   x/2
+## }</code></pre>
+</div>
+</div>
+<div id="controles-de-fluxo" class="section level2">
+<h2>Controles de Fluxo</h2>
+<p>O R possui estruturas de controle de fluxo que são importantes na hora de programar as suas próprias funções e scripts. O seguinte trecho de código só será executado se o objeto <code>x</code> for igual a 1.</p>
+<pre class="r"><code>x &lt;- 2
+if(x == 1){
+  print(&quot;oi&quot;)
+}</code></pre>
+<pre class="r"><code>x &lt;- 1
+if(x == 1){
+  print(&quot;oi&quot;)
+}
+## [1] &quot;oi&quot;</code></pre>
+<p>A estrutura do <code>if</code> é bem simples, mas é importante para introduzir a noção de vetores lógicos no R. Assim como nas funções, o R executa o que está dentro dos parênteses no <code>if</code> para depois decidir se executa a expressão dentro de chaves.</p>
+<p>No caso dos exemplos acima, veja que o R executou <code>x == 1</code> que retorna <code>TRUE</code>, um tipo especial de dados no R chamado <strong>logical</strong>.</p>
+<pre class="r"><code>x == 1
+## [1] TRUE</code></pre>
+<p>Como o resultado dessa operação foi <code>TRUE</code>, o R executou o que estava entre chaves. Isso nos ajuda a pensar em como funcionam as operações lógicas no R, elas sempre retornam <code>TRUE</code> ou <code>FALSE</code> como resultado. O resultado de operações lógicas também pode ser salvo dentro de objetos do R e em seguiida ser reutilizado em outras operações. Por exemplo:</p>
+<pre class="r"><code>a &lt;- x == 1
+b &lt;- x == 2
+c &lt;- a &amp; (!b)
+if(c){
+  print(&quot;oi&quot;)
+}
+## [1] &quot;oi&quot;</code></pre>
+<p>Isso pode ser bastante útil e ajuda a entender bem como o R funciona.</p>
+<p>Uma outra importante estrutura de controle de fluxo é o <code>for</code>. No Rm, um laço <code>for</code> é escrito da seguinte forma.</p>
+<pre class="r"><code>for(i in 1:5){
+  print(i)
+}
+## [1] 1
+## [1] 2
+## [1] 3
+## [1] 4
+## [1] 5</code></pre>
+<p>Veja como é possível utilizar o obejto <code>i</code> dentro do laço do <code>for</code>. Para fazer operações mais úteis usando <code>for</code>, é necessário entender um pouco sobre <em>subsetting</em> no R. Por enquanto vamos apenas usar que dado um vetor <code>x</code>, <code>x[i]</code> retorna o <em>i-ésimo</em> elemento do vetor <code>x</code>. Note que os índices começam do 1, ao contrário de muitas outras linguagens em que os índices começam do 0.</p>
+<pre class="r"><code>vetor &lt;- 30:40
+indices &lt;- 1:length(vetor)
+for(i in indices){
+  print(vetor[i]/2)
+}
+## [1] 15
+## [1] 15.5
+## [1] 16
+## [1] 16.5
+## [1] 17
+## [1] 17.5
+## [1] 18
+## [1] 18.5
+## [1] 19
+## [1] 19.5
+## [1] 20</code></pre>
+<p>No trecho de código acima, preste atenção no resultado individual de cada uma das operações para entender como o R funciona. Veja o que é o vetor <code>indices</code>, tente rodar <code>vetor[1]</code> para ver quais são esses resultados intermediários.</p>
 </div>
 
 

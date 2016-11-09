@@ -176,7 +176,7 @@ Esse comportamento é chamado de **reciclagem**. Isso é útil para fazer opera�
 com os vetores elementos por elementos (vetorizadamente), mas as vezes pode ser
 confuso. Com o tempo você aprenderá a se aproveitar desse comportamento.
 
-# Funções
+## Funções
 
 O R vem com muitas funções implementadas com as quais você pode fazer muitas 
 tarefas complicadas, como gerar números aleatórios. Geralmente o nome das funções
@@ -202,3 +202,104 @@ irá calcular a média de `die` usando a função `mean`. Em seguida ele usa a f
 A ilustração abaixo ajuda a entender o que acontece quando você executa `round(mean(die))` no R.
 
 ![](figures/round.png)
+
+Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão
+documentados na página de ajuda de cada uma das funções, que pode ser acessada
+digitando `help(nome_da_funcao)` ou `?nome_da_funcao`.
+
+### Criando suas próprias funções
+
+Apesar de já existirem uma infinidade de funções disponíveis no R, muitas vezes
+você deseja criar a sua própria função. Por exemplo, para organizar uma sequência
+de funções que são executadas da mesma forma em diversos lugares do seu código.
+
+Funções no R também são objetos, assim como vetores. A diferença é a forma de 
+criá-los e de executá-los. Uma nova função pode ser criada da seguinte forma:
+
+```{r}
+my_function <- function(x){
+  x/2
+}
+```
+
+Pronto. Criamos uma função que divido o argumento `x` por 2. Você pode ver o 
+código de qualquer função do R digitando o nome dela no console (sem parênteses no
+final).
+
+```{r}
+my_function
+```
+
+## Controles de Fluxo
+
+O R possui estruturas de controle de fluxo que são importantes na hora de programar
+as suas próprias funções e scripts. O seguinte trecho de código só será executado se
+o objeto `x` for igual a 1.
+
+```{r}
+x <- 2
+if(x == 1){
+  print("oi")
+}
+```
+
+```{r}
+x <- 1
+if(x == 1){
+  print("oi")
+}
+```
+
+A estrutura do `if` é bem simples, mas é importante para introduzir a noção de 
+vetores lógicos no R. Assim como nas funções, o R executa o que está dentro dos
+parênteses no `if` para depois decidir se executa a expressão dentro de chaves.
+
+No caso dos exemplos acima, veja que o R executou `x == 1` que retorna `TRUE`,
+um tipo especial de dados no R chamado **logical**.
+
+```{r}
+x == 1
+```
+
+Como o resultado dessa operação foi `TRUE`, o R executou o que estava entre chaves.
+Isso nos ajuda a pensar em como funcionam as operações lógicas no R, elas sempre
+retornam `TRUE` ou `FALSE` como resultado. O resultado de operações lógicas também
+pode ser salvo dentro de objetos do R e em seguiida ser reutilizado em outras
+operações. Por exemplo:
+
+```{r}
+a <- x == 1
+b <- x == 2
+c <- a & (!b)
+if(c){
+  print("oi")
+}
+```
+
+Isso pode ser bastante útil e ajuda a entender bem como o R funciona.
+
+Uma outra importante estrutura de controle de fluxo é o `for`. No Rm, um laço `for`
+é escrito da seguinte forma.
+
+```{r}
+for(i in 1:5){
+  print(i)
+}
+```
+
+Veja como é possível utilizar o obejto `i` dentro do laço do `for`. Para fazer
+operações mais úteis usando `for`, é necessário entender um pouco sobre *subsetting*
+no R. Por enquanto vamos apenas usar que dado um vetor `x`, `x[i]` retorna o *i-ésimo*
+elemento do vetor `x`. Note que os índices começam do 1, ao contrário de muitas 
+outras linguagens em que os índices começam do 0.
+
+```{r}
+vetor <- 30:40
+indices <- 1:length(vetor)
+for(i in indices){
+  print(vetor[i]/2)
+}
+```
+
+No trecho de código acima, preste atenção no resultado individual de cada uma das
+operações para entender como o R funciona. Veja o que é o vetor `indices`, tente rodar `vetor[1]` para ver quais são esses resultados intermediários.
