@@ -176,3 +176,29 @@ Esse comportamento é chamado de **reciclagem**. Isso é útil para fazer opera�
 com os vetores elementos por elementos (vetorizadamente), mas as vezes pode ser
 confuso. Com o tempo você aprenderá a se aproveitar desse comportamento.
 
+# Funções
+
+O R vem com muitas funções implementadas com as quais você pode fazer muitas 
+tarefas complicadas, como gerar números aleatórios. Geralmente o nome das funções
+é bem intuitivo, por exemplo `mean` é a função que calcula a média, `round` é a
+função que arredonda um número, etc.
+
+```{r}
+pi
+round(pi)
+```
+
+Para entender melhor o funcionamento das funções no R considere o seguinte exemplo.
+
+```{r}
+die <- 1:6
+round(mean(die))
+```
+
+De forma natural, o R executa as funções uma a uma começando por dentro dos parênteses. Neste caso, ele primeiro substituirá `die` pelo seu valor, em seguida
+irá calcular a média de `die` usando a função `mean`. Em seguida ele usa a função
+`round` para arredondar a média de `die`.
+
+A ilustração abaixo ajuda a entender o que acontece quando você executa `round(mean(die))` no R.
+
+![](figures/round.png)
