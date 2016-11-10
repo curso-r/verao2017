@@ -5,8 +5,6 @@ build:
         name: install and build blogdown
         code: |
           Rscript build.R
-deploy:
-  steps:
     - install-packages:
         packages: git ssh-client
     - lukevivier/gh-pages@0.2.1:
