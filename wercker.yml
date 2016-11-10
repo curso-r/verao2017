@@ -1,4 +1,4 @@
-box: debian
+box: rocker/hadleyverse
 build:
   steps:
     - arjen/hugo-build
