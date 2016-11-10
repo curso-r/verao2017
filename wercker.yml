@@ -1,7 +1,10 @@
 box: rocker/hadleyverse
 build:
   steps:
-    - arjen/hugo-build
+    - script:
+        name: install and build blogdown
+        code: |
+          Rscript build.R
 deploy:
   steps:
     - install-packages:
