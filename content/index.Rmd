@@ -49,7 +49,8 @@ de programação na vida, já será o suficiente.
 
 Se o aluno não for familiarizado com
 R, recomendamos abrir o RStudio e tentar rodar e entender os comandos 
-[desta página]().
+[desta página](https://curso-r.github.io/verao2017/r-como-calculadora/). Tente
+fazer os [exercícios](https://curso-r.github.io/verao2017/r-como-calculadora/#exercicios).
 
 Durante o curso iremos usar bastante o [Github](https://github.com/), portanto
 criar uma conta será fundamental.
