@@ -1,4 +1,4 @@
-baseURL = "https://curso-r.github.io/verao2017/"
+baseurl = ""
 languageCode = "en-us"
 title = "Curso-R"
 theme = "hugo-material-docs"
