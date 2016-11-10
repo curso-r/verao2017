@@ -5,7 +5,7 @@ date: 2016-11-08
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE")
+knitr::opts_chunk$set(collapse = TRUE)
 ```
 
 A linguagem `R` é um tanto quanto intuitiva, muita coisa sai do jeito certo no 
