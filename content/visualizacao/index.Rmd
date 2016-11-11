@@ -176,7 +176,7 @@ gráfico não é útil?
 
 Considere os 2 gráficos a seguir.
 
-```{r, fig.show='hold', out.width = "50%"}
+```{r duplochunk, fig.show='hold', out.width = "50%"}
 # esquerda
 ggplot(mtcars) + 
   geom_point(aes(y = mpg, x = disp))
