@@ -8,5 +8,6 @@ build:
     - install-packages:
         packages: git ssh-client
     - lukevivier/gh-pages@0.2.1:
+        branch: master
         token: $GIT_TOKEN
         basedir: public
