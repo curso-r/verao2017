@@ -50,16 +50,21 @@ googleAnalytics = "UA-87272102-1"
   name   = "Curso R"
   url    = "/"
   weight = 0
+
+[[menu.main]]
+  name   = "R como cacluladora"
+  url    = "/r-como-calculadora"
+  weight = 10
   
 [[menu.main]]
   name   = "Hello World"
   url    = "hello-world/"
-  weight = 10
+  weight = 20
 
 [[menu.main]]
   name   = "Aula 02"
   url    = "02-arrumacao/"
-  weight = 11
+  weight = 30
 
 
 [blackfriday]
