@@ -1,5 +1,5 @@
 baseurl = ""
-languageCode = "en-us"
+languageCode = "pt-br"
 title = "Curso-R"
 theme = "hugo-material-docs"
 metadataformat = "yaml"
@@ -52,8 +52,8 @@ googleAnalytics = "UA-87272102-1"
   weight = 0
 
 [[menu.main]]
-  name   = "R como cacluladora"
-  url    = "/r-como-calculadora"
+  name   = "R como calculadora"
+  url    = "r-como-calculadora/"
   weight = 10
   
 [[menu.main]]
