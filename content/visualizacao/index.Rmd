@@ -62,8 +62,8 @@ representa um tipo de mapeamento ou personalização do gráfico. O código abai
 exemplo de um gráfico bem simples, construído a partir das duas principais camadas. 
 
 ```{r grafico1}
-ggplot(data = mtcars, aes(x = disp, y = mpg)) + 
-  geom_point()
+ggplot(data = mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg))
 ```
 
 Observe que o primeiro argumento da função `ggplot` é um data frame. A função `aes()`
@@ -85,15 +85,15 @@ ser mapeado nesse gráfico é a cor dos pontos
 
 
 ```{r mapear_am}
-ggplot(data = mtcars, aes(x = disp, y = mpg, colour = as.factor(am))) + 
-  geom_point()
+ggplot(data = mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg, colour = as.factor(am)))
 ```
 
 Agora, a variável `am` (tipo de transmissão) foi mapeada à cor dos pontos, sendo que pontos vermelhos correspondem à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável `am` como um fator, pois temos interesse apenas nos valores "0" e "1". No entanto, tambem podemos mapear uma variável contínua à cor dos pontos:
 
 ```{r mapear_cor}
-ggplot(mtcars, aes(x = disp, y = mpg, colour = cyl)) + 
-  geom_point()
+ggplot(mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg, colour = cyl))
 ```
 
 Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul.
@@ -103,8 +103,132 @@ Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul
 Também podemos mapear o tamanho dos pontos à uma variável de interesse:
 
 ```{r mapear_tamanaho}
-ggplot(mtcars, aes(x = disp, y = mpg, colour = cyl, size = wt)) +
-  geom_point()
+ggplot(mtcars) +
+  geom_point(mapping = aes(x = disp, y = mpg, colour = cyl, size = wt))
 ```
 
-**Exercício**: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão.
+**Exercício**: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão. [Essa](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html) é uma
+boa referência.
+
+## Geoms
+
+Os *geoms* definem qual forma geométrica será utilizada para a visualização dos 
+dados no gráfico. Como já vimos, a função `geom_point()` gera gráficos de dispersão
+transformando pares (x,y) em pontos. Veja a seguir outros *geoms* bastante utilizados:
+
+- `geom_line`: para linhas definidas por pares (x,y)
+- `geom_abline`: para retas definidas por um intercepto e uma inclinação
+- `geom_hline`: para retas horizontais
+- `geom_boxplot`: para boxplots
+- `geom_histogram`: para histogramas
+- `geom_density`: para densidades
+- `geom_area`: para áreas
+- `geom_bar`: para barras
+
+Veja a seguir como é fácil gerar diversos gráficos diferentes utilizando a mesma estrutura do gráfico de dispersão acima:
+
+```{r}
+ggplot(mtcars) + 
+  geom_boxplot(aes(x = as.factor(cyl), y = mpg))
+```
+
+**Note** que para fazer um boxplot para cada grupo, precisamos passar para o aspecto
+x do gráfico uma variável do tipo `factor`.
+
+```{r}
+ggplot(mtcars) + 
+  geom_histogram(aes(x = mpg))
+```
+
+```{r}
+ggplot(mtcars) + 
+  geom_bar(aes(x = as.factor(cyl)))
+```
+
+<div class='admonition note'>
+<p class='admonition-title'>
+Um padrão para os gráficos
+</p>
+<p>
+Você deve ter percebido que para fazer um gráfico usando `ggplot2` e a gramática
+dos gráficos, existe um padrão:
+
+```
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+```
+
+Para fazer um gráfico, basta substituir o que está entre `<` com um banco de dados,
+uma função geométrica e uma coleção de *mapas estéticos*. Isso será muito útil quando você for fazer o seu próprio gráfico.
+</p>
+</div>
+
+### Exercícios
+
+1. Rode `ggplot(data = mtcars)`. O que você vê?
+2. Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função `nrows`.
+3. O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
+4. Faça um gráfico de dispersão de `mpg` por `qsec`
+5. O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
+gráfico não é útil?
+
+## Combinando gráficos
+
+Considere os 2 gráficos a seguir.
+
+```{r, fig.show='hold', out.width = "50%"}
+# esquerda
+ggplot(mtcars) + 
+  geom_point(aes(y = mpg, x = disp))
+# direita
+ggplot(mtcars) + 
+  geom_smooth(aes(y = mpg, x = disp))
+```
+
+Os gráficos são similares e completaam-se. O da esquerda, mostra como os pontos estão distribuídos. Ele mostra uma tendência de aumento do consumo de combustível de acordo
+com as cilindradas. Já o gráfico da direita, resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança. 
+
+Esses dois gráficos se completam, e ficam bons juntos. Com o `ggplot2` é muito fácil
+sobrepor os dois gráficos, pois ele é pensado para que cada gráfico seja feito com
+uma combinação de camadas. Veja o código abaixo.
+
+```{r}
+ggplot(mtcars) + 
+  geom_point(aes(y = mpg, x = disp)) +
+  geom_smooth(aes(y = mpg, x = disp))
+```
+
+Desta forma, sobrepusemos os pontos e a linha de suavização. No entanto, duplicamos alguns trechos no nosso código, o que geralmente não é bom. Imagine se você precisar
+mudar a variável do eixo `y`, você precisará trocar o nome da variável em mais de um
+lugar do código. Para resolver isso, você pode definir o *mapping* apenas uma vez
+dentro da declaração do gráfico, conforme o código a seguir.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point() +
+  geom_smooth()
+```
+
+Veja que isso gera o mesmo gráfico!
+
+Veja que mesmo com dois `geom`'s, o `ggplot` segue a mesma regra para mapear as
+variáveis para as `aesthetics`. Por exemplo, se você mapear uma variável para 
+a cor, você obterá o seguinte gráfico.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp, colour = as.factor(cyl))) + 
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+O `ggplot2` agora desenhou uma reta para cada um dos grupos de pontos e coloriu
+cada grupo de pontos de uma cor diferente. Em alguns casos, você pode querer mapear
+a cor em apenas uma das camadas do gráfico. Isso pode ser feito da seguinte forma:
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(aes(colour = as.factor(cyl))) +
+  geom_smooth(method = "lm")
+```
+
+Note que agora, cada grupo de pontos tem uma cor mas a reta é única, para todos os pontos.
