@@ -6,7 +6,7 @@ type: index
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, fig.path = "figures/")
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 O curso-r ensinará como usar o R para auxiliar o aluno na execução de tarefas
