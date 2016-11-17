@@ -36,7 +36,7 @@ bp + guides(fill = FALSE)
 bp + scale_fill_discrete(guide = F)
 ```
 
-```{r, fig.height=3, fig.width=3}
+```{r}
 # o comando a seguir remove todas as legendas, não importa o atributo que ela
 # esteja representando.
 bp + theme(legend.position="none")
