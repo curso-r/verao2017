@@ -232,3 +232,40 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 ```
 
 Note que agora, cada grupo de pontos tem uma cor mas a reta é única, para todos os pontos.
+
+## Alterando os padrões do gráfico
+
+Até agora, sempre *mapeamos* uma forma estética à uma variável. Muitas vezes 
+queremos apenas modificar esta forma estética sem mapeá-la a outra variável.
+Por exemplo, no gráfico a seguir, modificamos a cor de todos os pontos.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(colour = "red")
+```
+
+A principal diferença aqui é que especificamos o argumento `colour` fora da função
+`aes` como estávamos fazendo antes. Dessa forma podemos controlar todos os parâmetros 
+de cada forma geométrica. 
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(colour = "red", size = 2, shape = 3, alpha = 0.5)
+```
+
+## Facets
+
+Uma funcionalidade muito útil do `ggplot2` é a possibilidade de usar `facets`.
+Isso auxilia na visualização de diferentes subconjuntos dos dados em gráficos
+separados, permitindo a visualização de comportamentos diferentes dependendo
+do grupo.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  facet_wrap(~am)
+```
+
+No gráfico acima, rapidamente conseguimos visualizar que se o carro não é automático o consumo de combustível é muito menor do que quando o carro é automático. Também conseguimos ver que a inclinação das retas é bem diferente dependendo do carro ser
+automático/manual.
