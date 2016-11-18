@@ -10,9 +10,9 @@ googleAnalytics = "UA-87272102-1"
 
 [params]
   # General information
-  author = "Digitalcraftsman"
-  description = "A material design theme for documentations."
-  copyright = "Released under the MIT license"
+  author = "Curso-R"
+  description = "Materiais para o Curso-R de verão 2017"
+  copyright = "Disponível sobre Licença MIT"
 
   # Repository
   provider = "GitHub"
