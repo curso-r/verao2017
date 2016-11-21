@@ -25,7 +25,14 @@ Para mais informações sobre a Gramática dos Gráficos, você pode consultar o
 escrito pelo Leland Wilkinson, ou o livro [ggplot2: elegant graphics for data analysis](http://ggplot2.org/book/), do Hadley Wickham. 
 Um [pdf do livro](http://moderngraphics11.pbworks.com/f/ggplot2-Book09hWickham.pdf) também está disponível.
 
-Instale o pacote digitando `install.packages("ggplot2")`.
+Para quem quiser se aprofundar mais com o `ggplot2`, o [DataCamp](https://www.datacamp.com/) possui dois cursos
+focados em visualização. É possível começar o curso gratuitamente, mas para terminar,
+tem que pagar. 
+
+- [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1)
+- [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-2)
+
+Antes de começar, instale o pacote digitando `install.packages("ggplot2")`.
 
 ## Banco de dados
 
