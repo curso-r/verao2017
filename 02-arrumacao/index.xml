@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>02-arrumacao-rsses on Curso-R</title>
+    <link>/02-arrumacao/index.xml</link>
+    <description>Recent content in 02-arrumacao-rsses on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Disponível sobre Licença MIT</copyright>
+    <lastBuildDate>Tue, 08 Nov 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/02-arrumacao/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Aula 02</title>
+      <link>/02-arrumacao/</link>
+      <pubDate>Tue, 08 Nov 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/02-arrumacao/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;p&gt;Isso é uma aula.&lt;/p&gt;
+&lt;p&gt;Isso é uma fórmula&lt;/p&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[
+A\theta = X\beta
+\]&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Isso é um código avançado&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;1 + 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 4&lt;/code&gt;&lt;/pre&gt;
+&lt;ul&gt;
+&lt;li&gt;item&lt;/li&gt;
+&lt;li&gt;iza&lt;/li&gt;
+&lt;li&gt;ção&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Figura &lt;a href=&#34;#fig:figura&#34;&gt;1&lt;/a&gt;, funciona coisas de bookdown?&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;plot(1:10)&lt;/code&gt;&lt;/pre&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:figura&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;#####../content/02-arrumacao/index_files/figure-html/figura-1.png&#34; alt=&#34;isso é o plot mais fácil de fazer que pensei.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: isso é o plot mais fácil de fazer que pensei.
+&lt;/p&gt;
+&lt;/div&gt;
+
+
+&lt;!-- dynamically load mathjax for compatibility with self-contained --&gt;
+&lt;script&gt;
+  (function () {
+    var script = document.createElement(&#34;script&#34;);
+    script.type = &#34;text/javascript&#34;;
+    script.src  = &#34;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;;
+    if (location.protocol !== &#34;file:&#34; &amp;&amp; /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, &#39;&#39;);
+    document.getElementsByTagName(&#34;head&#34;)[0].appendChild(script);
+  })();
+&lt;/script&gt;
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

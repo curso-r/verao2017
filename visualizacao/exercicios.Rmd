@@ -1,0 +1,28 @@
+---
+title: "Exercícios"
+author: "Daniel Falbel"
+date: 2016-11-22
+---
+
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE, 
+  out.width = "60%", out.height = "60%",
+  fig.retina = 2
+)
+```
+
+```{r, include=FALSE}
+library(ggplot2)
+```
+
+1. O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
+```
+
+2. Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
+estéticas se comportam diferente para variáveis categóricas vs. contínuas?
+

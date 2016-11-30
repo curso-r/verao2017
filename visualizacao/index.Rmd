@@ -1,0 +1,285 @@
+---
+title: "Visualização"
+author: "Julio Trecenti, Daniel Falbel"
+date: 2016-11-11
+---
+
+```{r, message=FALSE, warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE, 
+  out.width = "60%", out.height = "60%",
+  fig.retina = 2
+)
+```
+
+
+Para este tópico vamos utilizar o `ggplot2`. O `ggplot2` é um pacote do R voltado
+para a criação de gráficos estatísticos. Ele é baseado na Gramática dos Gráficos
+(*grammar of graphics*, em inglês), criado por Leland Wilkinson, que é uma 
+resposta para a pergunta: o que é um gráfico estatístico? Resumidamente, a gramática
+diz que um gráfico estatístico é um mapeamento dos dados a partir de atributos
+estéticos (cores, formas, tamanho) em formas geométricas (pontos, linhas, barras).
+
+Para mais informações sobre a Gramática dos Gráficos, você pode consultar o livro
+[*The Grammar of graphics*](http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7), 
+escrito pelo Leland Wilkinson, ou o livro [ggplot2: elegant graphics for data analysis](http://ggplot2.org/book/), do Hadley Wickham. 
+Um [pdf do livro](http://moderngraphics11.pbworks.com/f/ggplot2-Book09hWickham.pdf) também está disponível.
+
+Para quem quiser se aprofundar mais com o `ggplot2`, o [DataCamp](https://www.datacamp.com/) possui dois cursos
+focados em visualização. É possível começar o curso gratuitamente, mas para terminar,
+tem que pagar. 
+
+- [Data Visualization with ggplot2 (Part 1)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-1)
+- [Data Visualization with ggplot2 (Part 2)](https://www.datacamp.com/courses/data-visualization-with-ggplot2-2)
+
+Antes de começar, instale o pacote digitando `install.packages("ggplot2")`.
+
+## Banco de dados
+
+A seguir, vamos discutir os aspectos básicos para a construção de gráficos com o
+pacote `ggplot2`. Para isso, utilizaremos o banco de dados contido no objeto `mtcars`.
+Para visualizar as primeiras linhas deste banco, utilize o comando:
+
+```{r}
+head(mtcars)
+```
+
+O `mtcars` é um banco de dados de 1974 extraído da revista *Motor Trend US* que
+compreende consumo de combustível e outros 10 aspectos de performance e engenharia
+de 32 automóveis.
+
+Entre as variáveis deste banco de dados estão:
+
+- `mpg`: consumo de combustível (milhas por galão)
+- `disp`: cilindrada, que é o [volume de deslocamento do motor](https://pt.wikipedia.org/wiki/Cilindrada)
+
+Para saber mais sobre o `mtcarts`, digite `help(mtcars)`.
+
+## As camadas de um gráfico
+
+Antes de mais nada, vamos carregar o `ggplot2` usando:
+
+```{r}
+library(ggplot2)
+```
+
+No `ggplot2`, os gráficos são construídos camada por camada (ou, *layers*, em inglês),
+sendo que a primeira delas é dada pela função `ggplot` (não tem o "2"). Cada camada
+representa um tipo de mapeamento ou personalização do gráfico. O código abaixo é um
+exemplo de um gráfico bem simples, construído a partir das duas principais camadas. 
+
+```{r grafico1}
+ggplot(data = mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg))
+```
+
+Observe que o primeiro argumento da função `ggplot` é um data frame. A função `aes()`
+descreve como as variáveis são mapeadas em aspectos visuais de formas geométricas
+definidas pelos *geoms*. Aqui, essas formas geométricas são pontos, selecionados pela
+função `geom_point()`, gerando, assim, um gráfico de dispersão. A combinação dessas
+duas camadas define o tipo de gráfico que você deseja construir.
+
+## Aesthetics
+
+A primeira camada de um gráfico deve indicar a relação entre os dados e cada aspecto
+visual do gráfico, como qual variável será representada no eixo x, qual será
+representada no eixo y, a cor e o tamanho dos componentes geométricos etc. Os aspectos
+que podem ou devem ser mapeados depende do tipo de gráfico que você deseja fazer.
+
+No exemplo acima, atribuímos aspectos de posição: ao eixo y mapeamos a variável `mpg`
+(milhas por galão) e ao eixo x a variável `disp` (cilindradas). Outro aspecto que pode
+ser mapeado nesse gráfico é a cor dos pontos
+
+
+```{r mapear_am}
+ggplot(data = mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg, colour = as.factor(am)))
+```
+
+Agora, a variável `am` (tipo de transmissão) foi mapeada à cor dos pontos, sendo que pontos vermelhos correspondem à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável `am` como um fator, pois temos interesse apenas nos valores "0" e "1". No entanto, tambem podemos mapear uma variável contínua à cor dos pontos:
+
+```{r mapear_cor}
+ggplot(mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg, colour = cyl))
+```
+
+Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul.
+
+**Nota**: por *default*, a legenda é insirida no gráfico automaticamente.
+
+Também podemos mapear o tamanho dos pontos à uma variável de interesse:
+
+```{r mapear_tamanaho}
+ggplot(mtcars) +
+  geom_point(mapping = aes(x = disp, y = mpg, colour = cyl, size = wt))
+```
+
+**Exercício**: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão. [Essa](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html) é uma
+boa referência.
+
+## Geoms
+
+Os *geoms* definem qual forma geométrica será utilizada para a visualização dos 
+dados no gráfico. Como já vimos, a função `geom_point()` gera gráficos de dispersão
+transformando pares (x,y) em pontos. Veja a seguir outros *geoms* bastante utilizados:
+
+- `geom_line`: para linhas definidas por pares (x,y)
+- `geom_abline`: para retas definidas por um intercepto e uma inclinação
+- `geom_hline`: para retas horizontais
+- `geom_boxplot`: para boxplots
+- `geom_histogram`: para histogramas
+- `geom_density`: para densidades
+- `geom_area`: para áreas
+- `geom_bar`: para barras
+
+Veja a seguir como é fácil gerar diversos gráficos diferentes utilizando a mesma estrutura do gráfico de dispersão acima:
+
+```{r}
+ggplot(mtcars) + 
+  geom_boxplot(aes(x = as.factor(cyl), y = mpg))
+```
+
+**Note** que para fazer um boxplot para cada grupo, precisamos passar para o aspecto
+x do gráfico uma variável do tipo `factor`.
+
+```{r}
+ggplot(mtcars) + 
+  geom_histogram(aes(x = mpg))
+```
+
+```{r}
+ggplot(mtcars) + 
+  geom_bar(aes(x = as.factor(cyl)))
+```
+
+<div class='admonition note'>
+<p class='admonition-title'>
+Um padrão para os gráficos
+</p>
+<p>
+Você deve ter percebido que para fazer um gráfico usando `ggplot2` e a gramática
+dos gráficos, existe um padrão:
+
+```
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+```
+
+Para fazer um gráfico, basta substituir o que está entre `<` com um banco de dados,
+uma função geométrica e uma coleção de *mapas estéticos*. Isso será muito útil quando você for fazer o seu próprio gráfico.
+</p>
+</div>
+
+### Exercícios
+
+1. Rode `ggplot(data = mtcars)`. O que você vê?
+2. Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função `nrows`.
+3. O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
+4. Faça um gráfico de dispersão de `mpg` por `qsec`
+5. O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
+gráfico não é útil?
+
+## Combinando gráficos
+
+Considere os 2 gráficos a seguir.
+
+```{r duplochunk, fig.show='hold', out.width = "50%"}
+# esquerda
+ggplot(mtcars) + 
+  geom_point(aes(y = mpg, x = disp))
+# direita
+ggplot(mtcars) + 
+  geom_smooth(aes(y = mpg, x = disp))
+```
+
+Os gráficos são similares e completaam-se. O da esquerda, mostra como os pontos estão distribuídos. Ele mostra uma tendência de aumento do consumo de combustível de acordo
+com as cilindradas. Já o gráfico da direita, resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança. 
+
+Esses dois gráficos se completam, e ficam bons juntos. Com o `ggplot2` é muito fácil
+sobrepor os dois gráficos, pois ele é pensado para que cada gráfico seja feito com
+uma combinação de camadas. Veja o código abaixo.
+
+```{r}
+ggplot(mtcars) + 
+  geom_point(aes(y = mpg, x = disp)) +
+  geom_smooth(aes(y = mpg, x = disp))
+```
+
+Desta forma, sobrepusemos os pontos e a linha de suavização. No entanto, duplicamos alguns trechos no nosso código, o que geralmente não é bom. Imagine se você precisar
+mudar a variável do eixo `y`, você precisará trocar o nome da variável em mais de um
+lugar do código. Para resolver isso, você pode definir o *mapping* apenas uma vez
+dentro da declaração do gráfico, conforme o código a seguir.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point() +
+  geom_smooth()
+```
+
+Veja que isso gera o mesmo gráfico!
+
+Veja que mesmo com dois `geom`'s, o `ggplot` segue a mesma regra para mapear as
+variáveis para as `aesthetics`. Por exemplo, se você mapear uma variável para 
+a cor, você obterá o seguinte gráfico.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp, colour = as.factor(cyl))) + 
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+
+O `ggplot2` agora desenhou uma reta para cada um dos grupos de pontos e coloriu
+cada grupo de pontos de uma cor diferente. Em alguns casos, você pode querer mapear
+a cor em apenas uma das camadas do gráfico. Isso pode ser feito da seguinte forma:
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(aes(colour = as.factor(cyl))) +
+  geom_smooth(method = "lm")
+```
+
+Note que agora, cada grupo de pontos tem uma cor mas a reta é única, para todos os pontos.
+
+## Alterando os padrões do gráfico
+
+Até agora, sempre *mapeamos* uma forma estética à uma variável. Muitas vezes 
+queremos apenas modificar esta forma estética sem mapeá-la a outra variável.
+Por exemplo, no gráfico a seguir, modificamos a cor de todos os pontos.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(colour = "red")
+```
+
+A principal diferença aqui é que especificamos o argumento `colour` fora da função
+`aes` como estávamos fazendo antes. Dessa forma podemos controlar todos os parâmetros 
+de cada forma geométrica. 
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(colour = "red", size = 2, shape = 3, alpha = 0.5)
+```
+
+## Facets
+
+Uma funcionalidade muito útil do `ggplot2` é a possibilidade de usar `facets`.
+Isso auxilia na visualização de diferentes subconjuntos dos dados em gráficos
+separados, permitindo a visualização de comportamentos diferentes dependendo
+do grupo.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  facet_wrap(~am)
+```
+
+No gráfico acima, rapidamente conseguimos visualizar que se o carro não é automático o consumo de combustível é muito menor do que quando o carro é automático. Também conseguimos ver que a inclinação das retas é bem diferente dependendo do carro ser
+automático/manual.
+
+## Outros artigos
+
+Disponibilizamos alguns outros artigos que instruem outras tarefas comuns com o 
+`ggplot2`.
+
+- [Modificando as legendas no `ggplot2`](/visualizacao/legendas-ggplot2/)
