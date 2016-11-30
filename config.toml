@@ -1,4 +1,4 @@
-baseurl = ""
+baseurl = "/"
 languageCode = "pt-br"
 title = "Curso-R"
 theme = "hugo-material-docs"
