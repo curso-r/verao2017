@@ -28,7 +28,7 @@
 &lt;p&gt;O RStudio é um (o melhor) IDE (&lt;em&gt;integrated development environment&lt;/em&gt;) para o R. E você pode fazer o download &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download3/&#34;&gt;aqui&lt;/a&gt;. Estamos assumindo que você já instalou o próprio R. Se não instalou, &lt;a href=&#34;https://cloud.r-project.org/&#34;&gt;clique aqui&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Assim que abrir o RStudio você verá a seguinte tela.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;figures/rstudio-editor.png&#34; /&gt;
+&lt;img src=&#34;figures/rstudio-editor.png&#34; alt=&#34;&#34; /&gt;
 
 &lt;/div&gt;
 &lt;p&gt;Nela estão dispostos &lt;strong&gt;editor&lt;/strong&gt;, &lt;strong&gt;console&lt;/strong&gt;, &lt;strong&gt;environment&lt;/strong&gt; e &lt;strong&gt;output&lt;/strong&gt;. Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que preferir. Preste atenção a todos esses campos durante este tutorial.&lt;/p&gt;
@@ -127,7 +127,7 @@ round(mean(die))
 &lt;p&gt;De forma natural, o R executa as funções uma a uma começando por dentro dos parênteses. Neste caso, ele primeiro substituirá &lt;code&gt;die&lt;/code&gt; pelo seu valor, em seguida irá calcular a média de &lt;code&gt;die&lt;/code&gt; usando a função &lt;code&gt;mean&lt;/code&gt;. Em seguida ele usa a função &lt;code&gt;round&lt;/code&gt; para arredondar a média de &lt;code&gt;die&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;A ilustração abaixo ajuda a entender o que acontece quando você executa &lt;code&gt;round(mean(die))&lt;/code&gt; no R.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;figures/round.png&#34; /&gt;
+&lt;img src=&#34;figures/round.png&#34; alt=&#34;&#34; /&gt;
 
 &lt;/div&gt;
 &lt;p&gt;Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão documentados na página de ajuda de cada uma das funções, que pode ser acessada digitando &lt;code&gt;help(nome_da_funcao)&lt;/code&gt; ou &lt;code&gt;?nome_da_funcao&lt;/code&gt;.&lt;/p&gt;
@@ -363,13 +363,13 @@ x
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x)
-## [1] 0.4389037&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.5267544&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;12&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(runif(99), NA)
 mean(x, na.rm = T)
-## [1] 0.4509445&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.482597&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;13&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
