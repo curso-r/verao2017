@@ -1,0 +1,16 @@
+Package: verao2017
+Title: placeholder
+Version: 0.0.0.9000
+Authors@R: person("Julio", "Trecenti", email = "jtrecenti@jtrecenti.com", role = c("aut", "cre"))
+Description: Just a placeholder to install deps.
+Depends:
+    R (>= 3.3.1)
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Remotes: rstudio/blogdown
+Imports:
+    tidyverse,
+    bookdown,
+    devtools
+RoxygenNote: 5.0.1
