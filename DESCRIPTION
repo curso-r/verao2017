@@ -1,7 +1,12 @@
 Package: verao2017
 Title: placeholder
 Version: 0.0.0.9000
-Authors@R: person("Julio", "Trecenti", email = "jtrecenti@jtrecenti.com", role = c("aut", "cre"))
+Authors@R: c(
+    person("Daniel", "Falbel", email = "dfalbel@gmail.com", role = "cre"),
+    person("Julio", "Trecenti", email = "jtrecenti@jtrecenti.com", role = "aut"),
+    person("Athos", "Damiani", email = "athos.damiani@gmail.com", role = "aut"),
+    person("William", "Amorim", email = "thewilliam89@gmail.com", role = "aut"),
+    person("Fernando", "Correa", email = "fptcorrea@gmail.com", role = "aut"))
 Description: Just a placeholder to install deps.
 Depends:
     R (>= 3.3.1)
