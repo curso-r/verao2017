@@ -17,5 +17,6 @@ Remotes: rstudio/blogdown
 Imports:
     tidyverse,
     bookdown,
-    devtools
+    devtools,
+    blogdown
 RoxygenNote: 5.0.1
