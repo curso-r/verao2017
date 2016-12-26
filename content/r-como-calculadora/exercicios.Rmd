@@ -1,0 +1,35 @@
+---
+title: "Exercícios: R como calculadora"
+author: "Athos Damiani, Daniel Falbel"
+date: 2016-12-27
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+```{r, include=FALSE}
+tutorial::go_interactive()
+```
+
+1. Calcule o número de ouro no R.
+
+$$ \frac{1 + \sqrt{5}}{2} $$
+
+```{r ex="exercicio_01", type="sample-code"}
+# Digite a expressão que calcula o número de ouro.
+
+```
+
+```{r ex="exercicio_01", type="solution"}
+# Digite a expressão que calcula o número de ouro.
+(1 + sqrt(5))/2
+```
+
+```{r ex="exercicio_01", type="sct"}
+test_output_contains(
+  "1.618034", 
+  incorrect_msg = "Tem certeza de que indicou a expressão corretamente?"
+)
+success_msg("Correto!")
+```
