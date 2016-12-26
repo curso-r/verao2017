@@ -16,7 +16,6 @@ tutorial::go_interactive()
 
 $$ \frac{1 + \sqrt{5}}{2} $$
 
-<iframe>
 ```{r ex="exercicio_01", type="sample-code"}
 # Digite a expressão que calcula o número de ouro.
 
@@ -31,4 +30,3 @@ $$ \frac{1 + \sqrt{5}}{2} $$
 test_output_contains("1.618034", incorrect_msg = "Tem certeza de que indicou a expressão corretamente?")
 success_msg("Great!")
 ```
-</iframe>
