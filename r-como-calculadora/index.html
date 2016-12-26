@@ -10,8 +10,8 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
-    <title>R como calculadora - Curso-R</title>
-    <meta name="generator" content="Hugo 0.17" />
+    <title>R-como-calculadoras - Curso-R</title>
+    <meta name="generator" content="Hugo 0.18" />
 
     
     <meta name="description" content="Materiais para o Curso-R de verão 2017">
@@ -53,20 +53,12 @@
     <script src="../javascripts/modernizr.js"></script>
 
     
-
-
-
-
-
-
+    <link href="../r-como-calculadora/index.xml" rel="alternate" type="application/rss+xml" title="Curso-R" />
+    <link href="../r-como-calculadora/index.xml" rel="feed" type="application/rss+xml" title="Curso-R" />
+    
 
   </head>
   <body class="palette-primary-red palette-accent-teal">
-
-
-
-	
-	
 
 
 <div class="backdrop">
@@ -87,7 +79,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        R como calculadora
+        R-como-calculadoras
       </div>
     </div>
 
@@ -129,9 +121,6 @@
       
       <div class="name">
         <strong>Curso-R </strong>
-        
-          <br>
-          curso-r/verao2017
         
       </div>
     </div>
@@ -274,246 +263,38 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>R como calculadora </h1>
+			<h1>Pages in R-como-calculadora</h1>
 
+			
+			<a href="../r-como-calculadora/exercicios/" title="Exercícios: R como calculadora">
+				<h2>Exercícios: R como calculadora</h2>
+			</a>
 
+			<br>
+			Calcule o número de ouro no R.  [ \frac{1 + \sqrt{5}}{2} ]
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby5cbiIsInNvbHV0aW9uIjoiIyBEaWdpdGUgYSBleHByZXNzXHUwMGUzbyBxdWUgY2FsY3VsYSBvIG5cdTAwZmFtZXJvIGRlIG91cm8uXG4oMSArIHNxcnQoNSkpLzIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcbiAgXCIxLjYxODAzNFwiLCBcbiAgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCJcbilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==   (function () { var script = document.createElement(&ldquo;script&rdquo;); script.type = &ldquo;text/javascript&rdquo;; script.src = &ldquo;<a href="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;">https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;</a>; if (location.protocol !== &ldquo;file:&rdquo; &amp;&amp; /^https?:/.test(script.src)) script.src = script.src.replace(/^https?:/, &ldquo;); document.getElementsByTagName(&ldquo;head&rdquo;)[0].appendChild(script); })();
 
-<p>A linguagem <code>R</code> é um tanto quanto intuitiva, muita coisa sai do jeito certo no chute! Para ver um exemplo disso, é interessante começar fazendo do R uma grande calculadora. Tente jogar no console <code>2*2 - (4 + 4)/2</code>. Pronto. Com essa simples expressão você já é capaz de imaginar (e certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!</p>
-<p>Além do mais, as operações e suas precedências são mantidas como na matemática, ou seja, divisão e multiplicação são calculadas antes da adição e subtração. E os parênteses nunca são demais!</p>
-<div id="rstudio" class="section level2">
-<h2>RStudio</h2>
-<p>Talvez você tenha imaginado qual seria o resultado da operação, mas ainda não tenha conseguido calcular usando o R, porque você não sabe onde digitar aquilo, por isso vamos apresentar o RStudio.</p>
-<p>O RStudio é um (o melhor) IDE (<em>integrated development environment</em>) para o R. E você pode fazer o download <a href="https://www.rstudio.com/products/rstudio/download3/">aqui</a>. Estamos assumindo que você já instalou o próprio R. Se não instalou, <a href="https://cloud.r-project.org/">clique aqui</a>.</p>
-<p>Assim que abrir o RStudio você verá a seguinte tela.</p>
-<div class="figure">
-<img src="figures/rstudio-editor.png" alt="" />
+			<hr>
+			
+			<a href="../r-como-calculadora/" title="R como calculadora">
+				<h2>R como calculadora</h2>
+			</a>
 
-</div>
-<p>Nela estão dispostos <strong>editor</strong>, <strong>console</strong>, <strong>environment</strong> e <strong>output</strong>. Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que preferir. Preste atenção a todos esses campos durante este tutorial.</p>
-<p>Agora que você já conhece o RStudio, digite a expressão <code>2*2 - (4 + 4)/2</code> no <strong>console</strong> e tecle <code>Enter</code>. Uma outra forma de chamar uma expressão é escrever o código no <strong>editor</strong> e teclar <code>Ctrl + Enter</code>. Assim o comando é enviado para o <strong>console</strong> onde é diretamente executado.</p>
-</div>
-<div id="usando-o-console" class="section level2">
-<h2>Usando o console</h2>
-<p>Pelo console é possível executar qualquer comando do R.</p>
-<pre class="r"><code>1:30
-##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
-## [24] 24 25 26 27 28 29 30</code></pre>
-<p>Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30. Você pode ignorar esses números que aparecem entre parênteses, na verdade eles só indicam o índice do primeiro elemento impresso nessa linha.</p>
-<div class="admonition note">
-<p class="admonition-title">
-Quando compilamos?
-</p>
-<p>
-Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa.
-</p>
-</div>
-<p>Se você digitar um comando incompleto, como <code>5 +</code> e apertar <code>Enter</code>, o R irá mostrar um <code>+</code>, o que não tem nada a ver com somar alguma coisa, e sim significa que o R está esperando que você complete o seu comando. Termine o seu comando ou aperte <code>Esc</code> para recomeçar.</p>
-<pre><code>&gt; 5 -
-+ 
-+ 5
-[1] 0</code></pre>
-<p>Se você digitar um comando que o R não reconhecer, ele irá retornar uma mensagem de erro. Não entre em pânico. Ele só está avisando que não conseguiu interpretar o comando. Depois você já pode digitar mais um comando.</p>
-<pre><code>&gt; 5 % 5
-Error: unexpected input in &quot;5 % 5&quot;
-&gt; 5 - 5
-[1] 0</code></pre>
-</div>
-<div id="objetos" class="section level2">
-<h2>Objetos</h2>
-<p>O R permite que você salve dados guardando estes dentro de um objeto. Um objeto nada mais é do que um nome, que pode ser utilizado para chamar dados armazenados. Por exemplo, você pode salvar dados em <code>a</code>. Sempre que o R encontrar o nome <code>a</code> ele o substituirá pelos dados armazenados em <code>a</code>. Por exemplo:</p>
-<pre class="r"><code>a &lt;- 1
-a + 1
-## [1] 2</code></pre>
-<p>No Rstudio, quando um objeto é criado, ele começa a aparecer no painel <strong>environment</strong>. Essa é uma ótima forma de acompanhar todos os objetos que estão disponíveis no seu <em>environment</em>. Outro ponto que é importante lembrar aqui é que o R entende letras maiúsculas e minúsculas, isto é <code>a</code> é considerado um objeto diferente de <code>A</code>.</p>
-<pre><code>&gt; a
-[1] 1
-&gt; A
-Error: object &#39;A&#39; not found</code></pre>
-<div class="admonition note">
-<p class="admonition-title">
-&lt;- ou = ?
-</p>
-<p>
-Essa pergunta é comum, e a resposta padrão é: melhor usar &lt;-. No entanto, na maioria dos casos os dois são equivalentes. Portanto, use qual você achar melhor e seja consistente. Uma boa referência é este <a href="http://pt.stackoverflow.com/a/160092/6036">link</a>
-</p>
-</div>
-<p>O R substitui os valores de um objeto sem pedir permissão. Então, se você não deseja sobreescrever o valor de um objeto, não use o mesmo nome.</p>
-<pre class="r"><code>a &lt;- 1
-a
-## [1] 1
-a &lt;- 2
-a
-## [1] 2</code></pre>
-<p>Agora, vamos definir um novo objeto no R, chamado <code>vetor</code>.</p>
-<pre class="r"><code>vetor &lt;- 1:10</code></pre>
-<p>De forma bastante intuitiva, você pode fazer operações com vetores.</p>
-<pre class="r"><code>vetor - 1
-##  [1] 0 1 2 3 4 5 6 7 8 9
-vetor / 2
-##  [1] 0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0
-vetor * 10
-##  [1]  10  20  30  40  50  60  70  80  90 100</code></pre>
-<p>Quando você faz <code>vetor - 1</code>, o R subtrai <code>1</code> de cada um dos elementos do vetor. O mesmo acontece quando você faz qualquer operação aritmética com vetores no R.</p>
-<p>Você também pode fazer operações que envolvem mais de um vetor. Exemplo:</p>
-<pre class="r"><code>vetor * vetor
-##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
-<p>Neste caso, o R irá alinhar os dois vetores e multiplicar elemento por elemento. Isso pode ficar um pouco confuso quando os dois vetores não possuem o mesmo tamanho:</p>
-<pre class="r"><code>vetor2 &lt;- 1:2
-vetor2
-## [1] 1 2
-vetor * vetor2
-##  [1]  1  4  3  8  5 12  7 16  9 20</code></pre>
-<p>Agora o R alinhou os dois vetores, e como eles não possuiam o mesmo tamanho, ele foi repetindo o menor vetor até completar o vetor maior. Isso retornaria um warning se o tamanho do maior não fosse múltiplo do tamanho do vetor menor.</p>
-<pre><code>&gt; vetor * vetor3
- [1]  1  4  9  4 10 18  7 16 27 10
-Warning message:
-In vetor * vetor3 :
-  longer object length is not a multiple of shorter object length</code></pre>
-<p>Esse comportamento é chamado de <strong>reciclagem</strong>. Isso é útil para fazer operações com os vetores elementos por elementos (vetorizadamente), mas as vezes pode ser confuso. Com o tempo você aprenderá a se aproveitar desse comportamento.</p>
-</div>
-<div id="funcoes" class="section level2">
-<h2>Funções</h2>
-<p>O R vem com muitas funções implementadas com as quais você pode fazer muitas tarefas complicadas, como gerar números aleatórios. Geralmente o nome das funções é bem intuitivo, por exemplo <code>mean</code> é a função que calcula a média, <code>round</code> é a função que arredonda um número, etc.</p>
-<pre class="r"><code>pi
-## [1] 3.141593
-round(pi)
-## [1] 3</code></pre>
-<p>Para entender melhor o funcionamento das funções no R considere o seguinte exemplo.</p>
-<pre class="r"><code>die &lt;- 1:6
-round(mean(die))
-## [1] 4</code></pre>
-<p>De forma natural, o R executa as funções uma a uma começando por dentro dos parênteses. Neste caso, ele primeiro substituirá <code>die</code> pelo seu valor, em seguida irá calcular a média de <code>die</code> usando a função <code>mean</code>. Em seguida ele usa a função <code>round</code> para arredondar a média de <code>die</code>.</p>
-<p>A ilustração abaixo ajuda a entender o que acontece quando você executa <code>round(mean(die))</code> no R.</p>
-<div class="figure">
-<img src="figures/round.png" alt="" />
+			<br>
+			A linguagem R é um tanto quanto intuitiva, muita coisa sai do jeito certo no chute! Para ver um exemplo disso, é interessante começar fazendo do R uma grande calculadora. Tente jogar no console 2*2 - (4 + 4)/2. Pronto. Com essa simples expressão você já é capaz de imaginar (e certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!
+Além do mais, as operações e suas precedências são mantidas como na matemática, ou seja, divisão e multiplicação são calculadas antes da adição e subtração.
 
-</div>
-<p>Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão documentados na página de ajuda de cada uma das funções, que pode ser acessada digitando <code>help(nome_da_funcao)</code> ou <code>?nome_da_funcao</code>.</p>
-<div id="criando-suas-proprias-funcoes" class="section level3">
-<h3>Criando suas próprias funções</h3>
-<p>Apesar de já existirem uma infinidade de funções disponíveis no R, muitas vezes você deseja criar a sua própria função. Por exemplo, para organizar uma sequência de funções que são executadas da mesma forma em diversos lugares do seu código.</p>
-<p>Funções no R também são objetos, assim como vetores. A diferença é a forma de criá-los e de executá-los. Uma nova função pode ser criada da seguinte forma:</p>
-<pre class="r"><code>my_function &lt;- function(x){
-  x/2
-}</code></pre>
-<p>Pronto. Criamos uma função que divido o argumento <code>x</code> por 2. Você pode ver o código de qualquer função do R digitando o nome dela no console (sem parênteses no final).</p>
-<pre class="r"><code>my_function
-## function(x){
-##   x/2
-## }</code></pre>
-</div>
-</div>
-<div id="controles-de-fluxo" class="section level2">
-<h2>Controles de Fluxo</h2>
-<p>O R possui estruturas de controle de fluxo que são importantes na hora de programar as suas próprias funções e scripts. O seguinte trecho de código só será executado se o objeto <code>x</code> for igual a 1.</p>
-<pre class="r"><code>x &lt;- 2
-if(x == 1){
-  print(&quot;oi&quot;)
-}</code></pre>
-<pre class="r"><code>x &lt;- 1
-if(x == 1){
-  print(&quot;oi&quot;)
-}
-## [1] &quot;oi&quot;</code></pre>
-<p>A estrutura do <code>if</code> é bem simples, mas é importante para introduzir a noção de vetores lógicos no R. Assim como nas funções, o R executa o que está dentro dos parênteses no <code>if</code> para depois decidir se executa a expressão dentro de chaves.</p>
-<p>No caso dos exemplos acima, veja que o R executou <code>x == 1</code> que retorna <code>TRUE</code>, um tipo especial de dados no R chamado <strong>logical</strong>.</p>
-<pre class="r"><code>x == 1
-## [1] TRUE</code></pre>
-<p>Como o resultado dessa operação foi <code>TRUE</code>, o R executou o que estava entre chaves. Isso nos ajuda a pensar em como funcionam as operações lógicas no R, elas sempre retornam <code>TRUE</code> ou <code>FALSE</code> como resultado. O resultado de operações lógicas também pode ser salvo dentro de objetos do R e em seguiida ser reutilizado em outras operações. Por exemplo:</p>
-<pre class="r"><code>a &lt;- x == 1
-b &lt;- x == 2
-c &lt;- a &amp; (!b)
-if(c){
-  print(&quot;oi&quot;)
-}
-## [1] &quot;oi&quot;</code></pre>
-<p>Isso pode ser bastante útil e ajuda a entender bem como o R funciona.</p>
-<p>Uma outra importante estrutura de controle de fluxo é o <code>for</code>. No Rm, um laço <code>for</code> é escrito da seguinte forma.</p>
-<pre class="r"><code>for(i in 1:5){
-  print(i)
-}
-## [1] 1
-## [1] 2
-## [1] 3
-## [1] 4
-## [1] 5</code></pre>
-<p>Veja como é possível utilizar o obejto <code>i</code> dentro do laço do <code>for</code>. Para fazer operações mais úteis usando <code>for</code>, é necessário entender um pouco sobre <em>subsetting</em> no R. Por enquanto vamos apenas usar que dado um vetor <code>x</code>, <code>x[i]</code> retorna o <em>i-ésimo</em> elemento do vetor <code>x</code>. Note que os índices começam do 1, ao contrário de muitas outras linguagens em que os índices começam do 0.</p>
-<pre class="r"><code>vetor &lt;- 30:40
-indices &lt;- 1:length(vetor)
-for(i in indices){
-  print(vetor[i]/2)
-}
-## [1] 15
-## [1] 15.5
-## [1] 16
-## [1] 16.5
-## [1] 17
-## [1] 17.5
-## [1] 18
-## [1] 18.5
-## [1] 19
-## [1] 19.5
-## [1] 20</code></pre>
-<p>No trecho de código acima, preste atenção no resultado individual de cada uma das operações para entender como o R funciona. Veja o que é o vetor <code>indices</code>, tente rodar <code>vetor[1]</code> para ver quais são esses resultados intermediários.</p>
-</div>
-<div id="exercicios" class="section level2">
-<h2>Exercícios</h2>
-<p>Pratique! Será que você consegue resolver os exercícios abaixo?</p>
-<ol style="list-style-type: decimal">
-<li>Calcule o número de ouro no R.</li>
-</ol>
-<p><span class="math display">\[ \frac{1 + \sqrt{5}}{2} \]</span></p>
-<ol start="2" style="list-style-type: decimal">
-<li><p>O que dá divisão de 1 por 0 no R? E -1 por 0?</p></li>
-<li><p>Quais as diferenças entre <code>NaN</code>, <code>NULL</code>, <code>NA</code> e <code>Inf</code>?</p></li>
-<li><p>Tente mentalmente calcular o que dá a conta <code>5 + 3 * 10 %/% 3 == 15</code> no R, sem rodar.</p></li>
-<li><p>Adicionando apenas parênteses, faça a expressão acima retornar o resultado contrário.</p></li>
-<li><p>O que acontece se você rodar:</p></li>
-</ol>
-<pre class="r"><code>x &lt;- 4
-if(x = 4) {
-  &#39;isso aqui apareceu&#39;
-}
-x</code></pre>
-<ol start="7" style="list-style-type: decimal">
-<li><p>Como você faria para que o código da pergunta anterior fizesse com que <code>'isso aqui apareceu'</code> fosse impresso no console mas nenhum erro aparecesse?</p></li>
-<li><p><strong>Difícil</strong>: Usando <code>for</code>, <code>if</code> e <code>else</code> escreva as seguintes frases no console:</p></li>
-</ol>
-<pre class="r"><code>&gt; 1 elefante(s) incomoda(m) muita gente
-&gt; 2 elefante(s) incomoda(m) incomoda(m) muito mais
-&gt; 3 elefante(s) incomoda(m) muita gente
-&gt; 4 elefante(s) incomoda(m) incomoda(m) incomoda(m) incomoda(m) muito mais</code></pre>
-<p><em>Dica</em>: Leia o help da função <code>paste</code> e preste atenção no argumento <code>collapse</code>.</p>
-<ol start="9" style="list-style-type: decimal">
-<li><p>Crie um vetor com o nome <code>x</code> que contenha os números <code>1, 20, 40, 50, 60</code> no R.</p></li>
-<li><p>Crie um vetor com o nome <code>x</code> de 100 números aleatórios entre 0 e 1.</p></li>
-<li><p>Calcule a média do vetor criado na questão anterior.</p></li>
-<li><p>Crie um vetor com 100 elementos. 99 deles são números aleatórios entre 0 e 1 e o último elemento tem o valor <code>NA</code>. Calcule também a média deste vetor.</p></li>
-</ol>
-<p><em>Dica</em>: Olhe atentamente os argumentos da função <code>mean</code>.</p>
-<ol start="13" style="list-style-type: decimal">
-<li><p>Crie uma função que calcula a média de um vetor. Use <code>for</code> ou <code>while</code> nesta função.</p></li>
-<li><p>Crie uma função que simule um dado, ou seja, gera aleatóriamente um número inteiro entre 1 e 6.</p></li>
-<li><p>Crie uma função que simula o lançamento de <code>n</code> dados, e devolve a soma de seus resultados.</p></li>
-<li><p><strong>Difícil</strong> Faça um histograma dos resultados da soma de 3 dados. Isto é, crie um vetor com 1000 resultados que aconteceram após somar 3 dados. Em seguida faça o histograma.</p></li>
-</ol>
-<p><strong>Esses exercícios possuem resposta <a href="https://curso-r.github.io/verao2017/r-como-calculadora/respostas">aqui</a></strong></p>
-</div>
+			<hr>
+			
+			<a href="../r-como-calculadora/respostas/" title="Respostas: R como calculadora">
+				<h2>Respostas: R como calculadora</h2>
+			</a>
 
+			<br>
+			(1 + sqrt(5))/2 ## [1] 1.618034   <sup>1</sup>&frasl;<sub>0</sub> ## [1] Inf -<sup>1</sup>&frasl;<sub>0</sub> ## [1] -Inf   # NaN é o resultado de uma operação matemática inválida. Significa Not A Number 0/0 ## [1] NaN # NULL é o vazio do R. É como se o objeto não existisse NULL ## NULL a = NULL is.null(integer(length = 0)) # veja que um vetor, mesmo sem elementos não é NULL ## [1] FALSE # NA é uma constante lógica do R.
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-
-
+			<hr>
+			
 
 			<aside class="copyright" role="note">
 				
@@ -524,57 +305,6 @@ x</code></pre>
 				using the
 				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
 			</aside>
-
-			<footer class="footer">
-				
-
-<nav class="pagination" aria-label="Footer">
-  <div class="previous">
-  
-      <a href="../02-arrumacao/" title="Aula 02">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Aula 02
-            </div>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-
-  <div class="next">
-  
-      <a href="../r-como-calculadora/respostas/" title="Respostas: R como calculadora">
-        <span class="direction">
-          Next
-        </span>
-        <div class="page">
-          <div class="stretch">
-            <div class="title">
-              Respostas: R como calculadora
-            </div>
-          </div>
-          <div class="button button-next" role="button" aria-label="Next">
-            <i class="icon icon-forward"></i>
-          </div>
-        </div>
-      </a>
-  
-  </div>
-</nav>
-
-
-
-
-
-			</footer>
 		</div>
 	</article>
 
@@ -590,8 +320,8 @@ x</code></pre>
 
     <script>
     
-      var base_url = '\/';
-      var repo_id  = 'curso-r\/verao2017';
+      var base_url = '';
+      var repo_id  = '';
     
     </script>
 

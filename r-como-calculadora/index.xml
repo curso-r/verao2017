@@ -1,14 +1,57 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R-como-calculadora-rsses on Curso-R</title>
+    <title>R-como-calculadoras on Curso-R</title>
     <link>/r-como-calculadora/index.xml</link>
-    <description>Recent content in R-como-calculadora-rsses on Curso-R</description>
+    <description>Recent content in R-como-calculadoras on Curso-R</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Tue, 08 Nov 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Dec 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="/r-como-calculadora/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Exercícios: R como calculadora</title>
+      <link>/r-como-calculadora/exercicios/</link>
+      <pubDate>Tue, 27 Dec 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/r-como-calculadora/exercicios/</guid>
+      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \frac{1 + \sqrt{5}}{2} \]&lt;/span&gt;&lt;/p&gt;
+&lt;div data-datacamp-exercise=&#34;&#34; data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby5cbiIsInNvbHV0aW9uIjoiIyBEaWdpdGUgYSBleHByZXNzXHUwMGUzbyBxdWUgY2FsY3VsYSBvIG5cdTAwZmFtZXJvIGRlIG91cm8uXG4oMSArIHNxcnQoNSkpLzIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcbiAgXCIxLjYxODAzNFwiLCBcbiAgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCJcbilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==
+&lt;/div&gt;
+
+
+&lt;!-- dynamically load mathjax for compatibility with self-contained --&gt;
+&lt;script&gt;
+  (function () {
+    var script = document.createElement(&#34;script&#34;);
+    script.type = &#34;text/javascript&#34;;
+    script.src  = &#34;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#34;;
+    if (location.protocol !== &#34;file:&#34; &amp;&amp; /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, &#39;&#39;);
+    document.getElementsByTagName(&#34;head&#34;)[0].appendChild(script);
+  })();
+&lt;/script&gt;
+
+&lt;!-- BLOGDOWN-HEAD
+
+
+
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
     
     <item>
       <title>R como calculadora</title>
@@ -363,13 +406,13 @@ x
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x)
-## [1] 0.5486428&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.5009919&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;12&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(runif(99), NA)
 mean(x, na.rm = T)
-## [1] 0.4978083&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.4986147&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;13&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
