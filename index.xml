@@ -26,7 +26,7 @@
 &lt;/ol&gt;
 &lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \frac{1 + \sqrt{5}}{2} \]&lt;/span&gt;&lt;/p&gt;
 &lt;div data-datacamp-exercise=&#34;&#34; data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby5cbiIsInNvbHV0aW9uIjoiIyBEaWdpdGUgYSBleHByZXNzXHUwMGUzbyBxdWUgY2FsY3VsYSBvIG5cdTAwZmFtZXJvIGRlIG91cm8uXG4oMSArIHNxcnQoNSkpLzIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIjEuNjE4MDM0XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxuc3VjY2Vzc19tc2coXCJHcmVhdCFcIikifQ==
+eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby5cbiIsInNvbHV0aW9uIjoiIyBEaWdpdGUgYSBleHByZXNzXHUwMGUzbyBxdWUgY2FsY3VsYSBvIG5cdTAwZmFtZXJvIGRlIG91cm8uXG4oMSArIHNxcnQoNSkpLzIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIjEuNjE4MDM0XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxuc3VjY2Vzc19tc2coXCJDb3JyZXRvIVwiKSJ9
 &lt;/div&gt;
 
 
@@ -855,13 +855,13 @@ x
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x)
-## [1] 0.5371431&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.5536368&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;12&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(runif(99), NA)
 mean(x, na.rm = T)
-## [1] 0.5417484&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.5414898&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;13&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;

@@ -28,5 +28,5 @@ $$ \frac{1 + \sqrt{5}}{2} $$
 
 ```{r ex="exercicio_01", type="sct"}
 test_output_contains("1.618034", incorrect_msg = "Tem certeza de que indicou a expressão corretamente?")
-success_msg("Great!")
+success_msg("Correto!")
 ```
