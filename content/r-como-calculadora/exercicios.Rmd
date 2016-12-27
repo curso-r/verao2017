@@ -93,13 +93,15 @@ success_msg("Correto!")
 
 6. O que acontece se você rodar:
 
-```{r, eval = F}
+```{r, eval = F, tut = FALSE}
 x <- 4
 if(x = 4) {
   'isso aqui apareceu'
 }
 x
 ```
+
+
 
 ```{r ex="exercicio_06", type="sample-code"}
 x <- 4
