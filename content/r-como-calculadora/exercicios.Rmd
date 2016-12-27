@@ -30,3 +30,105 @@ $$ \frac{1 + \sqrt{5}}{2} $$
 test_output_contains("1.618034", incorrect_msg = "Tem certeza de que indicou a expressão corretamente?")
 success_msg("Correto!")
 ```
+
+2. O que dá divisão de 1 por 0 no R? E -1 por 0? 
+
+```{r ex="exercicio_02", type="sample-code"}
+1/0
+-1/0
+```
+
+```{r ex="exercicio_02", type="sct"}
+test_output_contains("Inf", incorrect_msg = "Tem certeza de que indicou a expressão corretamente?")
+test_output_contains("-Inf", incorrect_msg = "Tem certeza de que indicou a expressão corretamente?")
+success_msg("Correto!")
+```
+
+3. Quais as diferenças entre `NaN`, `NULL`, `NA` e `Inf`? Digite expressões que
+retornam cada um desses resultados.
+
+```{r ex="exercicio_03", type="sample-code"}
+# NaN
+
+# NULL
+
+# NA
+
+# Inf
+
+```
+
+```{r ex="exercicio_03", type="solution"}
+# NaN é o resultado de uma operação matemática inválida. Significa Not A Number
+0/0
+# NULL é o vazio do R. É como se o objeto não existisse
+NULL
+a = NULL
+is.null(integer(length = 0)) # veja que um vetor, mesmo sem elementos não é NULL
+# NA é uma constante lógica do R. Siginifica Not Availlable. NA pode ser 
+# convertido para quase todos os tipos de vetores do R. É usado principalmente para
+# indicar valores faltantes.
+NA
+# Inf é significa infinito. É o resultado de operações matemáticas cujo limite é infinito.
+1/0
+1/Inf
+```
+
+4. Tente mentalmente calcular o que dá a conta `5 + 3 * 10 %/% 3 == 15` no R, sem rodar.
+
+5. Adicionando apenas parênteses, faça a expressão acima retornar o resultado contrário.
+
+```{r ex="exercicio_05", type="sample-code"}
+5 + 3 * 10 %/% 3 == 15
+```
+
+```{r ex="exercicio_05", type="solution"}
+5 + (3 * 10) %/% 3 == 15
+```
+
+```{r ex="exercicio_05", type="sct"}
+test_output_contains("TRUE", incorrect_msg = "Tem certeza de que indicou a expressão corretamente?")
+success_msg("Correto!")
+```
+
+6. O que acontece se você rodar:
+
+```{r, eval = F}
+x <- 4
+if(x = 4) {
+  'isso aqui apareceu'
+}
+x
+```
+
+```{r ex="exercicio_06", type="sample-code"}
+x <- 4
+if(x = 4) {
+  'isso aqui apareceu'
+}
+x
+```
+
+7. Como você faria para que o código da pergunta anterior fizesse com que `'isso aqui apareceu'` fosse impresso no console mas nenhum erro aparecesse?
+
+```{r ex="exercicio_07", type="sample-code"}
+x <- 4
+if(x = 4) {
+  'isso aqui apareceu'
+}
+x
+```
+
+```{r ex="exercicio_07", type="solution"}
+x <- 4
+if(x == 4) {
+  'isso aqui apareceu'
+}
+x
+```
+
+```{r ex="exercicio_07", type="sct"}
+test_output_contains("isso aqui apareceu", incorrect_msg = "Tem certeza de que indicou a expressão corretamente?")
+test_error()
+success_msg("Correto!")
+```
