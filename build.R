@@ -1,3 +1,4 @@
+library(magrittr)
 # Baixar todos os Power Ups -----------------------------------------------
 
 # Obter os repositórios dos power ups do DESCRIPTION
