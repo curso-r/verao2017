@@ -38,5 +38,28 @@
 </description>
     </item>
     
+    <item>
+      <title>PU</title>
+      <link>/train2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/train2/</guid>
+      <description>&lt;p&gt;Isso é um Power UP&lt;/p&gt;
+
+&lt;p&gt;I LOVE THE WAY U R.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;1 + 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(1:10)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-3-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-3&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
