@@ -837,13 +837,13 @@ x
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x)
-## [1] 0.5171227&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.4957666&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;12&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(runif(99), NA)
 mean(x, na.rm = T)
-## [1] 0.497227&lt;/code&gt;&lt;/pre&gt;
+## [1] 0.4924948&lt;/code&gt;&lt;/pre&gt;
 &lt;ol start=&#34;13&#34; style=&#34;list-style-type: decimal&#34;&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ol&gt;
@@ -1548,35 +1548,6 @@ str_subset(frases, &amp;#39;d[eo]&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;h2 id=&#34;oi&#34;&gt;oi&lt;/h2&gt;
 
 &lt;h2 id=&#34;tchau&#34;&gt;tchau&lt;/h2&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/train2/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/train2/</guid>
-      <description>/BLOGDOWN-BODY-BEFORE --&gt;
-
-&lt;div id=&#34;pu&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;‘PU’&lt;/h1&gt;
-&lt;/div&gt;
-&lt;div id=&#34;pu-1&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;PU&lt;/h1&gt;
-&lt;p&gt;Isso é um Power UP&lt;/p&gt;
-&lt;p&gt;I LOVE THE WAY U R.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;1 + 1&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-
-&lt;!-- BLOGDOWN-HEAD
-
-
-
-
-/BLOGDOWN-HEAD --&gt;
 </description>
     </item>
     
