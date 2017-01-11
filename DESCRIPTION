@@ -15,6 +15,7 @@ Encoding: UTF-8
 LazyData: true
 Remotes: 
     rstudio/blogdown
+    r-pkgs/desc
 Imports:
     tidyverse,
     bookdown,
