@@ -13,11 +13,15 @@ download_and_extract_pu <- function(power_up){
   pu_name <- power_up %>%
     stringr::str_extract('pu.*$')
   
+  message(sprintf('Download %s will start', power_up))
+  
   file <- tempfile()
   res <- httr::GET(
     sprintf('https://github.com/%s/archive/content.zip', power_up),
     httr::write_disk(file)
   )
+  
+  message(sprintf('Download of %s finished', power_up))
   
   unzip(file, exdir = 'content/')
   system(sprintf(
