@@ -10,7 +10,7 @@ git config --global user.name "jtrecenti"
 
 git clone -b gh-pages https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git curso-output
 cd curso-output
-rm -r *
+rm -r ./*
 cp -r ../public/* ./
 git add --all *
 git commit -m "Update curso-r" || true
