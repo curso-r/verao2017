@@ -239,6 +239,24 @@
 </li>
 
 
+
+<li>
+  
+    
+
+
+
+<a  title="Teste" href="./teste/">
+	
+	Teste
+</a>
+
+
+
+  
+</li>
+
+
         </ul>
         
 
@@ -390,7 +408,7 @@
     <script>
       /* Add headers to scrollspy */
       var div_h2    = document.getElementsByClassName("section level2")
-      var headers   = document.getElementsByTagName("h2");
+      var headers   = document.getElementsByTagName("h2");	
       var scrollspy = document.getElementById('scrollspy');
       
       if(scrollspy) {
@@ -400,7 +418,14 @@
             li.setAttribute("class", "anchor");
 
             var a  = document.createElement("a");
-            a.setAttribute("href", "#" + div_h2[i].id);
+
+
+	    if(headers[i].id == ""){
+	     a.setAttribute("href", "#" + div_h2[i].id);
+	    } else {
+	     a.setAttribute("href", "#" + headers[i].id);
+	    }
+
             a.setAttribute("title", headers[i].innerHTML);
             a.innerHTML = headers[i].innerHTML;
             
@@ -414,12 +439,12 @@
       
       
       /* Add permanent link next to the headers */
-      var headers = document.querySelectorAll("h2");
+      var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
 
       for(var i = 0; i < headers.length; i++) {
           var a = document.createElement("a");
           a.setAttribute("class", "headerlink");
-          a.setAttribute("href", "#" + div_h2[i].id);
+          a.setAttribute("href", "#" + headers[i].id);
           a.setAttribute("title", "Permanent link")
           a.innerHTML = "#";
           headers[i].appendChild(a);
@@ -464,3 +489,4 @@
     <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>
+
