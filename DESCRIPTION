@@ -9,11 +9,12 @@ Authors@R: c(
     person("Fernando", "Correa", email = "fptcorrea@gmail.com", role = "aut"))
 Description: Just a placeholder to install deps.
 Depends:
-    R (>= 3.3.1)
+    R (>= 3.2.3)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Remotes: rstudio/blogdown
+Remotes: 
+    rstudio/blogdown
 Imports:
     tidyverse,
     bookdown,
@@ -21,3 +22,6 @@ Imports:
     blogdown,
     tutorial
 RoxygenNote: 5.0.1
+PowerUps:
+    curso-r/pu.train2,
+    azeloc/pu.test
