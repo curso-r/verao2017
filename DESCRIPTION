@@ -14,7 +14,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Remotes: 
-    rstudio/blogdown
+    rstudio/blogdown,
     r-pkgs/desc
 Imports:
     tidyverse,
