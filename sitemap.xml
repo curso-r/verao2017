@@ -55,4 +55,12 @@
     <loc>/hello-world/hi/</loc>
   </url>
   
+  <url>
+    <loc>/test/</loc>
+  </url>
+  
+  <url>
+    <loc>/train2/</loc>
+  </url>
+  
 </urlset>

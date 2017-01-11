@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Test-rsses on Curso-R</title>
+    <link>/test/index.xml</link>
+    <description>Recent content in Test-rsses on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Disponível sobre Licença MIT</copyright>
+    <atom:link href="/test/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title></title>
+      <link>/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/test/</guid>
+      <description>/BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;div id=&#34;introducao-stringr&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Introdução: Stringr&lt;/h1&gt;
+&lt;p&gt;Variáveis do tipo texto são muito comuns nos bancos de dados e geralmente são colunas que dão bastante trabalho para serem manipuladas. É muito comun encontrar bancos de dados em que os textos de uma coluna não estão padronizados, por exemplo uma coluna &lt;code&gt;Estado&lt;/code&gt; em que são encontrados “SP”, “sp”, “Sao Paulo”, “São Paulo”, etc todas as variações indicando o mesmo estado.&lt;/p&gt;
+&lt;p&gt;Para manipular esses textos o R possui diversas funções para manipular textos, no entanto, as funções do &lt;code&gt;base&lt;/code&gt; não possuem um interface consistente e parece que cada uma tem a sua forma de passar os parâmetros, dificultando o processo durante a análise.&lt;/p&gt;
+&lt;p&gt;Por isso, é recomendado usar o pacote &lt;code&gt;stringr&lt;/code&gt; que possui a sintaxe consistente permitindo que o usuário realize qualquer manipulação com textos com maior facilidade.&lt;/p&gt;
+&lt;div id=&#34;vantagens-do-stringr-em-relacao-ao-base&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Vantagens do stringr em relação ao base&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sintaxe unificada, o que auxilia na memorização e leitura do código.&lt;/li&gt;
+&lt;li&gt;Todas as funções são vetorizadas.&lt;/li&gt;
+&lt;li&gt;Construído sobre a &lt;a href=&#34;http://site.icu-project.org/&#34;&gt;biblioteca ICU&lt;/a&gt;, implementada em &lt;code&gt;C&lt;/code&gt; e &lt;code&gt;C++&lt;/code&gt;, apresentando resultados rápidos e confiáveis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;regras-basicas-do-pacote&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Regras básicas do pacote&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;As funções de manipulação de texto começam com &lt;code&gt;str_&lt;/code&gt;. Caso esqueça o nome de uma função, basta digitar &lt;code&gt;stringr::str_&lt;/code&gt; e apertar &lt;code&gt;TAB&lt;/code&gt; para ver quais são as opções.&lt;/li&gt;
+&lt;li&gt;O primeiro argumento da função é sempre uma &lt;code&gt;string&lt;/code&gt; ou um vetor de &lt;code&gt;strings&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;curiosidade&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Curiosidade&lt;/h2&gt;
+&lt;p&gt;Inicialmente, o &lt;code&gt;stringr&lt;/code&gt; era um &lt;em&gt;wrapper&lt;/em&gt; de funções do &lt;code&gt;base&lt;/code&gt;. Depois disso, surgiu um novo pacote &lt;code&gt;stringi&lt;/code&gt;, com sintaxe similar ao &lt;code&gt;stringr&lt;/code&gt;, mas funcionando como &lt;em&gt;wrapper&lt;/em&gt; da biblioteca ICU. No entanto, Wickham gostou tanto do pacote &lt;code&gt;stringi&lt;/code&gt; que decidiu reescrever o &lt;code&gt;stringr&lt;/code&gt; como um &lt;em&gt;wrapper&lt;/em&gt; do &lt;code&gt;stringi&lt;/code&gt;. Veja &lt;a href=&#34;https://github.com/tidyverse/stringr/blob/master/NEWS.md&#34;&gt;essa página&lt;/a&gt; para detalhes. #stringr: Básico #### str_to_upper, str_to_lower, str_to_title #str_to_title(s)&lt;/p&gt;
+&lt;p&gt;Todas as funções do &lt;code&gt;stringr&lt;/code&gt; começam com o prefixo &lt;code&gt;str&lt;/code&gt;, isso ajuda na hora de encontrar a função que você está procurando. No Rstudio, basta digitar &lt;code&gt;str_&lt;/code&gt; e apertar tab que você verá algo parecido com a imagem a baixo. Você pode ir descendo com as setas do teclado e ver o que cada função faz até encontrar a função que estava procurando.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;../home/travis/build/azeloc/pu.test/figure/str_tab.png&#34; alt=&#34;str_tab&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;str_tab&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Nesta sessão vamos utilizar as funções mais simples do &lt;code&gt;stringr&lt;/code&gt;, depois vamos ensinar um pouco de Regex e em seguida veremos as funções mais avançadas do pacote.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;funcoes-basicas&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Funções básicas&lt;/h2&gt;
+&lt;div id=&#34;str_length&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_length&lt;/h3&gt;
+&lt;p&gt;A função mais simples do &lt;code&gt;stringr&lt;/code&gt; é a função &lt;code&gt;str_length&lt;/code&gt;. Esta função recebe apenas uma string como argumento e retorna o número de caracteres. Por exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stringr)
+str_length(&amp;quot;olá&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(&amp;quot;olá&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Veja &lt;code&gt;str_length&lt;/code&gt; é diferente de &lt;code&gt;length&lt;/code&gt;. O primeiro retorna o número de caracteres e o segundo retorna o comprimento do objeto. Isso fica mais claro no seguinte exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- c(&amp;quot;olá mundo&amp;quot;, &amp;quot;olá universo&amp;quot;)
+str_length(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  9 12&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agora o &lt;code&gt;str_length&lt;/code&gt; retornou um vetor com o número de caracteres de cada elemento do vetor &lt;code&gt;s&lt;/code&gt;, e o &lt;code&gt;length&lt;/code&gt; retornou o comprimento do vetor &lt;code&gt;s&lt;/code&gt;. Note que espaço é considerado como um caractere.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_trim&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_trim&lt;/h3&gt;
+&lt;p&gt;É muito comum encontrar textos que vêm com espaços a mais, principalmente de dados provenientes de formulários em que cada usuário escreve da forma que prefere.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;string &amp;lt;- &amp;#39;\nessa      string é muito suja       \n&amp;#39;
+str_trim(string)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;essa      string é muito suja&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A função &lt;code&gt;str_trim&lt;/code&gt; ajuda removendo os espaços excedetes antes e depois da string.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_sub&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_sub&lt;/h3&gt;
+&lt;p&gt;As vezes você precisa obter alguma parte fixa de uma string. Por exemplo, as vezes você encontra variáveis com valores da forma:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- c(&amp;quot;01-Feminino&amp;quot;, &amp;quot;02-Masculino&amp;quot;, &amp;quot;03-Indefinido&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Você pode querer manipular essa string para retirar obter apenas a parte final da string. Neste caso pode usar a função &lt;code&gt;str_sub&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_sub(s, start = 4) # pegar do quarto até o último caractere&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Feminino&amp;quot;   &amp;quot;Masculino&amp;quot;  &amp;quot;Indefinido&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;É possível obter também apenas os números&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_sub(s, end = 2) # pegar apenas os dois primeiros caracteres&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;01&amp;quot; &amp;quot;02&amp;quot; &amp;quot;03&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Em outros casos você precisa obter os últimos 2 caracteres.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- c(&amp;quot;Feminino-01&amp;quot;, &amp;quot;Masculino-02&amp;quot;, &amp;quot;Indefinido-03&amp;quot;)
+str_sub(s, end = -4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Feminino&amp;quot;   &amp;quot;Masculino&amp;quot;  &amp;quot;Indefinido&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_sub(s, start = -2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;01&amp;quot; &amp;quot;02&amp;quot; &amp;quot;03&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;É possível também usar os argumentos &lt;code&gt;start&lt;/code&gt; e &lt;code&gt;end&lt;/code&gt; conjuntamente.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- c(&amp;quot;__SP__&amp;quot;, &amp;quot;__MG__&amp;quot;, &amp;quot;__RJ__&amp;quot;)
+str_sub(s, 3, 4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;SP&amp;quot; &amp;quot;MG&amp;quot; &amp;quot;RJ&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_to_upper-str_to_lower-str_to_title&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_to_upper, str_to_lower, str_to_title&lt;/h3&gt;
+&lt;p&gt;Essas funções servem para modificar a caixa das letras. Por exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- &amp;quot;Olá, tudo bem?&amp;quot;
+str_to_lower(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;olá, tudo bem?&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_upper(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;OLÁ, TUDO BEM?&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_title(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Olá, Tudo Bem?&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Essas são as funções mais simples do pacote &lt;code&gt;stringr&lt;/code&gt; e mão exigem nenhum conhecimento de regex. Note que nenhuma delas possui o parâmetro &lt;code&gt;pattern&lt;/code&gt;, você verá como especificar esse parâmetros nas próximas sessões.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;regex&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Regex&lt;/h1&gt;
+&lt;p&gt;Trabalhar com textos exige um certo conhecimento de expressões regulares (&lt;em&gt;regex&lt;/em&gt;). &lt;a href=&#34;https://pt.wikipedia.org/wiki/Express%C3%A3o_regular&#34;&gt;Expressões regulares&lt;/a&gt; permitem identificar conjuntos de caracters, palavras, e outros padrões por meio de uma sintaxe concisa.&lt;/p&gt;
+&lt;p&gt;O &lt;code&gt;stringr&lt;/code&gt; utiliza regex da forma descrita &lt;a href=&#34;http://www.gagolewski.com/software/stringi/manual/?manpage=stringi-search-regex&#34;&gt;neste documento&lt;/a&gt;. A própria &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html&#34;&gt;definição&lt;/a&gt; de regex do R é um ótimo manual.&lt;/p&gt;
+&lt;div id=&#34;expressoes-regulares&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Expressões regulares&lt;/h2&gt;
+&lt;p&gt;Expressão regular ou &lt;em&gt;regex&lt;/em&gt; é uma sequência concisa de caracteres que representa várias strings. Entender o básico de expressões regulares é indispensável para trabalhar com textos.&lt;/p&gt;
+&lt;p&gt;Vamos estudar expressões regulares através de exemplos e com a função &lt;code&gt;str_detect()&lt;/code&gt;. Essa função retorna &lt;code&gt;TRUE&lt;/code&gt; se uma string atende à uma expressão regular e &lt;code&gt;FALSE&lt;/code&gt; em caso contrário.&lt;/p&gt;
+&lt;p&gt;Por exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stringr)
+str_detect(&amp;quot;sao paulo&amp;quot;, pattern = &amp;quot;paulo$&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_detect(&amp;quot;sao paulo sp&amp;quot;, pattern = &amp;quot;paulo$&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A regex/pattern “paulo&lt;span class=&#34;math inline&#34;&gt;\(&amp;quot; indica que o texto deve ser terminado em &amp;quot;paulo&amp;quot;. Existem diversos de caracteres auxiliares que vão auxiliar na manipulação dos textos, assim como o &amp;quot;\)&lt;/span&gt;” neste caso. É importante notar que sempre que você estiver passando algum valor para o argumento &lt;code&gt;pattern&lt;/code&gt; de qualquer função do &lt;code&gt;stringr&lt;/code&gt; ele o entenderá como uma regex.&lt;/p&gt;
+&lt;p&gt;A tabela abaixo mostra a aplicação de seis &lt;code&gt;regex&lt;/code&gt; a seis strings distintas.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;testes &amp;lt;- c(&amp;#39;ban&amp;#39;, &amp;#39;banana&amp;#39;, &amp;#39;abandonado&amp;#39;, &amp;#39;pranab anderson&amp;#39;, &amp;#39;BANANA&amp;#39;, 
+            &amp;#39;ele levou ban&amp;#39;)
+
+expressoes &amp;lt;- list(
+  &amp;#39;ban&amp;#39;, # reconhece tudo que tenha &amp;quot;ban&amp;quot;, mas não ignora case
+  &amp;#39;BAN&amp;#39;, # reconhece tudo que tenha &amp;quot;BAN&amp;quot;, mas não ignora case
+  regex(&amp;#39;ban&amp;#39;, ignore_case = TRUE), # reconhece tudo que tenha &amp;quot;ban&amp;quot;, ignorando case
+  &amp;#39;ban$&amp;#39;, # reconhece apenas o que termina exatamente em &amp;quot;ban&amp;quot;
+  &amp;#39;^ban&amp;#39;, # reconhece apenas o que começa exatamente com &amp;quot;ban&amp;quot;
+  &amp;#39;b ?an&amp;#39; # reconhece tudo que tenha &amp;quot;ban&amp;quot;, com ou sem espaço entre o &amp;quot;b&amp;quot; e o &amp;quot;a&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;quantificadores&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Quantificadores&lt;/h2&gt;
+&lt;p&gt;Os caracteres &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt; e &lt;code&gt;{x,y}&lt;/code&gt; indicam quantas vezes um padrão se repete:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ey+&lt;/code&gt; significa &lt;code&gt;e&lt;/code&gt; e depois &lt;code&gt;y&lt;/code&gt; “&lt;strong&gt;uma vez&lt;/strong&gt; ou mais”. Por exemplo, reconhece &lt;code&gt;hey&lt;/code&gt;, &lt;code&gt;heyy&lt;/code&gt;, &lt;code&gt;a eyyy&lt;/code&gt;, mas não reconhece &lt;code&gt;e&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; nem &lt;code&gt;yy&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ey*&lt;/code&gt; significa “&lt;strong&gt;zero vezes&lt;/strong&gt; ou mais”. Por exemplo, reconhece &lt;code&gt;hey&lt;/code&gt;, &lt;code&gt;heyy&lt;/code&gt;, &lt;code&gt;a eyyy&lt;/code&gt; e &lt;code&gt;e&lt;/code&gt;, mas não reconhece &lt;code&gt;y&lt;/code&gt; nem &lt;code&gt;yy&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ey{3}&lt;/code&gt; significa “exatamente três vezes”. Por exemplo, reconhece &lt;code&gt;eyyy&lt;/code&gt; e &lt;code&gt;eyyyy&lt;/code&gt;, mas não reconhece &lt;code&gt;eyy&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ey{1,3}&lt;/code&gt; significa “entre uma e três vezes”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para aplicar um quantificador a um conjunto de caracteres, use parênteses. Por exemplo, &lt;code&gt;(ey )+&lt;/code&gt; reconhece &lt;code&gt;ey ey&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conjuntos&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conjuntos&lt;/h2&gt;
+&lt;p&gt;Colocando caracteres dentro de &lt;code&gt;[]&lt;/code&gt;, reconhecemos quaisquer caracteres desse conjunto. Alguns exemplos práticos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[Cc]asa&lt;/code&gt; para reconhecer “casa” em maiúsculo ou minúsculo.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[0-9]&lt;/code&gt; para reconhecer somente números. O mesmo vale para letras &lt;code&gt;[a-z]&lt;/code&gt;, &lt;code&gt;[A-Z]&lt;/code&gt;, &lt;code&gt;[a-zA-Z]&lt;/code&gt; etc.&lt;/li&gt;
+&lt;li&gt;O símbolo &lt;code&gt;^&lt;/code&gt; dentro do colchete significa negação. Por exemplo, &lt;code&gt;[^0-9]&lt;/code&gt; significa pegar tudo o que não é número.&lt;/li&gt;
+&lt;li&gt;O símbolo &lt;code&gt;.&lt;/code&gt; fora do colchete indica “qualquer caractere”, mas dentro do colchete é apenas ponto.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;[[:space:]]+&lt;/code&gt; para reconhecer espaços e &lt;code&gt;[[:punct:]]+&lt;/code&gt; para reconhecer pontuações.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;miscelanea&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Miscelânea&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;abjutils::rm_accent()&lt;/code&gt; para retirar os acentos de um texto.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;|&lt;/code&gt; para opções, por exemplo &lt;code&gt;desfavor|desprov&lt;/code&gt; reconhece tanto “desfavorável” quanto “desprovido”&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\n&lt;/code&gt; pula linha, &lt;code&gt;\f&lt;/code&gt; é final da página, &lt;code&gt;\t&lt;/code&gt; é tab. Use &lt;code&gt;\&lt;/code&gt; para transformar caracteres especiais em literais.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tolower()&lt;/code&gt; e &lt;code&gt;toupper()&lt;/code&gt; para mudar o case de uma string.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A lista de possibilidades com expressões regulares é extensa. Um bom lugar para testar o funcionamento de expressões regulares é o &lt;a href=&#34;https://regex101.com/&#34;&gt;regex101&lt;/a&gt;. #stringr: Avançado&lt;/p&gt;
+&lt;p&gt;Agora que já vimos as funções básicas do &lt;code&gt;stringr&lt;/code&gt;, e aprendemos um pouco de regex, vamos às funções mais avançadas. Basicmante, essas funções buscarão &lt;code&gt;patterns&lt;/code&gt; em um vetor de strings e farão alguma coisa quando encontrá-lo.&lt;/p&gt;
+&lt;p&gt;Como já vimos na sessão sobre regex, a função mais simples que possui o argumento &lt;code&gt;pattern&lt;/code&gt; é a &lt;code&gt;str_detect&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;str_detect&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_detect()`&lt;/h3&gt;
+&lt;p&gt;Retorna &lt;code&gt;TRUE&lt;/code&gt; se a regex é compatível com a string e &lt;code&gt;FALSE&lt;/code&gt; caso contrário.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stringr)
+str_detect(&amp;quot;sao paulo&amp;quot;, pattern = &amp;quot;paulo$&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_detect(&amp;quot;sao paulo sp&amp;quot;, pattern = &amp;quot;paulo$&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_replace-e-str_replace_all&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_replace() e str_replace_all()&lt;/h3&gt;
+&lt;p&gt;Substituem um padrão (ou todos) encontrado para um outro padrão&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frutas &amp;lt;- c(&amp;quot;uma maçã&amp;quot;, &amp;quot;duas pêras&amp;quot;, &amp;quot;três bananas&amp;quot;)
+str_replace(frutas, &amp;quot;[aeiou]&amp;quot;, &amp;quot;-&amp;quot;) # substitui a primeira vogal de cada string por &amp;quot;-&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;-ma maçã&amp;quot;     &amp;quot;d-as pêras&amp;quot;   &amp;quot;três b-nanas&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(frutas, &amp;quot;[aeiou]&amp;quot;, &amp;quot;-&amp;quot;) # substitui todas as vogais por &amp;quot;-&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;-m- m-çã&amp;quot;     &amp;quot;d--s pêr-s&amp;quot;   &amp;quot;três b-n-n-s&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;yyyy &amp;lt;- &amp;quot;yyyyy yyyyy ll zz&amp;quot;
+str_replace(yyyy, &amp;#39;y+&amp;#39;, &amp;#39;x&amp;#39;) # substitui o primeiro 1 ou mais y&amp;#39;s por x&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;x yyyyy ll zz&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(yyyy, &amp;#39;y+&amp;#39;, &amp;#39;x&amp;#39;) # substitui todos os 1 ou mais y por somente 1 x&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;x x ll zz&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(yyyy, &amp;#39;y&amp;#39;, &amp;#39;x&amp;#39;) # substitui y por x&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;xxxxx xxxxx ll zz&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(&amp;#39;string     com    muitos espaços&amp;#39;, &amp;#39; +&amp;#39;, &amp;#39; &amp;#39;) # tirar espaços extras&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;string com muitos espaços&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Muitas vezes queremos remover alguns caracteres especiais de um texto, mas esses caracteres fazem parte de comandos de regex, por exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;string &amp;lt;- &amp;quot;1 + 2 + 5&amp;quot;
+#str_replace_all(string, &amp;quot;+&amp;quot;, &amp;quot;-&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Essa forma retorna um erro, pois a função tenta montar uma regex. Você poderia tentar de outras formas, que não retornariam erro, mas também não retornariam o resultado esperado.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(string, &amp;quot; + &amp;quot;, &amp;quot; - &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1 + 2 + 5&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nesse caso, use a função &lt;code&gt;fixed&lt;/code&gt; para indicar para o &lt;code&gt;stringr&lt;/code&gt; que você não deseja que o parâmetro seja reconhecido como uma regex.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(string, fixed(&amp;quot;+&amp;quot;), &amp;quot;-&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1 - 2 - 5&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_match-e-str_match_all&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_match() e str_match_all()&lt;/h3&gt;
+&lt;p&gt;Extrai pedaços da string identificados pela regex. Caso queira extrair somente a parte identificada, use parênteses.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frases &amp;lt;- c(&amp;#39;a roupa do rei&amp;#39;, &amp;#39;de roma&amp;#39;, &amp;#39;o rato roeu&amp;#39;)
+str_match(frases, &amp;#39;roe&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] 
+## [1,] NA   
+## [2,] NA   
+## [3,] &amp;quot;roe&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_match_all(frases, &amp;#39;ro&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+##      [,1]
+## [1,] &amp;quot;ro&amp;quot;
+## 
+## [[2]]
+##      [,1]
+## [1,] &amp;quot;ro&amp;quot;
+## 
+## [[3]]
+##      [,1]
+## [1,] &amp;quot;ro&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_match(frases, &amp;#39;o (ro)&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]   [,2]
+## [1,] NA     NA  
+## [2,] NA     NA  
+## [3,] &amp;quot;o ro&amp;quot; &amp;quot;ro&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_split-e-str_split_fixed&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_split() e str_split_fixed()&lt;/h3&gt;
+&lt;p&gt;Separa uma string em várias de acordo com um separador.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;string &amp;lt;- &amp;#39;eu sei, usar virgulas, de forma, perfeita&amp;#39;
+
+str_split(string, &amp;#39;, &amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+## [1] &amp;quot;eu sei&amp;quot;        &amp;quot;usar virgulas&amp;quot; &amp;quot;de forma&amp;quot;      &amp;quot;perfeita&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_split(string, &amp;#39;, &amp;#39;, simplify = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]     [,2]            [,3]       [,4]      
+## [1,] &amp;quot;eu sei&amp;quot; &amp;quot;usar virgulas&amp;quot; &amp;quot;de forma&amp;quot; &amp;quot;perfeita&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Faz o mesmo que &lt;code&gt;str_split()&lt;/code&gt;, mas separa apenas &lt;code&gt;n&lt;/code&gt; vezes&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_split_fixed(string, &amp;#39;, &amp;#39;, 3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]     [,2]            [,3]                
+## [1,] &amp;quot;eu sei&amp;quot; &amp;quot;usar virgulas&amp;quot; &amp;quot;de forma, perfeita&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_split_fixed(string, &amp;#39;, &amp;#39;, 4) # igual a str_split(string, simplify = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]     [,2]            [,3]       [,4]      
+## [1,] &amp;quot;eu sei&amp;quot; &amp;quot;usar virgulas&amp;quot; &amp;quot;de forma&amp;quot; &amp;quot;perfeita&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_subset&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_subset()&lt;/h3&gt;
+&lt;p&gt;Retorna somente as strings compatíveis com a regex.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frases &amp;lt;- c(&amp;#39;a roupa do rei&amp;#39;, &amp;#39;de roma&amp;#39;, &amp;#39;o rato roeu&amp;#39;)
+str_subset(frases, &amp;#39;d[eo]&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;a roupa do rei&amp;quot; &amp;quot;de roma&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;É o mesmo que fazer o subset do R e a função &lt;code&gt;str_detect&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frases[str_detect(frases, &amp;quot;d[eo]&amp;quot;)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;a roupa do rei&amp;quot; &amp;quot;de roma&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;untitled&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Untitled&lt;/h1&gt;
+&lt;div id=&#34;exercicios&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Exercícios&lt;/h3&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Considere o seguinte texto&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;txt &amp;lt;- &amp;quot;A função mais importante para leitura de dados no `lubridate` é a `ymd`. Essa função serve para ler qualquer data de uma `string` no formato `YYYY-MM-DD`. Essa função é útil pois funciona com qualquer separador entre os elementos da data e também porque temos uma função para cada formato (`mdy`, `dmy`, `dym`, `myd`, `ydm`).&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Extraia todas as combinações da função &lt;code&gt;ymd&lt;/code&gt;, sem repetições.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Considere os textos abaixo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;txts &amp;lt;- c(
+  &amp;#39;o produto é muito bom&amp;#39;,
+  &amp;#39;o produto não é bom&amp;#39;,
+  &amp;#39;o produto não é muito bom&amp;#39;,
+  &amp;#39;o produto não é ruim&amp;#39;,
+  &amp;#39;o produto não é não bom&amp;#39;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Crie uma regra para identificar se o texto refere-se a um feedback positivo ou negativo sobre o produto (considera não bom = ruim e vice-versa). Retorne um vetor lógico que vale &lt;code&gt;TRUE&lt;/code&gt; se o feedback é positivo e &lt;code&gt;FALSE&lt;/code&gt; caso contrário. #‘index’ ##### str_to_upper, str_to_lower, str_to_title ##str_to_title(s) #### str_to_upper, str_to_lower, str_to_title #str_to_title(s) ##Untitled #Introdução: Stringr&lt;/p&gt;
+&lt;p&gt;Variáveis do tipo texto são muito comuns nos bancos de dados e geralmente são colunas que dão bastante trabalho para serem manipuladas. É muito comun encontrar bancos de dados em que os textos de uma coluna não estão padronizados, por exemplo uma coluna &lt;code&gt;Estado&lt;/code&gt; em que são encontrados “SP”, “sp”, “Sao Paulo”, “São Paulo”, etc todas as variações indicando o mesmo estado.&lt;/p&gt;
+&lt;p&gt;Para manipular esses textos o R possui diversas funções para manipular textos, no entanto, as funções do &lt;code&gt;base&lt;/code&gt; não possuem um interface consistente e parece que cada uma tem a sua forma de passar os parâmetros, dificultando o processo durante a análise.&lt;/p&gt;
+&lt;p&gt;Por isso, é recomendado usar o pacote &lt;code&gt;stringr&lt;/code&gt; que possui a sintaxe consistente permitindo que o usuário realize qualquer manipulação com textos com maior facilidade.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;vantagens-do-stringr-em-relacao-ao-base-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Vantagens do stringr em relação ao base&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Sintaxe unificada, o que auxilia na memorização e leitura do código.&lt;/li&gt;
+&lt;li&gt;Todas as funções são vetorizadas.&lt;/li&gt;
+&lt;li&gt;Construído sobre a &lt;a href=&#34;http://site.icu-project.org/&#34;&gt;biblioteca ICU&lt;/a&gt;, implementada em &lt;code&gt;C&lt;/code&gt; e &lt;code&gt;C++&lt;/code&gt;, apresentando resultados rápidos e confiáveis.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;regras-basicas-do-pacote-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Regras básicas do pacote&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;As funções de manipulação de texto começam com &lt;code&gt;str_&lt;/code&gt;. Caso esqueça o nome de uma função, basta digitar &lt;code&gt;stringr::str_&lt;/code&gt; e apertar &lt;code&gt;TAB&lt;/code&gt; para ver quais são as opções.&lt;/li&gt;
+&lt;li&gt;O primeiro argumento da função é sempre uma &lt;code&gt;string&lt;/code&gt; ou um vetor de &lt;code&gt;strings&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;curiosidade-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Curiosidade&lt;/h2&gt;
+&lt;p&gt;Inicialmente, o &lt;code&gt;stringr&lt;/code&gt; era um &lt;em&gt;wrapper&lt;/em&gt; de funções do &lt;code&gt;base&lt;/code&gt;. Depois disso, surgiu um novo pacote &lt;code&gt;stringi&lt;/code&gt;, com sintaxe similar ao &lt;code&gt;stringr&lt;/code&gt;, mas funcionando como &lt;em&gt;wrapper&lt;/em&gt; da biblioteca ICU. No entanto, Wickham gostou tanto do pacote &lt;code&gt;stringi&lt;/code&gt; que decidiu reescrever o &lt;code&gt;stringr&lt;/code&gt; como um &lt;em&gt;wrapper&lt;/em&gt; do &lt;code&gt;stringi&lt;/code&gt;. Veja &lt;a href=&#34;https://github.com/tidyverse/stringr/blob/master/NEWS.md&#34;&gt;essa página&lt;/a&gt; para detalhes. #stringr: Básico #### str_to_upper, str_to_lower, str_to_title #str_to_title(s)&lt;/p&gt;
+&lt;p&gt;Todas as funções do &lt;code&gt;stringr&lt;/code&gt; começam com o prefixo &lt;code&gt;str&lt;/code&gt;, isso ajuda na hora de encontrar a função que você está procurando. No Rstudio, basta digitar &lt;code&gt;str_&lt;/code&gt; e apertar tab que você verá algo parecido com a imagem a baixo. Você pode ir descendo com as setas do teclado e ver o que cada função faz até encontrar a função que estava procurando.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;../home/travis/build/azeloc/pu.test/figure/str_tab.png&#34; alt=&#34;str_tab&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;str_tab&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Nesta sessão vamos utilizar as funções mais simples do &lt;code&gt;stringr&lt;/code&gt;, depois vamos ensinar um pouco de Regex e em seguida veremos as funções mais avançadas do pacote.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;funcoes-basicas-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Funções básicas&lt;/h2&gt;
+&lt;div id=&#34;str_length-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_length&lt;/h3&gt;
+&lt;p&gt;A função mais simples do &lt;code&gt;stringr&lt;/code&gt; é a função &lt;code&gt;str_length&lt;/code&gt;. Esta função recebe apenas uma string como argumento e retorna o número de caracteres. Por exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stringr)
+str_length(&amp;quot;olá&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 3&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(&amp;quot;olá&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 1&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Veja &lt;code&gt;str_length&lt;/code&gt; é diferente de &lt;code&gt;length&lt;/code&gt;. O primeiro retorna o número de caracteres e o segundo retorna o comprimento do objeto. Isso fica mais claro no seguinte exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- c(&amp;quot;olá mundo&amp;quot;, &amp;quot;olá universo&amp;quot;)
+str_length(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1]  9 12&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;length(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] 2&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Agora o &lt;code&gt;str_length&lt;/code&gt; retornou um vetor com o número de caracteres de cada elemento do vetor &lt;code&gt;s&lt;/code&gt;, e o &lt;code&gt;length&lt;/code&gt; retornou o comprimento do vetor &lt;code&gt;s&lt;/code&gt;. Note que espaço é considerado como um caractere.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_trim-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_trim&lt;/h3&gt;
+&lt;p&gt;É muito comum encontrar textos que vêm com espaços a mais, principalmente de dados provenientes de formulários em que cada usuário escreve da forma que prefere.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;string &amp;lt;- &amp;#39;\nessa      string é muito suja       \n&amp;#39;
+str_trim(string)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;essa      string é muito suja&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A função &lt;code&gt;str_trim&lt;/code&gt; ajuda removendo os espaços excedetes antes e depois da string.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_sub-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_sub&lt;/h3&gt;
+&lt;p&gt;As vezes você precisa obter alguma parte fixa de uma string. Por exemplo, as vezes você encontra variáveis com valores da forma:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- c(&amp;quot;01-Feminino&amp;quot;, &amp;quot;02-Masculino&amp;quot;, &amp;quot;03-Indefinido&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Você pode querer manipular essa string para retirar obter apenas a parte final da string. Neste caso pode usar a função &lt;code&gt;str_sub&lt;/code&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_sub(s, start = 4) # pegar do quarto até o último caractere&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Feminino&amp;quot;   &amp;quot;Masculino&amp;quot;  &amp;quot;Indefinido&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;É possível obter também apenas os números&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_sub(s, end = 2) # pegar apenas os dois primeiros caracteres&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;01&amp;quot; &amp;quot;02&amp;quot; &amp;quot;03&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Em outros casos você precisa obter os últimos 2 caracteres.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- c(&amp;quot;Feminino-01&amp;quot;, &amp;quot;Masculino-02&amp;quot;, &amp;quot;Indefinido-03&amp;quot;)
+str_sub(s, end = -4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Feminino&amp;quot;   &amp;quot;Masculino&amp;quot;  &amp;quot;Indefinido&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_sub(s, start = -2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;01&amp;quot; &amp;quot;02&amp;quot; &amp;quot;03&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;É possível também usar os argumentos &lt;code&gt;start&lt;/code&gt; e &lt;code&gt;end&lt;/code&gt; conjuntamente.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- c(&amp;quot;__SP__&amp;quot;, &amp;quot;__MG__&amp;quot;, &amp;quot;__RJ__&amp;quot;)
+str_sub(s, 3, 4)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;SP&amp;quot; &amp;quot;MG&amp;quot; &amp;quot;RJ&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_to_upper-str_to_lower-str_to_title-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_to_upper, str_to_lower, str_to_title&lt;/h3&gt;
+&lt;p&gt;Essas funções servem para modificar a caixa das letras. Por exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;s &amp;lt;- &amp;quot;Olá, tudo bem?&amp;quot;
+str_to_lower(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;olá, tudo bem?&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_upper(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;OLÁ, TUDO BEM?&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_to_title(s)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;Olá, Tudo Bem?&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Essas são as funções mais simples do pacote &lt;code&gt;stringr&lt;/code&gt; e mão exigem nenhum conhecimento de regex. Note que nenhuma delas possui o parâmetro &lt;code&gt;pattern&lt;/code&gt;, você verá como especificar esse parâmetros nas próximas sessões.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;regex-1&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Regex&lt;/h1&gt;
+&lt;p&gt;Trabalhar com textos exige um certo conhecimento de expressões regulares (&lt;em&gt;regex&lt;/em&gt;). &lt;a href=&#34;https://pt.wikipedia.org/wiki/Express%C3%A3o_regular&#34;&gt;Expressões regulares&lt;/a&gt; permitem identificar conjuntos de caracters, palavras, e outros padrões por meio de uma sintaxe concisa.&lt;/p&gt;
+&lt;p&gt;O &lt;code&gt;stringr&lt;/code&gt; utiliza regex da forma descrita &lt;a href=&#34;http://www.gagolewski.com/software/stringi/manual/?manpage=stringi-search-regex&#34;&gt;neste documento&lt;/a&gt;. A própria &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html&#34;&gt;definição&lt;/a&gt; de regex do R é um ótimo manual.&lt;/p&gt;
+&lt;div id=&#34;expressoes-regulares-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Expressões regulares&lt;/h2&gt;
+&lt;p&gt;Expressão regular ou &lt;em&gt;regex&lt;/em&gt; é uma sequência concisa de caracteres que representa várias strings. Entender o básico de expressões regulares é indispensável para trabalhar com textos.&lt;/p&gt;
+&lt;p&gt;Vamos estudar expressões regulares através de exemplos e com a função &lt;code&gt;str_detect()&lt;/code&gt;. Essa função retorna &lt;code&gt;TRUE&lt;/code&gt; se uma string atende à uma expressão regular e &lt;code&gt;FALSE&lt;/code&gt; em caso contrário.&lt;/p&gt;
+&lt;p&gt;Por exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stringr)
+str_detect(&amp;quot;sao paulo&amp;quot;, pattern = &amp;quot;paulo$&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_detect(&amp;quot;sao paulo sp&amp;quot;, pattern = &amp;quot;paulo$&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A regex/pattern “paulo&lt;span class=&#34;math inline&#34;&gt;\(&amp;quot; indica que o texto deve ser terminado em &amp;quot;paulo&amp;quot;. Existem diversos de caracteres auxiliares que vão auxiliar na manipulação dos textos, assim como o &amp;quot;\)&lt;/span&gt;” neste caso. É importante notar que sempre que você estiver passando algum valor para o argumento &lt;code&gt;pattern&lt;/code&gt; de qualquer função do &lt;code&gt;stringr&lt;/code&gt; ele o entenderá como uma regex.&lt;/p&gt;
+&lt;p&gt;A tabela abaixo mostra a aplicação de seis &lt;code&gt;regex&lt;/code&gt; a seis strings distintas.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;testes &amp;lt;- c(&amp;#39;ban&amp;#39;, &amp;#39;banana&amp;#39;, &amp;#39;abandonado&amp;#39;, &amp;#39;pranab anderson&amp;#39;, &amp;#39;BANANA&amp;#39;, 
+            &amp;#39;ele levou ban&amp;#39;)
+
+expressoes &amp;lt;- list(
+  &amp;#39;ban&amp;#39;, # reconhece tudo que tenha &amp;quot;ban&amp;quot;, mas não ignora case
+  &amp;#39;BAN&amp;#39;, # reconhece tudo que tenha &amp;quot;BAN&amp;quot;, mas não ignora case
+  regex(&amp;#39;ban&amp;#39;, ignore_case = TRUE), # reconhece tudo que tenha &amp;quot;ban&amp;quot;, ignorando case
+  &amp;#39;ban$&amp;#39;, # reconhece apenas o que termina exatamente em &amp;quot;ban&amp;quot;
+  &amp;#39;^ban&amp;#39;, # reconhece apenas o que começa exatamente com &amp;quot;ban&amp;quot;
+  &amp;#39;b ?an&amp;#39; # reconhece tudo que tenha &amp;quot;ban&amp;quot;, com ou sem espaço entre o &amp;quot;b&amp;quot; e o &amp;quot;a&amp;quot;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;quantificadores-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Quantificadores&lt;/h2&gt;
+&lt;p&gt;Os caracteres &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt; e &lt;code&gt;{x,y}&lt;/code&gt; indicam quantas vezes um padrão se repete:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ey+&lt;/code&gt; significa &lt;code&gt;e&lt;/code&gt; e depois &lt;code&gt;y&lt;/code&gt; “&lt;strong&gt;uma vez&lt;/strong&gt; ou mais”. Por exemplo, reconhece &lt;code&gt;hey&lt;/code&gt;, &lt;code&gt;heyy&lt;/code&gt;, &lt;code&gt;a eyyy&lt;/code&gt;, mas não reconhece &lt;code&gt;e&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; nem &lt;code&gt;yy&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ey*&lt;/code&gt; significa “&lt;strong&gt;zero vezes&lt;/strong&gt; ou mais”. Por exemplo, reconhece &lt;code&gt;hey&lt;/code&gt;, &lt;code&gt;heyy&lt;/code&gt;, &lt;code&gt;a eyyy&lt;/code&gt; e &lt;code&gt;e&lt;/code&gt;, mas não reconhece &lt;code&gt;y&lt;/code&gt; nem &lt;code&gt;yy&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ey{3}&lt;/code&gt; significa “exatamente três vezes”. Por exemplo, reconhece &lt;code&gt;eyyy&lt;/code&gt; e &lt;code&gt;eyyyy&lt;/code&gt;, mas não reconhece &lt;code&gt;eyy&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ey{1,3}&lt;/code&gt; significa “entre uma e três vezes”.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Para aplicar um quantificador a um conjunto de caracteres, use parênteses. Por exemplo, &lt;code&gt;(ey )+&lt;/code&gt; reconhece &lt;code&gt;ey ey&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;conjuntos-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Conjuntos&lt;/h2&gt;
+&lt;p&gt;Colocando caracteres dentro de &lt;code&gt;[]&lt;/code&gt;, reconhecemos quaisquer caracteres desse conjunto. Alguns exemplos práticos:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[Cc]asa&lt;/code&gt; para reconhecer “casa” em maiúsculo ou minúsculo.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[0-9]&lt;/code&gt; para reconhecer somente números. O mesmo vale para letras &lt;code&gt;[a-z]&lt;/code&gt;, &lt;code&gt;[A-Z]&lt;/code&gt;, &lt;code&gt;[a-zA-Z]&lt;/code&gt; etc.&lt;/li&gt;
+&lt;li&gt;O símbolo &lt;code&gt;^&lt;/code&gt; dentro do colchete significa negação. Por exemplo, &lt;code&gt;[^0-9]&lt;/code&gt; significa pegar tudo o que não é número.&lt;/li&gt;
+&lt;li&gt;O símbolo &lt;code&gt;.&lt;/code&gt; fora do colchete indica “qualquer caractere”, mas dentro do colchete é apenas ponto.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;[[:space:]]+&lt;/code&gt; para reconhecer espaços e &lt;code&gt;[[:punct:]]+&lt;/code&gt; para reconhecer pontuações.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;miscelanea-1&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Miscelânea&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Use &lt;code&gt;abjutils::rm_accent()&lt;/code&gt; para retirar os acentos de um texto.&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;|&lt;/code&gt; para opções, por exemplo &lt;code&gt;desfavor|desprov&lt;/code&gt; reconhece tanto “desfavorável” quanto “desprovido”&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\n&lt;/code&gt; pula linha, &lt;code&gt;\f&lt;/code&gt; é final da página, &lt;code&gt;\t&lt;/code&gt; é tab. Use &lt;code&gt;\&lt;/code&gt; para transformar caracteres especiais em literais.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tolower()&lt;/code&gt; e &lt;code&gt;toupper()&lt;/code&gt; para mudar o case de uma string.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A lista de possibilidades com expressões regulares é extensa. Um bom lugar para testar o funcionamento de expressões regulares é o &lt;a href=&#34;https://regex101.com/&#34;&gt;regex101&lt;/a&gt;. #stringr: Avançado&lt;/p&gt;
+&lt;p&gt;Agora que já vimos as funções básicas do &lt;code&gt;stringr&lt;/code&gt;, e aprendemos um pouco de regex, vamos às funções mais avançadas. Basicmante, essas funções buscarão &lt;code&gt;patterns&lt;/code&gt; em um vetor de strings e farão alguma coisa quando encontrá-lo.&lt;/p&gt;
+&lt;p&gt;Como já vimos na sessão sobre regex, a função mais simples que possui o argumento &lt;code&gt;pattern&lt;/code&gt; é a &lt;code&gt;str_detect&lt;/code&gt;.&lt;/p&gt;
+&lt;div id=&#34;str_detect-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_detect()`&lt;/h3&gt;
+&lt;p&gt;Retorna &lt;code&gt;TRUE&lt;/code&gt; se a regex é compatível com a string e &lt;code&gt;FALSE&lt;/code&gt; caso contrário.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stringr)
+str_detect(&amp;quot;sao paulo&amp;quot;, pattern = &amp;quot;paulo$&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_detect(&amp;quot;sao paulo sp&amp;quot;, pattern = &amp;quot;paulo$&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] FALSE&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_replace-e-str_replace_all-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_replace() e str_replace_all()&lt;/h3&gt;
+&lt;p&gt;Substituem um padrão (ou todos) encontrado para um outro padrão&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frutas &amp;lt;- c(&amp;quot;uma maçã&amp;quot;, &amp;quot;duas pêras&amp;quot;, &amp;quot;três bananas&amp;quot;)
+str_replace(frutas, &amp;quot;[aeiou]&amp;quot;, &amp;quot;-&amp;quot;) # substitui a primeira vogal de cada string por &amp;quot;-&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;-ma maçã&amp;quot;     &amp;quot;d-as pêras&amp;quot;   &amp;quot;três b-nanas&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(frutas, &amp;quot;[aeiou]&amp;quot;, &amp;quot;-&amp;quot;) # substitui todas as vogais por &amp;quot;-&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;-m- m-çã&amp;quot;     &amp;quot;d--s pêr-s&amp;quot;   &amp;quot;três b-n-n-s&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;yyyy &amp;lt;- &amp;quot;yyyyy yyyyy ll zz&amp;quot;
+str_replace(yyyy, &amp;#39;y+&amp;#39;, &amp;#39;x&amp;#39;) # substitui o primeiro 1 ou mais y&amp;#39;s por x&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;x yyyyy ll zz&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(yyyy, &amp;#39;y+&amp;#39;, &amp;#39;x&amp;#39;) # substitui todos os 1 ou mais y por somente 1 x&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;x x ll zz&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(yyyy, &amp;#39;y&amp;#39;, &amp;#39;x&amp;#39;) # substitui y por x&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;xxxxx xxxxx ll zz&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(&amp;#39;string     com    muitos espaços&amp;#39;, &amp;#39; +&amp;#39;, &amp;#39; &amp;#39;) # tirar espaços extras&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;string com muitos espaços&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Muitas vezes queremos remover alguns caracteres especiais de um texto, mas esses caracteres fazem parte de comandos de regex, por exemplo:&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;string &amp;lt;- &amp;quot;1 + 2 + 5&amp;quot;
+#str_replace_all(string, &amp;quot;+&amp;quot;, &amp;quot;-&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Essa forma retorna um erro, pois a função tenta montar uma regex. Você poderia tentar de outras formas, que não retornariam erro, mas também não retornariam o resultado esperado.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(string, &amp;quot; + &amp;quot;, &amp;quot; - &amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1 + 2 + 5&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nesse caso, use a função &lt;code&gt;fixed&lt;/code&gt; para indicar para o &lt;code&gt;stringr&lt;/code&gt; que você não deseja que o parâmetro seja reconhecido como uma regex.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_replace_all(string, fixed(&amp;quot;+&amp;quot;), &amp;quot;-&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;1 - 2 - 5&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_match-e-str_match_all-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_match() e str_match_all()&lt;/h3&gt;
+&lt;p&gt;Extrai pedaços da string identificados pela regex. Caso queira extrair somente a parte identificada, use parênteses.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frases &amp;lt;- c(&amp;#39;a roupa do rei&amp;#39;, &amp;#39;de roma&amp;#39;, &amp;#39;o rato roeu&amp;#39;)
+str_match(frases, &amp;#39;roe&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1] 
+## [1,] NA   
+## [2,] NA   
+## [3,] &amp;quot;roe&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_match_all(frases, &amp;#39;ro&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+##      [,1]
+## [1,] &amp;quot;ro&amp;quot;
+## 
+## [[2]]
+##      [,1]
+## [1,] &amp;quot;ro&amp;quot;
+## 
+## [[3]]
+##      [,1]
+## [1,] &amp;quot;ro&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_match(frases, &amp;#39;o (ro)&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]   [,2]
+## [1,] NA     NA  
+## [2,] NA     NA  
+## [3,] &amp;quot;o ro&amp;quot; &amp;quot;ro&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_split-e-str_split_fixed-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_split() e str_split_fixed()&lt;/h3&gt;
+&lt;p&gt;Separa uma string em várias de acordo com um separador.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;string &amp;lt;- &amp;#39;eu sei, usar virgulas, de forma, perfeita&amp;#39;
+
+str_split(string, &amp;#39;, &amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [[1]]
+## [1] &amp;quot;eu sei&amp;quot;        &amp;quot;usar virgulas&amp;quot; &amp;quot;de forma&amp;quot;      &amp;quot;perfeita&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_split(string, &amp;#39;, &amp;#39;, simplify = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]     [,2]            [,3]       [,4]      
+## [1,] &amp;quot;eu sei&amp;quot; &amp;quot;usar virgulas&amp;quot; &amp;quot;de forma&amp;quot; &amp;quot;perfeita&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Faz o mesmo que &lt;code&gt;str_split()&lt;/code&gt;, mas separa apenas &lt;code&gt;n&lt;/code&gt; vezes&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_split_fixed(string, &amp;#39;, &amp;#39;, 3)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]     [,2]            [,3]                
+## [1,] &amp;quot;eu sei&amp;quot; &amp;quot;usar virgulas&amp;quot; &amp;quot;de forma, perfeita&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;str_split_fixed(string, &amp;#39;, &amp;#39;, 4) # igual a str_split(string, simplify = TRUE)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##      [,1]     [,2]            [,3]       [,4]      
+## [1,] &amp;quot;eu sei&amp;quot; &amp;quot;usar virgulas&amp;quot; &amp;quot;de forma&amp;quot; &amp;quot;perfeita&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;str_subset-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;str_subset()&lt;/h3&gt;
+&lt;p&gt;Retorna somente as strings compatíveis com a regex.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frases &amp;lt;- c(&amp;#39;a roupa do rei&amp;#39;, &amp;#39;de roma&amp;#39;, &amp;#39;o rato roeu&amp;#39;)
+str_subset(frases, &amp;#39;d[eo]&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;a roupa do rei&amp;quot; &amp;quot;de roma&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;É o mesmo que fazer o subset do R e a função &lt;code&gt;str_detect&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;frases[str_detect(frases, &amp;quot;d[eo]&amp;quot;)]&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## [1] &amp;quot;a roupa do rei&amp;quot; &amp;quot;de roma&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;untitled-1&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Untitled&lt;/h1&gt;
+&lt;div id=&#34;exercicios-1&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Exercícios&lt;/h3&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Considere o seguinte texto&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;txt &amp;lt;- &amp;quot;A função mais importante para leitura de dados no `lubridate` é a `ymd`. Essa função serve para ler qualquer data de uma `string` no formato `YYYY-MM-DD`. Essa função é útil pois funciona com qualquer separador entre os elementos da data e também porque temos uma função para cada formato (`mdy`, `dmy`, `dym`, `myd`, `ydm`).&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Extraia todas as combinações da função &lt;code&gt;ymd&lt;/code&gt;, sem repetições.&lt;/p&gt;
+&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;Considere os textos abaixo&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;txts &amp;lt;- c(
+  &amp;#39;o produto é muito bom&amp;#39;,
+  &amp;#39;o produto não é bom&amp;#39;,
+  &amp;#39;o produto não é muito bom&amp;#39;,
+  &amp;#39;o produto não é ruim&amp;#39;,
+  &amp;#39;o produto não é não bom&amp;#39;
+)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Crie uma regra para identificar se o texto refere-se a um feedback positivo ou negativo sobre o produto (considera não bom = ruim e vice-versa). Retorne um vetor lógico que vale &lt;code&gt;TRUE&lt;/code&gt; se o feedback é positivo e &lt;code&gt;FALSE&lt;/code&gt; caso contrário.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;!-- BLOGDOWN-HEAD
+
+&lt;script src=&#34;index_files/htmlwidgets-0.8/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;index_files/jquery-1.12.4/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;index_files/datatables-binding-0.2/datatables.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;index_files/dt-core-1.10.12/css/jquery.dataTables.min.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;link href=&#34;index_files/dt-core-1.10.12/css/jquery.dataTables.extra.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;index_files/dt-core-1.10.12/js/jquery.dataTables.min.js&#34;&gt;&lt;/script&gt;
+
+
+
+/BLOGDOWN-HEAD --&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
