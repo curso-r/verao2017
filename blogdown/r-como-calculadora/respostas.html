@@ -1,0 +1,150 @@
+---
+title: "Respostas: R como calculadora"
+author: "Athos Damiani, Daniel Falbel"
+date: 2016-11-08
+---
+
+
+<!-- BLOGDOWN-BODY-BEFORE
+
+/BLOGDOWN-BODY-BEFORE -->
+
+<ol style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>(1 + sqrt(5))/2
+## [1] 1.618034</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>1/0
+## [1] Inf
+-1/0
+## [1] -Inf</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code># NaN é o resultado de uma operação matemática inválida. Significa Not A Number
+0/0
+## [1] NaN
+# NULL é o vazio do R. É como se o objeto não existisse
+NULL
+## NULL
+a = NULL
+is.null(integer(length = 0)) # veja que um vetor, mesmo sem elementos não é NULL
+## [1] FALSE
+# NA é uma constante lógica do R. Siginifica Not Availlable. NA pode ser 
+# convertido para quase todos os tipos de vetores do R. É usado principalmente para
+# indicar valores faltantes.
+NA
+## [1] NA
+# Inf é significa infinito. É o resultado de operações matemáticas cujo limite é infinito.
+1/0
+## [1] Inf
+1/Inf
+## [1] 0</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>5 + (3 * 10) %/% 3 == 15
+## [1] TRUE</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>&gt; x &lt;- 4
+&gt; if(x = 4) {
+Erro: &#39;=&#39; inesperado in &quot;if(x =&quot;
+&gt;   &#39;isso aqui apareceu&#39;
+[1] &quot;isso aqui apareceu&quot;
+&gt; }
+Erro: &#39;}&#39; inesperado in &quot;}&quot;
+&gt; x
+[1] 4</code></pre>
+<ol start="7" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>x &lt;- 4
+if(x == 4) {
+  &#39;isso aqui apareceu&#39;
+}
+## [1] &quot;isso aqui apareceu&quot;
+x
+## [1] 4</code></pre>
+<ol start="8" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>for (i in 1:4){
+  if(i %% 2 == 0){
+    print(paste(i, &quot;elefante(s)&quot;, paste(rep(&quot;incomoda(m)&quot;, times = i), collapse = &quot; &quot;), &quot;muito mais&quot;))
+  } else {
+   print(paste(i, &quot;elefante(s) incomoda(m) muita gente&quot;)) 
+  }
+}
+## [1] &quot;1 elefante(s) incomoda(m) muita gente&quot;
+## [1] &quot;2 elefante(s) incomoda(m) incomoda(m) muito mais&quot;
+## [1] &quot;3 elefante(s) incomoda(m) muita gente&quot;
+## [1] &quot;4 elefante(s) incomoda(m) incomoda(m) incomoda(m) incomoda(m) muito mais&quot;</code></pre>
+<ol start="9" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>x &lt;- c(1, 20, 40, 50, 60)</code></pre>
+<ol start="10" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>x &lt;- runif(100)</code></pre>
+<ol start="11" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>mean(x)
+## [1] 0.473108</code></pre>
+<ol start="12" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>x &lt;- c(runif(99), NA)
+mean(x, na.rm = T)
+## [1] 0.5324128</code></pre>
+<ol start="13" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>media &lt;- function(x){
+  i &lt;- 1
+  tamanho &lt;- length(x)
+  soma &lt;- 0
+  for(i in 1:tamanho){
+    soma &lt;- soma + x[i]
+  }
+  return(soma/tamanho)
+}</code></pre>
+<ol start="14" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>dado &lt;- function(){
+  sample(1:6, 1)
+}</code></pre>
+<ol start="15" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>soma_dados &lt;- function(n){
+  soma &lt;- 0
+  for(i in 1:n){
+    soma &lt;- soma + sample(1:6, 1)
+  }
+  return(soma)
+}</code></pre>
+<ol start="16" style="list-style-type: decimal">
+<li></li>
+</ol>
+<pre class="r"><code>resultados &lt;- integer(length = 1000)
+for(i in 1:1000){
+  resultados[i] &lt;- soma_dados(3)
+}
+hist(resultados)</code></pre>
+<p><img src="#####../content/r-como-calculadora/respostas_files/figure-html/resp16-1.png" width="672" /></p>
+
+
+<!-- BLOGDOWN-HEAD
+
+
+
+
+/BLOGDOWN-HEAD -->
