@@ -21,7 +21,7 @@
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;title-r-como-calculadora&#34;&gt;title: R como calculadora&lt;/h2&gt;
+&lt;h2 id=&#34;title-introdução&#34;&gt;title: Introdução&lt;/h2&gt;
 
 &lt;p&gt;A linguagem &lt;code&gt;R&lt;/code&gt; é um tanto quanto intuitiva, muita coisa sai do jeito certo no
 chute! Para ver um exemplo disso, é interessante começar fazendo do R uma grande calculadora. Tente jogar no console &lt;code&gt;2*2 - (4 + 4)/2&lt;/code&gt;. Pronto. Com essa simples
@@ -244,7 +244,7 @@ final).&lt;/p&gt;
 ## function(x){
 ##   x/2
 ## }
-## &amp;lt;environment: 0x325b380&amp;gt;
+## &amp;lt;environment: 0x276eb20&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;controles-de-fluxo&#34;&gt;Controles de Fluxo&lt;/h2&gt;
