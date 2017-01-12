@@ -25,4 +25,5 @@ Imports:
 RoxygenNote: 5.0.1
 PowerUps:
     curso-r/pu.train2,
+    curso-r/pu.ggplot,
     azeloc/pu.test
