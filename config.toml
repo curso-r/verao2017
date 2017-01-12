@@ -58,18 +58,8 @@ googleAnalytics = "UA-87272102-1"
   
 [[menu.main]]
   name   = "Visualização"
-  url    = "visualizacao/"
+  url    = "ggplot/"
   weight = 20
-
-[[menu.main]]
-  name   = "Aula 02"
-  url    = "02-arrumacao/"
-  weight = 30
-
-[[menu.main]]
-  name   = "Teste"
-  url    = "teste/"
-  weight = 40
 
 [blackfriday]
   smartypants  = true
