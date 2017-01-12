@@ -53,7 +53,7 @@ googleAnalytics = "UA-87272102-1"
 
 [[menu.main]]
   name   = "R como calculadora"
-  url    = "r-como-calculadora/"
+  url    = "rbase/"
   weight = 10
   
 [[menu.main]]
