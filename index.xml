@@ -7,73 +7,8 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Tue, 27 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Nov 2016 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    <item>
-      <title>Exercícios: R como calculadora</title>
-      <link>/r-como-calculadora/exercicios/</link>
-      <pubDate>Tue, 27 Dec 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/r-como-calculadora/exercicios/</guid>
-      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
-
-/BLOGDOWN-BODY-BEFORE --&gt;
-
-&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \frac{1 + \sqrt{5}}{2} \]&lt;/span&gt;&lt;/p&gt;
-&lt;div data-datacamp-exercise=&#34;&#34; data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby5cbiIsInNvbHV0aW9uIjoiIyBEaWdpdGUgYSBleHByZXNzXHUwMGUzbyBxdWUgY2FsY3VsYSBvIG5cdTAwZmFtZXJvIGRlIG91cm8uXG4oMSArIHNxcnQoNSkpLzIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIjEuNjE4MDM0XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxuc3VjY2Vzc19tc2coXCJDb3JyZXRvIVwiKSJ9
-&lt;/div&gt;
-&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;O que dá divisão de 1 por 0 no R? E -1 por 0?&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div data-datacamp-exercise=&#34;&#34; data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLzBcbi0xLzAiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIkluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiLUluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==
-&lt;/div&gt;
-&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Quais as diferenças entre &lt;code&gt;NaN&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;Inf&lt;/code&gt;? Digite expressões que retornam cada um desses resultados.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div data-datacamp-exercise=&#34;&#34; data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE5hTlxuXG4jIE5VTExcblxuIyBOQVxuXG4jIEluZlxuIiwic29sdXRpb24iOiIjIE5hTiBcdTAwZTkgbyByZXN1bHRhZG8gZGUgdW1hIG9wZXJhXHUwMGU3XHUwMGUzbyBtYXRlbVx1MDBlMXRpY2EgaW52XHUwMGUxbGlkYS4gU2lnbmlmaWNhIE5vdCBBIE51bWJlclxuMC8wXG4jIE5VTEwgXHUwMGU5IG8gdmF6aW8gZG8gUi4gXHUwMGM5IGNvbW8gc2UgbyBvYmpldG8gblx1MDBlM28gZXhpc3Rpc3NlXG5OVUxMXG5hID0gTlVMTFxuaXMubnVsbChpbnRlZ2VyKGxlbmd0aCA9IDApKSAjIHZlamEgcXVlIHVtIHZldG9yLCBtZXNtbyBzZW0gZWxlbWVudG9zIG5cdTAwZTNvIFx1MDBlOSBOVUxMXG4jIE5BIFx1MDBlOSB1bWEgY29uc3RhbnRlIGxcdTAwZjNnaWNhIGRvIFIuIFNpZ2luaWZpY2EgTm90IEF2YWlsbGFibGUuIE5BIHBvZGUgc2VyIFxuIyBjb252ZXJ0aWRvIHBhcmEgcXVhc2UgdG9kb3Mgb3MgdGlwb3MgZGUgdmV0b3JlcyBkbyBSLiBcdTAwYzkgdXNhZG8gcHJpbmNpcGFsbWVudGUgcGFyYVxuIyBpbmRpY2FyIHZhbG9yZXMgZmFsdGFudGVzLlxuTkFcbiMgSW5mIFx1MDBlOSBzaWduaWZpY2EgaW5maW5pdG8uIFx1MDBjOSBvIHJlc3VsdGFkbyBkZSBvcGVyYVx1MDBlN1x1MDBmNWVzIG1hdGVtXHUwMGUxdGljYXMgY3VqbyBsaW1pdGUgXHUwMGU5IGluZmluaXRvLlxuMS8wXG4xL0luZiJ9
-&lt;/div&gt;
-&lt;ol start=&#34;4&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;p&gt;Tente mentalmente calcular o que dá a conta &lt;code&gt;5 + 3 * 10 %/% 3 == 15&lt;/code&gt; no R, sem rodar.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Adicionando apenas parênteses, faça a expressão acima retornar o resultado contrário.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div data-datacamp-exercise=&#34;&#34; data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI1ICsgMyAqIDEwICUvJSAzID09IDE1Iiwic29sdXRpb24iOiI1ICsgKDMgKiAxMCkgJS8lIDMgPT0gMTUiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIlRSVUVcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=
-&lt;/div&gt;
-&lt;ol start=&#34;6&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;O que acontece se você rodar:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 4
-if(x = 4) {
-  &amp;#39;isso aqui apareceu&amp;#39;
-}
-x&lt;/code&gt;&lt;/pre&gt;
-&lt;div data-datacamp-exercise=&#34;&#34; data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54In0=
-&lt;/div&gt;
-&lt;ol start=&#34;7&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;Como você faria para que o código da pergunta anterior fizesse com que &lt;code&gt;&#39;isso aqui apareceu&#39;&lt;/code&gt; fosse impresso no console mas nenhum erro aparecesse?&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div data-datacamp-exercise=&#34;&#34; data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;
-eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54Iiwic29sdXRpb24iOiJ4IDwtIDRcbmlmKHggPT0gNCkge1xuICAnaXNzbyBhcXVpIGFwYXJlY2V1J1xufVxueCIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiaXNzbyBhcXVpIGFwYXJlY2V1XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxudGVzdF9lcnJvcigpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=
-&lt;/div&gt;
-
-
-&lt;!-- BLOGDOWN-HEAD
-
-
-
-
-/BLOGDOWN-HEAD --&gt;
-</description>
-    </item>
     
     <item>
       <title>Curso-R</title>
@@ -131,176 +66,310 @@ eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkg
     </item>
     
     <item>
-      <title>R como calculadora</title>
-      <link>/r-como-calculadora/</link>
-      <pubDate>Tue, 08 Nov 2016 00:00:00 +0000</pubDate>
+      <title></title>
+      <link>/rbase/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/r-como-calculadora/</guid>
-      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+      <guid>/rbase/</guid>
+      <description>
 
-/BLOGDOWN-BODY-BEFORE --&gt;
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
 
-&lt;p&gt;A linguagem &lt;code&gt;R&lt;/code&gt; é um tanto quanto intuitiva, muita coisa sai do jeito certo no chute! Para ver um exemplo disso, é interessante começar fazendo do R uma grande calculadora. Tente jogar no console &lt;code&gt;2*2 - (4 + 4)/2&lt;/code&gt;. Pronto. Com essa simples expressão você já é capaz de imaginar (e certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!&lt;/p&gt;
-&lt;p&gt;Além do mais, as operações e suas precedências são mantidas como na matemática, ou seja, divisão e multiplicação são calculadas antes da adição e subtração. E os parênteses nunca são demais!&lt;/p&gt;
-&lt;div id=&#34;rstudio&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;RStudio&lt;/h2&gt;
-&lt;p&gt;Talvez você tenha imaginado qual seria o resultado da operação, mas ainda não tenha conseguido calcular usando o R, porque você não sabe onde digitar aquilo, por isso vamos apresentar o RStudio.&lt;/p&gt;
-&lt;p&gt;O RStudio é um (o melhor) IDE (&lt;em&gt;integrated development environment&lt;/em&gt;) para o R. E você pode fazer o download &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download3/&#34;&gt;aqui&lt;/a&gt;. Estamos assumindo que você já instalou o próprio R. Se não instalou, &lt;a href=&#34;https://cloud.r-project.org/&#34;&gt;clique aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;title-r-como-calculadora&#34;&gt;title: R como calculadora&lt;/h2&gt;
+
+&lt;p&gt;A linguagem &lt;code&gt;R&lt;/code&gt; é um tanto quanto intuitiva, muita coisa sai do jeito certo no
+chute! Para ver um exemplo disso, é interessante começar fazendo do R uma grande calculadora. Tente jogar no console &lt;code&gt;2*2 - (4 + 4)/2&lt;/code&gt;. Pronto. Com essa simples
+expressão você já é capaz de imaginar (e certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!&lt;/p&gt;
+
+&lt;p&gt;Além do mais, as operações e suas precedências são mantidas como na matemática,
+ou seja, divisão e multiplicação são calculadas antes da adição e subtração.
+E os parênteses nunca são demais!&lt;/p&gt;
+
+&lt;h2 id=&#34;rstudio&#34;&gt;RStudio&lt;/h2&gt;
+
+&lt;p&gt;Talvez você tenha imaginado qual seria o resultado da operação, mas ainda não
+tenha conseguido calcular usando o R, porque você não sabe onde digitar aquilo,
+por isso vamos apresentar o RStudio.&lt;/p&gt;
+
+&lt;p&gt;O RStudio é um (o melhor) IDE (&lt;em&gt;integrated development environment&lt;/em&gt;) para o R.
+E você pode fazer o download &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download3/&#34;&gt;aqui&lt;/a&gt;.
+Estamos assumindo que você já instalou o próprio R. Se não instalou, &lt;a href=&#34;https://cloud.r-project.org/&#34;&gt;clique aqui&lt;/a&gt;.&lt;/p&gt;
+
 &lt;p&gt;Assim que abrir o RStudio você verá a seguinte tela.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;figures/rstudio-editor.png&#34; alt=&#34;&#34; /&gt;
 
-&lt;/div&gt;
-&lt;p&gt;Nela estão dispostos &lt;strong&gt;editor&lt;/strong&gt;, &lt;strong&gt;console&lt;/strong&gt;, &lt;strong&gt;environment&lt;/strong&gt; e &lt;strong&gt;output&lt;/strong&gt;. Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que preferir. Preste atenção a todos esses campos durante este tutorial.&lt;/p&gt;
-&lt;p&gt;Agora que você já conhece o RStudio, digite a expressão &lt;code&gt;2*2 - (4 + 4)/2&lt;/code&gt; no &lt;strong&gt;console&lt;/strong&gt; e tecle &lt;code&gt;Enter&lt;/code&gt;. Uma outra forma de chamar uma expressão é escrever o código no &lt;strong&gt;editor&lt;/strong&gt; e teclar &lt;code&gt;Ctrl + Enter&lt;/code&gt;. Assim o comando é enviado para o &lt;strong&gt;console&lt;/strong&gt; onde é diretamente executado.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;usando-o-console&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Usando o console&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&#34;figures/rstudio-editor.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nela estão dispostos &lt;strong&gt;editor&lt;/strong&gt;, &lt;strong&gt;console&lt;/strong&gt;, &lt;strong&gt;environment&lt;/strong&gt; e &lt;strong&gt;output&lt;/strong&gt;.
+Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que
+preferir. Preste atenção a todos esses campos durante este tutorial.&lt;/p&gt;
+
+&lt;p&gt;Agora que você já conhece o RStudio, digite a expressão &lt;code&gt;2*2 - (4 + 4)/2&lt;/code&gt; no
+&lt;strong&gt;console&lt;/strong&gt; e tecle &lt;code&gt;Enter&lt;/code&gt;. Uma outra forma de chamar uma expressão é escrever
+o código no &lt;strong&gt;editor&lt;/strong&gt; e teclar &lt;code&gt;Ctrl + Enter&lt;/code&gt;. Assim o comando é enviado para
+o &lt;strong&gt;console&lt;/strong&gt; onde é diretamente executado.&lt;/p&gt;
+
+&lt;h2 id=&#34;usando-o-console&#34;&gt;Usando o console&lt;/h2&gt;
+
 &lt;p&gt;Pelo console é possível executar qualquer comando do R.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;1:30
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;1:30
 ##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
-## [24] 24 25 26 27 28 29 30&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30. Você pode ignorar esses números que aparecem entre parênteses, na verdade eles só indicam o índice do primeiro elemento impresso nessa linha.&lt;/p&gt;
-&lt;div class=&#34;admonition note&#34;&gt;
-&lt;p class=&#34;admonition-title&#34;&gt;
+## [24] 24 25 26 27 28 29 30
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30.
+Você pode ignorar esses números que aparecem entre parênteses, na verdade eles
+só indicam o índice do primeiro elemento impresso nessa linha.&lt;/p&gt;
+
+&lt;div class=&#39;admonition note&#39;&gt;
+&lt;p class=&#39;admonition-title&#39;&gt;
 Quando compilamos?
 &lt;/p&gt;
 &lt;p&gt;
 Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa.
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Se você digitar um comando incompleto, como &lt;code&gt;5 +&lt;/code&gt; e apertar &lt;code&gt;Enter&lt;/code&gt;, o R irá mostrar um &lt;code&gt;+&lt;/code&gt;, o que não tem nada a ver com somar alguma coisa, e sim significa que o R está esperando que você complete o seu comando. Termine o seu comando ou aperte &lt;code&gt;Esc&lt;/code&gt; para recomeçar.&lt;/p&gt;
+
+&lt;p&gt;Se você digitar um comando incompleto, como &lt;code&gt;5 +&lt;/code&gt; e apertar &lt;code&gt;Enter&lt;/code&gt;, o R irá mostrar
+um &lt;code&gt;+&lt;/code&gt;, o que não tem nada a ver com somar alguma coisa, e sim significa que o
+R está esperando que você complete o seu comando. Termine o seu comando ou aperte
+&lt;code&gt;Esc&lt;/code&gt; para recomeçar.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;&amp;gt; 5 -
 + 
 + 5
-[1] 0&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Se você digitar um comando que o R não reconhecer, ele irá retornar uma mensagem de erro. Não entre em pânico. Ele só está avisando que não conseguiu interpretar o comando. Depois você já pode digitar mais um comando.&lt;/p&gt;
+[1] 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Se você digitar um comando que o R não reconhecer, ele irá retornar uma mensagem
+de erro. Não entre em pânico. Ele só está avisando que não conseguiu interpretar
+o comando. Depois você já pode digitar mais um comando.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;&amp;gt; 5 % 5
 Error: unexpected input in &amp;quot;5 % 5&amp;quot;
 &amp;gt; 5 - 5
-[1] 0&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;objetos&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Objetos&lt;/h2&gt;
-&lt;p&gt;O R permite que você salve dados guardando estes dentro de um objeto. Um objeto nada mais é do que um nome, que pode ser utilizado para chamar dados armazenados. Por exemplo, você pode salvar dados em &lt;code&gt;a&lt;/code&gt;. Sempre que o R encontrar o nome &lt;code&gt;a&lt;/code&gt; ele o substituirá pelos dados armazenados em &lt;code&gt;a&lt;/code&gt;. Por exemplo:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- 1
+[1] 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;objetos&#34;&gt;Objetos&lt;/h2&gt;
+
+&lt;p&gt;O R permite que você salve dados guardando estes dentro de um objeto. Um objeto
+nada mais é do que um nome, que pode ser utilizado para chamar dados armazenados.
+Por exemplo, você pode salvar dados em &lt;code&gt;a&lt;/code&gt;. Sempre que o R encontrar o nome &lt;code&gt;a&lt;/code&gt;
+ele o substituirá pelos dados armazenados em &lt;code&gt;a&lt;/code&gt;. Por exemplo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;a &amp;lt;- 1
 a + 1
-## [1] 2&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;No Rstudio, quando um objeto é criado, ele começa a aparecer no painel &lt;strong&gt;environment&lt;/strong&gt;. Essa é uma ótima forma de acompanhar todos os objetos que estão disponíveis no seu &lt;em&gt;environment&lt;/em&gt;. Outro ponto que é importante lembrar aqui é que o R entende letras maiúsculas e minúsculas, isto é &lt;code&gt;a&lt;/code&gt; é considerado um objeto diferente de &lt;code&gt;A&lt;/code&gt;.&lt;/p&gt;
+## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No Rstudio, quando um objeto é criado, ele começa a aparecer no painel &lt;strong&gt;environment&lt;/strong&gt;. Essa é uma ótima forma de acompanhar todos os objetos que estão
+disponíveis no seu &lt;em&gt;environment&lt;/em&gt;. Outro ponto que é importante lembrar aqui é que
+o R entende letras maiúsculas e minúsculas, isto é &lt;code&gt;a&lt;/code&gt; é considerado um objeto
+diferente de &lt;code&gt;A&lt;/code&gt;.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;&amp;gt; a
 [1] 1
 &amp;gt; A
-Error: object &amp;#39;A&amp;#39; not found&lt;/code&gt;&lt;/pre&gt;
-&lt;div class=&#34;admonition note&#34;&gt;
-&lt;p class=&#34;admonition-title&#34;&gt;
-&amp;lt;- ou = ?
+Error: object &#39;A&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;div class=&#39;admonition note&#39;&gt;
+&lt;p class=&#39;admonition-title&#39;&gt;
+&lt;- ou = ?
 &lt;/p&gt;
 &lt;p&gt;
-Essa pergunta é comum, e a resposta padrão é: melhor usar &amp;lt;-. No entanto, na maioria dos casos os dois são equivalentes. Portanto, use qual você achar melhor e seja consistente. Uma boa referência é este &lt;a href=&#34;http://pt.stackoverflow.com/a/160092/6036&#34;&gt;link&lt;/a&gt;
+Essa pergunta é comum, e a resposta padrão é: melhor usar &lt;-. No entanto, na maioria dos casos os dois são equivalentes. Portanto, use qual você achar melhor e seja consistente. Uma boa referência é este &lt;a href=&#34;http://pt.stackoverflow.com/a/160092/6036&#34;&gt;link&lt;/a&gt;
 &lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;O R substitui os valores de um objeto sem pedir permissão. Então, se você não deseja sobreescrever o valor de um objeto, não use o mesmo nome.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- 1
+
+&lt;p&gt;O R substitui os valores de um objeto sem pedir permissão. Então, se você não
+deseja sobreescrever o valor de um objeto, não use o mesmo nome.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;a &amp;lt;- 1
 a
 ## [1] 1
 a &amp;lt;- 2
 a
-## [1] 2&lt;/code&gt;&lt;/pre&gt;
+## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;Agora, vamos definir um novo objeto no R, chamado &lt;code&gt;vetor&lt;/code&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vetor &amp;lt;- 1:10&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor &amp;lt;- 1:10
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;De forma bastante intuitiva, você pode fazer operações com vetores.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vetor - 1
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor - 1
 ##  [1] 0 1 2 3 4 5 6 7 8 9
 vetor / 2
 ##  [1] 0.5 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5 5.0
 vetor * 10
-##  [1]  10  20  30  40  50  60  70  80  90 100&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Quando você faz &lt;code&gt;vetor - 1&lt;/code&gt;, o R subtrai &lt;code&gt;1&lt;/code&gt; de cada um dos elementos do vetor. O mesmo acontece quando você faz qualquer operação aritmética com vetores no R.&lt;/p&gt;
+##  [1]  10  20  30  40  50  60  70  80  90 100
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Quando você faz &lt;code&gt;vetor - 1&lt;/code&gt;, o R subtrai &lt;code&gt;1&lt;/code&gt; de cada um dos elementos do vetor.
+O mesmo acontece quando você faz qualquer operação aritmética com vetores no R.&lt;/p&gt;
+
 &lt;p&gt;Você também pode fazer operações que envolvem mais de um vetor. Exemplo:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vetor * vetor
-##  [1]   1   4   9  16  25  36  49  64  81 100&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Neste caso, o R irá alinhar os dois vetores e multiplicar elemento por elemento. Isso pode ficar um pouco confuso quando os dois vetores não possuem o mesmo tamanho:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vetor2 &amp;lt;- 1:2
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor * vetor
+##  [1]   1   4   9  16  25  36  49  64  81 100
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Neste caso, o R irá alinhar os dois vetores e multiplicar elemento por elemento.
+Isso pode ficar um pouco confuso quando os dois vetores não possuem o mesmo
+tamanho:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor2 &amp;lt;- 1:2
 vetor2
 ## [1] 1 2
 vetor * vetor2
-##  [1]  1  4  3  8  5 12  7 16  9 20&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Agora o R alinhou os dois vetores, e como eles não possuiam o mesmo tamanho, ele foi repetindo o menor vetor até completar o vetor maior. Isso retornaria um warning se o tamanho do maior não fosse múltiplo do tamanho do vetor menor.&lt;/p&gt;
+##  [1]  1  4  3  8  5 12  7 16  9 20
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Agora o R alinhou os dois vetores, e como eles não possuiam o mesmo tamanho, ele
+foi repetindo o menor vetor até completar o vetor maior. Isso retornaria um warning
+se o tamanho do maior não fosse múltiplo do tamanho do vetor menor.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;&amp;gt; vetor * vetor3
  [1]  1  4  9  4 10 18  7 16 27 10
 Warning message:
 In vetor * vetor3 :
-  longer object length is not a multiple of shorter object length&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Esse comportamento é chamado de &lt;strong&gt;reciclagem&lt;/strong&gt;. Isso é útil para fazer operações com os vetores elementos por elementos (vetorizadamente), mas as vezes pode ser confuso. Com o tempo você aprenderá a se aproveitar desse comportamento.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;funcoes&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Funções&lt;/h2&gt;
-&lt;p&gt;O R vem com muitas funções implementadas com as quais você pode fazer muitas tarefas complicadas, como gerar números aleatórios. Geralmente o nome das funções é bem intuitivo, por exemplo &lt;code&gt;mean&lt;/code&gt; é a função que calcula a média, &lt;code&gt;round&lt;/code&gt; é a função que arredonda um número, etc.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;pi
+  longer object length is not a multiple of shorter object length
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Esse comportamento é chamado de &lt;strong&gt;reciclagem&lt;/strong&gt;. Isso é útil para fazer operações
+com os vetores elementos por elementos (vetorizadamente), mas as vezes pode ser
+confuso. Com o tempo você aprenderá a se aproveitar desse comportamento.&lt;/p&gt;
+
+&lt;h2 id=&#34;funções&#34;&gt;Funções&lt;/h2&gt;
+
+&lt;p&gt;O R vem com muitas funções implementadas com as quais você pode fazer muitas
+tarefas complicadas, como gerar números aleatórios. Geralmente o nome das funções
+é bem intuitivo, por exemplo &lt;code&gt;mean&lt;/code&gt; é a função que calcula a média, &lt;code&gt;round&lt;/code&gt; é a
+função que arredonda um número, etc.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pi
 ## [1] 3.141593
 round(pi)
-## [1] 3&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Para entender melhor o funcionamento das funções no R considere o seguinte exemplo.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;die &amp;lt;- 1:6
-round(mean(die))
-## [1] 4&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;De forma natural, o R executa as funções uma a uma começando por dentro dos parênteses. Neste caso, ele primeiro substituirá &lt;code&gt;die&lt;/code&gt; pelo seu valor, em seguida irá calcular a média de &lt;code&gt;die&lt;/code&gt; usando a função &lt;code&gt;mean&lt;/code&gt;. Em seguida ele usa a função &lt;code&gt;round&lt;/code&gt; para arredondar a média de &lt;code&gt;die&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;A ilustração abaixo ajuda a entender o que acontece quando você executa &lt;code&gt;round(mean(die))&lt;/code&gt; no R.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;figures/round.png&#34; alt=&#34;&#34; /&gt;
+## [1] 3
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;/div&gt;
-&lt;p&gt;Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão documentados na página de ajuda de cada uma das funções, que pode ser acessada digitando &lt;code&gt;help(nome_da_funcao)&lt;/code&gt; ou &lt;code&gt;?nome_da_funcao&lt;/code&gt;.&lt;/p&gt;
-&lt;div id=&#34;criando-suas-proprias-funcoes&#34; class=&#34;section level3&#34;&gt;
-&lt;h3&gt;Criando suas próprias funções&lt;/h3&gt;
-&lt;p&gt;Apesar de já existirem uma infinidade de funções disponíveis no R, muitas vezes você deseja criar a sua própria função. Por exemplo, para organizar uma sequência de funções que são executadas da mesma forma em diversos lugares do seu código.&lt;/p&gt;
-&lt;p&gt;Funções no R também são objetos, assim como vetores. A diferença é a forma de criá-los e de executá-los. Uma nova função pode ser criada da seguinte forma:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_function &amp;lt;- function(x){
+&lt;p&gt;Para entender melhor o funcionamento das funções no R considere o seguinte exemplo.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;die &amp;lt;- 1:6
+round(mean(die))
+## [1] 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;De forma natural, o R executa as funções uma a uma começando por dentro dos parênteses. Neste caso, ele primeiro substituirá &lt;code&gt;die&lt;/code&gt; pelo seu valor, em seguida
+irá calcular a média de &lt;code&gt;die&lt;/code&gt; usando a função &lt;code&gt;mean&lt;/code&gt;. Em seguida ele usa a função
+&lt;code&gt;round&lt;/code&gt; para arredondar a média de &lt;code&gt;die&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;A ilustração abaixo ajuda a entender o que acontece quando você executa &lt;code&gt;round(mean(die))&lt;/code&gt; no R.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures/round.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão
+documentados na página de ajuda de cada uma das funções, que pode ser acessada
+digitando &lt;code&gt;help(nome_da_funcao)&lt;/code&gt; ou &lt;code&gt;?nome_da_funcao&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;criando-suas-próprias-funções&#34;&gt;Criando suas próprias funções&lt;/h3&gt;
+
+&lt;p&gt;Apesar de já existirem uma infinidade de funções disponíveis no R, muitas vezes
+você deseja criar a sua própria função. Por exemplo, para organizar uma sequência
+de funções que são executadas da mesma forma em diversos lugares do seu código.&lt;/p&gt;
+
+&lt;p&gt;Funções no R também são objetos, assim como vetores. A diferença é a forma de
+criá-los e de executá-los. Uma nova função pode ser criada da seguinte forma:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_function &amp;lt;- function(x){
   x/2
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Pronto. Criamos uma função que divido o argumento &lt;code&gt;x&lt;/code&gt; por 2. Você pode ver o código de qualquer função do R digitando o nome dela no console (sem parênteses no final).&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;my_function
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pronto. Criamos uma função que divido o argumento &lt;code&gt;x&lt;/code&gt; por 2. Você pode ver o
+código de qualquer função do R digitando o nome dela no console (sem parênteses no
+final).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;my_function
 ## function(x){
 ##   x/2
-## }&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;controles-de-fluxo&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Controles de Fluxo&lt;/h2&gt;
-&lt;p&gt;O R possui estruturas de controle de fluxo que são importantes na hora de programar as suas próprias funções e scripts. O seguinte trecho de código só será executado se o objeto &lt;code&gt;x&lt;/code&gt; for igual a 1.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 2
-if(x == 1){
-  print(&amp;quot;oi&amp;quot;)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 1
+## }
+## &amp;lt;environment: 0x325b380&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;controles-de-fluxo&#34;&gt;Controles de Fluxo&lt;/h2&gt;
+
+&lt;p&gt;O R possui estruturas de controle de fluxo que são importantes na hora de programar
+as suas próprias funções e scripts. O seguinte trecho de código só será executado se
+o objeto &lt;code&gt;x&lt;/code&gt; for igual a 1.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 2
 if(x == 1){
   print(&amp;quot;oi&amp;quot;)
 }
-## [1] &amp;quot;oi&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;A estrutura do &lt;code&gt;if&lt;/code&gt; é bem simples, mas é importante para introduzir a noção de vetores lógicos no R. Assim como nas funções, o R executa o que está dentro dos parênteses no &lt;code&gt;if&lt;/code&gt; para depois decidir se executa a expressão dentro de chaves.&lt;/p&gt;
-&lt;p&gt;No caso dos exemplos acima, veja que o R executou &lt;code&gt;x == 1&lt;/code&gt; que retorna &lt;code&gt;TRUE&lt;/code&gt;, um tipo especial de dados no R chamado &lt;strong&gt;logical&lt;/strong&gt;.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x == 1
-## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Como o resultado dessa operação foi &lt;code&gt;TRUE&lt;/code&gt;, o R executou o que estava entre chaves. Isso nos ajuda a pensar em como funcionam as operações lógicas no R, elas sempre retornam &lt;code&gt;TRUE&lt;/code&gt; ou &lt;code&gt;FALSE&lt;/code&gt; como resultado. O resultado de operações lógicas também pode ser salvo dentro de objetos do R e em seguiida ser reutilizado em outras operações. Por exemplo:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;a &amp;lt;- x == 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 1
+if(x == 1){
+  print(&amp;quot;oi&amp;quot;)
+}
+## [1] &amp;quot;oi&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A estrutura do &lt;code&gt;if&lt;/code&gt; é bem simples, mas é importante para introduzir a noção de
+vetores lógicos no R. Assim como nas funções, o R executa o que está dentro dos
+parênteses no &lt;code&gt;if&lt;/code&gt; para depois decidir se executa a expressão dentro de chaves.&lt;/p&gt;
+
+&lt;p&gt;No caso dos exemplos acima, veja que o R executou &lt;code&gt;x == 1&lt;/code&gt; que retorna &lt;code&gt;TRUE&lt;/code&gt;,
+um tipo especial de dados no R chamado &lt;strong&gt;logical&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x == 1
+## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Como o resultado dessa operação foi &lt;code&gt;TRUE&lt;/code&gt;, o R executou o que estava entre chaves.
+Isso nos ajuda a pensar em como funcionam as operações lógicas no R, elas sempre
+retornam &lt;code&gt;TRUE&lt;/code&gt; ou &lt;code&gt;FALSE&lt;/code&gt; como resultado. O resultado de operações lógicas também
+pode ser salvo dentro de objetos do R e em seguiida ser reutilizado em outras
+operações. Por exemplo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;a &amp;lt;- x == 1
 b &amp;lt;- x == 2
 c &amp;lt;- a &amp;amp; (!b)
 if(c){
   print(&amp;quot;oi&amp;quot;)
 }
-## [1] &amp;quot;oi&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+## [1] &amp;quot;oi&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;Isso pode ser bastante útil e ajuda a entender bem como o R funciona.&lt;/p&gt;
-&lt;p&gt;Uma outra importante estrutura de controle de fluxo é o &lt;code&gt;for&lt;/code&gt;. No Rm, um laço &lt;code&gt;for&lt;/code&gt; é escrito da seguinte forma.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for(i in 1:5){
+
+&lt;p&gt;Uma outra importante estrutura de controle de fluxo é o &lt;code&gt;for&lt;/code&gt;. No Rm, um laço &lt;code&gt;for&lt;/code&gt;
+é escrito da seguinte forma.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;for(i in 1:5){
   print(i)
 }
 ## [1] 1
 ## [1] 2
 ## [1] 3
 ## [1] 4
-## [1] 5&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Veja como é possível utilizar o obejto &lt;code&gt;i&lt;/code&gt; dentro do laço do &lt;code&gt;for&lt;/code&gt;. Para fazer operações mais úteis usando &lt;code&gt;for&lt;/code&gt;, é necessário entender um pouco sobre &lt;em&gt;subsetting&lt;/em&gt; no R. Por enquanto vamos apenas usar que dado um vetor &lt;code&gt;x&lt;/code&gt;, &lt;code&gt;x[i]&lt;/code&gt; retorna o &lt;em&gt;i-ésimo&lt;/em&gt; elemento do vetor &lt;code&gt;x&lt;/code&gt;. Note que os índices começam do 1, ao contrário de muitas outras linguagens em que os índices começam do 0.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;vetor &amp;lt;- 30:40
+## [1] 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Veja como é possível utilizar o obejto &lt;code&gt;i&lt;/code&gt; dentro do laço do &lt;code&gt;for&lt;/code&gt;. Para fazer
+operações mais úteis usando &lt;code&gt;for&lt;/code&gt;, é necessário entender um pouco sobre &lt;em&gt;subsetting&lt;/em&gt;
+no R. Por enquanto vamos apenas usar que dado um vetor &lt;code&gt;x&lt;/code&gt;, &lt;code&gt;x[i]&lt;/code&gt; retorna o &lt;em&gt;i-ésimo&lt;/em&gt;
+elemento do vetor &lt;code&gt;x&lt;/code&gt;. Note que os índices começam do 1, ao contrário de muitas
+outras linguagens em que os índices começam do 0.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor &amp;lt;- 30:40
 indices &amp;lt;- 1:length(vetor)
 for(i in indices){
   print(vetor[i]/2)
@@ -315,212 +384,199 @@ for(i in indices){
 ## [1] 18.5
 ## [1] 19
 ## [1] 19.5
-## [1] 20&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;No trecho de código acima, preste atenção no resultado individual de cada uma das operações para entender como o R funciona. Veja o que é o vetor &lt;code&gt;indices&lt;/code&gt;, tente rodar &lt;code&gt;vetor[1]&lt;/code&gt; para ver quais são esses resultados intermediários.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;exercicios&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Exercícios&lt;/h2&gt;
+## [1] 20
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No trecho de código acima, preste atenção no resultado individual de cada uma das
+operações para entender como o R funciona. Veja o que é o vetor &lt;code&gt;indices&lt;/code&gt;,
+tente rodar &lt;code&gt;vetor[1]&lt;/code&gt; para ver quais são esses resultados intermediários.&lt;/p&gt;
+
+&lt;h2 id=&#34;exercícios&#34;&gt;Exercícios&lt;/h2&gt;
+
 &lt;p&gt;Pratique! Será que você consegue resolver os exercícios abaixo?&lt;/p&gt;
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+
+&lt;ol&gt;
 &lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;span class=&#34;math display&#34;&gt;\[ \frac{1 + \sqrt{5}}{2} \]&lt;/span&gt;&lt;/p&gt;
-&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
+
+&lt;p&gt;$$ \frac{1 + \sqrt{5}}{2} $$&lt;/p&gt;
+
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;O que dá divisão de 1 por 0 no R? E -1 por 0?&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;Quais as diferenças entre &lt;code&gt;NaN&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;Inf&lt;/code&gt;?&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;Tente mentalmente calcular o que dá a conta &lt;code&gt;5 + 3 * 10 %/% 3 == 15&lt;/code&gt; no R, sem rodar.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;Adicionando apenas parênteses, faça a expressão acima retornar o resultado contrário.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;O que acontece se você rodar:&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 4
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 4
 if(x = 4) {
-  &amp;#39;isso aqui apareceu&amp;#39;
+  &#39;isso aqui apareceu&#39;
 }
-x&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;7&#34; style=&#34;list-style-type: decimal&#34;&gt;
+x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Como você faria para que o código da pergunta anterior fizesse com que &lt;code&gt;&#39;isso aqui apareceu&#39;&lt;/code&gt; fosse impresso no console mas nenhum erro aparecesse?&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Difícil&lt;/strong&gt;: Usando &lt;code&gt;for&lt;/code&gt;, &lt;code&gt;if&lt;/code&gt; e &lt;code&gt;else&lt;/code&gt; escreva as seguintes frases no console:&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;&amp;gt; 1 elefante(s) incomoda(m) muita gente
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;&amp;gt; 1 elefante(s) incomoda(m) muita gente
 &amp;gt; 2 elefante(s) incomoda(m) incomoda(m) muito mais
 &amp;gt; 3 elefante(s) incomoda(m) muita gente
-&amp;gt; 4 elefante(s) incomoda(m) incomoda(m) incomoda(m) incomoda(m) muito mais&lt;/code&gt;&lt;/pre&gt;
+&amp;gt; 4 elefante(s) incomoda(m) incomoda(m) incomoda(m) incomoda(m) muito mais
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;&lt;em&gt;Dica&lt;/em&gt;: Leia o help da função &lt;code&gt;paste&lt;/code&gt; e preste atenção no argumento &lt;code&gt;collapse&lt;/code&gt;.&lt;/p&gt;
-&lt;ol start=&#34;9&#34; style=&#34;list-style-type: decimal&#34;&gt;
+
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Crie um vetor com o nome &lt;code&gt;x&lt;/code&gt; que contenha os números &lt;code&gt;1, 20, 40, 50, 60&lt;/code&gt; no R.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;Crie um vetor com o nome &lt;code&gt;x&lt;/code&gt; de 100 números aleatórios entre 0 e 1.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;Calcule a média do vetor criado na questão anterior.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;Crie um vetor com 100 elementos. 99 deles são números aleatórios entre 0 e 1 e o último elemento tem o valor &lt;code&gt;NA&lt;/code&gt;. Calcule também a média deste vetor.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
 &lt;p&gt;&lt;em&gt;Dica&lt;/em&gt;: Olhe atentamente os argumentos da função &lt;code&gt;mean&lt;/code&gt;.&lt;/p&gt;
-&lt;ol start=&#34;13&#34; style=&#34;list-style-type: decimal&#34;&gt;
+
+&lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Crie uma função que calcula a média de um vetor. Use &lt;code&gt;for&lt;/code&gt; ou &lt;code&gt;while&lt;/code&gt; nesta função.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;Crie uma função que simule um dado, ou seja, gera aleatóriamente um número inteiro entre 1 e 6.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;Crie uma função que simula o lançamento de &lt;code&gt;n&lt;/code&gt; dados, e devolve a soma de seus resultados.&lt;/p&gt;&lt;/li&gt;
+
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;Difícil&lt;/strong&gt; Faça um histograma dos resultados da soma de 3 dados. Isto é, crie um vetor com 1000 resultados que aconteceram após somar 3 dados. Em seguida faça o histograma.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
+
 &lt;p&gt;&lt;strong&gt;Esses exercícios possuem resposta &lt;a href=&#34;https://curso-r.github.io/verao2017/r-como-calculadora/respostas&#34;&gt;aqui&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;/div&gt;
 
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
 
-&lt;!-- BLOGDOWN-HEAD
-
-
-
-
-/BLOGDOWN-HEAD --&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Respostas: R como calculadora</title>
-      <link>/r-como-calculadora/respostas/</link>
-      <pubDate>Tue, 08 Nov 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/r-como-calculadora/respostas/</guid>
-      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
-
-/BLOGDOWN-BODY-BEFORE --&gt;
-
-&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
+&lt;ol&gt;
+&lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;(1 + sqrt(5))/2
-## [1] 1.618034&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;2&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
+
+&lt;p&gt;$$ \frac{1 + \sqrt{5}}{2} $$&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby5cbiIsInNvbHV0aW9uIjoiIyBEaWdpdGUgYSBleHByZXNzXHUwMGUzbyBxdWUgY2FsY3VsYSBvIG5cdTAwZmFtZXJvIGRlIG91cm8uXG4oMSArIHNxcnQoNSkpLzIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIjEuNjE4MDM0XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxuc3VjY2Vzc19tc2coXCJDb3JyZXRvIVwiKSJ9&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;O que dá divisão de 1 por 0 no R? E -1 por 0?&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;1/0
-## [1] Inf
--1/0
-## [1] -Inf&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;3&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLzBcbi0xLzAiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIkluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiLUluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Quais as diferenças entre &lt;code&gt;NaN&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;Inf&lt;/code&gt;? Digite expressões que
+retornam cada um desses resultados.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# NaN é o resultado de uma operação matemática inválida. Significa Not A Number
-0/0
-## [1] NaN
-# NULL é o vazio do R. É como se o objeto não existisse
-NULL
-## NULL
-a = NULL
-is.null(integer(length = 0)) # veja que um vetor, mesmo sem elementos não é NULL
-## [1] FALSE
-# NA é uma constante lógica do R. Siginifica Not Availlable. NA pode ser 
-# convertido para quase todos os tipos de vetores do R. É usado principalmente para
-# indicar valores faltantes.
-NA
-## [1] NA
-# Inf é significa infinito. É o resultado de operações matemáticas cujo limite é infinito.
-1/0
-## [1] Inf
-1/Inf
-## [1] 0&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;5&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE5hTlxuXG4jIE5VTExcblxuIyBOQVxuXG4jIEluZlxuIiwic29sdXRpb24iOiIjIE5hTiBcdTAwZTkgbyByZXN1bHRhZG8gZGUgdW1hIG9wZXJhXHUwMGU3XHUwMGUzbyBtYXRlbVx1MDBlMXRpY2EgaW52XHUwMGUxbGlkYS4gU2lnbmlmaWNhIE5vdCBBIE51bWJlclxuMC8wXG4jIE5VTEwgXHUwMGU5IG8gdmF6aW8gZG8gUi4gXHUwMGM5IGNvbW8gc2UgbyBvYmpldG8gblx1MDBlM28gZXhpc3Rpc3NlXG5OVUxMXG5hID0gTlVMTFxuaXMubnVsbChpbnRlZ2VyKGxlbmd0aCA9IDApKSAjIHZlamEgcXVlIHVtIHZldG9yLCBtZXNtbyBzZW0gZWxlbWVudG9zIG5cdTAwZTNvIFx1MDBlOSBOVUxMXG4jIE5BIFx1MDBlOSB1bWEgY29uc3RhbnRlIGxcdTAwZjNnaWNhIGRvIFIuIFNpZ2luaWZpY2EgTm90IEF2YWlsbGFibGUuIE5BIHBvZGUgc2VyIFxuIyBjb252ZXJ0aWRvIHBhcmEgcXVhc2UgdG9kb3Mgb3MgdGlwb3MgZGUgdmV0b3JlcyBkbyBSLiBcdTAwYzkgdXNhZG8gcHJpbmNpcGFsbWVudGUgcGFyYVxuIyBpbmRpY2FyIHZhbG9yZXMgZmFsdGFudGVzLlxuTkFcbiMgSW5mIFx1MDBlOSBzaWduaWZpY2EgaW5maW5pdG8uIFx1MDBjOSBvIHJlc3VsdGFkbyBkZSBvcGVyYVx1MDBlN1x1MDBmNWVzIG1hdGVtXHUwMGUxdGljYXMgY3VqbyBsaW1pdGUgXHUwMGU5IGluZmluaXRvLlxuMS8wXG4xL0luZiJ9&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Tente mentalmente calcular o que dá a conta &lt;code&gt;5 + 3 * 10 %/% 3 == 15&lt;/code&gt; no R, sem rodar.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Adicionando apenas parênteses, faça a expressão acima retornar o resultado contrário.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;5 + (3 * 10) %/% 3 == 15
-## [1] TRUE&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;6&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI1ICsgMyAqIDEwICUvJSAzID09IDE1Iiwic29sdXRpb24iOiI1ICsgKDMgKiAxMCkgJS8lIDMgPT0gMTUiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIlRSVUVcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;O que acontece se você rodar:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;&amp;gt; x &amp;lt;- 4
-&amp;gt; if(x = 4) {
-Erro: &amp;#39;=&amp;#39; inesperado in &amp;quot;if(x =&amp;quot;
-&amp;gt;   &amp;#39;isso aqui apareceu&amp;#39;
-[1] &amp;quot;isso aqui apareceu&amp;quot;
-&amp;gt; }
-Erro: &amp;#39;}&amp;#39; inesperado in &amp;quot;}&amp;quot;
-&amp;gt; x
-[1] 4&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;7&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- 4
-if(x == 4) {
-  &amp;#39;isso aqui apareceu&amp;#39;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 4
+if(x = 4) {
+  &#39;isso aqui apareceu&#39;
 }
-## [1] &amp;quot;isso aqui apareceu&amp;quot;
 x
-## [1] 4&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;8&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;for (i in 1:4){
-  if(i %% 2 == 0){
-    print(paste(i, &amp;quot;elefante(s)&amp;quot;, paste(rep(&amp;quot;incomoda(m)&amp;quot;, times = i), collapse = &amp;quot; &amp;quot;), &amp;quot;muito mais&amp;quot;))
-  } else {
-   print(paste(i, &amp;quot;elefante(s) incomoda(m) muita gente&amp;quot;)) 
-  }
-}
-## [1] &amp;quot;1 elefante(s) incomoda(m) muita gente&amp;quot;
-## [1] &amp;quot;2 elefante(s) incomoda(m) incomoda(m) muito mais&amp;quot;
-## [1] &amp;quot;3 elefante(s) incomoda(m) muita gente&amp;quot;
-## [1] &amp;quot;4 elefante(s) incomoda(m) incomoda(m) incomoda(m) incomoda(m) muito mais&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;9&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(1, 20, 40, 50, 60)&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;10&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- runif(100)&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;11&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;mean(x)
-## [1] 0.5175256&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;12&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;x &amp;lt;- c(runif(99), NA)
-mean(x, na.rm = T)
-## [1] 0.4636221&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;13&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;media &amp;lt;- function(x){
-  i &amp;lt;- 1
-  tamanho &amp;lt;- length(x)
-  soma &amp;lt;- 0
-  for(i in 1:tamanho){
-    soma &amp;lt;- soma + x[i]
-  }
-  return(soma/tamanho)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;14&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;dado &amp;lt;- function(){
-  sample(1:6, 1)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;15&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;soma_dados &amp;lt;- function(n){
-  soma &amp;lt;- 0
-  for(i in 1:n){
-    soma &amp;lt;- soma + sample(1:6, 1)
-  }
-  return(soma)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;ol start=&#34;16&#34; style=&#34;list-style-type: decimal&#34;&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;resultados &amp;lt;- integer(length = 1000)
-for(i in 1:1000){
-  resultados[i] &amp;lt;- soma_dados(3)
-}
-hist(resultados)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;/r-como-calculadora/respostas/figures/resp16-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54In0=&lt;/div&gt;
 
-&lt;!-- BLOGDOWN-HEAD
+&lt;ol&gt;
+&lt;li&gt;Como você faria para que o código da pergunta anterior fizesse com que &lt;code&gt;&#39;isso aqui apareceu&#39;&lt;/code&gt; fosse impresso no console mas nenhum erro aparecesse?&lt;/li&gt;
+&lt;/ol&gt;
 
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54Iiwic29sdXRpb24iOiJ4IDwtIDRcbmlmKHggPT0gNCkge1xuICAnaXNzbyBhcXVpIGFwYXJlY2V1J1xufVxueCIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiaXNzbyBhcXVpIGFwYXJlY2V1XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxudGVzdF9lcnJvcigpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
 
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
 
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
-/BLOGDOWN-HEAD --&gt;
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIoMSArIHNxcnQoNSkpLzIifQ==&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLzBcbi0xLzAifQ==&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE5hTiBcdTAwZTkgbyByZXN1bHRhZG8gZGUgdW1hIG9wZXJhXHUwMGU3XHUwMGUzbyBtYXRlbVx1MDBlMXRpY2EgaW52XHUwMGUxbGlkYS4gU2lnbmlmaWNhIE5vdCBBIE51bWJlclxuMC8wXG4jIE5VTEwgXHUwMGU5IG8gdmF6aW8gZG8gUi4gXHUwMGM5IGNvbW8gc2UgbyBvYmpldG8gblx1MDBlM28gZXhpc3Rpc3NlXG5OVUxMXG5hID0gTlVMTFxuaXMubnVsbChpbnRlZ2VyKGxlbmd0aCA9IDApKSAjIHZlamEgcXVlIHVtIHZldG9yLCBtZXNtbyBzZW0gZWxlbWVudG9zIG5cdTAwZTNvIFx1MDBlOSBOVUxMXG4jIE5BIFx1MDBlOSB1bWEgY29uc3RhbnRlIGxcdTAwZjNnaWNhIGRvIFIuIFNpZ2luaWZpY2EgTm90IEF2YWlsbGFibGUuIE5BIHBvZGUgc2VyIFxuIyBjb252ZXJ0aWRvIHBhcmEgcXVhc2UgdG9kb3Mgb3MgdGlwb3MgZGUgdmV0b3JlcyBkbyBSLiBcdTAwYzkgdXNhZG8gcHJpbmNpcGFsbWVudGUgcGFyYVxuIyBpbmRpY2FyIHZhbG9yZXMgZmFsdGFudGVzLlxuTkFcbiMgSW5mIFx1MDBlOSBzaWduaWZpY2EgaW5maW5pdG8uIFx1MDBjOSBvIHJlc3VsdGFkbyBkZSBvcGVyYVx1MDBlN1x1MDBmNWVzIG1hdGVtXHUwMGUxdGljYXMgY3VqbyBsaW1pdGUgXHUwMGU5IGluZmluaXRvLlxuMS8wXG4xL0luZiJ9&lt;/div&gt;
+
+&lt;p&gt;5.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI1ICsgKDMgKiAxMCkgJS8lIDMgPT0gMTUifQ==&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI+IHggPC0gNFxuPiBpZih4ID0gNCkge1xuRXJybzogJz0nIGluZXNwZXJhZG8gaW4gXCJpZih4ID1cIlxuPiAgICdpc3NvIGFxdWkgYXBhcmVjZXUnXG5bMV0gXCJpc3NvIGFxdWkgYXBhcmVjZXVcIlxuPiB9XG5FcnJvOiAnfScgaW5lc3BlcmFkbyBpbiBcIn1cIlxuPiB4XG5bMV0gNCJ9&lt;/div&gt;
+
+&lt;p&gt;7.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPT0gNCkge1xuICAnaXNzbyBhcXVpIGFwYXJlY2V1J1xufVxueCJ9&lt;/div&gt;
+
+&lt;p&gt;8.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJmb3IgKGkgaW4gMTo0KXtcbiAgaWYoaSAlJSAyID09IDApe1xuICAgIHByaW50KHBhc3RlKGksIFwiZWxlZmFudGUocylcIiwgcGFzdGUocmVwKFwiaW5jb21vZGEobSlcIiwgdGltZXMgPSBpKSwgY29sbGFwc2UgPSBcIiBcIiksIFwibXVpdG8gbWFpc1wiKSlcbiAgfSBlbHNlIHtcbiAgIHByaW50KHBhc3RlKGksIFwiZWxlZmFudGUocykgaW5jb21vZGEobSkgbXVpdGEgZ2VudGVcIikpIFxuICB9XG59In0=&lt;/div&gt;
+
+&lt;p&gt;9.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIGMoMSwgMjAsIDQwLCA1MCwgNjApIn0=&lt;/div&gt;
+
+&lt;p&gt;10.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIHJ1bmlmKDEwMCkifQ==&lt;/div&gt;
+
+&lt;p&gt;11.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtZWFuKHgpIn0=&lt;/div&gt;
+
+&lt;p&gt;12.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIGMocnVuaWYoOTkpLCBOQSlcbm1lYW4oeCwgbmEucm0gPSBUKSJ9&lt;/div&gt;
+
+&lt;p&gt;13.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtZWRpYSA8LSBmdW5jdGlvbih4KXtcbiAgaSA8LSAxXG4gIHRhbWFuaG8gPC0gbGVuZ3RoKHgpXG4gIHNvbWEgPC0gMFxuICBmb3IoaSBpbiAxOnRhbWFuaG8pe1xuICAgIHNvbWEgPC0gc29tYSArIHhbaV1cbiAgfVxuICByZXR1cm4oc29tYS90YW1hbmhvKVxufSJ9&lt;/div&gt;
+
+&lt;p&gt;14.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYWRvIDwtIGZ1bmN0aW9uKCl7XG4gIHNhbXBsZSgxOjYsIDEpXG59In0=&lt;/div&gt;
+
+&lt;p&gt;15.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzb21hX2RhZG9zIDwtIGZ1bmN0aW9uKG4pe1xuICBzb21hIDwtIDBcbiAgZm9yKGkgaW4gMTpuKXtcbiAgICBzb21hIDwtIHNvbWEgKyBzYW1wbGUoMTo2LCAxKVxuICB9XG4gIHJldHVybihzb21hKVxufSJ9&lt;/div&gt;
+
+&lt;p&gt;16.&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJyZXN1bHRhZG9zIDwtIGludGVnZXIobGVuZ3RoID0gMTAwMClcbmZvcihpIGluIDE6MTAwMCl7XG4gIHJlc3VsdGFkb3NbaV0gPC0gc29tYV9kYWRvcygzKVxufVxuaGlzdChyZXN1bHRhZG9zKSJ9&lt;/div&gt;
 </description>
     </item>
     
