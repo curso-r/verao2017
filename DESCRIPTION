@@ -24,6 +24,7 @@ Imports:
     desc
 RoxygenNote: 5.0.1
 PowerUps:
+    curso-r/pu.dplyr,
     curso-r/pu.train2,
     curso-r/pu.ggplot,
     curso-r/pu.rbase,
