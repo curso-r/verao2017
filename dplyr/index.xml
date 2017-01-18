@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dplyr-rsses on Curso-R</title>
+    <link>/dplyr/index.xml</link>
+    <description>Recent content in Dplyr-rsses on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Disponível sobre Licença MIT</copyright>
+    <lastBuildDate>Wed, 18 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/dplyr/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introdução</title>
+      <link>/dplyr/</link>
+      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/dplyr/</guid>
+      <description>&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;$$
+\frac{1 + \sqrt{5}}{2}
+$$&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IigxICsgc3FydCg1KSkvMiIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiMS42MTgwMzRcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/dplyr/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/dplyr/</guid>
+      <description>&lt;html&gt;&lt;/html&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
