@@ -1,1 +1,867 @@
-<html></html>
+<!DOCTYPE html>
+  
+  
+  
+  
+   <html class="no-js"> 
+
+  <head lang="pt-br">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
+    <title>Introdução - Curso-R</title>
+    <meta name="generator" content="Hugo 0.17" />
+
+    
+    <meta name="description" content="Materiais para o Curso-R de verão 2017">
+    
+    <link rel="canonical" href="../dplyr/">
+    
+    <meta name="author" content="Curso-R">
+    
+
+    <meta property="og:url" content="/dplyr/">
+    <meta property="og:title" content="Curso-R">
+    <meta property="og:image" content="/logo-curso-r.png">
+    <meta name="apple-mobile-web-app-title" content="Curso-R">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="shortcut icon" type="image/x-icon" href="//images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="//images/favicon.ico">
+    <link rel="stylesheet" href="../stylesheets/icons.css">
+    <link rel="stylesheet" href="../stylesheets/application.css">
+    <link rel="stylesheet" href="../stylesheets/temporary.css">
+    <link rel="stylesheet" href="../stylesheets/palettes.css">
+    <link rel="stylesheet" href="../stylesheets/highlight/highlight.css">
+
+    
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,700|Ubuntu&#43;Mono">
+    <style>
+      body, input {
+        font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      }
+      pre, code {
+        font-family: 'Ubuntu Mono', 'Courier New', 'Courier', monospace;
+      }
+    </style>
+
+    
+    <script src="../javascripts/modernizr.js"></script>
+
+    
+
+  </head>
+  <body class="palette-primary-red palette-accent-teal">
+
+
+
+	
+	
+
+
+<div class="backdrop">
+	<div class="backdrop-paper"></div>
+</div>
+
+<input class="toggle" type="checkbox" id="toggle-drawer">
+<input class="toggle" type="checkbox" id="toggle-search">
+<label class="toggle-button overlay" for="toggle-drawer"></label>
+
+<header class="header">
+	<nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        Introdução
+      </div>
+    </div>
+
+    
+
+    
+    <div class="button button-github" role="button" aria-label="GitHub">
+      <a href="https://github.com/curso-r" title="@curso-r on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+    </div>
+    
+    
+        
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main class="main">
+	<div class="drawer">
+		<nav aria-label="Navigation">
+  <a href="https://github.com/curso-r/verao2017" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../logo-curso-r.png">
+        </div>
+      
+      <div class="name">
+        <strong>Curso-R </strong>
+        
+          <br>
+          curso-r/verao2017
+        
+      </div>
+    </div>
+  </a>
+
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            <a href="https://github.com/curso-r/verao2017/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/curso-r/verao2017/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+
+      <div class="toc">
+        
+        <ul>
+          
+
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Curso R" href="../">
+	
+	Curso R
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="R como calculadora" href="../rbase/">
+	
+	R como calculadora
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Visualização" href="../ggplot/">
+	
+	Visualização
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="Transformação" href="../dplyr/">
+	
+	Transformação
+</a>
+
+
+<ul id="scrollspy">
+</ul>
+
+
+  
+</li>
+
+
+        </ul>
+        
+
+        
+        <hr>
+        <span class="section">The author</span>
+        
+        <ul>
+          
+
+          
+          <li>
+            <a href="https://github.com/curso-r" target="_blank" title="@curso-r on GitHub">
+              @curso-r on GitHub
+            </a>
+          </li>
+          
+
+          
+          <li>
+            <a href="mailto:dfalbel@gmail.com" title="Email of dfalbel@gmail.com">
+              Contact via email
+            </a>
+          </li>
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+
+	</div>
+
+	<article class="article">
+		<div class="wrapper">
+			<h1>Introdução </h1>
+
+			
+
+<blockquote>
+<p>&rdquo;(&hellip;) The fact that data science exists as a field is a colossal failure of statistics. To me, [what I do] is what statistics is all about. It is gaining insight from data using modelling and visualization. Data munging and manipulation is hard and statistics has just said that’s not our domain.&rdquo;</p>
+
+<p>Hadley Wickham</p>
+</blockquote>
+
+<h2 id="pacotes-dplyr-e-tidyr">Pacotes <code>dplyr</code> e <code>tidyr</code></h2>
+
+<p>A transformação de dados é uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística.</p>
+
+<p>O <code>dplyr</code> é um dos pacotes mais úteis para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em <code>R</code> que fazem uso inteligente dos verbos <code>dplyr</code> e as facilidades do operador <em>pipe</em> tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.</p>
+
+<p>Por ser um pacote que se propõe a realizar um dos trabalhos mais árduos da análise estatística, e por atingir esse objetivo de forma elegante, eficaz e eficiente, o <code>dplyr</code> pode ser considerado como uma revolução no <code>R</code>.</p>
+
+<h3 id="trabalhando-com-tibble-s">Trabalhando com <code>tibble</code>s</h3>
+
+<p>A <code>tibble</code> nada mais é do que um <code>data.frame</code>, mas com um método de impressão mais adequado. Outras diferenças podem ser estudadas <a href="http://r4ds.had.co.nz/tibbles.html">neste link</a>.</p>
+
+<p>Vamos assumir que temos a seguinte base de dados:</p>
+
+<pre><code>## # A tibble: 35,977 × 57
+##                         arq_pag id_pag                             arq
+##                           &lt;chr&gt;  &lt;int&gt;                           &lt;chr&gt;
+## 1  data-raw/pags/pag_00609.html      3 data-raw/pessoas_pjs/10000.html
+## 2  data-raw/pags/pag_00107.html     12 data-raw/pessoas_pjs/10001.html
+## 3  data-raw/pags/pag_00056.html     15 data-raw/pessoas_pjs/10002.html
+## 4  data-raw/pags/pag_00057.html      1 data-raw/pessoas_pjs/10003.html
+## 5  data-raw/pags/pag_02314.html     15 data-raw/pessoas_pjs/10004.html
+## 6  data-raw/pags/pag_00057.html      2 data-raw/pessoas_pjs/10005.html
+## 7  data-raw/pags/pag_00280.html     13 data-raw/pessoas_pjs/10006.html
+## 8  data-raw/pags/pag_00057.html      3 data-raw/pessoas_pjs/10007.html
+## 9  data-raw/pags/pag_02307.html     10 data-raw/pessoas_pjs/10008.html
+## 10 data-raw/pags/pag_01290.html      9 data-raw/pessoas_pjs/10009.html
+## # ... with 35,967 more rows, and 54 more variables: id_condenacao &lt;int&gt;,
+## #   id_processo &lt;int&gt;, id_pessoa &lt;int&gt;, tipo_pena &lt;chr&gt;, dt_pena &lt;date&gt;,
+## #   assunto_cod_1 &lt;int&gt;, assunto_cod_2 &lt;int&gt;, assunto_cod_3 &lt;int&gt;,
+## #   assunto_cod_4 &lt;int&gt;, assunto_cod_5 &lt;int&gt;, assunto_nm_1 &lt;chr&gt;,
+## #   assunto_nm_2 &lt;chr&gt;, assunto_nm_3 &lt;chr&gt;, assunto_nm_4 &lt;chr&gt;,
+## #   assunto_nm_5 &lt;chr&gt;, teve_inelegivel &lt;chr&gt;, teve_multa &lt;chr&gt;,
+## #   teve_pena &lt;chr&gt;, teve_perda_bens &lt;chr&gt;, teve_perda_cargo &lt;chr&gt;,
+## #   teve_proibicao &lt;chr&gt;, teve_ressarcimento &lt;chr&gt;, teve_suspensao &lt;chr&gt;,
+## #   vl_multa &lt;dbl&gt;, vl_perda_bens &lt;dbl&gt;, vl_ressarcimento &lt;dbl&gt;,
+## #   duracao_pena &lt;int&gt;, duracao_proibicao &lt;chr&gt;, duracao_suspensao &lt;chr&gt;,
+## #   de_pena &lt;date&gt;, de_proibicao &lt;date&gt;, de_suspensao &lt;date&gt;,
+## #   ate_pena &lt;date&gt;, ate_proibicao &lt;date&gt;, ate_suspensao &lt;date&gt;,
+## #   arq_pessoa &lt;chr&gt;, tipo_pessoa &lt;chr&gt;, nm_pessoa &lt;chr&gt;, sexo &lt;chr&gt;,
+## #   publico &lt;chr&gt;, esfera &lt;chr&gt;, orgao &lt;chr&gt;, cargo &lt;chr&gt;, uf &lt;chr&gt;,
+## #   cod &lt;chr&gt;, arq_processo &lt;chr&gt;, dt_cadastro &lt;dttm&gt;, n_processo &lt;chr&gt;,
+## #   esfera_processo &lt;chr&gt;, tribunal &lt;chr&gt;, instancia &lt;chr&gt;,
+## #   comarca_secao &lt;chr&gt;, vara_camara &lt;chr&gt;, dt_propositura &lt;date&gt;
+</code></pre>
+
+<pre><code class="language-r">tidy_cnc
+## # A tibble: 35,977 × 57
+##                         arq_pag id_pag                             arq
+##                           &lt;chr&gt;  &lt;int&gt;                           &lt;chr&gt;
+## 1  data-raw/pags/pag_00609.html      3 data-raw/pessoas_pjs/10000.html
+## 2  data-raw/pags/pag_00107.html     12 data-raw/pessoas_pjs/10001.html
+## 3  data-raw/pags/pag_00056.html     15 data-raw/pessoas_pjs/10002.html
+## 4  data-raw/pags/pag_00057.html      1 data-raw/pessoas_pjs/10003.html
+## 5  data-raw/pags/pag_02314.html     15 data-raw/pessoas_pjs/10004.html
+## 6  data-raw/pags/pag_00057.html      2 data-raw/pessoas_pjs/10005.html
+## 7  data-raw/pags/pag_00280.html     13 data-raw/pessoas_pjs/10006.html
+## 8  data-raw/pags/pag_00057.html      3 data-raw/pessoas_pjs/10007.html
+## 9  data-raw/pags/pag_02307.html     10 data-raw/pessoas_pjs/10008.html
+## 10 data-raw/pags/pag_01290.html      9 data-raw/pessoas_pjs/10009.html
+## # ... with 35,967 more rows, and 54 more variables: id_condenacao &lt;int&gt;,
+## #   id_processo &lt;int&gt;, id_pessoa &lt;int&gt;, tipo_pena &lt;chr&gt;, dt_pena &lt;date&gt;,
+## #   assunto_cod_1 &lt;int&gt;, assunto_cod_2 &lt;int&gt;, assunto_cod_3 &lt;int&gt;,
+## #   assunto_cod_4 &lt;int&gt;, assunto_cod_5 &lt;int&gt;, assunto_nm_1 &lt;chr&gt;,
+## #   assunto_nm_2 &lt;chr&gt;, assunto_nm_3 &lt;chr&gt;, assunto_nm_4 &lt;chr&gt;,
+## #   assunto_nm_5 &lt;chr&gt;, teve_inelegivel &lt;chr&gt;, teve_multa &lt;chr&gt;,
+## #   teve_pena &lt;chr&gt;, teve_perda_bens &lt;chr&gt;, teve_perda_cargo &lt;chr&gt;,
+## #   teve_proibicao &lt;chr&gt;, teve_ressarcimento &lt;chr&gt;, teve_suspensao &lt;chr&gt;,
+## #   vl_multa &lt;dbl&gt;, vl_perda_bens &lt;dbl&gt;, vl_ressarcimento &lt;dbl&gt;,
+## #   duracao_pena &lt;int&gt;, duracao_proibicao &lt;chr&gt;, duracao_suspensao &lt;chr&gt;,
+## #   de_pena &lt;date&gt;, de_proibicao &lt;date&gt;, de_suspensao &lt;date&gt;,
+## #   ate_pena &lt;date&gt;, ate_proibicao &lt;date&gt;, ate_suspensao &lt;date&gt;,
+## #   arq_pessoa &lt;chr&gt;, tipo_pessoa &lt;chr&gt;, nm_pessoa &lt;chr&gt;, sexo &lt;chr&gt;,
+## #   publico &lt;chr&gt;, esfera &lt;chr&gt;, orgao &lt;chr&gt;, cargo &lt;chr&gt;, uf &lt;chr&gt;,
+## #   cod &lt;chr&gt;, arq_processo &lt;chr&gt;, dt_cadastro &lt;dttm&gt;, n_processo &lt;chr&gt;,
+## #   esfera_processo &lt;chr&gt;, tribunal &lt;chr&gt;, instancia &lt;chr&gt;,
+## #   comarca_secao &lt;chr&gt;, vara_camara &lt;chr&gt;, dt_propositura &lt;date&gt;
+</code></pre>
+
+<h3 id="as-cinco-funções-principais-do-dplyr">As cinco funções principais do <code>dplyr</code></h3>
+
+<ul>
+<li><code>filter</code></li>
+<li><code>mutate</code></li>
+<li><code>select</code></li>
+<li><code>arrange</code></li>
+<li><code>summarise</code></li>
+</ul>
+
+<h3 id="características">Características</h3>
+
+<ul>
+<li>O <em>input</em>  é sempre uma <code>tibble</code>, e o <em>output</em>  é sempre um <code>tibble</code>.</li>
+<li>No primeiro argumento colocamos o <code>tibble</code>, e nos outros argumentos colocamos o que queremos fazer.</li>
+<li>A utilização é facilitada com o emprego do operador <code>%&gt;%</code></li>
+</ul>
+
+<h3 id="vantagens">Vantagens</h3>
+
+<ul>
+<li>Utiliza <code>C</code> e <code>C++</code> por trás da maioria das funções, o que geralmente torna o código mais eficiente.</li>
+<li>Pode trabalhar com diferentes fontes de dados, como bases relacionais (SQL) e <code>data.table</code>.</li>
+</ul>
+
+<h3 id="select"><code>select</code></h3>
+
+<ul>
+<li>Utilizar <code>starts_with(x)</code>, <code>contains(x)</code>, <code>matches(x)</code>, <code>one_of(x)</code>, etc.</li>
+<li>Possível colocar nomes, índices, e intervalos de variáveis com <code>:</code>.</li>
+</ul>
+
+<pre><code class="language-r">tidy_cnc %&gt;% 
+  select(id_condenacao, teve_multa, teve_pena, nm_pessoa)
+## # A tibble: 35,977 × 4
+##    id_condenacao teve_multa teve_pena                          nm_pessoa
+##            &lt;int&gt;      &lt;chr&gt;     &lt;chr&gt;                              &lt;chr&gt;
+## 1          10000       &lt;NA&gt;      &lt;NA&gt;            EDIMAR REZENDE DE SOUZA
+## 2          10001       &lt;NA&gt;       sim ALEXANDER APARECIDO SALERI RIBEIRO
+## 3          10002       &lt;NA&gt;       sim          AGENOR GENIVALDO DA SILVA
+## 4          10003       &lt;NA&gt;       sim          AGENOR GENIVALDO DA SILVA
+## 5          10004       &lt;NA&gt;       sim                   WAGNER JUNQUEIRA
+## 6          10005       &lt;NA&gt;       sim          AGENOR GENIVALDO DA SILVA
+## 7          10006        sim      &lt;NA&gt;        ARTUR FERNANDO ROCHA CORREA
+## 8          10007       &lt;NA&gt;       sim          AGENOR GENIVALDO DA SILVA
+## 9          10008        sim      &lt;NA&gt;              VITOR TERRA RODRIGUES
+## 10         10009        sim      &lt;NA&gt;         JOSé LUIZ MARZULLO PATELLA
+## # ... with 35,967 more rows
+</code></pre>
+
+<pre><code class="language-r">tidy_cnc %&gt;% 
+  select(id_processo:tipo_pena, sexo)
+## # A tibble: 35,977 × 4
+##    id_processo id_pessoa           tipo_pena  sexo
+##          &lt;int&gt;     &lt;int&gt;               &lt;chr&gt; &lt;chr&gt;
+## 1         7618      8393 Trânsito em julgado     M
+## 2         7619      8394 Trânsito em julgado     M
+## 3         7620      8395 Trânsito em julgado     M
+## 4         7621      8395 Trânsito em julgado     M
+## 5         7621      8397 Trânsito em julgado     M
+## 6         7623      8395 Trânsito em julgado     M
+## 7         7622      8396     Órgão colegiado     M
+## 8         7624      8395 Trânsito em julgado     M
+## 9         7626      8399     Órgão colegiado     M
+## 10        7627      1695     Órgão colegiado     M
+## # ... with 35,967 more rows
+</code></pre>
+
+<pre><code class="language-r">tidy_cnc %&gt;% 
+  select(n_processo, starts_with('teve_'))
+## # A tibble: 35,977 × 9
+##         n_processo teve_inelegivel teve_multa teve_pena teve_perda_bens
+##              &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt;     &lt;chr&gt;           &lt;chr&gt;
+## 1      04720038714             sim       &lt;NA&gt;      &lt;NA&gt;            &lt;NA&gt;
+## 2    0472060112068             sim       &lt;NA&gt;       sim            &lt;NA&gt;
+## 3    0472090235012             sim       &lt;NA&gt;       sim            &lt;NA&gt;
+## 4    0472090241119             sim       &lt;NA&gt;       sim            &lt;NA&gt;
+## 5    0472090241119             sim       &lt;NA&gt;       sim            &lt;NA&gt;
+## 6    0472090258675             sim       &lt;NA&gt;       sim            &lt;NA&gt;
+## 7   06310500019109            &lt;NA&gt;        sim      &lt;NA&gt;            &lt;NA&gt;
+## 8    0472090258683             sim       &lt;NA&gt;       sim            &lt;NA&gt;
+## 9   06311100001006            &lt;NA&gt;        sim      &lt;NA&gt;            &lt;NA&gt;
+## 10 063109600013242            &lt;NA&gt;        sim      &lt;NA&gt;            &lt;NA&gt;
+## # ... with 35,967 more rows, and 4 more variables: teve_perda_cargo &lt;chr&gt;,
+## #   teve_proibicao &lt;chr&gt;, teve_ressarcimento &lt;chr&gt;, teve_suspensao &lt;chr&gt;
+</code></pre>
+
+<h3 id="filter"><code>filter</code></h3>
+
+<ul>
+<li>Parecido com <code>subset</code>.</li>
+<li>Condições separadas por vírgulas é o mesmo que separar por <code>&amp;</code>.</li>
+</ul>
+
+<pre><code class="language-r">tidy_cnc %&gt;% 
+  select(id_condenacao, nm_pessoa, uf) %&gt;% 
+  filter(uf == 'SP')
+## # A tibble: 2,485 × 3
+##    id_condenacao                 nm_pessoa    uf
+##            &lt;int&gt;                     &lt;chr&gt; &lt;chr&gt;
+## 1          10035              JOãO SANTANA    SP
+## 2          10067    ROBERTO PIRES DA SILVA    SP
+## 3          10069       AIRTON ANDRADE RAIS    SP
+## 4          10070    EDMILSON SILVA DE LIMA    SP
+## 5          10071 NEEMIAS MARIANO DE BARROS    SP
+## 6          10089  DOUGLAS GURGEL DO AMARAL    SP
+## 7          10091    LUIZ ANTONIO CAVALETTI    SP
+## 8          10093        ERLEI LAGDEN FILHO    SP
+## 9           1013          WALDEMAR CASSEZE    SP
+## 10         10190   EDSON NERIS DE CARVALHO    SP
+## # ... with 2,475 more rows
+</code></pre>
+
+<pre><code class="language-r">library(lubridate)
+## Loading required package: methods
+## 
+## Attaching package: 'lubridate'
+## The following object is masked from 'package:base':
+## 
+##     date
+tidy_cnc %&gt;% 
+  select(id_condenacao, nm_pessoa, uf, dt_propositura) %&gt;% 
+  filter(uf %in% c('SP', 'MG') &amp;
+         (day(dt_propositura) &gt;= 29 | day(dt_propositura) &lt; 25))
+## # A tibble: 2,741 × 4
+##    id_condenacao                 nm_pessoa    uf dt_propositura
+##            &lt;int&gt;                     &lt;chr&gt; &lt;chr&gt;         &lt;date&gt;
+## 1          10035              JOãO SANTANA    SP     2004-09-21
+## 2          10067    ROBERTO PIRES DA SILVA    SP     2000-08-04
+## 3          10069       AIRTON ANDRADE RAIS    SP     2007-11-05
+## 4           1006      HéLIO FERRAZ PEREIRA    MG     2001-10-29
+## 5          10070    EDMILSON SILVA DE LIMA    SP     2007-11-05
+## 6          10071 NEEMIAS MARIANO DE BARROS    SP     2007-11-05
+## 7          10089  DOUGLAS GURGEL DO AMARAL    SP     2007-10-05
+## 8          10091    LUIZ ANTONIO CAVALETTI    SP     2003-06-11
+## 9          10093        ERLEI LAGDEN FILHO    SP     2003-06-11
+## 10          1013          WALDEMAR CASSEZE    SP     2007-10-14
+## # ... with 2,731 more rows
+</code></pre>
+
+<pre><code class="language-r">library(stringr)
+tidy_cnc %&gt;% 
+  select(nm_pessoa) %&gt;% 
+  filter(str_detect(nm_pessoa, '^[gG]'))
+## # A tibble: 1,399 × 1
+##                       nm_pessoa
+##                           &lt;chr&gt;
+## 1      GABRIEL BARREIRA FEITOZA
+## 2     GEISILON NUNES DE ALMEIDA
+## 3         GNAILDA SAMPAIO LOPES
+## 4           GILSON SANTOS COSTA
+## 5      GEDIANY DE SOUZA MODESTO
+## 6      GERALDO DE SOUZA MACHADO
+## 7                GERSON GIANINI
+## 8  GIUSEPE ANGELOS BARBOSA LIMA
+## 9    GERSON GONçALVES CHICOUREL
+## 10   GEOVANE MEDEIROS DE AGUIAR
+## # ... with 1,389 more rows
+</code></pre>
+
+<h3 id="mutate"><code>mutate</code></h3>
+
+<ul>
+<li>Parecido com <code>transform</code>, mas aceita várias novas colunas iterativamente.</li>
+<li>Novas variáveis devem ter o mesmo <code>length</code> que o <code>nrow</code> do bd oridinal ou <code>1</code>.</li>
+</ul>
+
+<pre><code class="language-r">tidy_cnc %&gt;% 
+  select(id_condenacao, dt_propositura, vl_multa) %&gt;% 
+  mutate(ano_propositura = year(dt_propositura),
+         vl_multa = log10(vl_multa))
+## # A tibble: 35,977 × 4
+##    id_condenacao dt_propositura vl_multa ano_propositura
+##            &lt;int&gt;         &lt;date&gt;    &lt;dbl&gt;           &lt;dbl&gt;
+## 1          10000     2004-07-06       NA            2004
+## 2          10001     2003-10-16       NA            2003
+## 3          10002     2009-07-01       NA            2009
+## 4          10003     2009-07-29       NA            2009
+## 5          10004     2009-07-29       NA            2009
+## 6          10005     2009-10-30       NA            2009
+## 7          10006     2005-11-07 4.636774            2005
+## 8          10007     2009-10-30       NA            2009
+## 9          10008     2011-01-12 4.021784            2011
+## 10         10009     2006-07-24 5.102886            2006
+## # ... with 35,967 more rows
+</code></pre>
+
+<h3 id="arrange"><code>arrange</code></h3>
+
+<ul>
+<li>Simplesmente ordena de acordo com as opções.</li>
+<li>Utilizar <code>desc</code> para ordem decrescente.</li>
+</ul>
+
+<pre><code class="language-r">library(stringr)
+tidy_cnc %&gt;% 
+  select(id_condenacao, dt_propositura, vl_multa, nm_pessoa) %&gt;% 
+  mutate(ano_propositura = year(dt_propositura),
+         log_multa = log10(vl_multa)) %&gt;% 
+  arrange(desc(vl_multa))
+## # A tibble: 35,977 × 6
+##    id_condenacao dt_propositura     vl_multa
+##            &lt;int&gt;         &lt;date&gt;        &lt;dbl&gt;
+## 1          31337     2002-05-17 111111111111
+## 2          34186     2012-10-31    101947537
+## 3          24150     2013-11-04    100731322
+## 4           9057     2008-12-09     70225149
+## 5           9058     2008-12-09     70225149
+## 6           9061     2008-12-09     70225149
+## 7          32910     1996-06-20     54662281
+## 8          32939     1996-06-20     54642412
+## 9           1751     2000-11-20     43708242
+## 10          7966     2001-08-27     32606320
+## # ... with 35,967 more rows, and 3 more variables: nm_pessoa &lt;chr&gt;,
+## #   ano_propositura &lt;dbl&gt;, log_multa &lt;dbl&gt;
+</code></pre>
+
+<h3 id="summarise"><code>summarise</code></h3>
+
+<ul>
+<li>Retorna um vetor de tamanho <code>1</code> a partir de uma conta com as variáveis.</li>
+<li>Geralmente é utilizado em conjunto com <code>group_by</code>.</li>
+<li>Algumas funções importantes: <code>n()</code>, <code>n_distinct()</code>.</li>
+</ul>
+
+<pre><code class="language-r">tidy_cnc %&gt;% 
+  select(id_condenacao, dt_propositura, vl_multa, nm_pessoa, tribunal) %&gt;% 
+  mutate(ano_propositura = year(dt_propositura),
+         log_multa = log10(vl_multa)) %&gt;% 
+  group_by(tribunal) %&gt;% 
+  summarise(n = n(), vl_medio = mean(vl_multa, na.rm = TRUE)) %&gt;% 
+  filter(n &gt; 5) %&gt;% 
+  arrange(desc(vl_medio))
+## # A tibble: 34 × 3
+##                                                     tribunal     n
+##                                                        &lt;chr&gt; &lt;int&gt;
+## 1                 Tribunal de Justiça do Estado de São Paulo  3594
+## 2  Tribunal de Justiça do Distrito Federal e dos Territórios 10162
+## 3            Tribunal de Justiça do Estado do Rio de Janeiro   269
+## 4                      Tribunal de Justiça do Estado do Acre    73
+## 5                  Tribunal de Justiça do Estado do Maranhão   373
+## 6                     Tribunal Regional Federal da 3ª Região   159
+## 7              Tribunal de Justiça do Estado de Minas Gerais  2630
+## 8                   Tribunal de Justiça do Estado de Roraima    10
+## 9                   Tribunal de Justiça do Estado da Paraíba   101
+## 10                    Tribunal de Justiça do Estado da Bahia    27
+## # ... with 24 more rows, and 1 more variables: vl_medio &lt;dbl&gt;
+</code></pre>
+
+<pre><code class="language-r">tidy_cnc %&gt;% 
+  count(tribunal, sort = TRUE) %&gt;% 
+  mutate(prop = n / sum(n), prop = scales::percent(prop))
+## # A tibble: 34 × 3
+##                                                     tribunal     n  prop
+##                                                        &lt;chr&gt; &lt;int&gt; &lt;chr&gt;
+## 1  Tribunal de Justiça do Distrito Federal e dos Territórios 10162 28.2%
+## 2                    Tribunal de Justiça do Estado do Paraná  6246 17.4%
+## 3            Tribunal de Justiça do Estado de Santa Catarina  4929 13.7%
+## 4                 Tribunal de Justiça do Estado de São Paulo  3594 10.0%
+## 5              Tribunal de Justiça do Estado de Minas Gerais  2630  7.3%
+## 6                     Tribunal Regional Federal da 5ª Região  1848  5.1%
+## 7                     Tribunal Regional Federal da 1ª Região  1249  3.5%
+## 8         Tribunal de Justiça do Estado do Rio Grande do Sul   803  2.2%
+## 9                  Tribunal de Justiça do Estado de Rondônia   765  2.1%
+## 10                    Tribunal de Justiça do Estado de Goiás   523  1.5%
+## # ... with 24 more rows
+</code></pre>
+
+<h3 id="gather"><code>gather</code></h3>
+
+<ul>
+<li>&ldquo;Empilha&rdquo; o banco de dados</li>
+</ul>
+
+<pre><code class="language-r">library(tidyr)
+tidy_cnc %&gt;% 
+  select(id_condenacao, starts_with('assunto_nm')) %&gt;% 
+  gather(key, value, -id_condenacao) %&gt;% 
+  arrange(id_condenacao)
+## # A tibble: 179,885 × 3
+##    id_condenacao          key                                   value
+##            &lt;int&gt;        &lt;chr&gt;                                   &lt;chr&gt;
+## 1              1 assunto_nm_1 Violação aos Princípios Administrativos
+## 2              1 assunto_nm_2                                    &lt;NA&gt;
+## 3              1 assunto_nm_3                                    &lt;NA&gt;
+## 4              1 assunto_nm_4                                    &lt;NA&gt;
+## 5              1 assunto_nm_5                                    &lt;NA&gt;
+## 6              2 assunto_nm_1 Violação aos Princípios Administrativos
+## 7              2 assunto_nm_2                                    &lt;NA&gt;
+## 8              2 assunto_nm_3                                    &lt;NA&gt;
+## 9              2 assunto_nm_4                                    &lt;NA&gt;
+## 10             2 assunto_nm_5                                    &lt;NA&gt;
+## # ... with 179,875 more rows
+</code></pre>
+
+<h3 id="spread"><code>spread</code></h3>
+
+<ul>
+<li>&ldquo;Joga&rdquo; uma variável nas colunas</li>
+<li>É essencialmente a função inversa de <code>gather</code></li>
+</ul>
+
+<pre><code class="language-r">tidy_cnc %&gt;% 
+  select(id_condenacao, starts_with('assunto_nm')) %&gt;% 
+  gather(key, value, -id_condenacao) %&gt;% 
+  arrange(id_condenacao) %&gt;% 
+  spread(key, value)
+## # A tibble: 35,977 × 6
+##    id_condenacao                            assunto_nm_1   assunto_nm_2
+## *          &lt;int&gt;                                   &lt;chr&gt;          &lt;chr&gt;
+## 1              1 Violação aos Princípios Administrativos           &lt;NA&gt;
+## 2              2 Violação aos Princípios Administrativos           &lt;NA&gt;
+## 3              3                          Dano ao Erário           &lt;NA&gt;
+## 4              4                          Dano ao Erário           &lt;NA&gt;
+## 5              5                          Dano ao Erário           &lt;NA&gt;
+## 6              6                          Dano ao Erário           &lt;NA&gt;
+## 7              7 Violação aos Princípios Administrativos Dano ao Erário
+## 8              8                          Dano ao Erário           &lt;NA&gt;
+## 9              9                          Dano ao Erário           &lt;NA&gt;
+## 10            10                          Dano ao Erário           &lt;NA&gt;
+## # ... with 35,967 more rows, and 3 more variables: assunto_nm_3 &lt;chr&gt;,
+## #   assunto_nm_4 &lt;chr&gt;, assunto_nm_5 &lt;chr&gt;
+</code></pre>
+
+<h3 id="funções-auxiliares">Funções auxiliares</h3>
+
+<ul>
+<li><code>unite</code> junta duas ou mais colunas usando algum separador (<code>_</code>, por exemplo).</li>
+<li><code>separate</code> faz o inverso de <code>unite</code>, e uma coluna em várias usando um separador.</li>
+</ul>
+
+<h3 id="um-pouco-mais-de-transformação-de-dados">Um pouco mais de transformação de dados</h3>
+
+<ul>
+<li>Para juntar tabelas, usar <code>inner_join</code>, <code>left_join</code>, <code>anti_join</code>, etc.</li>
+<li>Para realizar operações mais gerais, usar <code>do</code>.</li>
+<li>Para retirar duplicatas, utilizar <code>distinct</code>.</li>
+</ul>
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+<ol>
+<li>Calcule o número de ouro no R.</li>
+</ol>
+
+<p>$$
+\frac{1 + \sqrt{5}}{2}
+$$</p>
+
+<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IigxICsgc3FydCg1KSkvMiIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiMS42MTgwMzRcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=</div>
+
+
+			<aside class="copyright" role="note">
+				
+				&copy; 2017 Disponível sobre Licença MIT &ndash;
+				
+				Site built with
+				<a href="https://www.gohugo.io" target="_blank">Hugo</a>
+				using the
+				<a href="http://github.com/digitalcraftsman/hugo-material-docs" target="_blank">Material</a> theme.
+			</aside>
+
+			<footer class="footer">
+				
+
+<nav class="pagination" aria-label="Footer">
+  <div class="previous">
+  
+  </div>
+
+  <div class="next">
+  
+      <a href="../" title="Curso-R">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Curso-R
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
+  
+  </div>
+</nav>
+
+
+
+
+
+			</footer>
+		</div>
+	</article>
+
+	<div class="results" role="status" aria-live="polite">
+		<div class="scrollable">
+			<div class="wrapper">
+				<div class="meta"></div>
+				<div class="list"></div>
+			</div>
+		</div>
+	</div>
+</main>
+
+    <script>
+    
+      var base_url = '\/';
+      var repo_id  = 'curso-r\/verao2017';
+    
+    </script>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="../javascripts/application.js"></script>
+    <script src="../javascripts/datacamp.js"></script>
+    
+
+    <script>
+      /* Add headers to scrollspy */
+      var div_h2    = document.getElementsByClassName("section level2")
+      var headers   = document.getElementsByTagName("h2");	
+      var scrollspy = document.getElementById('scrollspy');
+      
+      if(scrollspy) {
+        if(headers.length > 0) {
+          for(var i = 0; i < headers.length; i++) {
+            var li = document.createElement("li");
+            li.setAttribute("class", "anchor");
+
+            var a  = document.createElement("a");
+
+
+	    if(headers[i].id == ""){
+	     a.setAttribute("href", "#" + div_h2[i].id);
+	    } else {
+	     a.setAttribute("href", "#" + headers[i].id);
+	    }
+
+            a.setAttribute("title", headers[i].innerHTML);
+            a.innerHTML = headers[i].innerHTML;
+            
+            li.appendChild(a)
+            scrollspy.appendChild(li);
+          }
+        } else {
+          scrollspy.parentElement.removeChild(scrollspy)
+        }
+      }
+      
+      
+      /* Add permanent link next to the headers */
+      var headers = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+
+      for(var i = 0; i < headers.length; i++) {
+          var a = document.createElement("a");
+          a.setAttribute("class", "headerlink");
+          a.setAttribute("href", "#" + headers[i].id);
+          a.setAttribute("title", "Permanent link")
+          a.innerHTML = "#";
+          headers[i].appendChild(a);
+      }
+    </script>
+
+    
+      <script>
+        (function(i,s,o,g,r,a,m){
+          i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||
+          []).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;
+          m.parentNode.insertBefore(a,m)
+        })(window, document,
+          'script', '//www.google-analytics.com/analytics.js', 'ga');
+         
+        ga('create', 'UA-87272102-1', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('send', 'pageview');
+         
+        var buttons = document.querySelectorAll('a');
+        Array.prototype.map.call(buttons, function(item) {
+          if (item.host != document.location.host) {
+            item.addEventListener('click', function() {
+              var action = item.getAttribute('data-action') || 'follow';
+              ga('send', 'event', 'outbound', action, item.href);
+            });
+          }
+        });
+         
+        var query = document.querySelector('.query');
+        query.addEventListener('blur', function() {
+          if (this.value) {
+            var path = document.location.pathname;
+            ga('send', 'pageview', path + '?q=' + this.value);
+          }
+        });
+      </script>
+    
+
+    <script src="//gohugo.io/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+  </body>
+</html>
+

@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Wed, 18 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Jan 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/dplyr/</link>
-      <pubDate>Wed, 18 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/dplyr/</guid>
       <description>
@@ -511,15 +511,6 @@ $$&lt;/p&gt;
 
 /BLOGDOWN-HEAD --&gt;
 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/dplyr/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/dplyr/</guid>
-      <description>&lt;html&gt;&lt;/html&gt;</description>
     </item>
     
     <item>
