@@ -61,6 +61,11 @@ googleAnalytics = "UA-87272102-1"
   url    = "ggplot/"
   weight = 20
 
+[[menu.main]]
+  name   = "Transformação"
+  url    = "dplyr/"
+  weight = 30
+
 [blackfriday]
   smartypants  = true
   fractions = true
