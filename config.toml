@@ -63,7 +63,7 @@ googleAnalytics = "UA-87272102-1"
 
 [[menu.main]]
   name   = "Transformação"
-  url    = "dplyr/"
+  url    = "manip/"
   weight = 30
 
 [blackfriday]
