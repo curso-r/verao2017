@@ -463,33 +463,74 @@ como uma regex.</p>
 
 <p>A tabela abaixo mostra a aplicação de seis <code>regex</code> a seis strings distintas.</p>
 
-<pre><code class="language-r">testes &lt;- c('ban', 'banana', 'abandonado', 'pranab anderson', 'BANANA', 
-            'ele levou ban')
+<table>
+<thead>
+<tr>
+<th align="left">testes</th>
+<th align="left">^ban</th>
+<th align="left">b ?an</th>
+<th align="left">ban</th>
+<th align="left">BAN</th>
+<th align="left">ban$</th>
+</tr>
+</thead>
 
-expressoes &lt;- list(
-  'ban', # reconhece tudo que tenha &quot;ban&quot;, mas não ignora case
-  'BAN', # reconhece tudo que tenha &quot;BAN&quot;, mas não ignora case
-  regex('ban', ignore_case = TRUE), # reconhece tudo que tenha &quot;ban&quot;, ignorando case
-  'ban$', # reconhece apenas o que termina exatamente em &quot;ban&quot;
-  '^ban', # reconhece apenas o que começa exatamente com &quot;ban&quot;
-  'b ?an' # reconhece tudo que tenha &quot;ban&quot;, com ou sem espaço entre o &quot;b&quot; e o &quot;a&quot;
-)
-</code></pre>
+<tbody>
+<tr>
+<td align="left">abandonado</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+</tr>
 
-<pre><code>## 
-## Attaching package: 'dplyr'
-## The following objects are masked from 'package:purrr':
-## 
-##     contains, order_by
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-</code></pre>
+<tr>
+<td align="left">ban</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+</tr>
 
-<p><img src="figures//unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="60%" height="60%" /></p>
+<tr>
+<td align="left">banana</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+</tr>
+
+<tr>
+<td align="left">BANANA</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+</tr>
+
+<tr>
+<td align="left">ele levou ban</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+</tr>
+
+<tr>
+<td align="left">pranab anderson</td>
+<td align="left">FALSE</td>
+<td align="left">TRUE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+<td align="left">FALSE</td>
+</tr>
+</tbody>
+</table>
 
 <h3 id="quantificadores">Quantificadores</h3>
 

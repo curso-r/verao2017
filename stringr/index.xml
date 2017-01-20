@@ -191,33 +191,74 @@ como uma regex.&lt;/p&gt;
 
 &lt;p&gt;A tabela abaixo mostra a aplicação de seis &lt;code&gt;regex&lt;/code&gt; a seis strings distintas.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;testes &amp;lt;- c(&#39;ban&#39;, &#39;banana&#39;, &#39;abandonado&#39;, &#39;pranab anderson&#39;, &#39;BANANA&#39;, 
-            &#39;ele levou ban&#39;)
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;testes&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;^ban&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;b ?an&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;ban&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;BAN&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;ban$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
 
-expressoes &amp;lt;- list(
-  &#39;ban&#39;, # reconhece tudo que tenha &amp;quot;ban&amp;quot;, mas não ignora case
-  &#39;BAN&#39;, # reconhece tudo que tenha &amp;quot;BAN&amp;quot;, mas não ignora case
-  regex(&#39;ban&#39;, ignore_case = TRUE), # reconhece tudo que tenha &amp;quot;ban&amp;quot;, ignorando case
-  &#39;ban$&#39;, # reconhece apenas o que termina exatamente em &amp;quot;ban&amp;quot;
-  &#39;^ban&#39;, # reconhece apenas o que começa exatamente com &amp;quot;ban&amp;quot;
-  &#39;b ?an&#39; # reconhece tudo que tenha &amp;quot;ban&amp;quot;, com ou sem espaço entre o &amp;quot;b&amp;quot; e o &amp;quot;a&amp;quot;
-)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;abandonado&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;pre&gt;&lt;code&gt;## 
-## Attaching package: &#39;dplyr&#39;
-## The following objects are masked from &#39;package:purrr&#39;:
-## 
-##     contains, order_by
-## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union
-&lt;/code&gt;&lt;/pre&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;ban&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;/tr&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-19-1.png&#34; title=&#34;plot of chunk unnamed-chunk-19&#34; alt=&#34;plot of chunk unnamed-chunk-19&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;banana&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;BANANA&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;ele levou ban&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;pranab anderson&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;TRUE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;FALSE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
 &lt;h3 id=&#34;quantificadores&#34;&gt;Quantificadores&lt;/h3&gt;
 
