@@ -65,6 +65,11 @@ googleAnalytics = "UA-87272102-1"
   name   = "Transformação"
   url    = "manip/"
   weight = 30
+  
+[[menu.main]]
+  name   = "Stringr"
+  url    = "stringr/"
+  weight = 40
 
 [blackfriday]
   smartypants  = true

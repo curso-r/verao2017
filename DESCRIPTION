@@ -28,4 +28,5 @@ PowerUps:
     curso-r/pu.train2,
     curso-r/pu.ggplot,
     curso-r/pu.rbase,
-    azeloc/pu.test
+    azeloc/pu.test,
+    curso-r/pu.stringr
