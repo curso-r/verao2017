@@ -10,18 +10,18 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
-    <title>PU - Curso-R</title>
+    <title>Introdução - Curso-R</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="Materiais para o Curso-R de verão 2017">
     
-    <link rel="canonical" href="../train2/">
+    <link rel="canonical" href="../manip/">
     
     <meta name="author" content="Curso-R">
     
 
-    <meta property="og:url" content="/train2/">
+    <meta property="og:url" content="/manip/">
     <meta property="og:title" content="Curso-R">
     <meta property="og:image" content="/logo-curso-r.png">
     <meta name="apple-mobile-web-app-title" content="Curso-R">
@@ -81,7 +81,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        PU
+        Introdução
       </div>
     </div>
 
@@ -218,11 +218,14 @@
 
 
 
-<a  title="Transformação" href="../manip/">
+<a class="current" title="Transformação" href="../manip/">
 	
 	Transformação
 </a>
 
+
+<ul id="scrollspy">
+</ul>
 
 
   
@@ -265,22 +268,226 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>PU </h1>
+			<h1>Introdução </h1>
 
-			<p>Isso é um Power UP</p>
+			
 
-<p>I LOVE THE WAY U R.</p>
+<blockquote>
+<p>&rdquo;(&hellip;) The fact that data science exists as a field is a colossal failure of statistics. To me, [what I do] is what statistics is all about. It is gaining insight from data using modelling and visualization. Data munging and manipulation is hard and statistics has just said that’s not our domain.&rdquo;</p>
 
-<pre><code class="language-r">1 + 1
+<p>Hadley Wickham</p>
+</blockquote>
+
+<h2 id="pacotes-dplyr-e-tidyr">Pacotes <code>dplyr</code> e <code>tidyr</code></h2>
+
+<p>A transformação de dados é uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística.</p>
+
+<p>O <code>dplyr</code> é um dos pacotes mais úteis para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em <code>R</code> que fazem uso inteligente dos verbos <code>dplyr</code> e as facilidades do operador <em>pipe</em> tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.</p>
+
+<p>Por ser um pacote que se propõe a realizar um dos trabalhos mais árduos da análise estatística, e por atingir esse objetivo de forma elegante, eficaz e eficiente, o <code>dplyr</code> pode ser considerado como uma revolução no <code>R</code>.</p>
+
+<h3 id="trabalhando-com-tibble-s">Trabalhando com <code>tibble</code>s</h3>
+
+<p>A <code>tibble</code> nada mais é do que um <code>data.frame</code>, mas com um método de impressão mais adequado. Outras diferenças podem ser estudadas <a href="http://r4ds.had.co.nz/tibbles.html">neste link</a>.</p>
+
+<p>Vamos assumir que temos a seguinte base de dados:</p>
+
+<pre><code class="language-r">pnud_min
+## Error in eval(expr, envir, enclos): object 'pnud_min' not found
 </code></pre>
 
-<pre><code>## [1] 2
+<h3 id="as-cinco-funções-principais-do-dplyr">As cinco funções principais do <code>dplyr</code></h3>
+
+<ul>
+<li><code>filter</code></li>
+<li><code>mutate</code></li>
+<li><code>select</code></li>
+<li><code>arrange</code></li>
+<li><code>summarise</code></li>
+</ul>
+
+<h3 id="características">Características</h3>
+
+<ul>
+<li>O <em>input</em>  é sempre uma <code>tibble</code>, e o <em>output</em>  é sempre um <code>tibble</code>.</li>
+<li>No primeiro argumento colocamos o <code>tibble</code>, e nos outros argumentos colocamos o que queremos fazer.</li>
+<li>A utilização é facilitada com o emprego do operador <code>%&gt;%</code></li>
+</ul>
+
+<h3 id="vantagens">Vantagens</h3>
+
+<ul>
+<li>Utiliza <code>C</code> e <code>C++</code> por trás da maioria das funções, o que geralmente torna o código mais eficiente.</li>
+<li>Pode trabalhar com diferentes fontes de dados, como bases relacionais (SQL) e <code>data.table</code>.</li>
+</ul>
+
+<h3 id="select"><code>select</code></h3>
+
+<ul>
+<li>Utilizar <code>starts_with(x)</code>, <code>contains(x)</code>, <code>matches(x)</code>, <code>one_of(x)</code>, etc.</li>
+<li>Possível colocar nomes, índices, e intervalos de variáveis com <code>:</code>.</li>
+</ul>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  select(ano, regiao, muni)
+## Error in eval(expr, envir, enclos): could not find function &quot;%&gt;%&quot;
 </code></pre>
 
-<pre><code class="language-r">plot(1:10)
+<pre><code class="language-r">pnud_min %&gt;% 
+  select(ano:regiao, rdpc)
+## Error in eval(expr, envir, enclos): could not find function &quot;%&gt;%&quot;
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
+<pre><code class="language-r">pnud_min %&gt;% 
+  select(ano, starts_with('idhm'))
+## Error in eval(expr, envir, enclos): could not find function &quot;%&gt;%&quot;
+</code></pre>
+
+<h3 id="filter"><code>filter</code></h3>
+
+<ul>
+<li>Parecido com <code>subset</code>.</li>
+<li>Condições separadas por vírgulas é o mesmo que separar por <code>&amp;</code>.</li>
+</ul>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  select(ano, muni, uf) %&gt;% 
+  filter(uf == 'AC')
+## Error in eval(expr, envir, enclos): could not find function &quot;%&gt;%&quot;
+</code></pre>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  select(ano, regiao, uf, idhm) %&gt;% 
+  filter(uf %in% c('SP', 'MG') | idhm &gt; .5, ano == 2010)
+## Error in eval(expr, envir, enclos): could not find function &quot;%&gt;%&quot;
+  # é igual a
+  # filter(uf %in% c('SP', 'MG') | idhm &gt; .5 &amp; ano == 2010)
+</code></pre>
+
+<pre><code class="language-r">library(stringr)
+pnud_min %&gt;% 
+  select(muni, ano, uf) %&gt;% 
+  filter(str_detect(muni, '^[HG]|S$'), 
+         ano == 1991)
+## Error in eval(expr, envir, enclos): object 'pnud_min' not found
+</code></pre>
+
+<h3 id="mutate"><code>mutate</code></h3>
+
+<ul>
+<li>Parecido com <code>transform</code>, mas aceita várias novas colunas iterativamente.</li>
+<li>Novas variáveis devem ter o mesmo <code>length</code> que o <code>nrow</code> do bd oridinal ou <code>1</code>.</li>
+</ul>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  select(muni, rdpc, pop, idhm_l, espvida) %&gt;% 
+  mutate(renda = rdpc * pop, 
+         razao = idhm_l / espvida)
+## Error in eval(expr, envir, enclos): object 'pnud_min' not found
+</code></pre>
+
+<h3 id="arrange"><code>arrange</code></h3>
+
+<ul>
+<li>Simplesmente ordena de acordo com as opções.</li>
+<li>Utilizar <code>desc</code> para ordem decrescente.</li>
+</ul>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  filter(ano == 2010) %&gt;% 
+  arrange(desc(espvida))
+## Error in eval(expr, envir, enclos): object 'pnud_min' not found
+</code></pre>
+
+<h3 id="summarise"><code>summarise</code></h3>
+
+<ul>
+<li>Retorna um vetor de tamanho <code>1</code> a partir de uma conta com as variáveis.</li>
+<li>Geralmente é utilizado em conjunto com <code>group_by</code>.</li>
+<li>Algumas funções importantes: <code>n()</code>, <code>n_distinct()</code>.</li>
+</ul>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  group_by(regiao, uf) %&gt;% 
+  summarise(n = n(), espvida = mean(espvida)) %&gt;% 
+  arrange(regiao, desc(espvida))
+## Error in eval(expr, envir, enclos): object 'pnud_min' not found
+</code></pre>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  filter(ano == 2010) %&gt;% 
+  count(regiao, sort = TRUE) %&gt;% 
+  mutate(prop = n / sum(n), prop = scales::percent(prop))
+## Error in eval(expr, envir, enclos): object 'pnud_min' not found
+</code></pre>
+
+<h3 id="gather"><code>gather</code></h3>
+
+<ul>
+<li>&ldquo;Empilha&rdquo; o banco de dados</li>
+</ul>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  select(uf, muni, ano, starts_with('idhm_')) %&gt;% 
+  gather(tipo_idhm, idhm, starts_with('idhm_')) %&gt;% 
+  arrange(desc(idhm))
+## Error in eval(expr, envir, enclos): object 'pnud_min' not found
+</code></pre>
+
+<h3 id="spread"><code>spread</code></h3>
+
+<ul>
+<li>&ldquo;Joga&rdquo; uma variável nas colunas</li>
+<li>É essencialmente a função inversa de <code>gather</code></li>
+</ul>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  select(muni, uf, ano, starts_with('idhm_')) %&gt;% 
+  gather(tipo_idhm, idhm, starts_with('idhm_')) %&gt;% 
+  spread(ano, idhm)
+## Error in eval(expr, envir, enclos): object 'pnud_min' not found
+</code></pre>
+
+<h3 id="funções-auxiliares">Funções auxiliares</h3>
+
+<ul>
+<li><code>unite</code> junta duas ou mais colunas usando algum separador (<code>_</code>, por exemplo).</li>
+<li><code>separate</code> faz o inverso de <code>unite</code>, e uma coluna em várias usando um separador.</li>
+</ul>
+
+<pre><code class="language-r">pnud_min %&gt;% 
+  select(muni, uf, ano, starts_with('idhm_')) %&gt;% 
+  gather(tipo_idhm, idhm, starts_with('idhm_')) %&gt;% 
+  separate(tipo_idhm, c('idhm_nm', 'tipo'), sep = '_') %&gt;% 
+  select(-idhm_nm) %&gt;% 
+  filter(ano == 2010) %&gt;% 
+  group_by(tipo) %&gt;% 
+  summarise(maior = muni[which.max(idhm)], idhm = max(idhm)) %&gt;% 
+  arrange(tipo, desc(idhm))
+## Error in eval(expr, envir, enclos): object 'pnud_min' not found
+</code></pre>
+
+<h3 id="um-pouco-mais-de-transformação-de-dados">Um pouco mais de transformação de dados</h3>
+
+<ul>
+<li>Para juntar tabelas, usar <code>inner_join</code>, <code>left_join</code>, <code>anti_join</code>, etc.</li>
+<li>Para realizar operações mais gerais, usar <code>do</code>.</li>
+<li>Para retirar duplicatas, utilizar <code>distinct</code>.</li>
+</ul>
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
+
+<ol>
+<li>Calcule o número de ouro no R.</li>
+</ol>
+
+<p>$$
+\frac{1 + \sqrt{5}}{2}
+$$</p>
+
+<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IigxICsgc3FydCg1KSkvMiIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiMS42MTgwMzRcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=</div>
 
 
 			<aside class="copyright" role="note">
@@ -299,34 +506,18 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../rbase/" title="Introdução">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Introdução
-            </div>
-          </div>
-        </div>
-      </a>
-  
   </div>
 
   <div class="next">
   
-      <a href="../ggplot/" title="ggplot">
+      <a href="../" title="Curso-R">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              ggplot
+              Curso-R
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

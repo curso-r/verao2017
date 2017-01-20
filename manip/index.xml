@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Manip-rsses on Curso-R</title>
+    <link>/manip/index.xml</link>
+    <description>Recent content in Manip-rsses on Curso-R</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <copyright>Disponível sobre Licença MIT</copyright>
+    <lastBuildDate>Fri, 20 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="/manip/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introdução</title>
+      <link>/manip/</link>
+      <pubDate>Fri, 20 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/manip/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;rdquo;(&amp;hellip;) The fact that data science exists as a field is a colossal failure of statistics. To me, [what I do] is what statistics is all about. It is gaining insight from data using modelling and visualization. Data munging and manipulation is hard and statistics has just said that’s not our domain.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Hadley Wickham&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;pacotes-dplyr-e-tidyr&#34;&gt;Pacotes &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;A transformação de dados é uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística.&lt;/p&gt;
+
+&lt;p&gt;O &lt;code&gt;dplyr&lt;/code&gt; é um dos pacotes mais úteis para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em &lt;code&gt;R&lt;/code&gt; que fazem uso inteligente dos verbos &lt;code&gt;dplyr&lt;/code&gt; e as facilidades do operador &lt;em&gt;pipe&lt;/em&gt; tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.&lt;/p&gt;
+
+&lt;p&gt;Por ser um pacote que se propõe a realizar um dos trabalhos mais árduos da análise estatística, e por atingir esse objetivo de forma elegante, eficaz e eficiente, o &lt;code&gt;dplyr&lt;/code&gt; pode ser considerado como uma revolução no &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;trabalhando-com-tibble-s&#34;&gt;Trabalhando com &lt;code&gt;tibble&lt;/code&gt;s&lt;/h3&gt;
+
+&lt;p&gt;A &lt;code&gt;tibble&lt;/code&gt; nada mais é do que um &lt;code&gt;data.frame&lt;/code&gt;, mas com um método de impressão mais adequado. Outras diferenças podem ser estudadas &lt;a href=&#34;http://r4ds.had.co.nz/tibbles.html&#34;&gt;neste link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Vamos assumir que temos a seguinte base de dados:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min
+## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;as-cinco-funções-principais-do-dplyr&#34;&gt;As cinco funções principais do &lt;code&gt;dplyr&lt;/code&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;summarise&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;características&#34;&gt;Características&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;O &lt;em&gt;input&lt;/em&gt;  é sempre uma &lt;code&gt;tibble&lt;/code&gt;, e o &lt;em&gt;output&lt;/em&gt;  é sempre um &lt;code&gt;tibble&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;No primeiro argumento colocamos o &lt;code&gt;tibble&lt;/code&gt;, e nos outros argumentos colocamos o que queremos fazer.&lt;/li&gt;
+&lt;li&gt;A utilização é facilitada com o emprego do operador &lt;code&gt;%&amp;gt;%&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;vantagens&#34;&gt;Vantagens&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Utiliza &lt;code&gt;C&lt;/code&gt; e &lt;code&gt;C++&lt;/code&gt; por trás da maioria das funções, o que geralmente torna o código mais eficiente.&lt;/li&gt;
+&lt;li&gt;Pode trabalhar com diferentes fontes de dados, como bases relacionais (SQL) e &lt;code&gt;data.table&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;select&#34;&gt;&lt;code&gt;select&lt;/code&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Utilizar &lt;code&gt;starts_with(x)&lt;/code&gt;, &lt;code&gt;contains(x)&lt;/code&gt;, &lt;code&gt;matches(x)&lt;/code&gt;, &lt;code&gt;one_of(x)&lt;/code&gt;, etc.&lt;/li&gt;
+&lt;li&gt;Possível colocar nomes, índices, e intervalos de variáveis com &lt;code&gt;:&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano, regiao, muni)
+## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano:regiao, rdpc)
+## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano, starts_with(&#39;idhm&#39;))
+## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;filter&#34;&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Parecido com &lt;code&gt;subset&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Condições separadas por vírgulas é o mesmo que separar por &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano, muni, uf) %&amp;gt;% 
+  filter(uf == &#39;AC&#39;)
+## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano, regiao, uf, idhm) %&amp;gt;% 
+  filter(uf %in% c(&#39;SP&#39;, &#39;MG&#39;) | idhm &amp;gt; .5, ano == 2010)
+## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+  # é igual a
+  # filter(uf %in% c(&#39;SP&#39;, &#39;MG&#39;) | idhm &amp;gt; .5 &amp;amp; ano == 2010)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(stringr)
+pnud_min %&amp;gt;% 
+  select(muni, ano, uf) %&amp;gt;% 
+  filter(str_detect(muni, &#39;^[HG]|S$&#39;), 
+         ano == 1991)
+## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;mutate&#34;&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Parecido com &lt;code&gt;transform&lt;/code&gt;, mas aceita várias novas colunas iterativamente.&lt;/li&gt;
+&lt;li&gt;Novas variáveis devem ter o mesmo &lt;code&gt;length&lt;/code&gt; que o &lt;code&gt;nrow&lt;/code&gt; do bd oridinal ou &lt;code&gt;1&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(muni, rdpc, pop, idhm_l, espvida) %&amp;gt;% 
+  mutate(renda = rdpc * pop, 
+         razao = idhm_l / espvida)
+## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;arrange&#34;&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Simplesmente ordena de acordo com as opções.&lt;/li&gt;
+&lt;li&gt;Utilizar &lt;code&gt;desc&lt;/code&gt; para ordem decrescente.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  filter(ano == 2010) %&amp;gt;% 
+  arrange(desc(espvida))
+## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;summarise&#34;&gt;&lt;code&gt;summarise&lt;/code&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Retorna um vetor de tamanho &lt;code&gt;1&lt;/code&gt; a partir de uma conta com as variáveis.&lt;/li&gt;
+&lt;li&gt;Geralmente é utilizado em conjunto com &lt;code&gt;group_by&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Algumas funções importantes: &lt;code&gt;n()&lt;/code&gt;, &lt;code&gt;n_distinct()&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  group_by(regiao, uf) %&amp;gt;% 
+  summarise(n = n(), espvida = mean(espvida)) %&amp;gt;% 
+  arrange(regiao, desc(espvida))
+## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  filter(ano == 2010) %&amp;gt;% 
+  count(regiao, sort = TRUE) %&amp;gt;% 
+  mutate(prop = n / sum(n), prop = scales::percent(prop))
+## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;gather&#34;&gt;&lt;code&gt;gather&lt;/code&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Empilha&amp;rdquo; o banco de dados&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(uf, muni, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  arrange(desc(idhm))
+## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;spread&#34;&gt;&lt;code&gt;spread&lt;/code&gt;&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Joga&amp;rdquo; uma variável nas colunas&lt;/li&gt;
+&lt;li&gt;É essencialmente a função inversa de &lt;code&gt;gather&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(muni, uf, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  spread(ano, idhm)
+## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;funções-auxiliares&#34;&gt;Funções auxiliares&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;unite&lt;/code&gt; junta duas ou mais colunas usando algum separador (&lt;code&gt;_&lt;/code&gt;, por exemplo).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;separate&lt;/code&gt; faz o inverso de &lt;code&gt;unite&lt;/code&gt;, e uma coluna em várias usando um separador.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(muni, uf, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  separate(tipo_idhm, c(&#39;idhm_nm&#39;, &#39;tipo&#39;), sep = &#39;_&#39;) %&amp;gt;% 
+  select(-idhm_nm) %&amp;gt;% 
+  filter(ano == 2010) %&amp;gt;% 
+  group_by(tipo) %&amp;gt;% 
+  summarise(maior = muni[which.max(idhm)], idhm = max(idhm)) %&amp;gt;% 
+  arrange(tipo, desc(idhm))
+## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;um-pouco-mais-de-transformação-de-dados&#34;&gt;Um pouco mais de transformação de dados&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Para juntar tabelas, usar &lt;code&gt;inner_join&lt;/code&gt;, &lt;code&gt;left_join&lt;/code&gt;, &lt;code&gt;anti_join&lt;/code&gt;, etc.&lt;/li&gt;
+&lt;li&gt;Para realizar operações mais gerais, usar &lt;code&gt;do&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Para retirar duplicatas, utilizar &lt;code&gt;distinct&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;$$
+\frac{1 + \sqrt{5}}{2}
+$$&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IigxICsgc3FydCg1KSkvMiIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiMS42MTgwMzRcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/manip/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/manip/</guid>
+      <description>&lt;html&gt;&lt;/html&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
