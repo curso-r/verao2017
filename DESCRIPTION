@@ -16,7 +16,10 @@ LazyData: true
 Remotes: 
     rstudio/blogdown
 Imports:
-    tidyverse,
+    stringr,
+    purrr,
+    httr,
+    magrittr,
     bookdown,
     devtools,
     blogdown,
