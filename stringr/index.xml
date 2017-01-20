@@ -11,7 +11,7 @@
     <atom:link href="/stringr/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Introdução</title>
+      <title>Stringr</title>
       <link>/stringr/</link>
       <pubDate>Fri, 20 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -219,7 +219,7 @@ expressoes &amp;lt;- list(
 
 &lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-19-1.png&#34; title=&#34;plot of chunk unnamed-chunk-19&#34; alt=&#34;plot of chunk unnamed-chunk-19&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;quantificadores&#34;&gt;Quantificadores&lt;/h2&gt;
+&lt;h3 id=&#34;quantificadores&#34;&gt;Quantificadores&lt;/h3&gt;
 
 &lt;p&gt;Os caracteres &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;*&lt;/code&gt; e &lt;code&gt;{x,y}&lt;/code&gt; indicam quantas vezes um padrão se repete:&lt;/p&gt;
 
@@ -232,7 +232,7 @@ expressoes &amp;lt;- list(
 
 &lt;p&gt;Para aplicar um quantificador a um conjunto de caracteres, use parênteses. Por exemplo, &lt;code&gt;(ey )+&lt;/code&gt; reconhece &lt;code&gt;ey ey&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h2 id=&#34;conjuntos&#34;&gt;Conjuntos&lt;/h2&gt;
+&lt;h3 id=&#34;conjuntos&#34;&gt;Conjuntos&lt;/h3&gt;
 
 &lt;p&gt;Colocando caracteres dentro de &lt;code&gt;[]&lt;/code&gt;, reconhecemos quaisquer caracteres desse conjunto. Alguns exemplos práticos:&lt;/p&gt;
 
@@ -244,7 +244,7 @@ expressoes &amp;lt;- list(
 &lt;li&gt;Use &lt;code&gt;[[:space:]]+&lt;/code&gt; para reconhecer espaços e &lt;code&gt;[[:punct:]]+&lt;/code&gt; para reconhecer pontuações.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;miscelânea&#34;&gt;Miscelânea&lt;/h2&gt;
+&lt;h3 id=&#34;miscelânea&#34;&gt;Miscelânea&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Use &lt;code&gt;abjutils::rm_accent()&lt;/code&gt; para retirar os acentos de um texto.&lt;/li&gt;
