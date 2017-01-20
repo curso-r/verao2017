@@ -39,7 +39,21 @@
 &lt;p&gt;Vamos assumir que temos a seguinte base de dados:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min
-## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+## # A tibble: 16,686 × 14
+##      ano                  muni    uf regiao  idhm idhm_e idhm_l idhm_r
+##    &amp;lt;int&amp;gt;                 &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1   1991 ALTA FLORESTA D&#39;OESTE    RO  Norte 0.329  0.112  0.617  0.516
+## 2   1991             ARIQUEMES    RO  Norte 0.432  0.199  0.684  0.593
+## 3   1991                CABIXI    RO  Norte 0.309  0.108  0.636  0.430
+## 4   1991                CACOAL    RO  Norte 0.407  0.171  0.667  0.593
+## 5   1991            CEREJEIRAS    RO  Norte 0.386  0.167  0.629  0.547
+## 6   1991     COLORADO DO OESTE    RO  Norte 0.376  0.151  0.658  0.536
+## 7   1991            CORUMBIARA    RO  Norte 0.203  0.039  0.572  0.373
+## 8   1991         COSTA MARQUES    RO  Norte 0.425  0.220  0.629  0.553
+## 9   1991       ESPIGÃO D&#39;OESTE    RO  Norte 0.388  0.159  0.653  0.561
+## 10  1991         GUAJARÁ-MIRIM    RO  Norte 0.468  0.247  0.662  0.625
+## # ... with 16,676 more rows, and 6 more variables: espvida &amp;lt;dbl&amp;gt;,
+## #   rdpc &amp;lt;dbl&amp;gt;, gini &amp;lt;dbl&amp;gt;, pop &amp;lt;int&amp;gt;, lat &amp;lt;dbl&amp;gt;, lon &amp;lt;dbl&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;as-cinco-funções-principais-do-dplyr&#34;&gt;As cinco funções principais do &lt;code&gt;dplyr&lt;/code&gt;&lt;/h3&gt;
@@ -67,7 +81,7 @@
 &lt;li&gt;Pode trabalhar com diferentes fontes de dados, como bases relacionais (SQL) e &lt;code&gt;data.table&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;select&#34;&gt;&lt;code&gt;select&lt;/code&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;select&#34;&gt;&lt;code&gt;select&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Utilizar &lt;code&gt;starts_with(x)&lt;/code&gt;, &lt;code&gt;contains(x)&lt;/code&gt;, &lt;code&gt;matches(x)&lt;/code&gt;, &lt;code&gt;one_of(x)&lt;/code&gt;, etc.&lt;/li&gt;
@@ -76,20 +90,59 @@
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
   select(ano, regiao, muni)
-## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+## # A tibble: 16,686 × 3
+##      ano regiao                  muni
+##    &amp;lt;int&amp;gt;  &amp;lt;chr&amp;gt;                 &amp;lt;chr&amp;gt;
+## 1   1991  Norte ALTA FLORESTA D&#39;OESTE
+## 2   1991  Norte             ARIQUEMES
+## 3   1991  Norte                CABIXI
+## 4   1991  Norte                CACOAL
+## 5   1991  Norte            CEREJEIRAS
+## 6   1991  Norte     COLORADO DO OESTE
+## 7   1991  Norte            CORUMBIARA
+## 8   1991  Norte         COSTA MARQUES
+## 9   1991  Norte       ESPIGÃO D&#39;OESTE
+## 10  1991  Norte         GUAJARÁ-MIRIM
+## # ... with 16,676 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
   select(ano:regiao, rdpc)
-## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+## # A tibble: 16,686 × 5
+##      ano                  muni    uf regiao   rdpc
+##    &amp;lt;int&amp;gt;                 &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1   1991 ALTA FLORESTA D&#39;OESTE    RO  Norte 198.46
+## 2   1991             ARIQUEMES    RO  Norte 319.47
+## 3   1991                CABIXI    RO  Norte 116.38
+## 4   1991                CACOAL    RO  Norte 320.24
+## 5   1991            CEREJEIRAS    RO  Norte 240.10
+## 6   1991     COLORADO DO OESTE    RO  Norte 224.82
+## 7   1991            CORUMBIARA    RO  Norte  81.38
+## 8   1991         COSTA MARQUES    RO  Norte 250.08
+## 9   1991       ESPIGÃO D&#39;OESTE    RO  Norte 263.03
+## 10  1991         GUAJARÁ-MIRIM    RO  Norte 391.37
+## # ... with 16,676 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
   select(ano, starts_with(&#39;idhm&#39;))
-## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+## # A tibble: 16,686 × 5
+##      ano  idhm idhm_e idhm_l idhm_r
+##    &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1   1991 0.329  0.112  0.617  0.516
+## 2   1991 0.432  0.199  0.684  0.593
+## 3   1991 0.309  0.108  0.636  0.430
+## 4   1991 0.407  0.171  0.667  0.593
+## 5   1991 0.386  0.167  0.629  0.547
+## 6   1991 0.376  0.151  0.658  0.536
+## 7   1991 0.203  0.039  0.572  0.373
+## 8   1991 0.425  0.220  0.629  0.553
+## 9   1991 0.388  0.159  0.653  0.561
+## 10  1991 0.468  0.247  0.662  0.625
+## # ... with 16,676 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;filter&#34;&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;filter&#34;&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Parecido com &lt;code&gt;subset&lt;/code&gt;.&lt;/li&gt;
@@ -99,13 +152,39 @@
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
   select(ano, muni, uf) %&amp;gt;% 
   filter(uf == &#39;AC&#39;)
-## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+## # A tibble: 66 × 3
+##      ano            muni    uf
+##    &amp;lt;int&amp;gt;           &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;
+## 1   1991      ACRELÂNDIA    AC
+## 2   1991    ASSIS BRASIL    AC
+## 3   1991       BRASILÉIA    AC
+## 4   1991          BUJARI    AC
+## 5   1991        CAPIXABA    AC
+## 6   1991 CRUZEIRO DO SUL    AC
+## 7   1991  EPITACIOLÂNDIA    AC
+## 8   1991           FEIJÓ    AC
+## 9   1991          JORDÃO    AC
+## 10  1991     MÂNCIO LIMA    AC
+## # ... with 56 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
   select(ano, regiao, uf, idhm) %&amp;gt;% 
   filter(uf %in% c(&#39;SP&#39;, &#39;MG&#39;) | idhm &amp;gt; .5, ano == 2010)
-## Error in eval(expr, envir, enclos): could not find function &amp;quot;%&amp;gt;%&amp;quot;
+## # A tibble: 5,527 × 4
+##      ano regiao    uf  idhm
+##    &amp;lt;int&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1   2010  Norte    RO 0.641
+## 2   2010  Norte    RO 0.702
+## 3   2010  Norte    RO 0.650
+## 4   2010  Norte    RO 0.718
+## 5   2010  Norte    RO 0.692
+## 6   2010  Norte    RO 0.685
+## 7   2010  Norte    RO 0.613
+## 8   2010  Norte    RO 0.611
+## 9   2010  Norte    RO 0.672
+## 10  2010  Norte    RO 0.657
+## # ... with 5,517 more rows
   # é igual a
   # filter(uf %in% c(&#39;SP&#39;, &#39;MG&#39;) | idhm &amp;gt; .5 &amp;amp; ano == 2010)
 &lt;/code&gt;&lt;/pre&gt;
@@ -115,10 +194,23 @@ pnud_min %&amp;gt;%
   select(muni, ano, uf) %&amp;gt;% 
   filter(str_detect(muni, &#39;^[HG]|S$&#39;), 
          ano == 1991)
-## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+## # A tibble: 970 × 3
+##                         muni   ano    uf
+##                        &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;
+## 1                  ARIQUEMES  1991    RO
+## 2                 CEREJEIRAS  1991    RO
+## 3              COSTA MARQUES  1991    RO
+## 4              GUAJARÁ-MIRIM  1991    RO
+## 5    ALTO ALEGRE DOS PARECIS  1991    RO
+## 6                    BURITIS  1991    RO
+## 7               CASTANHEIRAS  1991    RO
+## 8  GOVERNADOR JORGE TEIXEIRA  1991    RO
+## 9                    PARECIS  1991    RO
+## 10              SERINGUEIRAS  1991    RO
+## # ... with 960 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;mutate&#34;&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;mutate&#34;&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Parecido com &lt;code&gt;transform&lt;/code&gt;, mas aceita várias novas colunas iterativamente.&lt;/li&gt;
@@ -129,10 +221,23 @@ pnud_min %&amp;gt;%
   select(muni, rdpc, pop, idhm_l, espvida) %&amp;gt;% 
   mutate(renda = rdpc * pop, 
          razao = idhm_l / espvida)
-## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+## # A tibble: 16,686 × 7
+##                     muni   rdpc   pop idhm_l espvida      renda
+##                    &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;  &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;
+## 1  ALTA FLORESTA D&#39;OESTE 198.46 22835  0.617   62.01  4531834.1
+## 2              ARIQUEMES 319.47 55018  0.684   66.02 17576600.5
+## 3                 CABIXI 116.38  5846  0.636   63.16   680357.5
+## 4                 CACOAL 320.24 66534  0.667   65.03 21306848.2
+## 5             CEREJEIRAS 240.10 19030  0.629   62.73  4569103.0
+## 6      COLORADO DO OESTE 224.82 25070  0.658   64.46  5636237.4
+## 7             CORUMBIARA  81.38 10737  0.572   59.32   873777.1
+## 8          COSTA MARQUES 250.08  6902  0.629   62.76  1726052.2
+## 9        ESPIGÃO D&#39;OESTE 263.03 22505  0.653   64.18  5919490.1
+## 10         GUAJARÁ-MIRIM 391.37 31240  0.662   64.71 12226398.8
+## # ... with 16,676 more rows, and 1 more variables: razao &amp;lt;dbl&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;arrange&#34;&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;arrange&#34;&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Simplesmente ordena de acordo com as opções.&lt;/li&gt;
@@ -142,10 +247,24 @@ pnud_min %&amp;gt;%
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
   filter(ano == 2010) %&amp;gt;% 
   arrange(desc(espvida))
-## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+## # A tibble: 5,562 × 14
+##      ano               muni    uf regiao  idhm idhm_e idhm_l idhm_r
+##    &amp;lt;int&amp;gt;              &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1   2010           BLUMENAU    SC    Sul 0.806  0.722  0.894  0.812
+## 2   2010            BRUSQUE    SC    Sul 0.795  0.707  0.894  0.794
+## 3   2010 BALNEÁRIO CAMBORIÚ    SC    Sul 0.845  0.789  0.894  0.854
+## 4   2010         RIO DO SUL    SC    Sul 0.802  0.727  0.894  0.793
+## 5   2010    RANCHO QUEIMADO    SC    Sul 0.753  0.644  0.893  0.743
+## 6   2010       RIO DO OESTE    SC    Sul 0.754  0.625  0.892  0.769
+## 7   2010             IOMERÊ    SC    Sul 0.795  0.749  0.891  0.754
+## 8   2010            JOAÇABA    SC    Sul 0.827  0.771  0.891  0.823
+## 9   2010        NOVA TRENTO    SC    Sul 0.748  0.628  0.891  0.749
+## 10  2010        PORTO UNIÃO    SC    Sul 0.786  0.724  0.891  0.752
+## # ... with 5,552 more rows, and 6 more variables: espvida &amp;lt;dbl&amp;gt;,
+## #   rdpc &amp;lt;dbl&amp;gt;, gini &amp;lt;dbl&amp;gt;, pop &amp;lt;int&amp;gt;, lat &amp;lt;dbl&amp;gt;, lon &amp;lt;dbl&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;summarise&#34;&gt;&lt;code&gt;summarise&lt;/code&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;summarise&#34;&gt;&lt;code&gt;summarise&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Retorna um vetor de tamanho &lt;code&gt;1&lt;/code&gt; a partir de uma conta com as variáveis.&lt;/li&gt;
@@ -157,17 +276,39 @@ pnud_min %&amp;gt;%
   group_by(regiao, uf) %&amp;gt;% 
   summarise(n = n(), espvida = mean(espvida)) %&amp;gt;% 
   arrange(regiao, desc(espvida))
-## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+## Source: local data frame [27 x 4]
+## Groups: regiao [5]
+## 
+##          regiao    uf     n  espvida
+##           &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;
+## 1  Centro-Oeste    DF     3 73.36000
+## 2  Centro-Oeste    GO   735 69.95346
+## 3  Centro-Oeste    MS   234 69.94291
+## 4  Centro-Oeste    MT   423 69.42915
+## 5      Nordeste    CE   552 65.60627
+## 6      Nordeste    RN   501 65.11439
+## 7      Nordeste    PE   555 64.92721
+## 8      Nordeste    BA  1251 64.62361
+## 9      Nordeste    SE   225 64.26031
+## 10     Nordeste    PI   672 64.04028
+## # ... with 17 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
   filter(ano == 2010) %&amp;gt;% 
   count(regiao, sort = TRUE) %&amp;gt;% 
   mutate(prop = n / sum(n), prop = scales::percent(prop))
-## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+## # A tibble: 5 × 3
+##         regiao     n  prop
+##          &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;
+## 1     Nordeste  1794 32.3%
+## 2      Sudeste  1667 30.0%
+## 3          Sul  1187 21.3%
+## 4 Centro-Oeste   465  8.4%
+## 5        Norte   449  8.1%
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;gather&#34;&gt;&lt;code&gt;gather&lt;/code&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;gather&#34;&gt;&lt;code&gt;gather&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&amp;ldquo;Empilha&amp;rdquo; o banco de dados&lt;/li&gt;
@@ -177,10 +318,23 @@ pnud_min %&amp;gt;%
   select(uf, muni, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
   gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
   arrange(desc(idhm))
-## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+## # A tibble: 50,058 × 5
+##       uf               muni   ano tipo_idhm  idhm
+##    &amp;lt;chr&amp;gt;              &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;     &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     SC BALNEÁRIO CAMBORIÚ  2010    idhm_l 0.894
+## 2     SC           BLUMENAU  2010    idhm_l 0.894
+## 3     SC            BRUSQUE  2010    idhm_l 0.894
+## 4     SC         RIO DO SUL  2010    idhm_l 0.894
+## 5     SC    RANCHO QUEIMADO  2010    idhm_l 0.893
+## 6     SC       RIO DO OESTE  2010    idhm_l 0.892
+## 7     SC             IOMERÊ  2010    idhm_l 0.891
+## 8     SC            JOAÇABA  2010    idhm_l 0.891
+## 9     SC        NOVA TRENTO  2010    idhm_l 0.891
+## 10    SC        PORTO UNIÃO  2010    idhm_l 0.891
+## # ... with 50,048 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;spread&#34;&gt;&lt;code&gt;spread&lt;/code&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;spread&#34;&gt;&lt;code&gt;spread&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&amp;ldquo;Joga&amp;rdquo; uma variável nas colunas&lt;/li&gt;
@@ -191,10 +345,23 @@ pnud_min %&amp;gt;%
   select(muni, uf, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
   gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
   spread(ano, idhm)
-## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+## # A tibble: 16,686 × 6
+##                   muni    uf tipo_idhm `1991` `2000` `2010`
+## *                &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1      ABADIA DE GOIÁS    GO    idhm_e  0.183  0.386  0.622
+## 2      ABADIA DE GOIÁS    GO    idhm_l  0.658  0.765  0.830
+## 3      ABADIA DE GOIÁS    GO    idhm_r  0.563  0.623  0.687
+## 4  Abadia dos Dourados    MG    idhm_e  0.225  0.387  0.563
+## 5  Abadia dos Dourados    MG    idhm_l  0.728  0.799  0.839
+## 6  Abadia dos Dourados    MG    idhm_r  0.551  0.616  0.693
+## 7            ABADIÂNIA    GO    idhm_e  0.188  0.292  0.579
+## 8            ABADIÂNIA    GO    idhm_l  0.656  0.730  0.841
+## 9            ABADIÂNIA    GO    idhm_r  0.560  0.598  0.671
+## 10              Abaeté    MG    idhm_e  0.180  0.385  0.556
+## # ... with 16,676 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;funções-auxiliares&#34;&gt;Funções auxiliares&lt;/h3&gt;
+&lt;h2 id=&#34;funções-auxiliares&#34;&gt;Funções auxiliares&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;unite&lt;/code&gt; junta duas ou mais colunas usando algum separador (&lt;code&gt;_&lt;/code&gt;, por exemplo).&lt;/li&gt;
@@ -210,10 +377,15 @@ pnud_min %&amp;gt;%
   group_by(tipo) %&amp;gt;% 
   summarise(maior = muni[which.max(idhm)], idhm = max(idhm)) %&amp;gt;% 
   arrange(tipo, desc(idhm))
-## Error in eval(expr, envir, enclos): object &#39;pnud_min&#39; not found
+## # A tibble: 3 × 3
+##    tipo              maior  idhm
+##   &amp;lt;chr&amp;gt;              &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     e ÁGUAS DE SÃO PEDRO 0.825
+## 2     l BALNEÁRIO CAMBORIÚ 0.894
+## 3     r SÃO CAETANO DO SUL 0.891
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;um-pouco-mais-de-transformação-de-dados&#34;&gt;Um pouco mais de transformação de dados&lt;/h3&gt;
+&lt;h2 id=&#34;um-pouco-mais-de-transformação-de-dados&#34;&gt;Um pouco mais de transformação de dados&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Para juntar tabelas, usar &lt;code&gt;inner_join&lt;/code&gt;, &lt;code&gt;left_join&lt;/code&gt;, &lt;code&gt;anti_join&lt;/code&gt;, etc.&lt;/li&gt;
