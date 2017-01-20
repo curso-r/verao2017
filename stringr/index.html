@@ -303,7 +303,7 @@ tem a sua forma de passar os parâmetros, dificultando o processo durante a aná
 <p>Por isso, é recomendado usar o pacote <code>stringr</code> que possui a sintaxe consistente
 permitindo que o usuário realize qualquer manipulação com textos com maior facilidade.</p>
 
-<h2 id="vantagens-do-stringr-em-relação-ao-base">Vantagens do stringr em relação ao base</h2>
+<h3 id="vantagens-do-stringr-em-relação-ao-base">Vantagens do stringr em relação ao base</h3>
 
 <ul>
 <li>Sintaxe unificada, o que auxilia na memorização e leitura do código.</li>
@@ -311,20 +311,22 @@ permitindo que o usuário realize qualquer manipulação com textos com maior fa
 <li>Construído sobre a <a href="http://site.icu-project.org/">biblioteca ICU</a>, implementada em <code>C</code> e <code>C++</code>, apresentando resultados rápidos e confiáveis.</li>
 </ul>
 
-<h2 id="regras-básicas-do-pacote">Regras básicas do pacote</h2>
+<h3 id="regras-básicas-do-pacote">Regras básicas do pacote</h3>
 
 <ul>
 <li>As funções de manipulação de texto começam com <code>str_</code>. Caso esqueça o nome de uma função, basta digitar <code>stringr::str_</code> e apertar <code>TAB</code> para ver quais são as opções.</li>
 <li>O primeiro argumento da função é sempre uma <code>string</code> ou um vetor de <code>strings</code>.</li>
 </ul>
 
-<h2 id="curiosidade">Curiosidade</h2>
+<h3 id="curiosidade">Curiosidade</h3>
 
 <p>Inicialmente, o <code>stringr</code> era um <em>wrapper</em> de funções do <code>base</code>. Depois disso,
 surgiu um novo pacote <code>stringi</code>, com sintaxe similar ao <code>stringr</code>, mas funcionando como
 <em>wrapper</em> da biblioteca ICU. No entanto, Wickham gostou tanto do pacote <code>stringi</code>
 que decidiu reescrever o <code>stringr</code> como um <em>wrapper</em> do <code>stringi</code>.
 Veja <a href="https://github.com/tidyverse/stringr/blob/master/NEWS.md">essa página</a> para detalhes.</p>
+
+<h2 id="conceitos-básicos">Conceitos básicos</h2>
 
 <p>Todas as funções do <code>stringr</code> começam com o prefixo <code>str</code>, isso ajuda na hora de
 encontrar a função que você está procurando. No Rstudio, basta digitar <code>str_</code> e
@@ -337,8 +339,6 @@ procurando.</p>
 <p>Nesta sessão vamos utilizar as funções mais simples do <code>stringr</code>, depois vamos
 ensinar um pouco de Regex e em seguida veremos as funções mais avançadas do
 pacote.</p>
-
-<h2 id="funções-básicas">Funções básicas</h2>
 
 <h3 id="str-length">str_length</h3>
 
@@ -431,6 +431,8 @@ str_to_title(s)
 de regex. Note que nenhuma delas possui o parâmetro <code>pattern</code>, você verá como especificar
 esse parâmetros nas próximas sessões.</p>
 
+<h2 id="expressões-regulares">Expressões Regulares</h2>
+
 <p>Trabalhar com textos exige um certo conhecimento de expressões regulares (<em>regex</em>).
 <a href="https://pt.wikipedia.org/wiki/Express%C3%A3o_regular">Expressões regulares</a> permitem
 identificar conjuntos de caracters, palavras, e outros padrões por meio de uma sintaxe
@@ -439,12 +441,6 @@ concisa.</p>
 <p>O <code>stringr</code> utiliza regex da forma descrita <a href="http://www.gagolewski.com/software/stringi/manual/?manpage=stringi-search-regex">neste documento</a>.
 A própria <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html">definição</a> de
 regex do R é um ótimo manual.</p>
-
-<h2 id="expressões-regulares">Expressões regulares</h2>
-
-<p>Expressão regular ou <em>regex</em> é uma sequência concisa de caracteres que representa
-várias strings. Entender o básico de expressões regulares é indispensável para
-trabalhar com textos.</p>
 
 <p>Vamos estudar expressões regulares através de exemplos e com a função <code>str_detect()</code>.
 Essa função retorna <code>TRUE</code> se uma string atende à uma expressão regular e <code>FALSE</code>
@@ -491,8 +487,9 @@ expressoes &lt;- list(
 ## The following objects are masked from 'package:base':
 ## 
 ##     intersect, setdiff, setequal, union
-## Error in loadNamespace(name): there is no package called 'webshot'
 </code></pre>
+
+<p><img src="figures//unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="60%" height="60%" /></p>
 
 <h2 id="quantificadores">Quantificadores</h2>
 
@@ -530,6 +527,8 @@ expressoes &lt;- list(
 
 <p>A lista de possibilidades com expressões regulares é extensa.
 Um bom lugar para testar o funcionamento de expressões regulares é o <a href="https://regex101.com/">regex101</a>.</p>
+
+<h2 id="funções-avançadas">Funções avançadas</h2>
 
 <p>Agora que já vimos as funções básicas do <code>stringr</code>, e aprendemos um pouco de regex,
 vamos às funções mais avançadas. Basicmante, essas funções buscarão <code>patterns</code> em
@@ -672,6 +671,8 @@ str_subset(frases, 'd[eo]')
 <pre><code class="language-r">frases[str_detect(frases, &quot;d[eo]&quot;)]
 ## [1] &quot;a roupa do rei&quot; &quot;de roma&quot;
 </code></pre>
+
+<h2 id="exercícios">Exercícios</h2>
 
 <ol>
 <li>Considere o seguinte texto</li>

@@ -430,7 +430,7 @@ tem a sua forma de passar os parâmetros, dificultando o processo durante a aná
 &lt;p&gt;Por isso, é recomendado usar o pacote &lt;code&gt;stringr&lt;/code&gt; que possui a sintaxe consistente
 permitindo que o usuário realize qualquer manipulação com textos com maior facilidade.&lt;/p&gt;
 
-&lt;h2 id=&#34;vantagens-do-stringr-em-relação-ao-base&#34;&gt;Vantagens do stringr em relação ao base&lt;/h2&gt;
+&lt;h3 id=&#34;vantagens-do-stringr-em-relação-ao-base&#34;&gt;Vantagens do stringr em relação ao base&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Sintaxe unificada, o que auxilia na memorização e leitura do código.&lt;/li&gt;
@@ -438,20 +438,22 @@ permitindo que o usuário realize qualquer manipulação com textos com maior fa
 &lt;li&gt;Construído sobre a &lt;a href=&#34;http://site.icu-project.org/&#34;&gt;biblioteca ICU&lt;/a&gt;, implementada em &lt;code&gt;C&lt;/code&gt; e &lt;code&gt;C++&lt;/code&gt;, apresentando resultados rápidos e confiáveis.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;regras-básicas-do-pacote&#34;&gt;Regras básicas do pacote&lt;/h2&gt;
+&lt;h3 id=&#34;regras-básicas-do-pacote&#34;&gt;Regras básicas do pacote&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;As funções de manipulação de texto começam com &lt;code&gt;str_&lt;/code&gt;. Caso esqueça o nome de uma função, basta digitar &lt;code&gt;stringr::str_&lt;/code&gt; e apertar &lt;code&gt;TAB&lt;/code&gt; para ver quais são as opções.&lt;/li&gt;
 &lt;li&gt;O primeiro argumento da função é sempre uma &lt;code&gt;string&lt;/code&gt; ou um vetor de &lt;code&gt;strings&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;curiosidade&#34;&gt;Curiosidade&lt;/h2&gt;
+&lt;h3 id=&#34;curiosidade&#34;&gt;Curiosidade&lt;/h3&gt;
 
 &lt;p&gt;Inicialmente, o &lt;code&gt;stringr&lt;/code&gt; era um &lt;em&gt;wrapper&lt;/em&gt; de funções do &lt;code&gt;base&lt;/code&gt;. Depois disso,
 surgiu um novo pacote &lt;code&gt;stringi&lt;/code&gt;, com sintaxe similar ao &lt;code&gt;stringr&lt;/code&gt;, mas funcionando como
 &lt;em&gt;wrapper&lt;/em&gt; da biblioteca ICU. No entanto, Wickham gostou tanto do pacote &lt;code&gt;stringi&lt;/code&gt;
 que decidiu reescrever o &lt;code&gt;stringr&lt;/code&gt; como um &lt;em&gt;wrapper&lt;/em&gt; do &lt;code&gt;stringi&lt;/code&gt;.
 Veja &lt;a href=&#34;https://github.com/tidyverse/stringr/blob/master/NEWS.md&#34;&gt;essa página&lt;/a&gt; para detalhes.&lt;/p&gt;
+
+&lt;h2 id=&#34;conceitos-básicos&#34;&gt;Conceitos básicos&lt;/h2&gt;
 
 &lt;p&gt;Todas as funções do &lt;code&gt;stringr&lt;/code&gt; começam com o prefixo &lt;code&gt;str&lt;/code&gt;, isso ajuda na hora de
 encontrar a função que você está procurando. No Rstudio, basta digitar &lt;code&gt;str_&lt;/code&gt; e
@@ -464,8 +466,6 @@ procurando.&lt;/p&gt;
 &lt;p&gt;Nesta sessão vamos utilizar as funções mais simples do &lt;code&gt;stringr&lt;/code&gt;, depois vamos
 ensinar um pouco de Regex e em seguida veremos as funções mais avançadas do
 pacote.&lt;/p&gt;
-
-&lt;h2 id=&#34;funções-básicas&#34;&gt;Funções básicas&lt;/h2&gt;
 
 &lt;h3 id=&#34;str-length&#34;&gt;str_length&lt;/h3&gt;
 
@@ -558,6 +558,8 @@ str_to_title(s)
 de regex. Note que nenhuma delas possui o parâmetro &lt;code&gt;pattern&lt;/code&gt;, você verá como especificar
 esse parâmetros nas próximas sessões.&lt;/p&gt;
 
+&lt;h2 id=&#34;expressões-regulares&#34;&gt;Expressões Regulares&lt;/h2&gt;
+
 &lt;p&gt;Trabalhar com textos exige um certo conhecimento de expressões regulares (&lt;em&gt;regex&lt;/em&gt;).
 &lt;a href=&#34;https://pt.wikipedia.org/wiki/Express%C3%A3o_regular&#34;&gt;Expressões regulares&lt;/a&gt; permitem
 identificar conjuntos de caracters, palavras, e outros padrões por meio de uma sintaxe
@@ -566,12 +568,6 @@ concisa.&lt;/p&gt;
 &lt;p&gt;O &lt;code&gt;stringr&lt;/code&gt; utiliza regex da forma descrita &lt;a href=&#34;http://www.gagolewski.com/software/stringi/manual/?manpage=stringi-search-regex&#34;&gt;neste documento&lt;/a&gt;.
 A própria &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html&#34;&gt;definição&lt;/a&gt; de
 regex do R é um ótimo manual.&lt;/p&gt;
-
-&lt;h2 id=&#34;expressões-regulares&#34;&gt;Expressões regulares&lt;/h2&gt;
-
-&lt;p&gt;Expressão regular ou &lt;em&gt;regex&lt;/em&gt; é uma sequência concisa de caracteres que representa
-várias strings. Entender o básico de expressões regulares é indispensável para
-trabalhar com textos.&lt;/p&gt;
 
 &lt;p&gt;Vamos estudar expressões regulares através de exemplos e com a função &lt;code&gt;str_detect()&lt;/code&gt;.
 Essa função retorna &lt;code&gt;TRUE&lt;/code&gt; se uma string atende à uma expressão regular e &lt;code&gt;FALSE&lt;/code&gt;
@@ -618,8 +614,9 @@ expressoes &amp;lt;- list(
 ## The following objects are masked from &#39;package:base&#39;:
 ## 
 ##     intersect, setdiff, setequal, union
-## Error in loadNamespace(name): there is no package called &#39;webshot&#39;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-19-1.png&#34; title=&#34;plot of chunk unnamed-chunk-19&#34; alt=&#34;plot of chunk unnamed-chunk-19&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;quantificadores&#34;&gt;Quantificadores&lt;/h2&gt;
 
@@ -657,6 +654,8 @@ expressoes &amp;lt;- list(
 
 &lt;p&gt;A lista de possibilidades com expressões regulares é extensa.
 Um bom lugar para testar o funcionamento de expressões regulares é o &lt;a href=&#34;https://regex101.com/&#34;&gt;regex101&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;funções-avançadas&#34;&gt;Funções avançadas&lt;/h2&gt;
 
 &lt;p&gt;Agora que já vimos as funções básicas do &lt;code&gt;stringr&lt;/code&gt;, e aprendemos um pouco de regex,
 vamos às funções mais avançadas. Basicmante, essas funções buscarão &lt;code&gt;patterns&lt;/code&gt; em
@@ -799,6 +798,8 @@ str_subset(frases, &#39;d[eo]&#39;)
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;frases[str_detect(frases, &amp;quot;d[eo]&amp;quot;)]
 ## [1] &amp;quot;a roupa do rei&amp;quot; &amp;quot;de roma&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;exercícios&#34;&gt;Exercícios&lt;/h2&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Considere o seguinte texto&lt;/li&gt;
