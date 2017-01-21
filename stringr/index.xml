@@ -440,32 +440,6 @@ str_subset(frases, &#39;d[eo]&#39;)
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;frases[str_detect(frases, &amp;quot;d[eo]&amp;quot;)]
 ## [1] &amp;quot;a roupa do rei&amp;quot; &amp;quot;de roma&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;exercícios&#34;&gt;Exercícios&lt;/h2&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Considere o seguinte texto&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;txt &amp;lt;- &amp;quot;A função mais importante para leitura de dados no `lubridate` é a `ymd`. Essa função serve para ler qualquer data de uma `string` no formato `YYYY-MM-DD`. Essa função é útil pois funciona com qualquer separador entre os elementos da data e também porque temos uma função para cada formato (`mdy`, `dmy`, `dym`, `myd`, `ydm`).&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Extraia todas as combinações da função &lt;code&gt;ymd&lt;/code&gt;, sem repetições.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Considere os textos abaixo&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;txts &amp;lt;- c(
-  &#39;o produto é muito bom&#39;,
-  &#39;o produto não é bom&#39;,
-  &#39;o produto não é muito bom&#39;,
-  &#39;o produto não é ruim&#39;,
-  &#39;o produto não é não bom&#39;
-)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Crie uma regra para identificar se o texto refere-se a um feedback positivo ou negativo sobre o produto (considera não bom = ruim e vice-versa). Retorne um vetor lógico que vale &lt;code&gt;TRUE&lt;/code&gt; se o feedback é positivo e &lt;code&gt;FALSE&lt;/code&gt; caso contrário.&lt;/p&gt;
 </description>
     </item>
     
