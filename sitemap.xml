@@ -12,6 +12,11 @@
   </url>
   
   <url>
+    <loc>/ggplot/</loc>
+    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/manip/</loc>
     <lastmod>2017-01-20T00:00:00+00:00</lastmod>
   </url>
@@ -35,10 +40,6 @@
   
   <url>
     <loc>/train2/</loc>
-  </url>
-  
-  <url>
-    <loc>/ggplot/</loc>
   </url>
   
 </urlset>
