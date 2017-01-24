@@ -200,6 +200,17 @@
 ## # ... with 56 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;Para fazer várias condições, use os operadores lógicos (&lt;code&gt;&amp;amp;&lt;/code&gt; e &lt;code&gt;|&lt;/code&gt;) ou separando filtros entre vírgulas.&lt;/p&gt;
+
+&lt;div class=&#39;admonition note&#39;&gt;
+&lt;p class=&#39;admonition-title&#39;&gt;
+`%in%`
+&lt;/p&gt;
+&lt;p&gt;
+`%in%` é um operador muito útil para trabalhar com vetores. O resultado da operação é um vetor lógico do tamanho do vetor do elemento da esquerda, identificando quais elementos da esquerda batem com algum elemento da direita.
+&lt;/p&gt;
+&lt;/div&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
   select(ano, regiao, uf, idhm) %&amp;gt;% 
   filter(uf %in% c(&#39;SP&#39;, &#39;MG&#39;) | idhm &amp;gt; .5, ano == 2010)
@@ -403,6 +414,8 @@ pnud_min %&amp;gt;%
 ## # ... with 16,676 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&#34;funções-auxiliares&#34;&gt;Funções auxiliares&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -426,6 +439,8 @@ pnud_min %&amp;gt;%
 ## 2     l BALNEÁRIO CAMBORIÚ 0.894
 ## 3     r SÃO CAETANO DO SUL 0.891
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;um-pouco-mais-de-transformação-de-dados&#34;&gt;Um pouco mais de transformação de dados&lt;/h2&gt;
 

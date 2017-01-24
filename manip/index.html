@@ -472,6 +472,17 @@
 ## # ... with 56 more rows
 </code></pre>
 
+<p>Para fazer várias condições, use os operadores lógicos (<code>&amp;</code> e <code>|</code>) ou separando filtros entre vírgulas.</p>
+
+<div class='admonition note'>
+<p class='admonition-title'>
+`%in%`
+</p>
+<p>
+`%in%` é um operador muito útil para trabalhar com vetores. O resultado da operação é um vetor lógico do tamanho do vetor do elemento da esquerda, identificando quais elementos da esquerda batem com algum elemento da direita.
+</p>
+</div>
+
 <pre><code class="language-r">pnud_min %&gt;% 
   select(ano, regiao, uf, idhm) %&gt;% 
   filter(uf %in% c('SP', 'MG') | idhm &gt; .5, ano == 2010)
@@ -675,6 +686,8 @@ pnud_min %&gt;%
 ## # ... with 16,676 more rows
 </code></pre>
 
+<hr />
+
 <h2 id="funções-auxiliares">Funções auxiliares</h2>
 
 <ul>
@@ -698,6 +711,8 @@ pnud_min %&gt;%
 ## 2     l BALNEÁRIO CAMBORIÚ 0.894
 ## 3     r SÃO CAETANO DO SUL 0.891
 </code></pre>
+
+<hr />
 
 <h2 id="um-pouco-mais-de-transformação-de-dados">Um pouco mais de transformação de dados</h2>
 
