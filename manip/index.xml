@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Fri, 20 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jan 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/manip/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/manip/</link>
-      <pubDate>Fri, 20 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 24 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/manip/</guid>
       <description>
@@ -24,19 +24,21 @@
 &lt;p&gt;Hadley Wickham&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;a href=&#34;http://r4ds.had.co.nz/diagrams/data-science-wrangle.png&#34;&gt;!transform&lt;/a&gt;&lt;/p&gt;
+
 &lt;h2 id=&#34;pacotes-dplyr-e-tidyr&#34;&gt;Pacotes &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;&lt;/h2&gt;
 
 &lt;p&gt;A transformação de dados é uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística.&lt;/p&gt;
 
-&lt;p&gt;O &lt;code&gt;dplyr&lt;/code&gt; é um dos pacotes mais úteis para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em &lt;code&gt;R&lt;/code&gt; que fazem uso inteligente dos verbos &lt;code&gt;dplyr&lt;/code&gt; e as facilidades do operador &lt;em&gt;pipe&lt;/em&gt; tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.&lt;/p&gt;
+&lt;p&gt;O &lt;code&gt;dplyr&lt;/code&gt; é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em &lt;code&gt;R&lt;/code&gt; que fazem uso inteligente dos verbos &lt;code&gt;dplyr&lt;/code&gt; e as facilidades do operador &lt;em&gt;pipe&lt;/em&gt; tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.&lt;/p&gt;
 
-&lt;p&gt;Por ser um pacote que se propõe a realizar um dos trabalhos mais árduos da análise estatística, e por atingir esse objetivo de forma elegante, eficaz e eficiente, o &lt;code&gt;dplyr&lt;/code&gt; pode ser considerado como uma revolução no &lt;code&gt;R&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;O &lt;code&gt;dplyr&lt;/code&gt; pode ser considerado como uma revolução no &lt;code&gt;R&lt;/code&gt;, por auxiliar num dos trabalhos mais árduos da análise estatística, atingindo esse objetivo de forma elegante, eficaz e eficiente.&lt;/p&gt;
 
 &lt;h3 id=&#34;trabalhando-com-tibble-s&#34;&gt;Trabalhando com &lt;code&gt;tibble&lt;/code&gt;s&lt;/h3&gt;
 
-&lt;p&gt;A &lt;code&gt;tibble&lt;/code&gt; nada mais é do que um &lt;code&gt;data.frame&lt;/code&gt;, mas com um método de impressão mais adequado. Outras diferenças podem ser estudadas &lt;a href=&#34;http://r4ds.had.co.nz/tibbles.html&#34;&gt;neste link&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Uma &lt;code&gt;tibble&lt;/code&gt; nada mais é do que um &lt;code&gt;data.frame&lt;/code&gt;, mas com um método de impressão mais adequado. Outras diferenças podem ser estudadas &lt;a href=&#34;http://r4ds.had.co.nz/tibbles.html&#34;&gt;neste link&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Vamos assumir que temos a seguinte base de dados:&lt;/p&gt;
+&lt;p&gt;Considere a seguinte base de dados.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min
 ## # A tibble: 16,686 × 14
@@ -56,14 +58,39 @@
 ## #   rdpc &amp;lt;dbl&amp;gt;, gini &amp;lt;dbl&amp;gt;, pop &amp;lt;int&amp;gt;, lat &amp;lt;dbl&amp;gt;, lon &amp;lt;dbl&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;as-cinco-funções-principais-do-dplyr&#34;&gt;As cinco funções principais do &lt;code&gt;dplyr&lt;/code&gt;&lt;/h3&gt;
+&lt;h2 id=&#34;base-idh-municipal-pnud&#34;&gt;Base IDH-Municipal - PNUD&lt;/h2&gt;
+
+&lt;p&gt;Nessa seção vamos trabalhar com uma base simplificada do &lt;a href=&#34;http://www.atlasbrasil.org.br/2013/pt/download/base/&#34;&gt;PNUD (Programa das Nações Unidas para o Desenvolvimento)&lt;/a&gt;, contendo informações socioeconômicas de todos os municípios do país. Os resultados foram obtidos a partir dos Censos de 1991, 2000 e 2010.&lt;/p&gt;
+
+&lt;p&gt;A base contém 16686 linhas e 14 colunas, descritas abaixo:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;select&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;summarise&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ano&lt;/code&gt; ano do Censo utilizado como base para cálculo do IDH-Municipal e outras métricas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;muni&lt;/code&gt; nome do município. Cada município aparece três vezes, um para cada ano.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;uf&lt;/code&gt; Unidade Federativa.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;regiao&lt;/code&gt; região brasileira.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idhm&lt;/code&gt; IDH municipal, dividido em
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;idhm_e&lt;/code&gt; IDH municipal - educação.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idhm_l&lt;/code&gt; IDH municipal - longevidade.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idhm_r&lt;/code&gt; IDH municipal - renda.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;espvida&lt;/code&gt; expectativa de vida.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rdpc&lt;/code&gt; renda &lt;em&gt;per capita&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gini&lt;/code&gt; coeficiente de gini municipal (mede desigualdade social).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pop&lt;/code&gt; população residente do município.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lat&lt;/code&gt;, &lt;code&gt;lon&lt;/code&gt; latitude e longitude do município (ponto médio).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;os-cinco-verbos-do-dplyr&#34;&gt;Os cinco verbos do &lt;code&gt;dplyr&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;: filtrar linhas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;: selecionar colunas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;: criar/modificar colunas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;: ordenar a base.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;summarise&lt;/code&gt;: sumarizar a base em uma linha.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;características&#34;&gt;Características&lt;/h3&gt;
@@ -71,7 +98,8 @@
 &lt;ul&gt;
 &lt;li&gt;O &lt;em&gt;input&lt;/em&gt;  é sempre uma &lt;code&gt;tibble&lt;/code&gt;, e o &lt;em&gt;output&lt;/em&gt;  é sempre um &lt;code&gt;tibble&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;No primeiro argumento colocamos o &lt;code&gt;tibble&lt;/code&gt;, e nos outros argumentos colocamos o que queremos fazer.&lt;/li&gt;
-&lt;li&gt;A utilização é facilitada com o emprego do operador &lt;code&gt;%&amp;gt;%&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;A utilização é facilitada com o emprego do operador &lt;code&gt;%&amp;gt;%&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;O pacote faz uso extensivo de NSE (&lt;em&gt;non standard evaluation&lt;/em&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;vantagens&#34;&gt;Vantagens&lt;/h3&gt;
