@@ -19,12 +19,12 @@
       <description>
 
 &lt;blockquote&gt;
-&lt;p&gt;&amp;rdquo;(&amp;hellip;) The fact that data science exists as a field is a colossal failure of statistics. To me, [what I do] is what statistics is all about. It is gaining insight from data using modelling and visualization. Data munging and manipulation is hard and statistics has just said that’s not our domain.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&amp;rdquo;(&amp;hellip;) The fact that data science exists as a field is a colossal failure of statistics. To me, what I do is what statistics is all about. It is gaining insight from data using modelling and visualization. Data munging and manipulation is hard and statistics has just said that’s not our domain.&amp;rdquo;&lt;/p&gt;
 
 &lt;p&gt;Hadley Wickham&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;&lt;a href=&#34;http://r4ds.had.co.nz/diagrams/data-science-wrangle.png&#34;&gt;!transform&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://r4ds.had.co.nz/diagrams/data-science-wrangle.png&#34; alt=&#34;transform&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;pacotes-dplyr-e-tidyr&#34;&gt;Pacotes &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;&lt;/h2&gt;
 
@@ -109,6 +109,8 @@
 &lt;li&gt;Pode trabalhar com diferentes fontes de dados, como bases relacionais (SQL) e &lt;code&gt;data.table&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&#34;select&#34;&gt;&lt;code&gt;select&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -169,6 +171,8 @@
 ## 10  1991 0.468  0.247  0.662  0.625
 ## # ... with 16,676 more rows
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;filter&#34;&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/h2&gt;
 
@@ -238,6 +242,8 @@ pnud_min %&amp;gt;%
 ## # ... with 960 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&#34;mutate&#34;&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -265,6 +271,8 @@ pnud_min %&amp;gt;%
 ## # ... with 16,676 more rows, and 1 more variables: razao &amp;lt;dbl&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&#34;arrange&#34;&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -291,6 +299,8 @@ pnud_min %&amp;gt;%
 ## # ... with 5,552 more rows, and 6 more variables: espvida &amp;lt;dbl&amp;gt;,
 ## #   rdpc &amp;lt;dbl&amp;gt;, gini &amp;lt;dbl&amp;gt;, pop &amp;lt;int&amp;gt;, lat &amp;lt;dbl&amp;gt;, lon &amp;lt;dbl&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;summarise&#34;&gt;&lt;code&gt;summarise&lt;/code&gt;&lt;/h2&gt;
 
@@ -336,6 +346,8 @@ pnud_min %&amp;gt;%
 ## 5        Norte   449  8.1%
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&#34;gather&#34;&gt;&lt;code&gt;gather&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -361,6 +373,8 @@ pnud_min %&amp;gt;%
 ## 10    SC        PORTO UNIÃO  2010    idhm_l 0.891
 ## # ... with 50,048 more rows
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;spread&#34;&gt;&lt;code&gt;spread&lt;/code&gt;&lt;/h2&gt;
 
