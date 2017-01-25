@@ -14,4 +14,4 @@ git rm -rf .
 cp -r ../public/* ./
 git add --all *
 git commit -m "Update curso-r" || true
-git push origin gh-pages
+git push -q origin gh-pages
