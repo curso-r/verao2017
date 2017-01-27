@@ -77,4 +77,6 @@ e será oferecido em 2 horários.
 * Data de início: 30/01/2017
 * Data de fim: 17/02/2017
 
+## Apoio
 
+[![marketdata]('logo-marketdata.jpg')](http://www.marketdata.com.br/)
