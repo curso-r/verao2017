@@ -79,4 +79,5 @@ e será oferecido em 2 horários.
 
 ## Apoio
 
-[![marketdata]('logo-marketdata.jpg')](http://www.marketdata.com.br/)
+<img src="logo-marketdata.jpg" alt="Marketdata" width="200">
+
