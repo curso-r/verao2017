@@ -1430,6 +1430,28 @@ Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o
 &lt;p&gt;Durante o curso iremos usar bastante o &lt;a href=&#34;https://github.com/&#34;&gt;Github&lt;/a&gt;, portanto criar uma conta será fundamental.&lt;/p&gt;
 &lt;p&gt;Tente se familiarizar com &lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-1.html&#34;&gt;RMarkdown&lt;/a&gt;. O curso utilizará este formato de arquivos extensivamente.&lt;/p&gt;
 &lt;/div&gt;
+&lt;div id=&#34;horarios&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Horários&lt;/h2&gt;
+&lt;p&gt;O curso faz parte do &lt;a href=&#34;https://www.ime.usp.br/verao/&#34;&gt;programa de verão do IME-USP&lt;/a&gt;, e será oferecido em 2 horários.&lt;/p&gt;
+&lt;div id=&#34;tarde&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Tarde&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Horário: Segunda, Quarta e Sexta das 14:00 às 17:00;&lt;/li&gt;
+&lt;li&gt;Sala: CEC-06, B-139&lt;/li&gt;
+&lt;li&gt;Data de início: 30/01/2017&lt;/li&gt;
+&lt;li&gt;Data de fim: 17/02/2017&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id=&#34;noite&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Noite&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Horário: Segunda, Quarta e Sexta das 19:00 às 22:00;&lt;/li&gt;
+&lt;li&gt;Sala: CEC-06, B-142&lt;/li&gt;
+&lt;li&gt;Data de início: 30/01/2017&lt;/li&gt;
+&lt;li&gt;Data de fim: 17/02/2017&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
 
 
 &lt;!-- BLOGDOWN-HEAD
