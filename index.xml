@@ -1419,6 +1419,7 @@ Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o
 &lt;li&gt;&lt;strong&gt;Transformar&lt;/strong&gt;: Agregar, criar novas variáveis, etc.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Visualizar&lt;/strong&gt;: Criar gráficos e visualizações&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Modelar&lt;/strong&gt;: Ajustar modelos que ajudam na interpretação dos dados&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Comunicar&lt;/strong&gt;: Apresentar os resultados de forma eficiente.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;O curso será baseado no &lt;a href=&#34;http://r4ds.had.co.nz/&#34;&gt;&lt;em&gt;R for Data Science&lt;/em&gt;&lt;/a&gt; que por sua vez é baseado no &lt;a href=&#34;http://tidyverse.org/&#34;&gt;&lt;code&gt;tidyverse&lt;/code&gt;&lt;/a&gt;, &lt;em&gt;universo arrumado&lt;/em&gt;, um conjunto de pacotes que dividem uma mesma filosofia e foram feitos para serem utilizados conjuntamente.&lt;/p&gt;
 &lt;div id=&#34;publico-alvo&#34; class=&#34;section level2&#34;&gt;
@@ -1435,9 +1436,11 @@ Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o
 &lt;p&gt;O curso será realizado em um laboratório, onde os softwares já estarão instalados mas, para fazer os exercícios fora da aula você precisará instalar os seguintes softwares/pacotes:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;R: Instale pelo site do &lt;a href=&#34;https://cloud.r-project.org/&#34;&gt;CRAN&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;RStudio: Faça o download &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download3/&#34;&gt;aqui&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tidyverse&lt;/code&gt;: No console do R digite: &lt;code&gt;install.packages(&amp;quot;tidyverse&amp;quot;)&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;RStudio: Faça o download &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;aqui&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tidyverse&lt;/code&gt;: No console do R digite:&lt;/li&gt;
 &lt;/ul&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;install.packages(&amp;#39;devtools&amp;#39;)
+devtools::install_github(&amp;#39;curso-r/pu.deps&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div id=&#34;pre-requisitos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Pré-requisitos&lt;/h2&gt;
@@ -1471,7 +1474,7 @@ Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o
 &lt;div id=&#34;apoio&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Apoio&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#39;https://www.marketdata.com.br&#39;&gt;&lt;br /&gt;
-&lt;img src=&#34;logo-marketdata.jpg&#34; alt=&#34;Marketdata&#34; width=&#34;150&#34;&gt; &lt;/a&gt;&lt;/p&gt;
+&lt;img src=&#34;logo-marketdata.jpg&#34; alt=&#34;Marketdata&#34; width=&#34;200&#34;&gt; &lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 
 

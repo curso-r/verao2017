@@ -17,6 +17,7 @@ corriqueiras de forma eficiente e concisa. O aluno aprenderá a:
 - **Transformar**: Agregar, criar novas variáveis, etc. 
 - **Visualizar**: Criar gráficos e visualizações
 - **Modelar**: Ajustar modelos que ajudam na interpretação dos dados
+- **Comunicar**: Apresentar os resultados de forma eficiente.
 
 O curso será baseado no [*R for Data Science*](http://r4ds.had.co.nz/) que por
 sua vez é baseado no [`tidyverse`](http://tidyverse.org/), *universo arrumado*,
@@ -33,30 +34,28 @@ O curso-r é destinado a:
 
 ## Softwares
 
-O curso será realizado em um laboratório, onde os softwares já estarão instalados
-mas, para fazer os exercícios fora da aula você precisará instalar os seguintes 
-softwares/pacotes:
+O curso será realizado em um laboratório, onde os softwares já estarão instalados mas, para fazer os exercícios fora da aula você precisará instalar os seguintes softwares/pacotes:
 
 - R: Instale pelo site do [CRAN](https://cloud.r-project.org/)
-- RStudio: Faça o download [aqui](https://www.rstudio.com/products/rstudio/download3/)
-- `tidyverse`: No console do R digite: `install.packages("tidyverse")`.
+- RStudio: Faça o download [aqui](https://www.rstudio.com/products/rstudio/download/preview/)
+- `tidyverse`: No console do R digite: 
+
+```{r eval=FALSE}
+install.packages('devtools')
+devtools::install_github('curso-r/pu.deps')
+```
 
 ## Pré-requisitos
 
-Para melhor aproveitamento do curso é importante o aluno ter alguns conhecimentos
-sobre **Lógica de programação**. Não se preocupe, se você já fez qualquer curso 
-de programação na vida, já será o suficiente. 
+Para melhor aproveitamento do curso é importante o aluno ter alguns conhecimentos sobre **Lógica de programação**. Não se preocupe, se você já fez qualquer curso de programação na vida, já será o suficiente. 
 
-Se o aluno não for familiarizado com
-R, recomendamos abrir o RStudio e tentar rodar e entender os comandos 
-[desta página](https://curso-r.github.io/verao2017/r-como-calculadora/). Tente
+Se o aluno não for familiarizado com R, recomendamos abrir o RStudio e tentar rodar e entender os comandos [desta página](https://curso-r.github.io/verao2017/r-como-calculadora/). Tente
 fazer os [exercícios](https://curso-r.github.io/verao2017/r-como-calculadora/#exercicios).
 
 Durante o curso iremos usar bastante o [Github](https://github.com/), portanto
 criar uma conta será fundamental.
 
-Tente se familiarizar com [RMarkdown](http://rmarkdown.rstudio.com/lesson-1.html). 
-O curso utilizará este formato de arquivos extensivamente.
+Tente se familiarizar com [RMarkdown](http://rmarkdown.rstudio.com/lesson-1.html). O curso utilizará este formato de arquivos extensivamente.
 
 ## Horários
 
@@ -80,5 +79,5 @@ e será oferecido em 2 horários.
 ## Apoio
 
 <a href='https://www.marketdata.com.br'>  
-<img src="logo-marketdata.jpg" alt="Marketdata" width="150">
+<img src="logo-marketdata.jpg" alt="Marketdata" width="200">
 </a>
