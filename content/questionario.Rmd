@@ -3,7 +3,11 @@ title: "Questionário"
 ---
 
 ```{r pkgs, message=FALSE, warning=FALSE}
-library(tidyverse)
+library(tibble)
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
 library(stringr)
 library(lubridate)
 library(forcats)
