@@ -78,7 +78,7 @@ e será oferecido em 2 horários.
 
 ## Programa
 
-- **Aula 01** - 30/01: Intrudução ao R, Rstudio e `tidyverse`
+- **Aula 01** - 30/01: Introdução ao R, Rstudio e `tidyverse`
 - **Aula 02** - 01/02: Manipulação de vetores
 - **Aula 03** - 03/02: Manipulação de dados com `dplyr` e `tidyr`
 - **Aula 04** - 06/02: Visualização com `ggplot2`
