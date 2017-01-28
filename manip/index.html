@@ -296,15 +296,29 @@
 <p>Hadley Wickham</p>
 </blockquote>
 
-<p><img src="http://r4ds.had.co.nz/diagrams/data-science-wrangle.png" alt="transform" /></p>
+<p>Esta sessão trata do tema <em>transformação de dados</em>. Trata-se de uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística. Essa etapa é essencial em qualquer análise de dados e, apesar de negligenciada pela academia, é decisiva para o sucesso de estudos aplicados.</p>
+
+<p>Usualmente, o cientista de dados parte de uma base &ldquo;crua&rdquo; e a transforma até obter uma base de dados analítica. A base crua pode ser não estruturada, semi-estruturada ou estruturada. Já a base analítica é necessariamente estruturada e está preparada para passar por análises estatísticas a menos de transformações simples.</p>
+
+<p>Um conceito importante para obtenção de uma base analítica é o <em>data tidying</em>, ou arrumação de dados. Uma base é considerada <em>tidy</em> se</p>
+
+<ol>
+<li>Cada linha da base representa uma observação.</li>
+<li>Cada coluna da base representa uma variável.</li>
+<li><del>Cada tabela considera informações de uma unidade amostral.</del></li>
+</ol>
+
+<p>A base de dados analítica é estruturada de tal forma que pode ser colocada diretamente em sistemas de modelagem estatística ou de visualização. Nem sempre uma base de dados analítica está no formato <em>tidy</em>, mas usualmente são necessários poucos passos para migrar de uma para outra.</p>
+
+<p>A Figura \@ref(fig:transform) mostra a fase de &ldquo;disputa&rdquo; com os dados (<em>data wrangling</em>) para deixá-los no formato analítico.</p>
+
+<p><img src="http://r4ds.had.co.nz/diagrams/data-science-wrangle.png" title="Transformação no ciclo da ciência de dados." alt="Transformação no ciclo da ciência de dados." width="60%" height="60%" /></p>
 
 <h2 id="pacotes-dplyr-e-tidyr">Pacotes <code>dplyr</code> e <code>tidyr</code></h2>
 
-<p>A transformação de dados é uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística.</p>
-
 <p>O <code>dplyr</code> é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em <code>R</code> que fazem uso inteligente dos verbos <code>dplyr</code> e as facilidades do operador <em>pipe</em> tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.</p>
 
-<p>O <code>dplyr</code> pode ser considerado como uma revolução no <code>R</code>, por auxiliar num dos trabalhos mais árduos da análise estatística, atingindo esse objetivo de forma elegante, eficaz e eficiente.</p>
+<p>Antes de apresentar com as principais funções do <code>dplyr</code> e do <code>tidyr</code>, precisamos trabalhar com o conceito de <code>tibbles</code>.</p>
 
 <h3 id="trabalhando-com-tibble-s">Trabalhando com <code>tibble</code>s</h3>
 
@@ -356,6 +370,8 @@
 </ul>
 
 <h2 id="os-cinco-verbos-do-dplyr">Os cinco verbos do <code>dplyr</code></h2>
+
+<p>As funções principais do <code>dplyr</code> são</p>
 
 <ul>
 <li><code>filter</code>: filtrar linhas.</li>
