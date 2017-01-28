@@ -76,8 +76,20 @@ e será oferecido em 2 horários.
 * Data de início: 30/01/2017
 * Data de fim: 17/02/2017
 
+## Programa
+
+- **Aula 01** - 30/01: Introdução ao R, Rstudio e `tidyverse`
+- **Aula 02** - 01/02: Manipulação de vetores
+- **Aula 03** - 03/02: Manipulação de dados com `dplyr` e `tidyr`
+- **Aula 04** - 06/02: Visualização com `ggplot2`
+- **Aula 05** - 08/02: Programação funcional com `purrr`
+- **Aula 06** - 10/02: Introdução a Modelagem usando o R
+- **Aula 07** - 13/02: Tópicos adiconais sobre modelagem
+- **Aula 08** - 15/02: Tema escolhido pelos alunos
+- **Aula 09** - 17/02: Shiny e tópicos sobre comunicação com o R
+
 ## Apoio
 
-<a href='https://www.marketdata.com.br'>  
+<a href='http://www.marketdata.com.br'>  
 <img src="logo-marketdata.jpg" alt="Marketdata" width="200">
 </a>
