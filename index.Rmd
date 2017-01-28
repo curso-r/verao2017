@@ -78,6 +78,6 @@ e será oferecido em 2 horários.
 
 ## Apoio
 
-<a href='https://www.marketdata.com.br'>  
+<a href='http://www.marketdata.com.br'>  
 <img src="logo-marketdata.jpg" alt="Marketdata" width="200">
 </a>
