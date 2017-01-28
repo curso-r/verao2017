@@ -28,8 +28,7 @@ Imports:
 RoxygenNote: 5.0.1
 PowerUps:
     curso-r/pu.manip,
-    curso-r/pu.train2,
     curso-r/pu.ggplot,
     curso-r/pu.rbase,
-    azeloc/pu.test,
-    curso-r/pu.stringr
+    curso-r/pu.stringr,
+    curso-r/pu.modelos
