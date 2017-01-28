@@ -182,14 +182,50 @@
 
 
 
-<a class="current" title="R como calculadora" href="../rbase/">
+<a  title="Questionário" href="../questionario">
 	
-	R como calculadora
+	Questionário
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a class="current" title="R básico" href="../rbase/">
+	
+	R básico
 </a>
 
 
 <ul id="scrollspy">
 </ul>
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Modelagem" href="../modelos/">
+	
+	Modelagem
+</a>
+
 
 
   
@@ -295,6 +331,8 @@
 <p>A linguagem <code>R</code> é intuitiva. Muita coisa sai do jeito certo no chute! Para ver um exemplo disso, é interessante começar fazendo do R uma grande calculadora.</p>
 
 <p>Mas antes disso, vamos aprender a mexer no RStudio.</p>
+
+<hr />
 
 <!-- ## Exercícios -->
 
@@ -410,9 +448,11 @@
 
 <p>Assim que abrir o RStudio você verá 4 quadrantes do jeito que a figura abaixo mostra</p>
 
-<p><img src="imagens/rstudio-editor.png" alt="" /></p>
+<p><img src="figures/rstudio-editor.png" alt="" /></p>
 
 <p>Nela estão dispostos <strong>editor</strong>, <strong>console</strong>, <strong>environment</strong> e <strong>output</strong>.  Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que preferir. O R vive no quadrante <strong>console</strong>!</p>
+
+<hr />
 
 <h2 id="rmarkdown">RMarkdown</h2>
 
@@ -431,7 +471,7 @@
 Nota
 </p>
 <p>
-Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de R é porque havia um *chunk* alí no `.Rmd` original.
+Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de R é porque havia um chunk no .Rmd original.
 </p>
 </div>
 
@@ -452,6 +492,8 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 <p><img src="figures/criar_rmarkdown.png" alt="plot of chunk unnamed-chunk-20" /></p>
 
 <p>Para detalhes sobre como utilizar o RMarkdown, leia  <a href="http://r4ds.had.co.nz/r-markdown.html">aqui</a> e <a href="http://rmarkdown.rstudio.com/lesson-1.html"> aqui</a>.</p>
+
+<hr />
 
 <h2 id="r-como-calculadora">R como calculadora</h2>
 
@@ -498,6 +540,8 @@ Error: unexpected input in &quot;5 % 5&quot;
 &gt; 5 - 5
 [1] 0
 </code></pre>
+
+<hr />
 
 <h2 id="pedindo-ajuda">Pedindo Ajuda</h2>
 
@@ -565,6 +609,8 @@ help(mean)
 <li><p>Ser <strong>reprodutível</strong>: o seu código deve rodar fora da sua máquina. Se você não fornecer uma versão do seu problema que rode (ou que imite seu erro), as pessoas vão logo desistir de te ajudar. Por isso, nunca coloque bancos de dados que só você tem acesso. Em vez disso, use bancos de dados que já vem no R ou disponibilize um exemplo (possivelmente anonimizado) em <code>.csv</code> na web para baixar. E se precisar utilizar funções diferentes, coloque as <code>library</code>&rsquo;s correspondentes.</p></li>
 </ul>
 
+<hr />
+
 <h2 id="instalar-pacotes">Instalar pacotes</h2>
 
 <p>O grande trunfo do R são seus pacotes então é uma boa você ficar bastante à vontade em instalar e atualizar muitos e muitos pacotes ao longo da sua experiência com o R.</p>
@@ -613,6 +659,8 @@ Dica! Escreva `nome_do_pacote::nome_da_funcao()` se quiser usar apenas uma funç
 <p>A aba <strong><em>Packages</em></strong> do RStudio ajuda a administrar seus pacotes também.</p>
 
 <p><img src="figures/instalar_pacote_rstudio.png" alt="" /></p>
+
+<hr />
 
 <h2 id="controles-de-fluxo">Controles de Fluxo</h2>
 
@@ -692,6 +740,8 @@ for(i in indices){
 </code></pre>
 
 <p>No trecho de código acima, preste atenção no resultado individual de cada uma das operações para entender como o R funciona.</p>
+
+<hr />
 
 <h2 id="objetos">Objetos</h2>
 
@@ -1031,6 +1081,8 @@ str(iris)
 ##  $ Species     : Factor w/ 3 levels &quot;setosa&quot;,&quot;versicolor&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 </code></pre>
 
+<hr />
+
 <h2 id="funções">Funções</h2>
 
 <p>O R vem com muitas funções implementadas com as quais você pode fazer muitas  tarefas complicadas, como gerar números aleatórios. Geralmente o nome das funções é bem intuitivo, por exemplo <code>mean</code> é a função que calcula a média, <code>round</code> é a função que arredonda um número, etc.</p>
@@ -1082,6 +1134,8 @@ soma(2) # soma de 2 + 0
 <p>Atente-se que o argumento <code>y</code> possui um valor padrão <code>0</code>. Isso quer dizer que ele valerá zero caso o usuário não passe nenhum valor a ele explicitamente.</p>
 
 <p>O <a href="http://adv-r.had.co.nz/">Advanced-R</a> é um excelente livro para quem quiser masterizar a arte de se fazer funções.</p>
+
+<hr />
 
 <h2 id="gráficos-base">Gráficos - base</h2>
 
@@ -1195,6 +1249,8 @@ barplot(VADeaths)
 
 <p><img src="figures//unnamed-chunk-66-1.png" alt="plot of chunk unnamed-chunk-66" /></p>
 
+<hr />
+
 <h2 id="fórmulas">Fórmulas</h2>
 
 <pre><code class="language-r">formula &lt;- y ~ x1 + x2
@@ -1222,6 +1278,8 @@ lm(minha_formula, data = iris)
 <p>No caso específico das regressões lineares, são nas fórmulas que conseguimos descrever as variáveis explicativas e suas interações. A fórmula <code>y ~ x1 * x2</code> significa &ldquo;y regredido por x1, x2 e a interação entre x1 e x2&rdquo;. Fórmulas aparecem frequentemente em tarefas de modelagem.</p>
 
 <p>Demais usos de fórmulas aparecerão em outras funções (como o <code>ggplot</code>) com outros significados e a documentação nos dirá como usá-las.</p>
+
+<hr />
 
 <h2 id="miscelâneas">Miscelâneas</h2>
 
@@ -1346,6 +1404,8 @@ LETTERS
 </tbody>
 </table>
 
+<hr />
+
 <script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
 
 <script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
@@ -1397,6 +1457,8 @@ x
 </ol>
 
 <div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54Iiwic29sdXRpb24iOiJ4IDwtIDRcbmlmKHggPT0gNCkge1xuICAnaXNzbyBhcXVpIGFwYXJlY2V1J1xufVxueCIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiaXNzbyBhcXVpIGFwYXJlY2V1XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxudGVzdF9lcnJvcigpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=</div>
+
+<hr />
 
 <script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
 

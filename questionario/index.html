@@ -10,18 +10,18 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
-    <title>PU - Curso-R</title>
+    <title>Questionário - Curso-R</title>
     <meta name="generator" content="Hugo 0.17" />
 
     
     <meta name="description" content="Materiais para o Curso-R de verão 2017">
     
-    <link rel="canonical" href="../train2/">
+    <link rel="canonical" href="../questionario/">
     
     <meta name="author" content="Curso-R">
     
 
-    <meta property="og:url" content="/train2/">
+    <meta property="og:url" content="/questionario/">
     <meta property="og:title" content="Curso-R">
     <meta property="og:image" content="/logo-curso-r.png">
     <meta name="apple-mobile-web-app-title" content="Curso-R">
@@ -54,6 +54,10 @@
 
     
 
+
+
+
+
   </head>
   <body class="palette-primary-red palette-accent-teal">
 
@@ -81,7 +85,7 @@
     </div>
     <div class="stretch">
       <div class="title">
-        PU
+        Questionário
       </div>
     </div>
 
@@ -182,9 +186,45 @@
 
 
 
-<a  title="R como calculadora" href="../rbase/">
+<a  title="Questionário" href="../questionario">
 	
-	R como calculadora
+	Questionário
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="R básico" href="../rbase/">
+	
+	R básico
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Modelagem" href="../modelos/">
+	
+	Modelagem
 </a>
 
 
@@ -283,22 +323,127 @@
 
 	<article class="article">
 		<div class="wrapper">
-			<h1>PU </h1>
+			<h1>Questionário </h1>
 
-			<p>Isso é um Power UP</p>
 
-<p>I LOVE THE WAY U R.</p>
 
-<pre><code class="language-r">1 + 1
-</code></pre>
+<pre class="r"><code>library(tibble)
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(lubridate)
+library(forcats)</code></pre>
+<pre class="r"><code>library(googlesheets)
+gs_auth()
+d_gs &lt;- &#39;questionario_curso-r_verao2017&#39; %&gt;% 
+  gs_ls() %&gt;% 
+  with(sheet_key) %&gt;% 
+  gs_key(verbose = FALSE)
+d_quest &lt;- gs_read(d_gs, verbose = FALSE, ws = 1)
+d_inscr &lt;- gs_read(d_gs, verbose = FALSE, ws = 2) %&gt;% 
+  select(email, tipo, periodo) %&gt;% 
+  distinct(email, .keep_all = TRUE) %&gt;% 
+  mutate(email = str_trim(email))
 
-<pre><code>## [1] 2
-</code></pre>
+renomear &lt;- function(d) {
+  x &lt;- names(d) %&gt;%
+    tolower %&gt;%
+    abjutils::rm_accent() %&gt;%
+    str_replace_all(&#39;[[:space:]/\\-().:]+&#39;, &#39;_&#39;) %&gt;%
+    str_trim() %&gt;% 
+    str_replace_all(&#39;_+&#39;, &#39;_&#39;) %&gt;% 
+    str_replace_all(&#39;_$&#39;, &#39;&#39;)
+  names(d) &lt;- x
+  d
+}
 
-<pre><code class="language-r">plot(1:10)
-</code></pre>
+d_alunos &lt;- d_quest %&gt;%
+  mutate(Timestamp = mdy_hms(Timestamp)) %&gt;% 
+  rownames_to_column(&#39;id_pessoa&#39;) %&gt;% 
+  gather(pergunta, resposta, ends_with(&#39;?&#39;)) %&gt;% 
+  renomear() %&gt;% 
+  spread(pergunta, resposta) %&gt;% 
+  inner_join(d_inscr, c(&#39;email_address&#39; = &#39;email&#39;)) %&gt;% 
+  filter(tipo == &#39;inscrito&#39;) %&gt;% 
+  select(-nome, -email)
 
-<p><img src="figures//unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3" /></p>
+write_rds(d_alunos, &#39;d_alunos.rds&#39;, compress = &#39;bz2&#39;)</code></pre>
+<div id="set-up" class="section level1">
+<h1>Análise exploratória: inscritos no curso</h1>
+<div id="alguns-graficos" class="section level2">
+<h2>Alguns gráficos</h2>
+<p>Volume de inscrições no tempo</p>
+<pre class="r"><code>tot_periodo &lt;- tribble(
+  ~periodo, ~n,
+  &#39;tarde&#39;, 29,
+  &#39;noite&#39;, 34
+)
+d_alunos &lt;- read_rds(&#39;d_alunos.rds&#39;)
+d_alunos %&gt;% 
+  arrange(timestamp) %&gt;% 
+  group_by(periodo) %&gt;% 
+  mutate(um = 1, respostas = cumsum(um)) %&gt;% 
+  ggplot(aes(x = timestamp, y = respostas, colour = periodo)) +
+  geom_step() +
+  geom_hline(aes(yintercept = n, colour = periodo), data = tot_periodo) +
+  geom_text(aes(y = n, label = n, colour = periodo, 
+                x = as_datetime(&#39;2017-01-27&#39;)), 
+            data = tot_periodo, nudge_y = 1) +
+  theme_bw(16)</code></pre>
+<p><img src="figures/unnamed-chunk-1-1.png" width="864" /></p>
+<p>Perguntas 1 e 3: sobre utilização do R.</p>
+<pre class="r"><code>d_alunos %&gt;% 
+  gather(questao, resposta, matches(&#39;situaria|mercado&#39;)) %&gt;% 
+  replace_na(list(resposta = &#39;Não.&#39;)) %&gt;% 
+  count(periodo, questao, resposta) %&gt;% 
+  mutate(prop = n / sum(n)) %&gt;% 
+  ungroup() %&gt;% 
+  mutate(resposta = str_wrap(resposta, 20) %&gt;% 
+           as_factor() %&gt;% 
+           fct_reorder(fun = min, prop, .desc = TRUE)) %&gt;% 
+  ggplot(aes(x = resposta, fill = periodo, y = prop)) +
+  geom_bar(position = &#39;dodge&#39;, stat = &#39;identity&#39;) +
+  facet_wrap(~questao, scales = &#39;free_x&#39;, ncol = 1) +
+  scale_y_continuous(labels = scales::percent) +
+  geom_text(aes(label = scales::percent(prop), group = periodo), 
+            position = position_dodge(.9), vjust = -.2) +
+  theme_bw(16) +
+  theme(strip.background = element_blank()) +
+  xlab(&#39;&#39;) +
+  ylab(&#39;Proporção de inscritos&#39;)</code></pre>
+<p><img src="figures/unnamed-chunk-2-1.png" width="864" /></p>
+<p>Pergunta 2: sobre conhecimento em outras linguagens. Não soma 100%!</p>
+<pre class="r"><code>d_alunos %&gt;% 
+  gather(questao, resposta, matches(&#39;software&#39;)) %&gt;% 
+  replace_na(list(resposta = &#39;Nenhuma&#39;)) %&gt;% 
+  mutate(ling = str_split(resposta, &#39;\\., &#39;)) %&gt;% 
+  unnest(ling) %&gt;% 
+  mutate(ling = str_replace(ling, &#39;\\.$&#39;, &#39;&#39;)) %&gt;%
+  mutate(ntot = n_distinct(id_pessoa)) %&gt;% 
+  mutate(ling = str_wrap(ling, 16) %&gt;% 
+           as_factor() %&gt;% 
+           fct_lump(n = 5, other_level = &#39;Outros&#39;)) %&gt;%
+  group_by(ling, periodo) %&gt;% 
+  summarise(n = n_distinct(id_pessoa), ntot = first(ntot)) %&gt;% 
+  mutate(prop = n / ntot) %&gt;% 
+  ungroup() %&gt;% 
+  mutate(ling = ling %&gt;% fct_reorder(prop, .desc = TRUE)) %&gt;% 
+  ggplot(aes(x = ling, y = prop, fill = periodo)) +
+  geom_bar(position = &#39;dodge&#39;, stat = &#39;identity&#39;) +
+  scale_y_continuous(labels = scales::percent, limits = c(0, .4)) +
+  geom_text(aes(label = scales::percent(prop)), 
+            position = position_dodge(.9), vjust = -.2) +
+  theme_bw(14) +
+  xlab(&#39;Linguagem de programação&#39;) +
+  ylab(&#39;Proporção de alunos&#39;)</code></pre>
+<p><img src="figures/unnamed-chunk-3-1.png" width="864" /></p>
+<!-- ---------------------------------------------------------------------- -->
+</div>
+</div>
+
+
 
 
 			<aside class="copyright" role="note">
@@ -317,7 +462,7 @@
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../test/" title="">
+      <a href="../" title="Curso-R">
         <span class="direction">
           Previous
         </span>
@@ -327,7 +472,7 @@
           </div>
           <div class="stretch">
             <div class="title">
-              
+              Curso-R
             </div>
           </div>
         </div>

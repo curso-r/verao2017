@@ -24,6 +24,8 @@
 
 &lt;p&gt;Mas antes disso, vamos aprender a mexer no RStudio.&lt;/p&gt;
 
+&lt;hr /&gt;
+
 &lt;!-- ## Exercícios --&gt;
 
 &lt;!-- Pratique! Será que você consegue resolver os exercícios abaixo? --&gt;
@@ -138,9 +140,11 @@
 
 &lt;p&gt;Assim que abrir o RStudio você verá 4 quadrantes do jeito que a figura abaixo mostra&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;imagens/rstudio-editor.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures/rstudio-editor.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Nela estão dispostos &lt;strong&gt;editor&lt;/strong&gt;, &lt;strong&gt;console&lt;/strong&gt;, &lt;strong&gt;environment&lt;/strong&gt; e &lt;strong&gt;output&lt;/strong&gt;.  Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que preferir. O R vive no quadrante &lt;strong&gt;console&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;rmarkdown&#34;&gt;RMarkdown&lt;/h2&gt;
 
@@ -159,7 +163,7 @@
 Nota
 &lt;/p&gt;
 &lt;p&gt;
-Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de R é porque havia um *chunk* alí no `.Rmd` original.
+Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de R é porque havia um chunk no .Rmd original.
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -180,6 +184,8 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 &lt;p&gt;&lt;img src=&#34;figures/criar_rmarkdown.png&#34; alt=&#34;plot of chunk unnamed-chunk-20&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Para detalhes sobre como utilizar o RMarkdown, leia  &lt;a href=&#34;http://r4ds.had.co.nz/r-markdown.html&#34;&gt;aqui&lt;/a&gt; e &lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-1.html&#34;&gt; aqui&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;r-como-calculadora&#34;&gt;R como calculadora&lt;/h2&gt;
 
@@ -226,6 +232,8 @@ Error: unexpected input in &amp;quot;5 % 5&amp;quot;
 &amp;gt; 5 - 5
 [1] 0
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;pedindo-ajuda&#34;&gt;Pedindo Ajuda&lt;/h2&gt;
 
@@ -293,6 +301,8 @@ help(mean)
 &lt;li&gt;&lt;p&gt;Ser &lt;strong&gt;reprodutível&lt;/strong&gt;: o seu código deve rodar fora da sua máquina. Se você não fornecer uma versão do seu problema que rode (ou que imite seu erro), as pessoas vão logo desistir de te ajudar. Por isso, nunca coloque bancos de dados que só você tem acesso. Em vez disso, use bancos de dados que já vem no R ou disponibilize um exemplo (possivelmente anonimizado) em &lt;code&gt;.csv&lt;/code&gt; na web para baixar. E se precisar utilizar funções diferentes, coloque as &lt;code&gt;library&lt;/code&gt;&amp;rsquo;s correspondentes.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&#34;instalar-pacotes&#34;&gt;Instalar pacotes&lt;/h2&gt;
 
 &lt;p&gt;O grande trunfo do R são seus pacotes então é uma boa você ficar bastante à vontade em instalar e atualizar muitos e muitos pacotes ao longo da sua experiência com o R.&lt;/p&gt;
@@ -341,6 +351,8 @@ Dica! Escreva `nome_do_pacote::nome_da_funcao()` se quiser usar apenas uma funç
 &lt;p&gt;A aba &lt;strong&gt;&lt;em&gt;Packages&lt;/em&gt;&lt;/strong&gt; do RStudio ajuda a administrar seus pacotes também.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;figures/instalar_pacote_rstudio.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;controles-de-fluxo&#34;&gt;Controles de Fluxo&lt;/h2&gt;
 
@@ -420,6 +432,8 @@ for(i in indices){
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;No trecho de código acima, preste atenção no resultado individual de cada uma das operações para entender como o R funciona.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;objetos&#34;&gt;Objetos&lt;/h2&gt;
 
@@ -759,6 +773,8 @@ str(iris)
 ##  $ Species     : Factor w/ 3 levels &amp;quot;setosa&amp;quot;,&amp;quot;versicolor&amp;quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&#34;funções&#34;&gt;Funções&lt;/h2&gt;
 
 &lt;p&gt;O R vem com muitas funções implementadas com as quais você pode fazer muitas  tarefas complicadas, como gerar números aleatórios. Geralmente o nome das funções é bem intuitivo, por exemplo &lt;code&gt;mean&lt;/code&gt; é a função que calcula a média, &lt;code&gt;round&lt;/code&gt; é a função que arredonda um número, etc.&lt;/p&gt;
@@ -810,6 +826,8 @@ soma(2) # soma de 2 + 0
 &lt;p&gt;Atente-se que o argumento &lt;code&gt;y&lt;/code&gt; possui um valor padrão &lt;code&gt;0&lt;/code&gt;. Isso quer dizer que ele valerá zero caso o usuário não passe nenhum valor a ele explicitamente.&lt;/p&gt;
 
 &lt;p&gt;O &lt;a href=&#34;http://adv-r.had.co.nz/&#34;&gt;Advanced-R&lt;/a&gt; é um excelente livro para quem quiser masterizar a arte de se fazer funções.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;gráficos-base&#34;&gt;Gráficos - base&lt;/h2&gt;
 
@@ -923,6 +941,8 @@ barplot(VADeaths)
 
 &lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-66-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-66&#34; /&gt;&lt;/p&gt;
 
+&lt;hr /&gt;
+
 &lt;h2 id=&#34;fórmulas&#34;&gt;Fórmulas&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;formula &amp;lt;- y ~ x1 + x2
@@ -950,6 +970,8 @@ lm(minha_formula, data = iris)
 &lt;p&gt;No caso específico das regressões lineares, são nas fórmulas que conseguimos descrever as variáveis explicativas e suas interações. A fórmula &lt;code&gt;y ~ x1 * x2&lt;/code&gt; significa &amp;ldquo;y regredido por x1, x2 e a interação entre x1 e x2&amp;rdquo;. Fórmulas aparecem frequentemente em tarefas de modelagem.&lt;/p&gt;
 
 &lt;p&gt;Demais usos de fórmulas aparecerão em outras funções (como o &lt;code&gt;ggplot&lt;/code&gt;) com outros significados e a documentação nos dirá como usá-las.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;miscelâneas&#34;&gt;Miscelâneas&lt;/h2&gt;
 
@@ -1074,6 +1096,8 @@ LETTERS
 &lt;/tbody&gt;
 &lt;/table&gt;
 
+&lt;hr /&gt;
+
 &lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
 
 &lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
@@ -1125,6 +1149,8 @@ x
 &lt;/ol&gt;
 
 &lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54Iiwic29sdXRpb24iOiJ4IDwtIDRcbmlmKHggPT0gNCkge1xuICAnaXNzbyBhcXVpIGFwYXJlY2V1J1xufVxueCIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiaXNzbyBhcXVpIGFwYXJlY2V1XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxudGVzdF9lcnJvcigpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
+
+&lt;hr /&gt;
 
 &lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
 
