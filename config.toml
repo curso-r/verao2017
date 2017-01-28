@@ -50,16 +50,26 @@ googleAnalytics = "UA-87272102-1"
   name   = "Curso R"
   url    = "/"
   weight = 0
-
-[[menu.main]]
-  name   = "R como calculadora"
-  url    = "rbase/"
-  weight = 10
   
 [[menu.main]]
-  name   = "Visualização"
-  url    = "ggplot/"
-  weight = 20
+  name   = "Questionário"
+  url    = "/questionario"
+  weight = 0
+
+[[menu.main]]
+  name   = "Stringr"
+  url    = "stringr/"
+  weight = 40
+
+[[menu.main]]
+  name   = "R básico"
+  url    = "rbase/"
+  weight = 10
+
+[[menu.main]]
+  name   = "Stringr"
+  url    = "stringr/"
+  weight = 40
 
 [[menu.main]]
   name   = "Transformação"
@@ -67,9 +77,14 @@ googleAnalytics = "UA-87272102-1"
   weight = 30
   
 [[menu.main]]
-  name   = "Stringr"
-  url    = "stringr/"
-  weight = 40
+  name   = "Visualização"
+  url    = "ggplot/"
+  weight = 20
+
+[[menu.main]]
+  name   = "Modelagem"
+  url    = "modelos/"
+  weight = 20
 
 [blackfriday]
   smartypants  = true
