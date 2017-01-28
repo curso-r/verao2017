@@ -13,7 +13,7 @@ library(lubridate)
 library(forcats)
 ```
 
-```{r setup, message=FALSE, warning=FALSE, eval=FALSE}
+```{r setup, message=FALSE, warning=FALSE, eval=FALSE, echo=FALSE}
 library(googlesheets)
 gs_auth()
 d_gs <- 'questionario_curso-r_verao2017' %>% 
@@ -51,11 +51,9 @@ d_alunos <- d_quest %>%
 write_rds(d_alunos, 'd_alunos.rds', compress = 'bz2')
 ```
 
-# Análise exploratória: inscritos no curso {#set-up}
-
 ## Alguns gráficos
 
-Volume de inscrições no tempo
+Respostas dos questionários no tempo
 
 ```{r, fig.width=9, fig.height=4}
 tot_periodo <- tribble(
@@ -77,7 +75,7 @@ d_alunos %>%
   theme_bw(16)
 ```
 
-Perguntas 1 e 3: sobre utilização do R.
+Perguntas sobre utilização do R.
 
 ```{r fig.width=9, fig.height=9}
 d_alunos %>% 
@@ -101,7 +99,7 @@ d_alunos %>%
   ylab('Proporção de inscritos')
 ```
 
-Pergunta 2: sobre conhecimento em outras linguagens. Não soma 100%!
+Pergunta sobre conhecimento em outras linguagens. Não soma 100%!
 
 ```{r fig.width=9, fig.height=4}
 d_alunos %>% 
