@@ -824,46 +824,41 @@ Vetores são homogêneos
 <p>
 Os elementos de um vetor são sempre da mesma classe. Ou todos são numéricos, ou são todos character e assim por diante. Não dá para ter um número e um character no mesmo vetor, por exemplo.
 </p>
+</div>
 
+<pre><code class="language-r">y &lt;- c(1.7, &quot;a&quot;)  ## character
+y &lt;- c(TRUE, 2)   ## numeric
+y &lt;- c(TRUE, &quot;a&quot;) ## character
+</code></pre>
 
-```r
-y <- c(1.7, "a")  ## character
-y <- c(TRUE, 2)   ## numeric
-y <- c(TRUE, "a") ## character
-```
+<p>Se colocarmos duas ou mais classes diferentes dentro de um mesmo vetor, o R vai forçar que todos os elementos passem a pertencer à mesma classe. O número <code>1.7</code> viraria <code>&quot;1.7&quot;</code> se fosse colocado ao lado de um <code>&quot;a&quot;</code>.</p>
 
-Se colocarmos duas ou mais classes diferentes dentro de um mesmo vetor, o R vai forçar que todos os elementos passem a pertencer à mesma classe. O número `1.7` viraria `"1.7"` se fosse colocado ao lado de um `"a"`.
+<p>A ordem de precedência é</p>
 
-A ordem de precedência é 
+<p><strong>DOMINANTE</strong> <code>character &gt; complex &gt; numeric &gt; integer &gt; logical</code> <strong>RECESSIVO</strong></p>
 
-**DOMINANTE** `character > complex > numeric > integer > logical` **RECESSIVO**
+<h3 id="forçando-classes-explicitamente">Forçando classes explicitamente</h3>
 
-### Forçando classes explicitamente
+<p>Assim como o <code>convert()</code> do SQL faz, você pode coagir um objeto a ser de uma classe da sua escolha com as funções <code>as.character()</code>, <code>as.numeric()</code>, <code>as.integer()</code> e <code>as.logical()</code>.</p>
 
-Assim como o `convert()` do SQL faz, você pode coagir um objeto a ser de uma classe da sua escolha com as funções `as.character()`, `as.numeric()`, `as.integer()` e `as.logical()`. 
-
-
-```r
-x <- 0:4
+<pre><code class="language-r">x &lt;- 0:4
 class(x)
-## [1] "integer"
+## [1] &quot;integer&quot;
 as.numeric(x)
 ## [1] 0 1 2 3 4
 as.logical(x)
 ## [1] FALSE  TRUE  TRUE  TRUE  TRUE
 as.character(x)
-## [1] "0" "1" "2" "3" "4"
-```
+## [1] &quot;0&quot; &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot;
+</code></pre>
 
-Se o R não entender como coagir uma classe na outra ele soltará um `warning` informado que colocou `NA` no lugar.
+<p>Se o R não entender como coagir uma classe na outra ele soltará um <code>warning</code> informado que colocou <code>NA</code> no lugar.</p>
 
-
-```r
-x <- c("a", "b", "c")
+<pre><code class="language-r">x &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
 as.numeric(x)
 ## Warning: NAs introduced by coercion
 ## [1] NA NA NA
-```
+</code></pre>
 
 <div class='admonition note'>
 <p class='admonition-title'>
@@ -1547,34 +1542,18 @@ x
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../manip/" title="Introdução">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Introdução
-            </div>
-          </div>
-        </div>
-      </a>
-  
   </div>
 
   <div class="next">
   
-      <a href="../stringr/" title="Stringr">
+      <a href="../manip/" title="Introdução">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Stringr
+              Introdução
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

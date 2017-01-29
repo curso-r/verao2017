@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Sat, 28 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Jan 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/rbase/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/rbase/</link>
-      <pubDate>Sat, 28 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 29 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/rbase/</guid>
       <description>
@@ -516,46 +516,41 @@ Vetores são homogêneos
 &lt;p&gt;
 Os elementos de um vetor são sempre da mesma classe. Ou todos são numéricos, ou são todos character e assim por diante. Não dá para ter um número e um character no mesmo vetor, por exemplo.
 &lt;/p&gt;
+&lt;/div&gt;
 
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;y &amp;lt;- c(1.7, &amp;quot;a&amp;quot;)  ## character
+y &amp;lt;- c(TRUE, 2)   ## numeric
+y &amp;lt;- c(TRUE, &amp;quot;a&amp;quot;) ## character
+&lt;/code&gt;&lt;/pre&gt;
 
-```r
-y &lt;- c(1.7, &#34;a&#34;)  ## character
-y &lt;- c(TRUE, 2)   ## numeric
-y &lt;- c(TRUE, &#34;a&#34;) ## character
-```
+&lt;p&gt;Se colocarmos duas ou mais classes diferentes dentro de um mesmo vetor, o R vai forçar que todos os elementos passem a pertencer à mesma classe. O número &lt;code&gt;1.7&lt;/code&gt; viraria &lt;code&gt;&amp;quot;1.7&amp;quot;&lt;/code&gt; se fosse colocado ao lado de um &lt;code&gt;&amp;quot;a&amp;quot;&lt;/code&gt;.&lt;/p&gt;
 
-Se colocarmos duas ou mais classes diferentes dentro de um mesmo vetor, o R vai forçar que todos os elementos passem a pertencer à mesma classe. O número `1.7` viraria `&#34;1.7&#34;` se fosse colocado ao lado de um `&#34;a&#34;`.
+&lt;p&gt;A ordem de precedência é&lt;/p&gt;
 
-A ordem de precedência é 
+&lt;p&gt;&lt;strong&gt;DOMINANTE&lt;/strong&gt; &lt;code&gt;character &amp;gt; complex &amp;gt; numeric &amp;gt; integer &amp;gt; logical&lt;/code&gt; &lt;strong&gt;RECESSIVO&lt;/strong&gt;&lt;/p&gt;
 
-**DOMINANTE** `character &gt; complex &gt; numeric &gt; integer &gt; logical` **RECESSIVO**
+&lt;h3 id=&#34;forçando-classes-explicitamente&#34;&gt;Forçando classes explicitamente&lt;/h3&gt;
 
-### Forçando classes explicitamente
+&lt;p&gt;Assim como o &lt;code&gt;convert()&lt;/code&gt; do SQL faz, você pode coagir um objeto a ser de uma classe da sua escolha com as funções &lt;code&gt;as.character()&lt;/code&gt;, &lt;code&gt;as.numeric()&lt;/code&gt;, &lt;code&gt;as.integer()&lt;/code&gt; e &lt;code&gt;as.logical()&lt;/code&gt;.&lt;/p&gt;
 
-Assim como o `convert()` do SQL faz, você pode coagir um objeto a ser de uma classe da sua escolha com as funções `as.character()`, `as.numeric()`, `as.integer()` e `as.logical()`. 
-
-
-```r
-x &lt;- 0:4
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 0:4
 class(x)
-## [1] &#34;integer&#34;
+## [1] &amp;quot;integer&amp;quot;
 as.numeric(x)
 ## [1] 0 1 2 3 4
 as.logical(x)
 ## [1] FALSE  TRUE  TRUE  TRUE  TRUE
 as.character(x)
-## [1] &#34;0&#34; &#34;1&#34; &#34;2&#34; &#34;3&#34; &#34;4&#34;
-```
+## [1] &amp;quot;0&amp;quot; &amp;quot;1&amp;quot; &amp;quot;2&amp;quot; &amp;quot;3&amp;quot; &amp;quot;4&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
-Se o R não entender como coagir uma classe na outra ele soltará um `warning` informado que colocou `NA` no lugar.
+&lt;p&gt;Se o R não entender como coagir uma classe na outra ele soltará um &lt;code&gt;warning&lt;/code&gt; informado que colocou &lt;code&gt;NA&lt;/code&gt; no lugar.&lt;/p&gt;
 
-
-```r
-x &lt;- c(&#34;a&#34;, &#34;b&#34;, &#34;c&#34;)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- c(&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;)
 as.numeric(x)
 ## Warning: NAs introduced by coercion
 ## [1] NA NA NA
-```
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;div class=&#39;admonition note&#39;&gt;
 &lt;p class=&#39;admonition-title&#39;&gt;
