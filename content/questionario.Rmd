@@ -1,0 +1,130 @@
+---
+title: "Questionário"
+---
+
+```{r pkgs, message=FALSE, warning=FALSE}
+library(tibble)
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(lubridate)
+library(forcats)
+```
+
+```{r setup, message=FALSE, warning=FALSE, eval=FALSE, echo=FALSE}
+library(googlesheets)
+gs_auth()
+d_gs <- 'questionario_curso-r_verao2017' %>% 
+  gs_ls() %>% 
+  with(sheet_key) %>% 
+  gs_key(verbose = FALSE)
+d_quest <- gs_read(d_gs, verbose = FALSE, ws = 1)
+d_inscr <- gs_read(d_gs, verbose = FALSE, ws = 2) %>% 
+  select(email, tipo, periodo) %>% 
+  distinct(email, .keep_all = TRUE) %>% 
+  mutate(email = str_trim(email))
+
+renomear <- function(d) {
+  x <- names(d) %>%
+    tolower %>%
+    abjutils::rm_accent() %>%
+    str_replace_all('[[:space:]/\\-().:]+', '_') %>%
+    str_trim() %>% 
+    str_replace_all('_+', '_') %>% 
+    str_replace_all('_$', '')
+  names(d) <- x
+  d
+}
+
+d_alunos <- d_quest %>%
+  mutate(Timestamp = mdy_hms(Timestamp)) %>% 
+  rownames_to_column('id_pessoa') %>% 
+  gather(pergunta, resposta, ends_with('?')) %>% 
+  renomear() %>% 
+  spread(pergunta, resposta) %>% 
+  inner_join(d_inscr, c('email_address' = 'email')) %>% 
+  filter(tipo == 'inscrito') %>% 
+  select(-nome, -email)
+
+write_rds(d_alunos, 'd_alunos.rds', compress = 'bz2')
+```
+
+## Alguns gráficos
+
+Respostas dos questionários no tempo
+
+```{r, fig.width=9, fig.height=4}
+tot_periodo <- tribble(
+  ~periodo, ~n,
+  'tarde', 29,
+  'noite', 34
+)
+d_alunos <- read_rds('d_alunos.rds')
+d_alunos %>% 
+  arrange(timestamp) %>% 
+  group_by(periodo) %>% 
+  mutate(um = 1, respostas = cumsum(um)) %>% 
+  ggplot(aes(x = timestamp, y = respostas, colour = periodo)) +
+  geom_step() +
+  geom_hline(aes(yintercept = n, colour = periodo), data = tot_periodo) +
+  geom_text(aes(y = n, label = n, colour = periodo, 
+                x = as_datetime('2017-01-27')), 
+            data = tot_periodo, nudge_y = 1) +
+  theme_bw(16)
+```
+
+Perguntas sobre utilização do R.
+
+```{r fig.width=9, fig.height=9}
+d_alunos %>% 
+  gather(questao, resposta, matches('situaria|mercado')) %>% 
+  replace_na(list(resposta = 'Não.')) %>% 
+  count(periodo, questao, resposta) %>% 
+  mutate(prop = n / sum(n)) %>% 
+  ungroup() %>% 
+  mutate(resposta = str_wrap(resposta, 20) %>% 
+           as_factor() %>% 
+           fct_reorder(fun = min, prop, .desc = TRUE)) %>% 
+  ggplot(aes(x = resposta, fill = periodo, y = prop)) +
+  geom_bar(position = 'dodge', stat = 'identity') +
+  facet_wrap(~questao, scales = 'free_x', ncol = 1) +
+  scale_y_continuous(labels = scales::percent) +
+  geom_text(aes(label = scales::percent(prop), group = periodo), 
+            position = position_dodge(.9), vjust = -.2) +
+  theme_bw(16) +
+  theme(strip.background = element_blank()) +
+  xlab('') +
+  ylab('Proporção de inscritos')
+```
+
+Pergunta sobre conhecimento em outras linguagens. Não soma 100%!
+
+```{r fig.width=9, fig.height=4}
+d_alunos %>% 
+  gather(questao, resposta, matches('software')) %>% 
+  replace_na(list(resposta = 'Nenhuma')) %>% 
+  mutate(ling = str_split(resposta, '\\., ')) %>% 
+  unnest(ling) %>% 
+  mutate(ling = str_replace(ling, '\\.$', '')) %>%
+  mutate(ntot = n_distinct(id_pessoa)) %>% 
+  mutate(ling = str_wrap(ling, 16) %>% 
+           as_factor() %>% 
+           fct_lump(n = 5, other_level = 'Outros')) %>%
+  group_by(ling, periodo) %>% 
+  summarise(n = n_distinct(id_pessoa), ntot = first(ntot)) %>% 
+  mutate(prop = n / ntot) %>% 
+  ungroup() %>% 
+  mutate(ling = ling %>% fct_reorder(prop, .desc = TRUE)) %>% 
+  ggplot(aes(x = ling, y = prop, fill = periodo)) +
+  geom_bar(position = 'dodge', stat = 'identity') +
+  scale_y_continuous(labels = scales::percent, limits = c(0, .4)) +
+  geom_text(aes(label = scales::percent(prop)), 
+            position = position_dodge(.9), vjust = -.2) +
+  theme_bw(14) +
+  xlab('Linguagem de programação') +
+  ylab('Proporção de alunos')
+```
+
+<!-- ---------------------------------------------------------------------- -->

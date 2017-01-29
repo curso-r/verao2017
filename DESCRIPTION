@@ -13,7 +13,7 @@ Depends:
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Remotes: 
+Remotes:
     rstudio/blogdown
 Imports:
     stringr,
@@ -24,12 +24,16 @@ Imports:
     devtools,
     blogdown,
     tutorial,
-    desc
+    desc,
+    forcats
 RoxygenNote: 5.0.1
 PowerUps:
     curso-r/pu.manip,
-    curso-r/pu.train2,
     curso-r/pu.ggplot,
     curso-r/pu.rbase,
-    azeloc/pu.test,
-    curso-r/pu.stringr
+    curso-r/pu.stringr,
+    curso-r/pu.lubridate,
+    curso-r/pu.forcats,
+    curso-r/pu.modelos,
+    curso-r/pu.pipe
+
