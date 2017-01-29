@@ -708,11 +708,7 @@ pedido[[2]]    # segundo elemento
 pedido[&amp;quot;nome&amp;quot;] # nova lista com apenas o elemento chamado &#39;nome&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Certamente você se deparará com listas quando for fazer análise de dados com o R, nos tópicos mais aplicados iremos aprofundar sobre o tema.&lt;/p&gt;
-
-&lt;div class=&#34;dica&#34;&gt;
-O pacote [purrr](https://github.com/hadley/purrr) contribui com funcionalidades incríveis para listas.
-&lt;/div&gt;
+&lt;p&gt;Certamente você se deparará com listas quando for fazer análise de dados com o R, nos tópicos mais aplicados iremos aprofundar sobre o tema. O pacote &lt;a href=&#34;https://github.com/hadley/purrr&#34;&gt;purrr&lt;/a&gt; contribui com funcionalidades incríveis para listas.&lt;/p&gt;
 
 &lt;h3 id=&#34;data-frame&#34;&gt;&lt;code&gt;data.frame&lt;/code&gt;&lt;/h3&gt;
 
@@ -787,9 +783,9 @@ round(mean(die))
 
 &lt;p&gt;A ilustração abaixo mostra o que acontece quando você executa &lt;code&gt;round(mean(die))&lt;/code&gt; no R.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;imagens/round.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures/round.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão [documentados][Documentaçăo do R] na página de ajuda de cada uma das funções, que pode ser acessada digitando &lt;code&gt;help(nome_da_funcao)&lt;/code&gt; ou &lt;code&gt;?nome_da_funcao&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão documentados na página de ajuda de cada uma das funções, que pode ser acessada digitando &lt;code&gt;help(nome_da_funcao)&lt;/code&gt; ou &lt;code&gt;?nome_da_funcao&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;criando-suas-próprias-funções&#34;&gt;Criando suas próprias funções&lt;/h3&gt;
 
@@ -859,14 +855,14 @@ y &amp;lt;- 5 + 2 * x + rnorm(n, sd = 30)
 plot(x, y)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-60-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-60&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-59-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-59&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;O parâmetro &lt;code&gt;type = &amp;quot;l&amp;quot;&lt;/code&gt; indica que queremos que os pontos sejam interligados por linhas.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(x, y, type = &amp;quot;l&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-61-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-61&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-60-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-60&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;histograma&#34;&gt;Histograma&lt;/h3&gt;
 
@@ -882,7 +878,7 @@ plot(x, y)
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hist(rnorm(1000))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-62-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-62&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-61-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-61&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;boxplot&#34;&gt;Boxplot&lt;/h3&gt;
 
@@ -895,14 +891,14 @@ plot(x, y)
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;boxplot(InsectSprays$count, col = &amp;quot;lightgray&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-63-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-63&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-62-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-62&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Duas variáveis&lt;/strong&gt; Usamos fórmula e o parâmetro &lt;code&gt;data&lt;/code&gt;!&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;boxplot(count ~ spray, data = InsectSprays, col = &amp;quot;lightgray&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-64-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-64&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-63-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-63&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;gráfico-de-barras&#34;&gt;Gráfico de barras&lt;/h3&gt;
 
@@ -934,7 +930,7 @@ barplot(tabela)
 barplot(VADeaths) 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-66-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-66&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-65-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-65&#34; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 

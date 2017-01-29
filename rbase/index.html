@@ -1016,11 +1016,7 @@ pedido[[2]]    # segundo elemento
 pedido[&quot;nome&quot;] # nova lista com apenas o elemento chamado 'nome'
 </code></pre>
 
-<p>Certamente você se deparará com listas quando for fazer análise de dados com o R, nos tópicos mais aplicados iremos aprofundar sobre o tema.</p>
-
-<div class="dica">
-O pacote [purrr](https://github.com/hadley/purrr) contribui com funcionalidades incríveis para listas.
-</div>
+<p>Certamente você se deparará com listas quando for fazer análise de dados com o R, nos tópicos mais aplicados iremos aprofundar sobre o tema. O pacote <a href="https://github.com/hadley/purrr">purrr</a> contribui com funcionalidades incríveis para listas.</p>
 
 <h3 id="data-frame"><code>data.frame</code></h3>
 
@@ -1095,9 +1091,9 @@ round(mean(die))
 
 <p>A ilustração abaixo mostra o que acontece quando você executa <code>round(mean(die))</code> no R.</p>
 
-<p><img src="imagens/round.png" alt="" /></p>
+<p><img src="figures/round.png" alt="" /></p>
 
-<p>Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão [documentados][Documentaçăo do R] na página de ajuda de cada uma das funções, que pode ser acessada digitando <code>help(nome_da_funcao)</code> ou <code>?nome_da_funcao</code>.</p>
+<p>Passamos dados para as funções por meio de argumentos. No R, esses argumentos estão documentados na página de ajuda de cada uma das funções, que pode ser acessada digitando <code>help(nome_da_funcao)</code> ou <code>?nome_da_funcao</code>.</p>
 
 <h3 id="criando-suas-próprias-funções">Criando suas próprias funções</h3>
 
@@ -1167,14 +1163,14 @@ y &lt;- 5 + 2 * x + rnorm(n, sd = 30)
 plot(x, y)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-60-1.png" alt="plot of chunk unnamed-chunk-60" /></p>
+<p><img src="figures//unnamed-chunk-59-1.png" alt="plot of chunk unnamed-chunk-59" /></p>
 
 <p>O parâmetro <code>type = &quot;l&quot;</code> indica que queremos que os pontos sejam interligados por linhas.</p>
 
 <pre><code class="language-r">plot(x, y, type = &quot;l&quot;)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-61-1.png" alt="plot of chunk unnamed-chunk-61" /></p>
+<p><img src="figures//unnamed-chunk-60-1.png" alt="plot of chunk unnamed-chunk-60" /></p>
 
 <h3 id="histograma">Histograma</h3>
 
@@ -1190,7 +1186,7 @@ plot(x, y)
 <pre><code class="language-r">hist(rnorm(1000))
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-62-1.png" alt="plot of chunk unnamed-chunk-62" /></p>
+<p><img src="figures//unnamed-chunk-61-1.png" alt="plot of chunk unnamed-chunk-61" /></p>
 
 <h3 id="boxplot">Boxplot</h3>
 
@@ -1203,14 +1199,14 @@ plot(x, y)
 <pre><code class="language-r">boxplot(InsectSprays$count, col = &quot;lightgray&quot;)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-63-1.png" alt="plot of chunk unnamed-chunk-63" /></p>
+<p><img src="figures//unnamed-chunk-62-1.png" alt="plot of chunk unnamed-chunk-62" /></p>
 
 <p><strong>Duas variáveis</strong> Usamos fórmula e o parâmetro <code>data</code>!</p>
 
 <pre><code class="language-r">boxplot(count ~ spray, data = InsectSprays, col = &quot;lightgray&quot;)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-64-1.png" alt="plot of chunk unnamed-chunk-64" /></p>
+<p><img src="figures//unnamed-chunk-63-1.png" alt="plot of chunk unnamed-chunk-63" /></p>
 
 <h3 id="gráfico-de-barras">Gráfico de barras</h3>
 
@@ -1242,7 +1238,7 @@ barplot(tabela)
 barplot(VADeaths) 
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-66-1.png" alt="plot of chunk unnamed-chunk-66" /></p>
+<p><img src="figures//unnamed-chunk-65-1.png" alt="plot of chunk unnamed-chunk-65" /></p>
 
 <hr />
 
