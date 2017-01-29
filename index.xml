@@ -2754,46 +2754,9 @@ library(ggplot2)
 library(stringr)
 library(lubridate)
 library(forcats)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(googlesheets)
-gs_auth()
-d_gs &amp;lt;- &amp;#39;questionario_curso-r_verao2017&amp;#39; %&amp;gt;% 
-  gs_ls() %&amp;gt;% 
-  with(sheet_key) %&amp;gt;% 
-  gs_key(verbose = FALSE)
-d_quest &amp;lt;- gs_read(d_gs, verbose = FALSE, ws = 1)
-d_inscr &amp;lt;- gs_read(d_gs, verbose = FALSE, ws = 2) %&amp;gt;% 
-  select(email, tipo, periodo) %&amp;gt;% 
-  distinct(email, .keep_all = TRUE) %&amp;gt;% 
-  mutate(email = str_trim(email))
-
-renomear &amp;lt;- function(d) {
-  x &amp;lt;- names(d) %&amp;gt;%
-    tolower %&amp;gt;%
-    abjutils::rm_accent() %&amp;gt;%
-    str_replace_all(&amp;#39;[[:space:]/\\-().:]+&amp;#39;, &amp;#39;_&amp;#39;) %&amp;gt;%
-    str_trim() %&amp;gt;% 
-    str_replace_all(&amp;#39;_+&amp;#39;, &amp;#39;_&amp;#39;) %&amp;gt;% 
-    str_replace_all(&amp;#39;_$&amp;#39;, &amp;#39;&amp;#39;)
-  names(d) &amp;lt;- x
-  d
-}
-
-d_alunos &amp;lt;- d_quest %&amp;gt;%
-  mutate(Timestamp = mdy_hms(Timestamp)) %&amp;gt;% 
-  rownames_to_column(&amp;#39;id_pessoa&amp;#39;) %&amp;gt;% 
-  gather(pergunta, resposta, ends_with(&amp;#39;?&amp;#39;)) %&amp;gt;% 
-  renomear() %&amp;gt;% 
-  spread(pergunta, resposta) %&amp;gt;% 
-  inner_join(d_inscr, c(&amp;#39;email_address&amp;#39; = &amp;#39;email&amp;#39;)) %&amp;gt;% 
-  filter(tipo == &amp;#39;inscrito&amp;#39;) %&amp;gt;% 
-  select(-nome, -email)
-
-write_rds(d_alunos, &amp;#39;d_alunos.rds&amp;#39;, compress = &amp;#39;bz2&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;set-up&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Análise exploratória: inscritos no curso&lt;/h1&gt;
 &lt;div id=&#34;alguns-graficos&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Alguns gráficos&lt;/h2&gt;
-&lt;p&gt;Volume de inscrições no tempo&lt;/p&gt;
+&lt;p&gt;Respostas dos questionários no tempo&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tot_periodo &amp;lt;- tribble(
   ~periodo, ~n,
   &amp;#39;tarde&amp;#39;, 29,
@@ -2812,7 +2775,7 @@ d_alunos %&amp;gt;%
             data = tot_periodo, nudge_y = 1) +
   theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/questionario/figures/unnamed-chunk-1-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Perguntas 1 e 3: sobre utilização do R.&lt;/p&gt;
+&lt;p&gt;Perguntas sobre utilização do R.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_alunos %&amp;gt;% 
   gather(questao, resposta, matches(&amp;#39;situaria|mercado&amp;#39;)) %&amp;gt;% 
   replace_na(list(resposta = &amp;#39;Não.&amp;#39;)) %&amp;gt;% 
@@ -2833,7 +2796,7 @@ d_alunos %&amp;gt;%
   xlab(&amp;#39;&amp;#39;) +
   ylab(&amp;#39;Proporção de inscritos&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/questionario/figures/unnamed-chunk-2-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Pergunta 2: sobre conhecimento em outras linguagens. Não soma 100%!&lt;/p&gt;
+&lt;p&gt;Pergunta sobre conhecimento em outras linguagens. Não soma 100%!&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_alunos %&amp;gt;% 
   gather(questao, resposta, matches(&amp;#39;software&amp;#39;)) %&amp;gt;% 
   replace_na(list(resposta = &amp;#39;Nenhuma&amp;#39;)) %&amp;gt;% 
@@ -2859,7 +2822,6 @@ d_alunos %&amp;gt;%
   ylab(&amp;#39;Proporção de alunos&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/questionario/figures/unnamed-chunk-3-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;!-- ---------------------------------------------------------------------- --&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 
 
