@@ -57,19 +57,19 @@ googleAnalytics = "UA-87272102-1"
   weight = 0
 
 [[menu.main]]
-  name   = "Stringr"
-  url    = "stringr/"
-  weight = 40
-
-[[menu.main]]
   name   = "R básico"
   url    = "rbase/"
   weight = 10
 
 [[menu.main]]
+  name   = "Pipe"
+  url    = "pipe/"
+  weight = 18
+
+[[menu.main]]
   name   = "Stringr"
   url    = "stringr/"
-  weight = 40
+  weight = 20
 
 [[menu.main]]
   name   = "Transformação"
@@ -79,12 +79,12 @@ googleAnalytics = "UA-87272102-1"
 [[menu.main]]
   name   = "Visualização"
   url    = "ggplot/"
-  weight = 20
+  weight = 40
 
 [[menu.main]]
   name   = "Modelagem"
   url    = "modelos/"
-  weight = 20
+  weight = 50
 
 [blackfriday]
   smartypants  = true

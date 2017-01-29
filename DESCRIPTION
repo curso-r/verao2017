@@ -32,5 +32,6 @@ PowerUps:
     curso-r/pu.ggplot,
     curso-r/pu.rbase,
     curso-r/pu.stringr,
-    curso-r/pu.modelos
+    curso-r/pu.modelos,
+    curso-r/pu.pipe
 
