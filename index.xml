@@ -3579,11 +3579,11 @@ devtools::install_github(&amp;#39;curso-r/pu.deps&amp;#39;)&lt;/code&gt;&lt;/pre
 &lt;h2&gt;Programa&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Aula 01&lt;/strong&gt; - 30/01: Introdução ao R, Rstudio e &lt;code&gt;tidyverse&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Aula 02&lt;/strong&gt; - 01/02: Manipulação de vetores&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Aula 03&lt;/strong&gt; - 03/02: Manipulação de dados com &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aula 02&lt;/strong&gt; - 01/02: Manipulação de vetores com &lt;code&gt;lubridate&lt;/code&gt;, &lt;code&gt;stringr&lt;/code&gt; e &lt;code&gt;forcats&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aula 03&lt;/strong&gt; - 03/02: Transformação de dados com &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Aula 04&lt;/strong&gt; - 06/02: Visualização com &lt;code&gt;ggplot2&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Aula 05&lt;/strong&gt; - 08/02: Programação funcional com &lt;code&gt;purrr&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Aula 06&lt;/strong&gt; - 10/02: Introdução a Modelagem usando o R&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aula 05&lt;/strong&gt; - 08/02: Programação funcional com &lt;code&gt;purrr&lt;/code&gt; e &lt;code&gt;plyr&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Aula 06&lt;/strong&gt; - 10/02: Introdução a Modelagem estatística usando o R&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Aula 07&lt;/strong&gt; - 13/02: Tópicos adiconais sobre modelagem&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Aula 08&lt;/strong&gt; - 15/02: Tema escolhido pelos alunos&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Aula 09&lt;/strong&gt; - 17/02: Shiny e tópicos sobre comunicação com o R&lt;/li&gt;

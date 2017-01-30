@@ -79,11 +79,11 @@ e será oferecido em 2 horários.
 ## Programa
 
 - **Aula 01** - 30/01: Introdução ao R, Rstudio e `tidyverse`
-- **Aula 02** - 01/02: Manipulação de vetores
-- **Aula 03** - 03/02: Manipulação de dados com `dplyr` e `tidyr`
+- **Aula 02** - 01/02: Manipulação de vetores com `lubridate`, `stringr` e `forcats`
+- **Aula 03** - 03/02: Transformação de dados com `dplyr` e `tidyr`
 - **Aula 04** - 06/02: Visualização com `ggplot2`
-- **Aula 05** - 08/02: Programação funcional com `purrr`
-- **Aula 06** - 10/02: Introdução a Modelagem usando o R
+- **Aula 05** - 08/02: Programação funcional com `purrr` e `plyr`
+- **Aula 06** - 10/02: Introdução a Modelagem estatística usando o R
 - **Aula 07** - 13/02: Tópicos adiconais sobre modelagem
 - **Aula 08** - 15/02: Tema escolhido pelos alunos
 - **Aula 09** - 17/02: Shiny e tópicos sobre comunicação com o R
