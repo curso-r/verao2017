@@ -65,14 +65,14 @@ e será oferecido em 2 horários.
 ### Tarde 
 
 * Horário: Segunda, Quarta e Sexta das 14:00 às 17:00;
-* Sala: CEC-06, B-139
+* Sala: CEC-02
 * Data de início: 30/01/2017
 * Data de fim: 17/02/2017
 
 ### Noite
 
 * Horário: Segunda, Quarta e Sexta das 19:00 às 22:00;
-* Sala: CEC-06, B-142
+* Sala: CEC-02
 * Data de início: 30/01/2017
 * Data de fim: 17/02/2017
 
