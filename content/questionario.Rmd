@@ -47,7 +47,7 @@ d_alunos <- d_quest %>%
   inner_join(d_inscr, c('email_address' = 'email')) %>% 
   filter(tipo == 'inscrito') %>% 
   select(-nome, -email) %>% 
-  mutate(tipo = if_else(periodo == 'noite', 'tarde', 'noite'))
+  mutate(periodo = if_else(periodo == 'noite', 'tarde', 'noite'))
 
 write_rds(d_alunos, 'd_alunos.rds', compress = 'bz2')
 ```
