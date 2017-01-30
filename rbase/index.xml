@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Sun, 29 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 30 Jan 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/rbase/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/rbase/</link>
-      <pubDate>Sun, 29 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>/rbase/</guid>
       <description>
@@ -22,7 +22,7 @@
 
 &lt;p&gt;A linguagem &lt;code&gt;R&lt;/code&gt; é intuitiva. Muita coisa sai do jeito certo no chute! Para ver um exemplo disso, é interessante começar fazendo do R uma grande calculadora.&lt;/p&gt;
 
-&lt;p&gt;Mas antes disso, vamos aprender a mexer no RStudio.&lt;/p&gt;
+&lt;p&gt;Mas antes disso, vamos aprender a mexer no RStudio!&lt;/p&gt;
 
 &lt;hr /&gt;
 
