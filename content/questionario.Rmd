@@ -46,7 +46,8 @@ d_alunos <- d_quest %>%
   spread(pergunta, resposta) %>% 
   inner_join(d_inscr, c('email_address' = 'email')) %>% 
   filter(tipo == 'inscrito') %>% 
-  select(-nome, -email)
+  select(-nome, -email) %>% 
+  mutate(tipo = if_else(periodo == 'noite', 'tarde', 'noite'))
 
 write_rds(d_alunos, 'd_alunos.rds', compress = 'bz2')
 ```
@@ -58,8 +59,8 @@ Respostas dos questionários no tempo
 ```{r, fig.width=9, fig.height=4}
 tot_periodo <- tribble(
   ~periodo, ~n,
-  'tarde', 29,
-  'noite', 34
+  'tarde', 34,
+  'noite', 29
 )
 d_alunos <- read_rds('d_alunos.rds')
 d_alunos %>% 
@@ -70,7 +71,7 @@ d_alunos %>%
   geom_step() +
   geom_hline(aes(yintercept = n, colour = periodo), data = tot_periodo) +
   geom_text(aes(y = n, label = n, colour = periodo, 
-                x = as_datetime('2017-01-27')), 
+                x = as_datetime(Sys.Date())), 
             data = tot_periodo, nudge_y = 1) +
   theme_bw(16)
 ```
