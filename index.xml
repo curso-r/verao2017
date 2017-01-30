@@ -3628,8 +3628,8 @@ library(forcats)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Respostas dos questionários no tempo&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tot_periodo &amp;lt;- tribble(
   ~periodo, ~n,
-  &amp;#39;tarde&amp;#39;, 29,
-  &amp;#39;noite&amp;#39;, 34
+  &amp;#39;tarde&amp;#39;, 34,
+  &amp;#39;noite&amp;#39;, 29
 )
 d_alunos &amp;lt;- read_rds(&amp;#39;d_alunos.rds&amp;#39;)
 d_alunos %&amp;gt;% 
@@ -3640,7 +3640,7 @@ d_alunos %&amp;gt;%
   geom_step() +
   geom_hline(aes(yintercept = n, colour = periodo), data = tot_periodo) +
   geom_text(aes(y = n, label = n, colour = periodo, 
-                x = as_datetime(&amp;#39;2017-01-27&amp;#39;)), 
+                x = as_datetime(Sys.Date())), 
             data = tot_periodo, nudge_y = 1) +
   theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;img src=&#34;/questionario/figures/unnamed-chunk-1-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
