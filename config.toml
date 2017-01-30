@@ -72,6 +72,11 @@ googleAnalytics = "UA-87272102-1"
   weight = 20
 
 [[menu.main]]
+  name   = "Forcats"
+  url    = "forcats/"
+  weight = 23
+
+[[menu.main]]
   name   = "Transformação"
   url    = "manip/"
   weight = 30
