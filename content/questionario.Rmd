@@ -11,6 +11,7 @@ library(ggplot2)
 library(stringr)
 library(lubridate)
 library(forcats)
+library(haven)
 ```
 
 ```{r setup, message=FALSE, warning=FALSE, eval=FALSE, echo=FALSE}
