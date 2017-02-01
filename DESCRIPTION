@@ -25,7 +25,8 @@ Imports:
     blogdown,
     tutorial,
     desc,
-    forcats
+    forcats,
+    haven
 RoxygenNote: 5.0.1
 PowerUps:
     curso-r/pu.manip,
@@ -36,4 +37,3 @@ PowerUps:
     curso-r/pu.forcats,
     curso-r/pu.modelos,
     curso-r/pu.pipe
-
