@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Mon, 30 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/rbase/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/rbase/</link>
-      <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/rbase/</guid>
       <description>
@@ -98,11 +98,11 @@
 
 &lt;h2 id=&#34;rstudio&#34;&gt;RStudio&lt;/h2&gt;
 
-&lt;p&gt;O RStudio é o melhor ambiente de desenvolvimento de R disponível. Você pode &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;baixar aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O RStudio é o melhor ambiente de desenvolvimento de R disponível. Você pode &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;baixá-lo aqui&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Há muitas ferramentas nele que se aprende conforme o uso e há bons materiais sobre na internet (por exemplo &lt;a href=&#34;https://csgillespie.github.io/efficientR/set-up.html#rstudio&#34;&gt;esta página&lt;/a&gt;). Uma funcionalidade importante que vale citar é a criação de projetos. Uma estrutura sugerida de organização de um projeto é&lt;/p&gt;
+&lt;p&gt;Muitas das ferramentas são aprendidas conforme o uso, e há bons materiais sobre o Rstudio na internet (por exemplo &lt;a href=&#34;https://csgillespie.github.io/efficientR/set-up.html#rstudio&#34;&gt;esta página&lt;/a&gt;). Uma funcionalidade importante é a criação de projetos. Uma estrutura sugerida para a organização de um projeto é:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Estrutura 1&lt;/strong&gt;: Por extensão de arquivo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Estrutura 1&lt;/strong&gt;. Por extensão de arquivo.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nome_do_projeto/
   - .Rprofile   # códigos para rodar assim que abrir o projeto
@@ -138,11 +138,11 @@
   - project.Rproj
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Assim que abrir o RStudio você verá 4 quadrantes do jeito que a figura abaixo mostra&lt;/p&gt;
+&lt;p&gt;Assim que abrir o RStudio, você verá 4 quadrantes, do jeito que a figura abaixo mostra.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;figures/rstudio-editor.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Nela estão dispostos &lt;strong&gt;editor&lt;/strong&gt;, &lt;strong&gt;console&lt;/strong&gt;, &lt;strong&gt;environment&lt;/strong&gt; e &lt;strong&gt;output&lt;/strong&gt;.  Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que preferir. O R vive no quadrante &lt;strong&gt;console&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;Esses quadrantes representam o &lt;strong&gt;editor&lt;/strong&gt;, o &lt;strong&gt;console&lt;/strong&gt;, o &lt;strong&gt;environment&lt;/strong&gt; e o &lt;strong&gt;output&lt;/strong&gt;.  Eles vêm nesta ordem, e depois você pode organizá-los da forma que preferir. O R vive no quadrante &lt;strong&gt;console&lt;/strong&gt;!&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -150,7 +150,7 @@
 
 &lt;p&gt;O RMarkdown é um tipo de documento especial que contém tanto textos quanto códigos de R, tudo escrito em um mesmo lugar.&lt;/p&gt;
 
-&lt;p&gt;O &lt;em&gt;markdown&lt;/em&gt; nada mais é do que um documento de texto com alguns padrões básicos de formatação, como negrito, itálico, títulos, subtítulos, itens e referências cruzadas. Já os &lt;em&gt;chunks&lt;/em&gt; são pedaços de códigos em R encapsulados por três crases &amp;ldquo;```&amp;ldquo;. Os códigos são executados sempre que o documento é processado.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;markdown&lt;/em&gt; nada mais é do que um documento de texto com alguns padrões básicos de formatação, como negrito, itálico, títulos, subtítulos, itens e referências cruzadas. Já os &lt;em&gt;chunks&lt;/em&gt; são pedaços de códigos em R encapsulados por três crases (```). Os códigos são executados sempre que o documento é processado.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;## ```{r}
 ## 
@@ -167,16 +167,16 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Para produção de relatórios, o RMarkdown possui algumas vantagens, dentre as quais estão:&lt;/p&gt;
+&lt;p&gt;Para produção de relatórios, o RMarkdown possui algumas vantagens, como:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Simplicidade e foco&lt;/strong&gt;. Permite o usuário a focar na análise e não na formatação do documento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simplicidade e foco&lt;/strong&gt;. Permite ao usuário o foco na análise e não na formatação do documento.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Versátil&lt;/strong&gt;. Pode ser utilizado para gerar documentos em $\LaTeX$, &lt;code&gt;Word&lt;/code&gt;, &lt;code&gt;HTML&lt;/code&gt; e apresentaçőes em &lt;code&gt;beamer&lt;/code&gt;, &lt;code&gt;pptx&lt;/code&gt; e &lt;code&gt;HTML&lt;/code&gt; (de vários tipos). Pode ainda gerar sites, livros, dissertaçőes de mestrado e até mesmo dashboards interativos.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reprodutível&lt;/strong&gt;. O RMarkdown nada mais é que um arquivo de texto. Além disso, ele tenta te obrigar a fazer o documento mais autocontido possível. Assim, um documento &lt;code&gt;.Rmd&lt;/code&gt; é fácil de compartilhar e de ser utilizado pelo receptor. Lembre-se, o receptor pode ser o futuro você! Vale enfatizar que a reprodutibilidade é considerada como um dos princípios fundamentais da ciência. Então só de usar RMarkdown, você já está colaborando com a ciência :)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Flexível&lt;/strong&gt;. É possível configurar e criar templates de análises para quaisquer tipos de aplicações e clientes. Os textos podem ser parametrizados por números que variam de versão para versão, por exemplo mensalmente, tudo escrito somente em R.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reprodutível&lt;/strong&gt;. O RMarkdown nada mais é que um arquivo de texto. Além disso, ele tenta te obrigar a fazer o documento mais autocontido possível. Assim, um documento &lt;code&gt;.Rmd&lt;/code&gt; é fácil de compartilhar e de ser utilizado pelo receptor. Lembre-se, o receptor pode ser o futuro você! Vale enfatizar que a reprodutibilidade é considerada como um dos princípios fundamentais da ciência. Então, só de usar RMarkdown, você já está colaborando com a ciência. :)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexível&lt;/strong&gt;. É possível configurar e criar templates de análises para quaisquer tipos de aplicações e clientes. Os textos podem ser parametrizados por números que variam de versão para versão, mensalmente, por exemplo, tudo escrito somente em R.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Para criar um RMarkdown novo no RStudio é fácil. Clique no botão de criar arquivo e selecione RMarkdown.&lt;/p&gt;
+&lt;p&gt;Criar um RMarkdown novo no RStudio é fácil. Clique no botão de criar arquivo e selecione RMarkdown.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;knitr::include_graphics(&amp;quot;figures/criar_rmarkdown.png&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
@@ -197,27 +197,26 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30.
-Você pode ignorar esses números que aparecem entre parênteses. Na verdade eles
-só indicam o índice do primeiro elemento impresso nessa linha.&lt;/p&gt;
+Os números que aparecem entre [] indicam o índice do primeiro elemento impresso nessa linha.&lt;/p&gt;
 
 &lt;div class=&#39;admonition note&#39;&gt;
 &lt;p class=&#39;admonition-title&#39;&gt;
 Quando compilamos?
 &lt;/p&gt;
 &lt;p&gt;
-Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa.
+Quem vem de linguagens como o C ou Java espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa.
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Tente jogar no console &lt;code&gt;2 * 2 - (4 + 4) / 2&lt;/code&gt;. Pronto. Com essa simples expressão você já é capaz de imaginar (e certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!&lt;/p&gt;
+&lt;p&gt;Tente jogar no console &lt;code&gt;2 * 2 - (4 + 4) / 2&lt;/code&gt;. Pronto. Com essa simples expressão você já é capaz de imaginar (certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!&lt;/p&gt;
 
 &lt;p&gt;Além do mais, as operações e suas precedências são mantidas como na matemática, ou seja, divisão e multiplicação são calculadas antes da adição e subtração. E os parênteses nunca são demais!&lt;/p&gt;
 
 &lt;p&gt;Agora que você já conhece o RStudio, digite a expressão &lt;code&gt;2 * 2 - (4 + 4) / 2&lt;/code&gt; no
 &lt;strong&gt;console&lt;/strong&gt; e tecle &lt;code&gt;Enter&lt;/code&gt;. Uma outra forma de chamar uma expressão é escrever
-o código no &lt;strong&gt;editor&lt;/strong&gt; e teclar &lt;code&gt;Ctrl + Enter&lt;/code&gt; ou &lt;code&gt;Ctrl + R&lt;/code&gt;. Assim o comando é enviado para o &lt;strong&gt;console&lt;/strong&gt; onde é diretamente executado.&lt;/p&gt;
+o código no &lt;strong&gt;editor&lt;/strong&gt; e teclar &lt;code&gt;Ctrl + Enter&lt;/code&gt; ou &lt;code&gt;Ctrl + R&lt;/code&gt;. Assim, o comando é enviado para o &lt;strong&gt;console&lt;/strong&gt;, onde é diretamente executado.&lt;/p&gt;
 
-&lt;p&gt;Se você digitar um comando incompleto, como &lt;code&gt;5 +&lt;/code&gt; e apertar &lt;code&gt;Enter&lt;/code&gt;, o R irá mostrar um &lt;code&gt;+&lt;/code&gt;, o que não tem nada a ver com somar alguma coisa, e sim significa que o R está esperando que vocę complete o seu comando. Termine o seu comando ou aperte &lt;code&gt;Esc&lt;/code&gt; para recomeçar.&lt;/p&gt;
+&lt;p&gt;Se você digitar um comando incompleto, como &lt;code&gt;5 +&lt;/code&gt; e apertar &lt;code&gt;Enter&lt;/code&gt;, o R mostrará um &lt;code&gt;+&lt;/code&gt;, o que não tem nada a ver com somar alguma coisa. Isso significa que o R está esperando que você complete o seu comando. Termine o seu comando ou aperte &lt;code&gt;Esc&lt;/code&gt; para recomeçar.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;gt; 5 -
 + 
@@ -225,7 +224,7 @@ o código no &lt;strong&gt;editor&lt;/strong&gt; e teclar &lt;code&gt;Ctrl + Ent
 [1] 0
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Se você digitar um comando que o R não reconhecer, ele irá retornar uma mensagem de erro. Não entre em pânico. Ele só está avisando que não conseguiu interpretar o comando. Depois você já pode digitar mais um comando.&lt;/p&gt;
+&lt;p&gt;Se você digitar um comando que o R não reconhece, ele retornará uma mensagem de erro. NÃO ENTRE EM PÂNICO! Ele só está avisando que não conseguiu interpretar o comando. Você pode digitar outro comando normalmente em seguida.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;gt; 5 % 5
 Error: unexpected input in &amp;quot;5 % 5&amp;quot;
@@ -1099,13 +1098,13 @@ LETTERS
 
 &lt;p&gt;$$ \frac{1 + \sqrt{5}}{2} $$&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby5cbiIsInNvbHV0aW9uIjoiIyBEaWdpdGUgYSBleHByZXNzXHUwMGUzbyBxdWUgY2FsY3VsYSBvIG5cdTAwZmFtZXJvIGRlIG91cm8uXG4oMSArIHNxcnQoNSkpLzIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIjEuNjE4MDM0XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxuc3VjY2Vzc19tc2coXCJDb3JyZXRvIVwiKSJ9&lt;/div&gt;
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IiMgRGlnaXRlIGEgZXhwcmVzc1x1MDBlM28gcXVlIGNhbGN1bGEgbyBuXHUwMGZhbWVybyBkZSBvdXJvLlxuKDEgKyBzcXJ0KDUpKS8yIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCIxLjYxODAzNFwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
 
 &lt;ol&gt;
 &lt;li&gt;O que dá divisão de 1 por 0 no R? E -1 por 0?&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLzBcbi0xLzAiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIkluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiLUluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIgMS8wXG4tMS8wIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCJJbmZcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG50ZXN0X291dHB1dF9jb250YWlucyhcIi1JbmZcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Quais as diferenças entre &lt;code&gt;NaN&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;Inf&lt;/code&gt;? Digite expressões que

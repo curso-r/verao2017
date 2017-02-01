@@ -443,11 +443,11 @@
 
 <h2 id="rstudio">RStudio</h2>
 
-<p>O RStudio é o melhor ambiente de desenvolvimento de R disponível. Você pode <a href="https://www.rstudio.com/products/rstudio/download/preview/">baixar aqui</a>.</p>
+<p>O RStudio é o melhor ambiente de desenvolvimento de R disponível. Você pode <a href="https://www.rstudio.com/products/rstudio/download/preview/">baixá-lo aqui</a>.</p>
 
-<p>Há muitas ferramentas nele que se aprende conforme o uso e há bons materiais sobre na internet (por exemplo <a href="https://csgillespie.github.io/efficientR/set-up.html#rstudio">esta página</a>). Uma funcionalidade importante que vale citar é a criação de projetos. Uma estrutura sugerida de organização de um projeto é</p>
+<p>Muitas das ferramentas são aprendidas conforme o uso, e há bons materiais sobre o Rstudio na internet (por exemplo <a href="https://csgillespie.github.io/efficientR/set-up.html#rstudio">esta página</a>). Uma funcionalidade importante é a criação de projetos. Uma estrutura sugerida para a organização de um projeto é:</p>
 
-<p><strong>Estrutura 1</strong>: Por extensão de arquivo.</p>
+<p><strong>Estrutura 1</strong>. Por extensão de arquivo.</p>
 
 <pre><code class="language-bash">nome_do_projeto/
   - .Rprofile   # códigos para rodar assim que abrir o projeto
@@ -483,11 +483,11 @@
   - project.Rproj
 </code></pre>
 
-<p>Assim que abrir o RStudio você verá 4 quadrantes do jeito que a figura abaixo mostra</p>
+<p>Assim que abrir o RStudio, você verá 4 quadrantes, do jeito que a figura abaixo mostra.</p>
 
 <p><img src="figures/rstudio-editor.png" alt="" /></p>
 
-<p>Nela estão dispostos <strong>editor</strong>, <strong>console</strong>, <strong>environment</strong> e <strong>output</strong>.  Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que preferir. O R vive no quadrante <strong>console</strong>!</p>
+<p>Esses quadrantes representam o <strong>editor</strong>, o <strong>console</strong>, o <strong>environment</strong> e o <strong>output</strong>.  Eles vêm nesta ordem, e depois você pode organizá-los da forma que preferir. O R vive no quadrante <strong>console</strong>!</p>
 
 <hr />
 
@@ -495,7 +495,7 @@
 
 <p>O RMarkdown é um tipo de documento especial que contém tanto textos quanto códigos de R, tudo escrito em um mesmo lugar.</p>
 
-<p>O <em>markdown</em> nada mais é do que um documento de texto com alguns padrões básicos de formatação, como negrito, itálico, títulos, subtítulos, itens e referências cruzadas. Já os <em>chunks</em> são pedaços de códigos em R encapsulados por três crases &ldquo;```&ldquo;. Os códigos são executados sempre que o documento é processado.</p>
+<p>O <em>markdown</em> nada mais é do que um documento de texto com alguns padrões básicos de formatação, como negrito, itálico, títulos, subtítulos, itens e referências cruzadas. Já os <em>chunks</em> são pedaços de códigos em R encapsulados por três crases (```). Os códigos são executados sempre que o documento é processado.</p>
 
 <pre><code>## ```{r}
 ## 
@@ -512,16 +512,16 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 </p>
 </div>
 
-<p>Para produção de relatórios, o RMarkdown possui algumas vantagens, dentre as quais estão:</p>
+<p>Para produção de relatórios, o RMarkdown possui algumas vantagens, como:</p>
 
 <ol>
-<li><strong>Simplicidade e foco</strong>. Permite o usuário a focar na análise e não na formatação do documento.</li>
+<li><strong>Simplicidade e foco</strong>. Permite ao usuário o foco na análise e não na formatação do documento.</li>
 <li><strong>Versátil</strong>. Pode ser utilizado para gerar documentos em $\LaTeX$, <code>Word</code>, <code>HTML</code> e apresentaçőes em <code>beamer</code>, <code>pptx</code> e <code>HTML</code> (de vários tipos). Pode ainda gerar sites, livros, dissertaçőes de mestrado e até mesmo dashboards interativos.</li>
-<li><strong>Reprodutível</strong>. O RMarkdown nada mais é que um arquivo de texto. Além disso, ele tenta te obrigar a fazer o documento mais autocontido possível. Assim, um documento <code>.Rmd</code> é fácil de compartilhar e de ser utilizado pelo receptor. Lembre-se, o receptor pode ser o futuro você! Vale enfatizar que a reprodutibilidade é considerada como um dos princípios fundamentais da ciência. Então só de usar RMarkdown, você já está colaborando com a ciência :)</li>
-<li><strong>Flexível</strong>. É possível configurar e criar templates de análises para quaisquer tipos de aplicações e clientes. Os textos podem ser parametrizados por números que variam de versão para versão, por exemplo mensalmente, tudo escrito somente em R.</li>
+<li><strong>Reprodutível</strong>. O RMarkdown nada mais é que um arquivo de texto. Além disso, ele tenta te obrigar a fazer o documento mais autocontido possível. Assim, um documento <code>.Rmd</code> é fácil de compartilhar e de ser utilizado pelo receptor. Lembre-se, o receptor pode ser o futuro você! Vale enfatizar que a reprodutibilidade é considerada como um dos princípios fundamentais da ciência. Então, só de usar RMarkdown, você já está colaborando com a ciência. :)</li>
+<li><strong>Flexível</strong>. É possível configurar e criar templates de análises para quaisquer tipos de aplicações e clientes. Os textos podem ser parametrizados por números que variam de versão para versão, mensalmente, por exemplo, tudo escrito somente em R.</li>
 </ol>
 
-<p>Para criar um RMarkdown novo no RStudio é fácil. Clique no botão de criar arquivo e selecione RMarkdown.</p>
+<p>Criar um RMarkdown novo no RStudio é fácil. Clique no botão de criar arquivo e selecione RMarkdown.</p>
 
 <pre><code class="language-r">knitr::include_graphics(&quot;figures/criar_rmarkdown.png&quot;)
 </code></pre>
@@ -542,27 +542,26 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 </code></pre>
 
 <p>Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30.
-Você pode ignorar esses números que aparecem entre parênteses. Na verdade eles
-só indicam o índice do primeiro elemento impresso nessa linha.</p>
+Os números que aparecem entre [] indicam o índice do primeiro elemento impresso nessa linha.</p>
 
 <div class='admonition note'>
 <p class='admonition-title'>
 Quando compilamos?
 </p>
 <p>
-Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa.
+Quem vem de linguagens como o C ou Java espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa.
 </p>
 </div>
 
-<p>Tente jogar no console <code>2 * 2 - (4 + 4) / 2</code>. Pronto. Com essa simples expressão você já é capaz de imaginar (e certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!</p>
+<p>Tente jogar no console <code>2 * 2 - (4 + 4) / 2</code>. Pronto. Com essa simples expressão você já é capaz de imaginar (certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!</p>
 
 <p>Além do mais, as operações e suas precedências são mantidas como na matemática, ou seja, divisão e multiplicação são calculadas antes da adição e subtração. E os parênteses nunca são demais!</p>
 
 <p>Agora que você já conhece o RStudio, digite a expressão <code>2 * 2 - (4 + 4) / 2</code> no
 <strong>console</strong> e tecle <code>Enter</code>. Uma outra forma de chamar uma expressão é escrever
-o código no <strong>editor</strong> e teclar <code>Ctrl + Enter</code> ou <code>Ctrl + R</code>. Assim o comando é enviado para o <strong>console</strong> onde é diretamente executado.</p>
+o código no <strong>editor</strong> e teclar <code>Ctrl + Enter</code> ou <code>Ctrl + R</code>. Assim, o comando é enviado para o <strong>console</strong>, onde é diretamente executado.</p>
 
-<p>Se você digitar um comando incompleto, como <code>5 +</code> e apertar <code>Enter</code>, o R irá mostrar um <code>+</code>, o que não tem nada a ver com somar alguma coisa, e sim significa que o R está esperando que vocę complete o seu comando. Termine o seu comando ou aperte <code>Esc</code> para recomeçar.</p>
+<p>Se você digitar um comando incompleto, como <code>5 +</code> e apertar <code>Enter</code>, o R mostrará um <code>+</code>, o que não tem nada a ver com somar alguma coisa. Isso significa que o R está esperando que você complete o seu comando. Termine o seu comando ou aperte <code>Esc</code> para recomeçar.</p>
 
 <pre><code>&gt; 5 -
 + 
@@ -570,7 +569,7 @@ o código no <strong>editor</strong> e teclar <code>Ctrl + Enter</code> ou <code
 [1] 0
 </code></pre>
 
-<p>Se você digitar um comando que o R não reconhecer, ele irá retornar uma mensagem de erro. Não entre em pânico. Ele só está avisando que não conseguiu interpretar o comando. Depois você já pode digitar mais um comando.</p>
+<p>Se você digitar um comando que o R não reconhece, ele retornará uma mensagem de erro. NÃO ENTRE EM PÂNICO! Ele só está avisando que não conseguiu interpretar o comando. Você pode digitar outro comando normalmente em seguida.</p>
 
 <pre><code>&gt; 5 % 5
 Error: unexpected input in &quot;5 % 5&quot;
@@ -1444,13 +1443,13 @@ LETTERS
 
 <p>$$ \frac{1 + \sqrt{5}}{2} $$</p>
 
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby5cbiIsInNvbHV0aW9uIjoiIyBEaWdpdGUgYSBleHByZXNzXHUwMGUzbyBxdWUgY2FsY3VsYSBvIG5cdTAwZmFtZXJvIGRlIG91cm8uXG4oMSArIHNxcnQoNSkpLzIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIjEuNjE4MDM0XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxuc3VjY2Vzc19tc2coXCJDb3JyZXRvIVwiKSJ9</div>
+<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IiMgRGlnaXRlIGEgZXhwcmVzc1x1MDBlM28gcXVlIGNhbGN1bGEgbyBuXHUwMGZhbWVybyBkZSBvdXJvLlxuKDEgKyBzcXJ0KDUpKS8yIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCIxLjYxODAzNFwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==</div>
 
 <ol>
 <li>O que dá divisão de 1 por 0 no R? E -1 por 0?</li>
 </ol>
 
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLzBcbi0xLzAiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIkluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiLUluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==</div>
+<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIgMS8wXG4tMS8wIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCJJbmZcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG50ZXN0X291dHB1dF9jb250YWlucyhcIi1JbmZcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=</div>
 
 <ol>
 <li>Quais as diferenças entre <code>NaN</code>, <code>NULL</code>, <code>NA</code> e <code>Inf</code>? Digite expressões que
@@ -1575,27 +1574,11 @@ x
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../forcats/" title="Introdução">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Introdução
-            </div>
-          </div>
-        </div>
-      </a>
-  
   </div>
 
   <div class="next">
   
-      <a href="../lubridate/" title="Introdução">
+      <a href="../forcats/" title="Introdução">
         <span class="direction">
           Next
         </span>

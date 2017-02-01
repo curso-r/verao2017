@@ -7,501 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Tue, 31 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
-      <link>/forcats/</link>
-      <pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/forcats/</guid>
-      <description>
-
-&lt;h2 id=&#34;introdução&#34;&gt;Introdução&lt;/h2&gt;
-
-&lt;p&gt;Se você já utilizou R anteriormente, provavelmente já escreveu a expressão &lt;code&gt;stringsAsFactors = F&lt;/code&gt; quando importava dados usando as funções &lt;code&gt;read.csv&lt;/code&gt; ou &lt;code&gt;read.table&lt;/code&gt;. É muito frustrante quando uma coluna de &lt;code&gt;strings&lt;/code&gt; é lida como um fator, pois fatores não podem ser manipulados do mesmo jeito que manipulamos vetores de &lt;code&gt;strings&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Felizmente, depois de aprender a usar o &lt;code&gt;tidyverse&lt;/code&gt; você não terá mais esse problema, pois o pacote &lt;code&gt;readr&lt;/code&gt; não lê colunas de caracteres como fatores por padrão. Mas isso não significa que fatores são inúteis. Eles representam uma forma muito prática de lidar com variáveis categorizadas, tanto para fins de modelagem quanto para fins de visualização.&lt;/p&gt;
-
-&lt;p&gt;Grande parte da frustração associada ao uso de fatores no R existe por conta da falta de algumas ferramentas úteis no pacote &lt;code&gt;base&lt;/code&gt;. Para resolver esse o problema, Hadley Wickham ajudou a comunidade R (de novo) desenvolvendo o pacote &lt;code&gt;forcats&lt;/code&gt;(&lt;strong&gt;for&lt;/strong&gt; &lt;strong&gt;ca&lt;/strong&gt;tegorial variable&lt;strong&gt;s&lt;/strong&gt;), que implementa algumas dessas ferramentas.&lt;/p&gt;
-
-&lt;p&gt;As principais funções do &lt;code&gt;forcats&lt;/code&gt; servem para alterar a &lt;strong&gt;ordem&lt;/strong&gt; e modificar os &lt;strong&gt;níveis&lt;/strong&gt; de um fator. Para exemplificar a utilidade dessas funções, neste Power Up vamos utilizá-las em situações corriqueiras.&lt;/p&gt;
-
-&lt;h1 id=&#34;relembrando-o-que-são-fatores&#34;&gt;Relembrando: o que são fatores?&lt;/h1&gt;
-
-&lt;p&gt;Em R, fatores são estruturas de dados utilizadas para ordenar &lt;code&gt;strings&lt;/code&gt;. Formalmente, um fator é definido como um vetor de &lt;code&gt;integers&lt;/code&gt; com dois atributos específicos:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;levels&lt;/code&gt;: Um vetor de &lt;code&gt;strings&lt;/code&gt; que indica a relação de ordem entre as variáveis.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: A &lt;code&gt;string&lt;/code&gt; atômica &lt;code&gt;&amp;quot;factor&amp;quot;&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Em modelos estatísticos clássicos, como ANOVA, é útil e adequado interpretar um vetor de textos como um vetor de números inteiros. O nome &amp;ldquo;fator&amp;rdquo;, inclusive, foi definido fazendo alusão à literatura estatística.&lt;/p&gt;
-
-&lt;h1 id=&#34;para-que-fatores-servem&#34;&gt;Para que fatores servem?&lt;/h1&gt;
-
-&lt;p&gt;Fatores são úteis porque facilitam a ordenação de vetores de texto, principalmente quando estamos fazendo gráficos. Nesta seção vamos exemplificar essa facilidade com um exemplo.&lt;/p&gt;
-
-&lt;p&gt;Considere que temos interesse em construir um gráfico que ilustre a diminuição da pressão sanguinea de um conjunto de indivíduos em função do restaurante em que acabaram de jantar. Para realizar esta tarefa, fomos à praça de alimentação de um shopping e anotamos as pressões arteriais de 10 voluntários conforme eles terminavam suas refeições nos restarantes Max Donalds, Frutaria da vila e Outlet.&lt;/p&gt;
-
-&lt;p&gt;O resultado das nossas medições está descrito na tabela abaixo.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;right&#34;&gt;voluntario&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;restaurante&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;pressao&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Frutaria da vila&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.56&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Max Donalds&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.71&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Outlet&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.44&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Outlet&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;5&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Max Donalds&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Outlet&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Frutaria da vila&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.50&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;8&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Max Donalds&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.88&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;9&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Outlet&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;10&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Frutaria da vila&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.50&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Utilizando esses dados, o gráfico desejado fica:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-d %&amp;gt;% 
-ggplot(aes(x = restaurante, y = pressao)) +
-  geom_point() + 
-  theme_bw(15)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-7-1.png&#34; title=&#34;plot of chunk unnamed-chunk-7&#34; alt=&#34;plot of chunk unnamed-chunk-7&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;O gráfico mostra o que desejávamos, mas podemos incluir outras informações no gráfico. Se soubéssemos a priori que o Max Donalds oferece uma refeição muito mais calórica do que o Outlet, gostaríamos de atribuir essa ordem ao nosso eixo x. Como poderíamos fazer isso? Usando fatores!&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-d %&amp;gt;% 
-mutate(restaurante = factor(restaurante, levels = c(&amp;quot;Frutaria da vila&amp;quot;, &amp;quot;Outlet&amp;quot;, &amp;quot;Max Donalds&amp;quot;))) %&amp;gt;% 
-ggplot(aes(x = restaurante, y = pressao)) +
-  geom_point() + 
-  theme_bw(15)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-8-1.png&#34; title=&#34;plot of chunk unnamed-chunk-8&#34; alt=&#34;plot of chunk unnamed-chunk-8&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;estrutura-básica&#34;&gt;Estrutura básica&lt;/h2&gt;
-
-&lt;p&gt;O &lt;code&gt;forcats&lt;/code&gt; é um pacote bastante simples. Ele é composto por funções de apenas dois tipos:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Funções que começam com &lt;code&gt;fct_&lt;/code&gt;, que recebem uma lista de fatores e devolvem um fator.
-
-&lt;ul&gt;
-&lt;li&gt;Exemplo: &lt;code&gt;fct_c&lt;/code&gt; recebe uma lista de fatores e devolve um fator que é a união dos anteriores.s
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-fator_1 &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;))
-fator_2 &amp;lt;- factor(c(&amp;quot;d&amp;quot;,&amp;quot;e&amp;quot;))
-
-fator_3_sem_sentido &amp;lt;- c(fator_1, fator_2)
-
-fator_3_sem_sentido
-## [1] 1 2 3 1 2
-
-fator_3_com_sentido &amp;lt;- forcats::fct_c(list(fator_1, fator_2))
-
-fator_3_com_sentido
-## [1] a b c d e
-## Levels: a b c d e
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Funções que começam com &lt;code&gt;lvl_&lt;/code&gt;, que modificam os níveis de um fator.
-
-&lt;ul&gt;
-&lt;li&gt;Exemplo: &lt;code&gt;lvl_revalue&lt;/code&gt; recebe um fator e um vetor de &lt;code&gt;strings&lt;/code&gt; com dimensão igual ao número de níveis do fator. Retorna o fator fornecido com o atributo &lt;code&gt;levels&lt;/code&gt; igual ao vetor de &lt;code&gt;strings&lt;/code&gt; fornecido.
-&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-fator &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;))
-
-novos_niveis &amp;lt;- c(&amp;quot;c&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;a&amp;quot;)
-  
-fator &amp;lt;- forcats::lvls_revalue(fator, novos_niveis)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;principais-funções&#34;&gt;Principais funções&lt;/h2&gt;
-
-&lt;p&gt;Nesta seção vamos estudar o funcionamento das principais funções do &lt;code&gt;forcats&lt;/code&gt; utilizando como motivação a visualização dos dados de uma base analisada pela Associação Brasileira de Jurimetria. A base foi simplificada para otimizar seu uso neste curso. Além disso, os dados passaram por um processo de anonimização, pois os resultados ainda não foram divulgados.&lt;/p&gt;
-
-&lt;p&gt;A base contém informações sobre uma amostra de vítimas de homicídios no município de São Paulo e é composta pelas seguintes variáveis:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;instrumento.usado&lt;/code&gt;: Instrumento usado pelo crime.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sexo.vítima&lt;/code&gt;: Sexo da vítima.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;idade.vítima&lt;/code&gt;: Idade da vítima.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h1 id=&#34;modificar-níveis-de-fatores&#34;&gt;Modificar níveis de fatores&lt;/h1&gt;
-
-&lt;p&gt;A tabela abaixo ilustra a distribuição dos valores da variável &lt;code&gt;instrumento.usado&lt;/code&gt;.&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;instrumento.usado&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;Frequência&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Arma de fogo&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;30&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Faca&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;17&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Fio elétrico (vítima foi estrangulada)&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Fogo&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Nenhum&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Revólver&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Veículo&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;38&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Fio elétrico&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Pistola&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Como existe uma grande variabilidade de instrumentos, no que segue vamos reclassificar a variável &lt;code&gt;instrumento.usado&lt;/code&gt; em um fator com níveis menos gerais.&lt;/p&gt;
-
-&lt;p&gt;Para realizar essa tarefa, vamos utilizar a função &lt;code&gt;fct_collapse&lt;/code&gt; e a função &lt;code&gt;fct_lump&lt;/code&gt;. A função &lt;code&gt;fct_collapse&lt;/code&gt; é uma generalização de uma outra função chamada &lt;code&gt;fct_recode&lt;/code&gt;. A função &lt;code&gt;fct_collapse&lt;/code&gt; recebe um fator e uma série nomeada de vetores de &lt;code&gt;strings&lt;/code&gt;,  enquanto a função &lt;code&gt;fct_recode&lt;/code&gt; recebe um fator e uma série de &lt;code&gt;strings&lt;/code&gt; nomeadas. Já a função &lt;code&gt;fct_lump&lt;/code&gt; transforma os níveis menos frequentes de um fator em um nível &amp;ldquo;Outros&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;Abaixo exemplificamos a utilização das três funções mencionadas no parágrafo anterior:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-fator &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;, &amp;quot;d&amp;quot;, &amp;quot;e&amp;quot;))
-
-fct_collapse(fator, b2 = c(&amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;), a2 = c(&amp;quot;a&amp;quot;, &amp;quot;d&amp;quot;))
-## [1] a2 a2 a2 b2 b2 b2 a2 e 
-## Levels: a2 b2 e
-fct_recode(fator, b2 = &amp;quot;b&amp;quot;, b2 = &amp;quot;c&amp;quot;, a2 = &amp;quot;a&amp;quot;, a2 = &amp;quot;d&amp;quot;)
-## [1] a2 a2 a2 b2 b2 b2 a2 e 
-## Levels: a2 b2 e
-
-fct_lump(fator, 2, other_level = &amp;quot;Outros&amp;quot;)
-## [1] a      a      a      b      b      Outros Outros Outros
-## Levels: a b Outros
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Voltando à nossa aplicação, vamos utilizar a função &lt;code&gt;fct_collapse&lt;/code&gt; para recodificar a variável &lt;code&gt;instrumento.usado&lt;/code&gt;. Após essa reclassificação, os níveis com poucas contagens serão convertido num nível &amp;ldquo;Outros&amp;rdquo; através do uso da função &lt;code&gt;fct_lump&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-bd_enasp_abj &amp;lt;- bd_enasp_abj %&amp;gt;% 
-  mutate(instrumento.usado = fct_collapse(instrumento.usado,
-    `Arma branca` = c(&amp;quot;Faca&amp;quot;, &amp;quot;Fio elétrico&amp;quot;, &amp;quot;Fio elétrico (vítima foi estrangulada)&amp;quot;, &amp;quot;Fogo&amp;quot;),
-    `Arma de Fogo` = c(&amp;quot;Pistola&amp;quot;, &amp;quot;Revólver&amp;quot;, &amp;quot;Arma de fogo&amp;quot;,&amp;quot;38&amp;quot;)),
-    instrumento.usado = fct_lump(instrumento.usado, 2, other_level = &amp;quot;Outros&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Após a reclassificação a distribuição fica:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-bd_enasp_abj %&amp;gt;% 
-  count(instrumento.usado) %&amp;gt;% 
-  knitr::kable()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;left&#34;&gt;instrumento.usado&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;n&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Arma de Fogo&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;34&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Arma branca&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;22&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;left&#34;&gt;Outros&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h1 id=&#34;reordenar-níveis-de-fatores&#34;&gt;Reordenar níveis de fatores&lt;/h1&gt;
-
-&lt;p&gt;Vamos visualizar a tabela anterior como um gráfico.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-15-1.png&#34; title=&#34;plot of chunk unnamed-chunk-15&#34; alt=&#34;plot of chunk unnamed-chunk-15&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A ordem das barras nesse gráfico não está muito intuitiva, pois uma arma de fogo é um instrumento de crime mais perigoso do que uma arma branca, mas o eixo das abscissas não transmite essa informação.&lt;/p&gt;
-
-&lt;p&gt;Alterar a relação de ordem entre os níveis de um fator pode ser feito de duas maneiras:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Alterando diretamente o atributo &lt;code&gt;levels&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Criando o fator novamente.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-bd_teste &amp;lt;- bd_enasp_abj
-
-levels(bd_teste$instrumento.usado) &amp;lt;- c(&amp;quot;Outros&amp;quot;, &amp;quot;Arma branca&amp;quot;, &amp;quot;Arma de Fogo&amp;quot;)
-
-bd_teste %&amp;gt;% 
-  ggplot(aes(x = instrumento.usado, fill = instrumento.usado)) + 
-  geom_bar() +
-  theme_bw(15) +
-  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
-  ylab(&amp;quot;Frequência&amp;quot;) + 
-  theme(legend.position = &#39;none&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-16-1.png&#34; title=&#34;plot of chunk unnamed-chunk-16&#34; alt=&#34;plot of chunk unnamed-chunk-16&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Mudar diretamente os níveis também mudou as labels impressas! Mesmo que os níveis do novo fator &lt;code&gt;bd_teste$instrumento.usado&lt;/code&gt; estejam na ordem correta, os rótulos também foram alterados.&lt;/p&gt;
-
-&lt;p&gt;O problema da reordenação pode ser resolvido conforme ilustrado no código abaixo:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-bd_teste &amp;lt;- bd_enasp_abj
-
-novos_niveis &amp;lt;- c(&amp;quot;Outros&amp;quot;, &amp;quot;Arma branca&amp;quot;, &amp;quot;Arma de Fogo&amp;quot;)
-
-bd_teste$instrumento.usado &amp;lt;- factor(bd_teste$instrumento.usado, novos_niveis)
-
-bd_teste %&amp;gt;% 
-  ggplot(aes(x = instrumento.usado, fill = instrumento.usado)) + 
-  geom_bar() +
-  theme_bw(15) +
-  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
-  ylab(&amp;quot;Frequência&amp;quot;) + 
-  theme(legend.position = &#39;none&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-17-1.png&#34; title=&#34;plot of chunk unnamed-chunk-17&#34; alt=&#34;plot of chunk unnamed-chunk-17&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;No &lt;code&gt;forcats&lt;/code&gt;, a reordenação equivalente a criar o fator novamente pode ser feita de três maneiras:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;lvl_reorder&lt;/code&gt;, que reordena os níveis de um fator de acordo com um conjunto de índices. Recomenda-se o uso dessa função quando se quer reordenar os níveis de uma maneira facilmente parametrizável como uma permutação dos índices dos níveis. Um exemplo comum é quando se tem interesse em trocar a ordem dos níveis de crescente para decrescente.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-fator &amp;lt;- factor(letters)
-
-#altera a ordem dos fatores de crescente para decrescente
-lvls_reorder(fator, length(letters):1)
-##  [1] a b c d e f g h i j k l m n o p q r s t u v w x y z
-## Levels: z y x w v u t s r q p o n m l k j i h g f e d c b a
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;fct_reorder&lt;/code&gt; e &lt;code&gt;fct_reorder2&lt;/code&gt;, que reordenam os níveis de um fator &lt;code&gt;f&lt;/code&gt; de acordo com a aplicação de uma função em um vetor (ou dois no caso de &lt;code&gt;fct_reorder2&lt;/code&gt;) agrupado por &lt;code&gt;f&lt;/code&gt;. Recomenda-se o uso dessa função quando se quer reordenar os níveis considerando os valores de uma outra variável ou resultado de um cálculo.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-fator &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;))
-vetor &amp;lt;- c(1,2,3,1,1,1.2)
-
-#ordena os níveis de acordo com a média da variável vetor em cada nível
-fct_reorder(fator, vetor, fun = mean)
-## [1] a a a b b c
-## Levels: b c a
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;fct_relevel&lt;/code&gt;, que &amp;ldquo;puxa&amp;rdquo; os níveis de um fator para o começo do vetor de níveis.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
-fator &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;))
-
-
-#ordena os níveis de acordo com a média da variável vetor em cada nível
-fct_relevel(fator, &amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
-## [1] a a a b b c
-## Levels: b c a
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Na nossa aplicação, podemos utilizar tanto a função &lt;code&gt;lvls_reorder&lt;/code&gt; quanto a função &lt;code&gt;fct_relevel&lt;/code&gt;. O gráfico resultante ordena os níveis de instrumento.usado como queríamos.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;## Error in mutate_impl(.data, dots): `idx` must contain one integer for each level of `f`
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1 id=&#34;fazendo-tudo-de-uma-vez&#34;&gt;Fazendo tudo de uma vez&lt;/h1&gt;
-
-&lt;p&gt;Nesta sessão vamos utilizar as funções para exemplificar utilizações do pacote &lt;code&gt;forcats&lt;/code&gt; para visualizações.&lt;/p&gt;
-
-&lt;p&gt;A visualização abaixo ordena os níveis de &amp;ldquo;instrumento.usado&amp;rdquo; de acordo com a média de idade das vítimas de homicídio.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bd_enasp_abj %&amp;gt;%
-  mutate(instrumento.usado = fct_reorder(instrumento.usado, `idade.vítima`, fun = median)) %&amp;gt;% 
-  ggplot(aes(x = instrumento.usado, y = `idade.vítima`, fill = instrumento.usado)) + 
-  geom_boxplot() +
-  theme_bw(15) +
-  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
-  ylab(&amp;quot;Idade&amp;quot;) + 
-  theme(legend.position = &#39;none&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-22-1.png&#34; title=&#34;plot of chunk unnamed-chunk-22&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A visualização abaixo exemplifica um caso em que a ordem dos facets foi invertida reordenando o fator &lt;code&gt;sexo.vítima&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bd_enasp_abj %&amp;gt;%
-  mutate(instrumento.usado = fct_reorder(instrumento.usado, `idade.vítima`, fun = median),
-         `sexo.vítima` = fct_recode(`sexo.vítima`, Homem = &amp;quot;M&amp;quot;, Mulher = &amp;quot;F&amp;quot;)) %&amp;gt;% 
-  ggplot(aes(x = instrumento.usado, y = `idade.vítima`, fill = instrumento.usado)) + 
-  geom_boxplot() +
-  theme_bw(15) +
-  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
-  ylab(&amp;quot;Idade&amp;quot;) + 
-  facet_wrap(~`sexo.vítima`) +
-  theme(legend.position = &#39;none&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-23-1.png&#34; title=&#34;plot of chunk unnamed-chunk-23&#34; alt=&#34;plot of chunk unnamed-chunk-23&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bd_enasp_abj %&amp;gt;%
-  mutate(instrumento.usado = fct_reorder(instrumento.usado, `idade.vítima`, fun = median),
-         `sexo.vítima` = fct_recode(`sexo.vítima`, Homem = &amp;quot;M&amp;quot;, Mulher = &amp;quot;F&amp;quot;),
-         `sexo.vítima` = fct_relevel(`sexo.vítima`, &amp;quot;Homem&amp;quot;, &amp;quot;Mulher&amp;quot;)) %&amp;gt;% 
-  ggplot(aes(x = instrumento.usado, y = `idade.vítima`, fill = instrumento.usado)) + 
-  geom_boxplot() +
-  theme_bw(15) +
-  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
-  ylab(&amp;quot;Idade&amp;quot;) + 
-  facet_wrap(~`sexo.vítima`) +
-  theme(legend.position = &#39;none&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-24-1.png&#34; title=&#34;plot of chunk unnamed-chunk-24&#34; alt=&#34;plot of chunk unnamed-chunk-24&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
-
-&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
-
-&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Transforme o fator &lt;code&gt;f1&lt;/code&gt; no fator &lt;code&gt;f2&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBvIGNcdTAwZjNkaWdvIGFxdWkiLCJzb2x1dGlvbiI6ImZjdF9yZWxldmVsKGYxLCByZXYobGV0dGVycykpIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCJmMlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Transforme o fator &lt;code&gt;f1&lt;/code&gt; no fator &lt;code&gt;f3&lt;/code&gt;.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsdmxzXy4uLiIsInNvbHV0aW9uIjoibHZsc19yZXZhbHVlKGYxLCByZXYobGV0dGVycykpIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCJmM1wiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Introdução</title>
       <link>/rbase/</link>
-      <pubDate>Mon, 30 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/rbase/</guid>
       <description>
@@ -586,11 +98,11 @@ fct_relevel(fator, &amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
 
 &lt;h2 id=&#34;rstudio&#34;&gt;RStudio&lt;/h2&gt;
 
-&lt;p&gt;O RStudio é o melhor ambiente de desenvolvimento de R disponível. Você pode &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;baixar aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O RStudio é o melhor ambiente de desenvolvimento de R disponível. Você pode &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;baixá-lo aqui&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Há muitas ferramentas nele que se aprende conforme o uso e há bons materiais sobre na internet (por exemplo &lt;a href=&#34;https://csgillespie.github.io/efficientR/set-up.html#rstudio&#34;&gt;esta página&lt;/a&gt;). Uma funcionalidade importante que vale citar é a criação de projetos. Uma estrutura sugerida de organização de um projeto é&lt;/p&gt;
+&lt;p&gt;Muitas das ferramentas são aprendidas conforme o uso, e há bons materiais sobre o Rstudio na internet (por exemplo &lt;a href=&#34;https://csgillespie.github.io/efficientR/set-up.html#rstudio&#34;&gt;esta página&lt;/a&gt;). Uma funcionalidade importante é a criação de projetos. Uma estrutura sugerida para a organização de um projeto é:&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Estrutura 1&lt;/strong&gt;: Por extensão de arquivo.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Estrutura 1&lt;/strong&gt;. Por extensão de arquivo.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;nome_do_projeto/
   - .Rprofile   # códigos para rodar assim que abrir o projeto
@@ -626,11 +138,11 @@ fct_relevel(fator, &amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
   - project.Rproj
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Assim que abrir o RStudio você verá 4 quadrantes do jeito que a figura abaixo mostra&lt;/p&gt;
+&lt;p&gt;Assim que abrir o RStudio, você verá 4 quadrantes, do jeito que a figura abaixo mostra.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;figures/rstudio-editor.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Nela estão dispostos &lt;strong&gt;editor&lt;/strong&gt;, &lt;strong&gt;console&lt;/strong&gt;, &lt;strong&gt;environment&lt;/strong&gt; e &lt;strong&gt;output&lt;/strong&gt;.  Normalmente eles vêm nesta ordem, depois você pode organizá-los da forma que preferir. O R vive no quadrante &lt;strong&gt;console&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;Esses quadrantes representam o &lt;strong&gt;editor&lt;/strong&gt;, o &lt;strong&gt;console&lt;/strong&gt;, o &lt;strong&gt;environment&lt;/strong&gt; e o &lt;strong&gt;output&lt;/strong&gt;.  Eles vêm nesta ordem, e depois você pode organizá-los da forma que preferir. O R vive no quadrante &lt;strong&gt;console&lt;/strong&gt;!&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -638,7 +150,7 @@ fct_relevel(fator, &amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
 
 &lt;p&gt;O RMarkdown é um tipo de documento especial que contém tanto textos quanto códigos de R, tudo escrito em um mesmo lugar.&lt;/p&gt;
 
-&lt;p&gt;O &lt;em&gt;markdown&lt;/em&gt; nada mais é do que um documento de texto com alguns padrões básicos de formatação, como negrito, itálico, títulos, subtítulos, itens e referências cruzadas. Já os &lt;em&gt;chunks&lt;/em&gt; são pedaços de códigos em R encapsulados por três crases &amp;ldquo;```&amp;ldquo;. Os códigos são executados sempre que o documento é processado.&lt;/p&gt;
+&lt;p&gt;O &lt;em&gt;markdown&lt;/em&gt; nada mais é do que um documento de texto com alguns padrões básicos de formatação, como negrito, itálico, títulos, subtítulos, itens e referências cruzadas. Já os &lt;em&gt;chunks&lt;/em&gt; são pedaços de códigos em R encapsulados por três crases (```). Os códigos são executados sempre que o documento é processado.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;## ```{r}
 ## 
@@ -655,16 +167,16 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Para produção de relatórios, o RMarkdown possui algumas vantagens, dentre as quais estão:&lt;/p&gt;
+&lt;p&gt;Para produção de relatórios, o RMarkdown possui algumas vantagens, como:&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Simplicidade e foco&lt;/strong&gt;. Permite o usuário a focar na análise e não na formatação do documento.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Simplicidade e foco&lt;/strong&gt;. Permite ao usuário o foco na análise e não na formatação do documento.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Versátil&lt;/strong&gt;. Pode ser utilizado para gerar documentos em $\LaTeX$, &lt;code&gt;Word&lt;/code&gt;, &lt;code&gt;HTML&lt;/code&gt; e apresentaçőes em &lt;code&gt;beamer&lt;/code&gt;, &lt;code&gt;pptx&lt;/code&gt; e &lt;code&gt;HTML&lt;/code&gt; (de vários tipos). Pode ainda gerar sites, livros, dissertaçőes de mestrado e até mesmo dashboards interativos.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reprodutível&lt;/strong&gt;. O RMarkdown nada mais é que um arquivo de texto. Além disso, ele tenta te obrigar a fazer o documento mais autocontido possível. Assim, um documento &lt;code&gt;.Rmd&lt;/code&gt; é fácil de compartilhar e de ser utilizado pelo receptor. Lembre-se, o receptor pode ser o futuro você! Vale enfatizar que a reprodutibilidade é considerada como um dos princípios fundamentais da ciência. Então só de usar RMarkdown, você já está colaborando com a ciência :)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Flexível&lt;/strong&gt;. É possível configurar e criar templates de análises para quaisquer tipos de aplicações e clientes. Os textos podem ser parametrizados por números que variam de versão para versão, por exemplo mensalmente, tudo escrito somente em R.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reprodutível&lt;/strong&gt;. O RMarkdown nada mais é que um arquivo de texto. Além disso, ele tenta te obrigar a fazer o documento mais autocontido possível. Assim, um documento &lt;code&gt;.Rmd&lt;/code&gt; é fácil de compartilhar e de ser utilizado pelo receptor. Lembre-se, o receptor pode ser o futuro você! Vale enfatizar que a reprodutibilidade é considerada como um dos princípios fundamentais da ciência. Então, só de usar RMarkdown, você já está colaborando com a ciência. :)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexível&lt;/strong&gt;. É possível configurar e criar templates de análises para quaisquer tipos de aplicações e clientes. Os textos podem ser parametrizados por números que variam de versão para versão, mensalmente, por exemplo, tudo escrito somente em R.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Para criar um RMarkdown novo no RStudio é fácil. Clique no botão de criar arquivo e selecione RMarkdown.&lt;/p&gt;
+&lt;p&gt;Criar um RMarkdown novo no RStudio é fácil. Clique no botão de criar arquivo e selecione RMarkdown.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;knitr::include_graphics(&amp;quot;figures/criar_rmarkdown.png&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
@@ -685,27 +197,26 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30.
-Você pode ignorar esses números que aparecem entre parênteses. Na verdade eles
-só indicam o índice do primeiro elemento impresso nessa linha.&lt;/p&gt;
+Os números que aparecem entre [] indicam o índice do primeiro elemento impresso nessa linha.&lt;/p&gt;
 
 &lt;div class=&#39;admonition note&#39;&gt;
 &lt;p class=&#39;admonition-title&#39;&gt;
 Quando compilamos?
 &lt;/p&gt;
 &lt;p&gt;
-Quem vem de linguagens como o C ou Java, espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa.
+Quem vem de linguagens como o C ou Java espera que seja necessário compilar o código em texto para o código de máquinas (geralmente um código binário). No R, isso não é necessário. O R é uma linguagem de programação dinâmica que interpreta o seu código enquanto você o executa.
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Tente jogar no console &lt;code&gt;2 * 2 - (4 + 4) / 2&lt;/code&gt;. Pronto. Com essa simples expressão você já é capaz de imaginar (e certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!&lt;/p&gt;
+&lt;p&gt;Tente jogar no console &lt;code&gt;2 * 2 - (4 + 4) / 2&lt;/code&gt;. Pronto. Com essa simples expressão você já é capaz de imaginar (certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!&lt;/p&gt;
 
 &lt;p&gt;Além do mais, as operações e suas precedências são mantidas como na matemática, ou seja, divisão e multiplicação são calculadas antes da adição e subtração. E os parênteses nunca são demais!&lt;/p&gt;
 
 &lt;p&gt;Agora que você já conhece o RStudio, digite a expressão &lt;code&gt;2 * 2 - (4 + 4) / 2&lt;/code&gt; no
 &lt;strong&gt;console&lt;/strong&gt; e tecle &lt;code&gt;Enter&lt;/code&gt;. Uma outra forma de chamar uma expressão é escrever
-o código no &lt;strong&gt;editor&lt;/strong&gt; e teclar &lt;code&gt;Ctrl + Enter&lt;/code&gt; ou &lt;code&gt;Ctrl + R&lt;/code&gt;. Assim o comando é enviado para o &lt;strong&gt;console&lt;/strong&gt; onde é diretamente executado.&lt;/p&gt;
+o código no &lt;strong&gt;editor&lt;/strong&gt; e teclar &lt;code&gt;Ctrl + Enter&lt;/code&gt; ou &lt;code&gt;Ctrl + R&lt;/code&gt;. Assim, o comando é enviado para o &lt;strong&gt;console&lt;/strong&gt;, onde é diretamente executado.&lt;/p&gt;
 
-&lt;p&gt;Se você digitar um comando incompleto, como &lt;code&gt;5 +&lt;/code&gt; e apertar &lt;code&gt;Enter&lt;/code&gt;, o R irá mostrar um &lt;code&gt;+&lt;/code&gt;, o que não tem nada a ver com somar alguma coisa, e sim significa que o R está esperando que vocę complete o seu comando. Termine o seu comando ou aperte &lt;code&gt;Esc&lt;/code&gt; para recomeçar.&lt;/p&gt;
+&lt;p&gt;Se você digitar um comando incompleto, como &lt;code&gt;5 +&lt;/code&gt; e apertar &lt;code&gt;Enter&lt;/code&gt;, o R mostrará um &lt;code&gt;+&lt;/code&gt;, o que não tem nada a ver com somar alguma coisa. Isso significa que o R está esperando que você complete o seu comando. Termine o seu comando ou aperte &lt;code&gt;Esc&lt;/code&gt; para recomeçar.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;gt; 5 -
 + 
@@ -713,7 +224,7 @@ o código no &lt;strong&gt;editor&lt;/strong&gt; e teclar &lt;code&gt;Ctrl + Ent
 [1] 0
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Se você digitar um comando que o R não reconhecer, ele irá retornar uma mensagem de erro. Não entre em pânico. Ele só está avisando que não conseguiu interpretar o comando. Depois você já pode digitar mais um comando.&lt;/p&gt;
+&lt;p&gt;Se você digitar um comando que o R não reconhece, ele retornará uma mensagem de erro. NÃO ENTRE EM PÂNICO! Ele só está avisando que não conseguiu interpretar o comando. Você pode digitar outro comando normalmente em seguida.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;&amp;gt; 5 % 5
 Error: unexpected input in &amp;quot;5 % 5&amp;quot;
@@ -1587,13 +1098,13 @@ LETTERS
 
 &lt;p&gt;$$ \frac{1 + \sqrt{5}}{2} $$&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby5cbiIsInNvbHV0aW9uIjoiIyBEaWdpdGUgYSBleHByZXNzXHUwMGUzbyBxdWUgY2FsY3VsYSBvIG5cdTAwZmFtZXJvIGRlIG91cm8uXG4oMSArIHNxcnQoNSkpLzIiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIjEuNjE4MDM0XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxuc3VjY2Vzc19tc2coXCJDb3JyZXRvIVwiKSJ9&lt;/div&gt;
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IiMgRGlnaXRlIGEgZXhwcmVzc1x1MDBlM28gcXVlIGNhbGN1bGEgbyBuXHUwMGZhbWVybyBkZSBvdXJvLlxuKDEgKyBzcXJ0KDUpKS8yIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCIxLjYxODAzNFwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
 
 &lt;ol&gt;
 &lt;li&gt;O que dá divisão de 1 por 0 no R? E -1 por 0?&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLzBcbi0xLzAiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIkluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiLUluZlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIgMS8wXG4tMS8wIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCJJbmZcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG50ZXN0X291dHB1dF9jb250YWlucyhcIi1JbmZcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Quais as diferenças entre &lt;code&gt;NaN&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;Inf&lt;/code&gt;? Digite expressões que
@@ -1700,6 +1211,494 @@ x
 &lt;p&gt;16.&lt;/p&gt;
 
 &lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJyZXN1bHRhZG9zIDwtIGludGVnZXIobGVuZ3RoID0gMTAwMClcbmZvcihpIGluIDE6MTAwMCl7XG4gIHJlc3VsdGFkb3NbaV0gPC0gc29tYV9kYWRvcygzKVxufVxuaGlzdChyZXN1bHRhZG9zKSJ9&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introdução</title>
+      <link>/forcats/</link>
+      <pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/forcats/</guid>
+      <description>
+
+&lt;h2 id=&#34;introdução&#34;&gt;Introdução&lt;/h2&gt;
+
+&lt;p&gt;Se você já utilizou R anteriormente, provavelmente já escreveu a expressão &lt;code&gt;stringsAsFactors = F&lt;/code&gt; quando importava dados usando as funções &lt;code&gt;read.csv&lt;/code&gt; ou &lt;code&gt;read.table&lt;/code&gt;. É muito frustrante quando uma coluna de &lt;code&gt;strings&lt;/code&gt; é lida como um fator, pois fatores não podem ser manipulados do mesmo jeito que manipulamos vetores de &lt;code&gt;strings&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Felizmente, depois de aprender a usar o &lt;code&gt;tidyverse&lt;/code&gt; você não terá mais esse problema, pois o pacote &lt;code&gt;readr&lt;/code&gt; não lê colunas de caracteres como fatores por padrão. Mas isso não significa que fatores são inúteis. Eles representam uma forma muito prática de lidar com variáveis categorizadas, tanto para fins de modelagem quanto para fins de visualização.&lt;/p&gt;
+
+&lt;p&gt;Grande parte da frustração associada ao uso de fatores no R existe por conta da falta de algumas ferramentas úteis no pacote &lt;code&gt;base&lt;/code&gt;. Para resolver esse o problema, Hadley Wickham ajudou a comunidade R (de novo) desenvolvendo o pacote &lt;code&gt;forcats&lt;/code&gt;(&lt;strong&gt;for&lt;/strong&gt; &lt;strong&gt;ca&lt;/strong&gt;tegorial variable&lt;strong&gt;s&lt;/strong&gt;), que implementa algumas dessas ferramentas.&lt;/p&gt;
+
+&lt;p&gt;As principais funções do &lt;code&gt;forcats&lt;/code&gt; servem para alterar a &lt;strong&gt;ordem&lt;/strong&gt; e modificar os &lt;strong&gt;níveis&lt;/strong&gt; de um fator. Para exemplificar a utilidade dessas funções, neste Power Up vamos utilizá-las em situações corriqueiras.&lt;/p&gt;
+
+&lt;h1 id=&#34;relembrando-o-que-são-fatores&#34;&gt;Relembrando: o que são fatores?&lt;/h1&gt;
+
+&lt;p&gt;Em R, fatores são estruturas de dados utilizadas para ordenar &lt;code&gt;strings&lt;/code&gt;. Formalmente, um fator é definido como um vetor de &lt;code&gt;integers&lt;/code&gt; com dois atributos específicos:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;levels&lt;/code&gt;: Um vetor de &lt;code&gt;strings&lt;/code&gt; que indica a relação de ordem entre as variáveis.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: A &lt;code&gt;string&lt;/code&gt; atômica &lt;code&gt;&amp;quot;factor&amp;quot;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Em modelos estatísticos clássicos, como ANOVA, é útil e adequado interpretar um vetor de textos como um vetor de números inteiros. O nome &amp;ldquo;fator&amp;rdquo;, inclusive, foi definido fazendo alusão à literatura estatística.&lt;/p&gt;
+
+&lt;h1 id=&#34;para-que-fatores-servem&#34;&gt;Para que fatores servem?&lt;/h1&gt;
+
+&lt;p&gt;Fatores são úteis porque facilitam a ordenação de vetores de texto, principalmente quando estamos fazendo gráficos. Nesta seção vamos exemplificar essa facilidade com um exemplo.&lt;/p&gt;
+
+&lt;p&gt;Considere que temos interesse em construir um gráfico que ilustre a diminuição da pressão sanguinea de um conjunto de indivíduos em função do restaurante em que acabaram de jantar. Para realizar esta tarefa, fomos à praça de alimentação de um shopping e anotamos as pressões arteriais de 10 voluntários conforme eles terminavam suas refeições nos restarantes Max Donalds, Frutaria da vila e Outlet.&lt;/p&gt;
+
+&lt;p&gt;O resultado das nossas medições está descrito na tabela abaixo.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;right&#34;&gt;voluntario&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;restaurante&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;pressao&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Frutaria da vila&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.56&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Max Donalds&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.71&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Outlet&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.44&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Outlet&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;5&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Max Donalds&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.00&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;6&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Outlet&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;7&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Frutaria da vila&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.50&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;8&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Max Donalds&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.88&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;9&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Outlet&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.62&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;right&#34;&gt;10&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Frutaria da vila&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.50&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Utilizando esses dados, o gráfico desejado fica:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+d %&amp;gt;% 
+ggplot(aes(x = restaurante, y = pressao)) +
+  geom_point() + 
+  theme_bw(15)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-7-1.png&#34; title=&#34;plot of chunk unnamed-chunk-7&#34; alt=&#34;plot of chunk unnamed-chunk-7&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O gráfico mostra o que desejávamos, mas podemos incluir outras informações no gráfico. Se soubéssemos a priori que o Max Donalds oferece uma refeição muito mais calórica do que o Outlet, gostaríamos de atribuir essa ordem ao nosso eixo x. Como poderíamos fazer isso? Usando fatores!&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+d %&amp;gt;% 
+mutate(restaurante = factor(restaurante, levels = c(&amp;quot;Frutaria da vila&amp;quot;, &amp;quot;Outlet&amp;quot;, &amp;quot;Max Donalds&amp;quot;))) %&amp;gt;% 
+ggplot(aes(x = restaurante, y = pressao)) +
+  geom_point() + 
+  theme_bw(15)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-8-1.png&#34; title=&#34;plot of chunk unnamed-chunk-8&#34; alt=&#34;plot of chunk unnamed-chunk-8&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;estrutura-básica&#34;&gt;Estrutura básica&lt;/h2&gt;
+
+&lt;p&gt;O &lt;code&gt;forcats&lt;/code&gt; é um pacote bastante simples. Ele é composto por funções de apenas dois tipos:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Funções que começam com &lt;code&gt;fct_&lt;/code&gt;, que recebem uma lista de fatores e devolvem um fator.
+
+&lt;ul&gt;
+&lt;li&gt;Exemplo: &lt;code&gt;fct_c&lt;/code&gt; recebe uma lista de fatores e devolve um fator que é a união dos anteriores.s
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+fator_1 &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;))
+fator_2 &amp;lt;- factor(c(&amp;quot;d&amp;quot;,&amp;quot;e&amp;quot;))
+
+fator_3_sem_sentido &amp;lt;- c(fator_1, fator_2)
+
+fator_3_sem_sentido
+## [1] 1 2 3 1 2
+
+fator_3_com_sentido &amp;lt;- forcats::fct_c(list(fator_1, fator_2))
+
+fator_3_com_sentido
+## [1] a b c d e
+## Levels: a b c d e
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Funções que começam com &lt;code&gt;lvl_&lt;/code&gt;, que modificam os níveis de um fator.
+
+&lt;ul&gt;
+&lt;li&gt;Exemplo: &lt;code&gt;lvl_revalue&lt;/code&gt; recebe um fator e um vetor de &lt;code&gt;strings&lt;/code&gt; com dimensão igual ao número de níveis do fator. Retorna o fator fornecido com o atributo &lt;code&gt;levels&lt;/code&gt; igual ao vetor de &lt;code&gt;strings&lt;/code&gt; fornecido.
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+fator &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;))
+
+novos_niveis &amp;lt;- c(&amp;quot;c&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;a&amp;quot;)
+  
+fator &amp;lt;- forcats::lvls_revalue(fator, novos_niveis)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;principais-funções&#34;&gt;Principais funções&lt;/h2&gt;
+
+&lt;p&gt;Nesta seção vamos estudar o funcionamento das principais funções do &lt;code&gt;forcats&lt;/code&gt; utilizando como motivação a visualização dos dados de uma base analisada pela Associação Brasileira de Jurimetria. A base foi simplificada para otimizar seu uso neste curso. Além disso, os dados passaram por um processo de anonimização, pois os resultados ainda não foram divulgados.&lt;/p&gt;
+
+&lt;p&gt;A base contém informações sobre uma amostra de vítimas de homicídios no município de São Paulo e é composta pelas seguintes variáveis:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;instrumento.usado&lt;/code&gt;: Instrumento usado pelo crime.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sexo.vítima&lt;/code&gt;: Sexo da vítima.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idade.vítima&lt;/code&gt;: Idade da vítima.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;modificar-níveis-de-fatores&#34;&gt;Modificar níveis de fatores&lt;/h1&gt;
+
+&lt;p&gt;A tabela abaixo ilustra a distribuição dos valores da variável &lt;code&gt;instrumento.usado&lt;/code&gt;.&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;instrumento.usado&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Frequência&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Arma de fogo&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;30&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Faca&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;17&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Fio elétrico (vítima foi estrangulada)&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Fogo&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Nenhum&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Revólver&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Veículo&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;38&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Fio elétrico&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Pistola&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Como existe uma grande variabilidade de instrumentos, no que segue vamos reclassificar a variável &lt;code&gt;instrumento.usado&lt;/code&gt; em um fator com níveis menos gerais.&lt;/p&gt;
+
+&lt;p&gt;Para realizar essa tarefa, vamos utilizar a função &lt;code&gt;fct_collapse&lt;/code&gt; e a função &lt;code&gt;fct_lump&lt;/code&gt;. A função &lt;code&gt;fct_collapse&lt;/code&gt; é uma generalização de uma outra função chamada &lt;code&gt;fct_recode&lt;/code&gt;. A função &lt;code&gt;fct_collapse&lt;/code&gt; recebe um fator e uma série nomeada de vetores de &lt;code&gt;strings&lt;/code&gt;,  enquanto a função &lt;code&gt;fct_recode&lt;/code&gt; recebe um fator e uma série de &lt;code&gt;strings&lt;/code&gt; nomeadas. Já a função &lt;code&gt;fct_lump&lt;/code&gt; transforma os níveis menos frequentes de um fator em um nível &amp;ldquo;Outros&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Abaixo exemplificamos a utilização das três funções mencionadas no parágrafo anterior:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+fator &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;, &amp;quot;d&amp;quot;, &amp;quot;e&amp;quot;))
+
+fct_collapse(fator, b2 = c(&amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;), a2 = c(&amp;quot;a&amp;quot;, &amp;quot;d&amp;quot;))
+## [1] a2 a2 a2 b2 b2 b2 a2 e 
+## Levels: a2 b2 e
+fct_recode(fator, b2 = &amp;quot;b&amp;quot;, b2 = &amp;quot;c&amp;quot;, a2 = &amp;quot;a&amp;quot;, a2 = &amp;quot;d&amp;quot;)
+## [1] a2 a2 a2 b2 b2 b2 a2 e 
+## Levels: a2 b2 e
+
+fct_lump(fator, 2, other_level = &amp;quot;Outros&amp;quot;)
+## [1] a      a      a      b      b      Outros Outros Outros
+## Levels: a b Outros
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Voltando à nossa aplicação, vamos utilizar a função &lt;code&gt;fct_collapse&lt;/code&gt; para recodificar a variável &lt;code&gt;instrumento.usado&lt;/code&gt;. Após essa reclassificação, os níveis com poucas contagens serão convertido num nível &amp;ldquo;Outros&amp;rdquo; através do uso da função &lt;code&gt;fct_lump&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+bd_enasp_abj &amp;lt;- bd_enasp_abj %&amp;gt;% 
+  mutate(instrumento.usado = fct_collapse(instrumento.usado,
+    `Arma branca` = c(&amp;quot;Faca&amp;quot;, &amp;quot;Fio elétrico&amp;quot;, &amp;quot;Fio elétrico (vítima foi estrangulada)&amp;quot;, &amp;quot;Fogo&amp;quot;),
+    `Arma de Fogo` = c(&amp;quot;Pistola&amp;quot;, &amp;quot;Revólver&amp;quot;, &amp;quot;Arma de fogo&amp;quot;,&amp;quot;38&amp;quot;)),
+    instrumento.usado = fct_lump(instrumento.usado, 2, other_level = &amp;quot;Outros&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Após a reclassificação a distribuição fica:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+bd_enasp_abj %&amp;gt;% 
+  count(instrumento.usado) %&amp;gt;% 
+  knitr::kable()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;instrumento.usado&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;n&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Arma de Fogo&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;34&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Arma branca&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;22&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Outros&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h1 id=&#34;reordenar-níveis-de-fatores&#34;&gt;Reordenar níveis de fatores&lt;/h1&gt;
+
+&lt;p&gt;Vamos visualizar a tabela anterior como um gráfico.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-15-1.png&#34; title=&#34;plot of chunk unnamed-chunk-15&#34; alt=&#34;plot of chunk unnamed-chunk-15&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A ordem das barras nesse gráfico não está muito intuitiva, pois uma arma de fogo é um instrumento de crime mais perigoso do que uma arma branca, mas o eixo das abscissas não transmite essa informação.&lt;/p&gt;
+
+&lt;p&gt;Alterar a relação de ordem entre os níveis de um fator pode ser feito de duas maneiras:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Alterando diretamente o atributo &lt;code&gt;levels&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Criando o fator novamente.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+bd_teste &amp;lt;- bd_enasp_abj
+
+levels(bd_teste$instrumento.usado) &amp;lt;- c(&amp;quot;Outros&amp;quot;, &amp;quot;Arma branca&amp;quot;, &amp;quot;Arma de Fogo&amp;quot;)
+
+bd_teste %&amp;gt;% 
+  ggplot(aes(x = instrumento.usado, fill = instrumento.usado)) + 
+  geom_bar() +
+  theme_bw(15) +
+  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
+  ylab(&amp;quot;Frequência&amp;quot;) + 
+  theme(legend.position = &#39;none&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-16-1.png&#34; title=&#34;plot of chunk unnamed-chunk-16&#34; alt=&#34;plot of chunk unnamed-chunk-16&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Mudar diretamente os níveis também mudou as labels impressas! Mesmo que os níveis do novo fator &lt;code&gt;bd_teste$instrumento.usado&lt;/code&gt; estejam na ordem correta, os rótulos também foram alterados.&lt;/p&gt;
+
+&lt;p&gt;O problema da reordenação pode ser resolvido conforme ilustrado no código abaixo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+bd_teste &amp;lt;- bd_enasp_abj
+
+novos_niveis &amp;lt;- c(&amp;quot;Outros&amp;quot;, &amp;quot;Arma branca&amp;quot;, &amp;quot;Arma de Fogo&amp;quot;)
+
+bd_teste$instrumento.usado &amp;lt;- factor(bd_teste$instrumento.usado, novos_niveis)
+
+bd_teste %&amp;gt;% 
+  ggplot(aes(x = instrumento.usado, fill = instrumento.usado)) + 
+  geom_bar() +
+  theme_bw(15) +
+  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
+  ylab(&amp;quot;Frequência&amp;quot;) + 
+  theme(legend.position = &#39;none&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-17-1.png&#34; title=&#34;plot of chunk unnamed-chunk-17&#34; alt=&#34;plot of chunk unnamed-chunk-17&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;No &lt;code&gt;forcats&lt;/code&gt;, a reordenação equivalente a criar o fator novamente pode ser feita de três maneiras:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;lvl_reorder&lt;/code&gt;, que reordena os níveis de um fator de acordo com um conjunto de índices. Recomenda-se o uso dessa função quando se quer reordenar os níveis de uma maneira facilmente parametrizável como uma permutação dos índices dos níveis. Um exemplo comum é quando se tem interesse em trocar a ordem dos níveis de crescente para decrescente.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+fator &amp;lt;- factor(letters)
+
+#altera a ordem dos fatores de crescente para decrescente
+lvls_reorder(fator, length(letters):1)
+##  [1] a b c d e f g h i j k l m n o p q r s t u v w x y z
+## Levels: z y x w v u t s r q p o n m l k j i h g f e d c b a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;fct_reorder&lt;/code&gt; e &lt;code&gt;fct_reorder2&lt;/code&gt;, que reordenam os níveis de um fator &lt;code&gt;f&lt;/code&gt; de acordo com a aplicação de uma função em um vetor (ou dois no caso de &lt;code&gt;fct_reorder2&lt;/code&gt;) agrupado por &lt;code&gt;f&lt;/code&gt;. Recomenda-se o uso dessa função quando se quer reordenar os níveis considerando os valores de uma outra variável ou resultado de um cálculo.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+fator &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;))
+vetor &amp;lt;- c(1,2,3,1,1,1.2)
+
+#ordena os níveis de acordo com a média da variável vetor em cada nível
+fct_reorder(fator, vetor, fun = mean)
+## [1] a a a b b c
+## Levels: b c a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;fct_relevel&lt;/code&gt;, que &amp;ldquo;puxa&amp;rdquo; os níveis de um fator para o começo do vetor de níveis.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+fator &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;))
+
+
+#ordena os níveis de acordo com a média da variável vetor em cada nível
+fct_relevel(fator, &amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
+## [1] a a a b b c
+## Levels: b c a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Na nossa aplicação, podemos utilizar tanto a função &lt;code&gt;lvls_reorder&lt;/code&gt; quanto a função &lt;code&gt;fct_relevel&lt;/code&gt;. O gráfico resultante ordena os níveis de instrumento.usado como queríamos.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;## Error in mutate_impl(.data, dots): `idx` must contain one integer for each level of `f`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;fazendo-tudo-de-uma-vez&#34;&gt;Fazendo tudo de uma vez&lt;/h1&gt;
+
+&lt;p&gt;Nesta sessão vamos utilizar as funções para exemplificar utilizações do pacote &lt;code&gt;forcats&lt;/code&gt; para visualizações.&lt;/p&gt;
+
+&lt;p&gt;A visualização abaixo ordena os níveis de &amp;ldquo;instrumento.usado&amp;rdquo; de acordo com a média de idade das vítimas de homicídio.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bd_enasp_abj %&amp;gt;%
+  mutate(instrumento.usado = fct_reorder(instrumento.usado, `idade.vítima`, fun = median)) %&amp;gt;% 
+  ggplot(aes(x = instrumento.usado, y = `idade.vítima`, fill = instrumento.usado)) + 
+  geom_boxplot() +
+  theme_bw(15) +
+  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
+  ylab(&amp;quot;Idade&amp;quot;) + 
+  theme(legend.position = &#39;none&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-22-1.png&#34; title=&#34;plot of chunk unnamed-chunk-22&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A visualização abaixo exemplifica um caso em que a ordem dos facets foi invertida reordenando o fator &lt;code&gt;sexo.vítima&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bd_enasp_abj %&amp;gt;%
+  mutate(instrumento.usado = fct_reorder(instrumento.usado, `idade.vítima`, fun = median),
+         `sexo.vítima` = fct_recode(`sexo.vítima`, Homem = &amp;quot;M&amp;quot;, Mulher = &amp;quot;F&amp;quot;)) %&amp;gt;% 
+  ggplot(aes(x = instrumento.usado, y = `idade.vítima`, fill = instrumento.usado)) + 
+  geom_boxplot() +
+  theme_bw(15) +
+  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
+  ylab(&amp;quot;Idade&amp;quot;) + 
+  facet_wrap(~`sexo.vítima`) +
+  theme(legend.position = &#39;none&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-23-1.png&#34; title=&#34;plot of chunk unnamed-chunk-23&#34; alt=&#34;plot of chunk unnamed-chunk-23&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bd_enasp_abj %&amp;gt;%
+  mutate(instrumento.usado = fct_reorder(instrumento.usado, `idade.vítima`, fun = median),
+         `sexo.vítima` = fct_recode(`sexo.vítima`, Homem = &amp;quot;M&amp;quot;, Mulher = &amp;quot;F&amp;quot;),
+         `sexo.vítima` = fct_relevel(`sexo.vítima`, &amp;quot;Homem&amp;quot;, &amp;quot;Mulher&amp;quot;)) %&amp;gt;% 
+  ggplot(aes(x = instrumento.usado, y = `idade.vítima`, fill = instrumento.usado)) + 
+  geom_boxplot() +
+  theme_bw(15) +
+  xlab(&amp;quot;Intrumento usado&amp;quot;) + 
+  ylab(&amp;quot;Idade&amp;quot;) + 
+  facet_wrap(~`sexo.vítima`) +
+  theme(legend.position = &#39;none&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-24-1.png&#34; title=&#34;plot of chunk unnamed-chunk-24&#34; alt=&#34;plot of chunk unnamed-chunk-24&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Transforme o fator &lt;code&gt;f1&lt;/code&gt; no fator &lt;code&gt;f2&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBvIGNcdTAwZjNkaWdvIGFxdWkiLCJzb2x1dGlvbiI6ImZjdF9yZWxldmVsKGYxLCByZXYobGV0dGVycykpIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCJmMlwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Transforme o fator &lt;code&gt;f1&lt;/code&gt; no fator &lt;code&gt;f3&lt;/code&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsdmxzXy4uLiIsInNvbHV0aW9uIjoibHZsc19yZXZhbHVlKGYxLCByZXYobGV0dGVycykpIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCJmM1wiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
 </description>
     </item>
     
