@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Fri, 27 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/modelos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Modelagem</title>
       <link>/modelos/</link>
-      <pubDate>Fri, 27 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/modelos/</guid>
       <description>
@@ -45,8 +45,8 @@ estudo de aprendizado não-supervisionado.&lt;/p&gt;&lt;/li&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;Neste material vamos abordar incialmente algumas técnicas de aprendizado supervisionado.
-Em seguida abordaremos abordaremos superficialmente alguns conceitos de aprendizado
+&lt;p&gt;Neste material vamos abordar inicialmente algumas técnicas de aprendizado supervisionado.
+Em seguida abordaremos superficialmente alguns conceitos de aprendizado
 não-supervisionado. Todos esses conceitos serão apresentados com exemplos práticos
 usando o R.&lt;/p&gt;
 
@@ -70,7 +70,23 @@ na seguinte equação:&lt;/p&gt;
 Nessa formulação, $\epsilon$ é um termo de erro aleatório com média 0. $f$ representa
 a informação sistemática que $X$ fornece sobre $Y$.&lt;/p&gt;
 
-&lt;h3 id=&#34;modelos-lineares&#34;&gt;Modelos lineares&lt;/h3&gt;
+&lt;p&gt;Existem diversas maneiras de estimar essa função. Em alguns casos assumimos uma
+forma paramétrica para ela, em outros não. Alguns exemplos de algoritmos são:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Regressão Linear&lt;/li&gt;
+&lt;li&gt;Regressão Logística&lt;/li&gt;
+&lt;li&gt;Árvore de Decisão&lt;/li&gt;
+&lt;li&gt;Florestas Aleatórias (&lt;em&gt;Random Forest&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Gradient Boosting&lt;/li&gt;
+&lt;li&gt;Redes Neurais&lt;/li&gt;
+&lt;li&gt;Etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Cada um dos algoritmos possui as suas vantagens e desvantagens, e problemas em
+que trazem melhores resultados ou não.&lt;/p&gt;
+
+&lt;h2 id=&#34;regressão-linear&#34;&gt;Regressão Linear&lt;/h2&gt;
 
 &lt;p&gt;O modelo linear assume que a função $f$ é uma função linear de modo que a formulação
 do apredizado supervisionado pode ser reescrita da seguinte forma:&lt;/p&gt;
@@ -91,7 +107,7 @@ Essa suposição é útil quando queremos fazer testes de hipóteses e intervalo
 confiança. Por enquanto, não estamos interessados nisso e portanto vamos
 apresentar uma visão menos complexa.&lt;/p&gt;
 
-&lt;h4 id=&#34;exemplo&#34;&gt;Exemplo&lt;/h4&gt;
+&lt;h3 id=&#34;exemplo&#34;&gt;Exemplo&lt;/h3&gt;
 
 &lt;p&gt;Considere o banco de dados &lt;em&gt;BodyFat&lt;/em&gt; obtido &lt;a href=&#34;http://www2.stetson.edu/~jrasp/data.htm&#34;&gt;aqui&lt;/a&gt;.
 Esses são dados do percentual de gordura corporal em uma amostra de 252 homens junto com
@@ -109,7 +125,7 @@ bodyfat &amp;lt;- read_excel(&#39;data/BodyFat.xls&#39;)
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(bodyfat, aes(x = WEIGHT, y = BODYFAT)) + geom_point()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-7-1.png&#34; title=&#34;plot of chunk unnamed-chunk-7&#34; alt=&#34;plot of chunk unnamed-chunk-7&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-10-1.png&#34; title=&#34;plot of chunk unnamed-chunk-10&#34; alt=&#34;plot of chunk unnamed-chunk-10&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A partir do gráfico de dispersão, vemos que o peso do indivíduo parece ser &lt;strong&gt;linearmente&lt;/strong&gt;
 relacionado ao percentual de gordura corporal. Vamos então ajustar um modelo linear
@@ -183,7 +199,7 @@ informações disponíveis quando vê a estrutura do objeto &lt;code&gt;ajuste&l
 ##   .. ..- attr(*, &amp;quot;order&amp;quot;)= int 1
 ##   .. ..- attr(*, &amp;quot;intercept&amp;quot;)= int 1
 ##   .. ..- attr(*, &amp;quot;response&amp;quot;)= int 1
-##   .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x15a8688&amp;gt; 
+##   .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x39ddf40&amp;gt; 
 ##   .. ..- attr(*, &amp;quot;predvars&amp;quot;)= language list(BODYFAT, WEIGHT)
 ##   .. ..- attr(*, &amp;quot;dataClasses&amp;quot;)= Named chr [1:2] &amp;quot;numeric&amp;quot; &amp;quot;numeric&amp;quot;
 ##   .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr [1:2] &amp;quot;BODYFAT&amp;quot; &amp;quot;WEIGHT&amp;quot;
@@ -196,7 +212,7 @@ informações disponíveis quando vê a estrutura do objeto &lt;code&gt;ajuste&l
 ##   .. .. ..- attr(*, &amp;quot;order&amp;quot;)= int 1
 ##   .. .. ..- attr(*, &amp;quot;intercept&amp;quot;)= int 1
 ##   .. .. ..- attr(*, &amp;quot;response&amp;quot;)= int 1
-##   .. .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x15a8688&amp;gt; 
+##   .. .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x39ddf40&amp;gt; 
 ##   .. .. ..- attr(*, &amp;quot;predvars&amp;quot;)= language list(BODYFAT, WEIGHT)
 ##   .. .. ..- attr(*, &amp;quot;dataClasses&amp;quot;)= Named chr [1:2] &amp;quot;numeric&amp;quot; &amp;quot;numeric&amp;quot;
 ##   .. .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr [1:2] &amp;quot;BODYFAT&amp;quot; &amp;quot;WEIGHT&amp;quot;
@@ -307,20 +323,7 @@ o erro dentro da mesma base de dados que utilizamos para ajustar o modelo. Isso 
 considerado uma má prática, pois podemos facilmente esbarrar em uma situação de
 &lt;em&gt;superajuste&lt;/em&gt; ou &lt;em&gt;overfitting&lt;/em&gt;.&lt;/p&gt;
 
-&lt;hr /&gt;
-
-&lt;p&gt;Até agora vimos que usando a função &lt;code&gt;lm&lt;/code&gt; podemos ajustar um modelo linear usando o
-R. Esse único comando, que recebe um formula e um banco de dados, retorna um objeto
-que é similar a uma &lt;code&gt;list&lt;/code&gt; e que armazena uma variedade de informações sobre o
-ajuste como coeficientes, dados utilizados, etc. Aprendemos também a função &lt;code&gt;summary&lt;/code&gt;,
-que &amp;ldquo;imprime&amp;rdquo; no console uma série de informações sobre o ajuste. Também vimos a
-função &lt;code&gt;predict&lt;/code&gt; que é utilizada pra obter os valores preditos pelo modelo para
-uma nova base de dados.&lt;/p&gt;
-
-&lt;p&gt;Mais tarde falaremos novamente sobre modelos lineares quando falarmos sobre
-&lt;a href=&#34;https://pt.wikipedia.org/wiki/Regress%C3%A3o_log%C3%ADstica&#34;&gt;regressão logística&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;árvore-de-decisão&#34;&gt;Árvore  de Decisão&lt;/h3&gt;
+&lt;h2 id=&#34;árvore-de-decisão&#34;&gt;Árvore  de Decisão&lt;/h2&gt;
 
 &lt;p&gt;Os modelos de árvore de decisão como vamos utilizar são implementados de acordo
 com o livro &lt;em&gt;Classification and Regression Trees&lt;/em&gt; de Breiman, Friedman, Olshen e Stone.
@@ -390,9 +393,9 @@ usando a função &lt;code&gt;summary&lt;/code&gt;.&lt;/p&gt;
 ##           CP nsplit rel error    xerror       xstd
 ## 1 0.44444444      0 1.0000000 1.0000000 0.04244576
 ## 2 0.02339181      1 0.5555556 0.5555556 0.03574957
-## 3 0.01461988      2 0.5321637 0.5760234 0.03621995
-## 4 0.01169591      4 0.5029240 0.5614035 0.03588593
-## 5 0.01000000      6 0.4795322 0.5263158 0.03504339
+## 3 0.01461988      2 0.5321637 0.5935673 0.03660811
+## 4 0.01169591      4 0.5029240 0.5672515 0.03602071
+## 5 0.01000000      6 0.4795322 0.5321637 0.03518794
 ## 
 ## Variable importance
 ##    Sex Pclass    Age 
@@ -495,7 +498,7 @@ para visualizar a árvore de decisão construída com o &lt;code&gt;rpart&lt;/co
 rpart.plot(arvore)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-19-1.png&#34; title=&#34;plot of chunk unnamed-chunk-19&#34; alt=&#34;plot of chunk unnamed-chunk-19&#34; width=&#34;70%&#34; height=&#34;70%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-22-1.png&#34; title=&#34;plot of chunk unnamed-chunk-22&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; width=&#34;70%&#34; height=&#34;70%&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A visualização é bem intuitiva. No topo, vemos o primeiro nó em que 38% dos indivíduos
 sobreviveram e que representa o total da base (100%). Em seguida, vemos que a primeira
@@ -558,7 +561,7 @@ ggplot(valores, aes(x = FPR, y = TPR)) +
   geom_abline(color = &#39;blue&#39;, linetype = &#39;dashed&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-22-1.png&#34; title=&#34;plot of chunk unnamed-chunk-22&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-25-1.png&#34; title=&#34;plot of chunk unnamed-chunk-25&#34; alt=&#34;plot of chunk unnamed-chunk-25&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A função de custo pode ser calculada da seguinte forma. Veja que estamos considerando
 pesos iguais para ambos os erros.&lt;/p&gt;
@@ -569,7 +572,7 @@ pesos iguais para ambos os erros.&lt;/p&gt;
   geom_line()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-23-1.png&#34; title=&#34;plot of chunk unnamed-chunk-23&#34; alt=&#34;plot of chunk unnamed-chunk-23&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-26-1.png&#34; title=&#34;plot of chunk unnamed-chunk-26&#34; alt=&#34;plot of chunk unnamed-chunk-26&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Neste caso, o ponto mínimo da função é obtido com qualquer corte entre um pouco menos de 25%
 até um pouco mais de 50%. Isso nem sempre é verdade e deve ser avaliado em cada modelo.&lt;/p&gt;

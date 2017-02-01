@@ -390,8 +390,8 @@ estudo de aprendizado não-supervisionado.</p></li>
 
 <hr />
 
-<p>Neste material vamos abordar incialmente algumas técnicas de aprendizado supervisionado.
-Em seguida abordaremos abordaremos superficialmente alguns conceitos de aprendizado
+<p>Neste material vamos abordar inicialmente algumas técnicas de aprendizado supervisionado.
+Em seguida abordaremos superficialmente alguns conceitos de aprendizado
 não-supervisionado. Todos esses conceitos serão apresentados com exemplos práticos
 usando o R.</p>
 
@@ -415,7 +415,23 @@ na seguinte equação:</p>
 Nessa formulação, $\epsilon$ é um termo de erro aleatório com média 0. $f$ representa
 a informação sistemática que $X$ fornece sobre $Y$.</p>
 
-<h3 id="modelos-lineares">Modelos lineares</h3>
+<p>Existem diversas maneiras de estimar essa função. Em alguns casos assumimos uma
+forma paramétrica para ela, em outros não. Alguns exemplos de algoritmos são:</p>
+
+<ul>
+<li>Regressão Linear</li>
+<li>Regressão Logística</li>
+<li>Árvore de Decisão</li>
+<li>Florestas Aleatórias (<em>Random Forest</em>)</li>
+<li>Gradient Boosting</li>
+<li>Redes Neurais</li>
+<li>Etc.</li>
+</ul>
+
+<p>Cada um dos algoritmos possui as suas vantagens e desvantagens, e problemas em
+que trazem melhores resultados ou não.</p>
+
+<h2 id="regressão-linear">Regressão Linear</h2>
 
 <p>O modelo linear assume que a função $f$ é uma função linear de modo que a formulação
 do apredizado supervisionado pode ser reescrita da seguinte forma:</p>
@@ -436,7 +452,7 @@ Essa suposição é útil quando queremos fazer testes de hipóteses e intervalo
 confiança. Por enquanto, não estamos interessados nisso e portanto vamos
 apresentar uma visão menos complexa.</p>
 
-<h4 id="exemplo">Exemplo</h4>
+<h3 id="exemplo">Exemplo</h3>
 
 <p>Considere o banco de dados <em>BodyFat</em> obtido <a href="http://www2.stetson.edu/~jrasp/data.htm">aqui</a>.
 Esses são dados do percentual de gordura corporal em uma amostra de 252 homens junto com
@@ -454,7 +470,7 @@ bodyfat &lt;- read_excel('data/BodyFat.xls')
 <pre><code class="language-r">ggplot(bodyfat, aes(x = WEIGHT, y = BODYFAT)) + geom_point()
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="50%" height="50%" /></p>
+<p><img src="figures//unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="50%" height="50%" /></p>
 
 <p>A partir do gráfico de dispersão, vemos que o peso do indivíduo parece ser <strong>linearmente</strong>
 relacionado ao percentual de gordura corporal. Vamos então ajustar um modelo linear
@@ -528,7 +544,7 @@ informações disponíveis quando vê a estrutura do objeto <code>ajuste</code> 
 ##   .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x15a8688&gt; 
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x39ddf40&gt; 
 ##   .. ..- attr(*, &quot;predvars&quot;)= language list(BODYFAT, WEIGHT)
 ##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
 ##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;BODYFAT&quot; &quot;WEIGHT&quot;
@@ -541,7 +557,7 @@ informações disponíveis quando vê a estrutura do objeto <code>ajuste</code> 
 ##   .. .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x15a8688&gt; 
+##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x39ddf40&gt; 
 ##   .. .. ..- attr(*, &quot;predvars&quot;)= language list(BODYFAT, WEIGHT)
 ##   .. .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
 ##   .. .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;BODYFAT&quot; &quot;WEIGHT&quot;
@@ -652,20 +668,7 @@ o erro dentro da mesma base de dados que utilizamos para ajustar o modelo. Isso 
 considerado uma má prática, pois podemos facilmente esbarrar em uma situação de
 <em>superajuste</em> ou <em>overfitting</em>.</p>
 
-<hr />
-
-<p>Até agora vimos que usando a função <code>lm</code> podemos ajustar um modelo linear usando o
-R. Esse único comando, que recebe um formula e um banco de dados, retorna um objeto
-que é similar a uma <code>list</code> e que armazena uma variedade de informações sobre o
-ajuste como coeficientes, dados utilizados, etc. Aprendemos também a função <code>summary</code>,
-que &ldquo;imprime&rdquo; no console uma série de informações sobre o ajuste. Também vimos a
-função <code>predict</code> que é utilizada pra obter os valores preditos pelo modelo para
-uma nova base de dados.</p>
-
-<p>Mais tarde falaremos novamente sobre modelos lineares quando falarmos sobre
-<a href="https://pt.wikipedia.org/wiki/Regress%C3%A3o_log%C3%ADstica">regressão logística</a>.</p>
-
-<h3 id="árvore-de-decisão">Árvore  de Decisão</h3>
+<h2 id="árvore-de-decisão">Árvore  de Decisão</h2>
 
 <p>Os modelos de árvore de decisão como vamos utilizar são implementados de acordo
 com o livro <em>Classification and Regression Trees</em> de Breiman, Friedman, Olshen e Stone.
@@ -735,9 +738,9 @@ usando a função <code>summary</code>.</p>
 ##           CP nsplit rel error    xerror       xstd
 ## 1 0.44444444      0 1.0000000 1.0000000 0.04244576
 ## 2 0.02339181      1 0.5555556 0.5555556 0.03574957
-## 3 0.01461988      2 0.5321637 0.5760234 0.03621995
-## 4 0.01169591      4 0.5029240 0.5614035 0.03588593
-## 5 0.01000000      6 0.4795322 0.5263158 0.03504339
+## 3 0.01461988      2 0.5321637 0.5935673 0.03660811
+## 4 0.01169591      4 0.5029240 0.5672515 0.03602071
+## 5 0.01000000      6 0.4795322 0.5321637 0.03518794
 ## 
 ## Variable importance
 ##    Sex Pclass    Age 
@@ -840,7 +843,7 @@ para visualizar a árvore de decisão construída com o <code>rpart</code> é o 
 rpart.plot(arvore)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="70%" height="70%" /></p>
+<p><img src="figures//unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="70%" height="70%" /></p>
 
 <p>A visualização é bem intuitiva. No topo, vemos o primeiro nó em que 38% dos indivíduos
 sobreviveram e que representa o total da base (100%). Em seguida, vemos que a primeira
@@ -903,7 +906,7 @@ ggplot(valores, aes(x = FPR, y = TPR)) +
   geom_abline(color = 'blue', linetype = 'dashed')
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="50%" height="50%" /></p>
+<p><img src="figures//unnamed-chunk-25-1.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" width="50%" height="50%" /></p>
 
 <p>A função de custo pode ser calculada da seguinte forma. Veja que estamos considerando
 pesos iguais para ambos os erros.</p>
@@ -914,7 +917,7 @@ pesos iguais para ambos os erros.</p>
   geom_line()
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" width="50%" height="50%" /></p>
+<p><img src="figures//unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="50%" /></p>
 
 <p>Neste caso, o ponto mínimo da função é obtido com qualquer corte entre um pouco menos de 25%
 até um pouco mais de 50%. Isso nem sempre é verdade e deve ser avaliado em cada modelo.</p>
@@ -950,7 +953,7 @@ $$</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../stringr/" title="Stringr">
+      <a href="../rbase/" title="Introdução">
         <span class="direction">
           Previous
         </span>
@@ -960,7 +963,7 @@ $$</p>
           </div>
           <div class="stretch">
             <div class="title">
-              Stringr
+              Introdução
             </div>
           </div>
         </div>
@@ -970,14 +973,14 @@ $$</p>
 
   <div class="next">
   
-      <a href="../ggplot/" title="ggplot">
+      <a href="../forcats/" title="Introdução">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              ggplot
+              Introdução
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

@@ -9,6 +9,14 @@ type: index
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+--------------------
+
+# DADOS DA AULA 2
+
+[BAIXAR](https://curso-r.github.io/verao2017/input.zip)
+
+--------------------
+
 O curso-r te ajudará a usar o R na execução de tarefas
 corriqueiras de forma eficiente e concisa. Ao final do curso, será possível:
 
