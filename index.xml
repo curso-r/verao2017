@@ -4006,11 +4006,6 @@ Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o
 
 /BLOGDOWN-BODY-BEFORE --&gt;
 
-&lt;hr /&gt;
-&lt;div id=&#34;dados-da-aula-2&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;DADOS DA AULA 2&lt;/h1&gt;
-&lt;p&gt;&lt;a href=&#34;https://curso-r.github.io/verao2017/input.zip&#34;&gt;BAIXAR&lt;/a&gt;&lt;/p&gt;
-&lt;hr /&gt;
 &lt;p&gt;O curso-r te ajudará a usar o R na execução de tarefas corriqueiras de forma eficiente e concisa. Ao final do curso, será possível:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Carregar&lt;/strong&gt; - Carregar o banco de dados para dentro do R.&lt;/li&gt;
@@ -4087,7 +4082,6 @@ devtools::install_github(&amp;#39;curso-r/pu.deps&amp;#39;)&lt;/code&gt;&lt;/pre
 &lt;h2&gt;Apoio&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#39;http://www.marketdata.com.br&#39;&gt;&lt;br /&gt;
 &lt;img src=&#34;logo-marketdata.jpg&#34; alt=&#34;Marketdata&#34; width=&#34;200&#34;&gt; &lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;
 &lt;/div&gt;
 
 
