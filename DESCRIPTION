@@ -26,7 +26,13 @@ Imports:
     tutorial,
     desc,
     forcats,
-    haven
+    haven,
+    readr,
+    tibble,
+    tidyr,
+    dplyr,
+    ggplot2,
+    lubridate
 RoxygenNote: 5.0.1
 PowerUps:
     curso-r/pu.manip,
