@@ -1,6 +1,4 @@
-language: r
-repos:
-  CRAN: http://cran.rstudio.com
+language: R
 cache: packages
 
 before_script:
