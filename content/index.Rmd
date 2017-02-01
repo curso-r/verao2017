@@ -9,8 +9,8 @@ type: index
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-O curso-r ensinará como usar o R para auxiliar o aluno na execução de tarefas
-corriqueiras de forma eficiente e concisa. O aluno aprenderá a:
+O curso-r te ajudará a usar o R na execução de tarefas
+corriqueiras de forma eficiente e concisa. Ao final do curso, será possível:
 
 - **Carregar** - Carregar o banco de dados para dentro do R. 
 - **Arrumar** - Deixar os dados na melhor estrutura para a análise.
