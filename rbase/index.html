@@ -445,7 +445,7 @@
 
 <p>O RStudio é o melhor ambiente de desenvolvimento de R disponível. Você pode <a href="https://www.rstudio.com/products/rstudio/download/preview/">baixá-lo aqui</a>.</p>
 
-<p>Muitas das ferramentas são aprendidas conforme o uso, e há bons materiais sobre o Rstudio na internet (por exemplo <a href="https://csgillespie.github.io/efficientR/set-up.html#rstudio">esta página</a>). Uma funcionalidade importante é a criação de projetos. Uma estrutura sugerida para a organização de um projeto é:</p>
+<p>Muitas das ferramentas são aprendidas conforme o uso, e há bons materiais sobre o Rstudio na internet (por exemplo, <a href="https://csgillespie.github.io/efficientR/set-up.html#rstudio">esta página</a>). Uma funcionalidade importante é a criação de projetos. Uma estrutura sugerida para a organização de um projeto é:</p>
 
 <p><strong>Estrutura 1</strong>. Por extensão de arquivo.</p>
 
@@ -458,7 +458,7 @@
   - nome_do_projeto.Rproj
 </code></pre>
 
-<p><strong>Estrutura 2</strong>: Típico projeto de análise estatística.</p>
+<p><strong>Estrutura 2</strong>. Típico projeto de análise estatística.</p>
 
 <pre><code class="language-bash">project/
   - README.Rmd   # Descrição do pacote
@@ -470,7 +470,7 @@
   - project.Rproj
 </code></pre>
 
-<p><strong>Estrutura 3</strong>: Pacote do R (avançado).</p>
+<p><strong>Estrutura 3</strong>. Pacote do R (avançado).</p>
 
 <pre><code class="language-bash">project/
   - README.md    # Descrição do pacote
@@ -483,7 +483,7 @@
   - project.Rproj
 </code></pre>
 
-<p>Assim que abrir o RStudio, você verá 4 quadrantes, do jeito que a figura abaixo mostra.</p>
+<p>Ao abrir o RStudio, você verá 4 quadrantes. Observe a figura abaixo.</p>
 
 <p><img src="figures/rstudio-editor.png" alt="" /></p>
 
@@ -534,7 +534,7 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 
 <h2 id="r-como-calculadora">R como calculadora</h2>
 
-<p>Pelo console é possível executar qualquer comando do R.</p>
+<p>Pelo console, é possível executar qualquer comando do R.</p>
 
 <pre><code class="language-r">1:30
 ##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
@@ -542,7 +542,7 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 </code></pre>
 
 <p>Esse comando é uma forma simplificada de criar um vetor de inteiros de 1 a 30.
-Os números que aparecem entre [] indicam o índice do primeiro elemento impresso nessa linha.</p>
+Os números que aparecem entre colchetes ([1] e [24]) indicam o índice do primeiro elemento impresso nessa linha.</p>
 
 <div class='admonition note'>
 <p class='admonition-title'>
@@ -553,7 +553,7 @@ Quem vem de linguagens como o C ou Java espera que seja necessário compilar o c
 </p>
 </div>
 
-<p>Tente jogar no console <code>2 * 2 - (4 + 4) / 2</code>. Pronto. Com essa simples expressão você já é capaz de imaginar (certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!</p>
+<p>Tente jogar no console <code>2 * 2 - (4 + 4) / 2</code>. Pronto! Com essa simples expressão você já é capaz de imaginar (certeiramente) como pedir ao R para fazer qualquer tipo de operação aritmética. Lição aprendida!</p>
 
 <p>Além do mais, as operações e suas precedências são mantidas como na matemática, ou seja, divisão e multiplicação são calculadas antes da adição e subtração. E os parênteses nunca são demais!</p>
 
@@ -561,7 +561,7 @@ Quem vem de linguagens como o C ou Java espera que seja necessário compilar o c
 <strong>console</strong> e tecle <code>Enter</code>. Uma outra forma de chamar uma expressão é escrever
 o código no <strong>editor</strong> e teclar <code>Ctrl + Enter</code> ou <code>Ctrl + R</code>. Assim, o comando é enviado para o <strong>console</strong>, onde é diretamente executado.</p>
 
-<p>Se você digitar um comando incompleto, como <code>5 +</code> e apertar <code>Enter</code>, o R mostrará um <code>+</code>, o que não tem nada a ver com somar alguma coisa. Isso significa que o R está esperando que você complete o seu comando. Termine o seu comando ou aperte <code>Esc</code> para recomeçar.</p>
+<p>Se você digitar um comando incompleto, como <code>5 +</code>, e apertar <code>Enter</code>, o R mostrará um <code>+</code>, o que não tem nada a ver com somar alguma coisa. Isso significa que o R está esperando que você complete o seu comando. Termine o seu comando ou aperte <code>Esc</code> para recomeçar.</p>
 
 <pre><code>&gt; 5 -
 + 
@@ -581,14 +581,16 @@ Error: unexpected input in &quot;5 % 5&quot;
 
 <h2 id="pedindo-ajuda">Pedindo Ajuda</h2>
 
-<p>No R, há quatro principais entidades para recorrer quando se precisa de ajuda:</p>
+<p>No R, há quatro principais entidades para se pedir ajuda:</p>
 
 <ul>
-<li>Help / documentação do R (comandos <code>help(funcao)</code> ou <code>?funcao</code>)</li>
-<li>Stack Overflow</li>
+<li>Help/documentação do R (comandos <code>help(nome_da_funcao)</code> ou <code>?nome_da_funcao</code>)</li>
 <li>Google</li>
+<li>Stack Overflow</li>
 <li>Coleguinha</li>
 </ul>
+
+<p>A busca por ajuda é feita preferencialmente, mas não necessariamente, na ordem acima.</p>
 
 <h3 id="documentação-do-r">Documentação do R</h3>
 
@@ -602,17 +604,17 @@ help(mean)
 
 <ul>
 <li>Os exemplos no final são particularmente úteis.</li>
-<li>Atente-se na parte <strong>Usage</strong> para ter noção de como usar.</li>
-<li>Os parâmetros estăo descritos na parte <strong>Arguments</strong>. Identifique quais tipos de objetos eles recebem.</li>
+<li>Atente-se na seção <strong>Usage</strong> para ter noção de como usar.</li>
+<li>Os parâmetros estăo descritos em <strong>Arguments</strong>. Identifique quais tipos de objetos eles recebem.</li>
 <li>Caso essa função não atenda às suas necessidades, a seção <strong>See Also</strong> sugere funções relacionadas.</li>
-<li>Alguns pacotes possuem tutorias de uso mais completos. Esses textos são chamados de <code>vignettes</code> e podem ser acessados com a função <code>vignette(package = 'nomeDoPacote')</code>. Por exemplo, <code>vignette(package = 'dplyr')</code>. Depois de ver a lista de artigos, escolha um nome e rode <code>vignette(topic = 'nome', package = 'nomeDoPacote')</code>. Por exemplo, <code>vignette(topic = 'introduction', package = 'dplyr')</code></li>
+<li>Alguns pacotes possuem tutorias de uso mais completos. Esses textos são chamados de <code>vignettes</code> e podem ser acessados com a função <code>vignette(package = 'nomeDoPacote')</code>. Por exemplo, <code>vignette(package = 'dplyr')</code>. Depois de ver a lista de artigos, escolha um nome e rode <code>vignette(topic = 'nome', package = 'nomeDoPacote')</code>. Por exemplo, <code>vignette(topic = 'introduction', package = 'dplyr')</code>.</li>
 </ul>
 
 <h3 id="google">Google</h3>
 
-<p>Há uma comunidade gigantesca de usuários de R que todos os dias geram infinidades de conteúdos e discussões. Não raro, você irá encontrar discussões sobre o seu problema simplesmente jogando o copiar/colar do seu erro no diretamente Google. Essa deve ser sua primeira tentativa!</p>
+<p>Há uma comunidade gigantesca de usuários de R gerando diariamente uma infinidade de conteúdos e discussões. Não raramente, você irá encontrar discussões sobre o seu problema simplesmente jogando o copiar/colar do seu erro no Google. Essa deve ser sua primeira tentativa!</p>
 
-<p>Exemplo (repare no &lsquo;R&rsquo; adicionado na busca, também ajuda):</p>
+<p>Exemplo (repare no &lsquo;r&rsquo; adicionado na busca, também ajuda):</p>
 
 <pre><code class="language-r">log(&quot;5&quot;)
 ## Error in log(&quot;5&quot;): non-numeric argument to mathematical function
@@ -622,77 +624,82 @@ help(mean)
 
 <h3 id="stack-overflow">Stack Overflow</h3>
 
-<p>O <a href="http://stackoverflow.com/">Stack Overflow</a> e o <a href="http://pt.stackoverflow.com/">Stack Overflow em Português</a> são sites de Pergunta e Resposta amplamente utilizados por todas as linguagens de programação e R é uma delas. É tão utilizado que nos EUA eles chegam a usar a reputaçăo dos usuários como diferenciais no currículo!</p>
+<p>O <a href="http://stackoverflow.com/">Stack Overflow</a> e o <a href="http://pt.stackoverflow.com/">Stack Overflow em Português</a> são sites de Pergunta e Resposta amplamente utilizados por todas as linguagens de programação, e R é uma delas. Nos EUA, chegam até a usar a reputaçăo dos usuários como diferencial no currículo!</p>
 
-<p>Provavelmente o Google te indicará uma página deles quando você estiver procurando ajuda. E quando todas as fontes possíveis de ajuda falharem o Stack Overflow te dará o espaço para <strong>criar sua própria pergunta</strong>.</p>
+<p>Provavelmente, o Google lhe indicará uma página deles quando você estiver procurando ajuda. E quando todas as fontes possíveis de ajuda falharem, o Stack Overflow lhe dará o espaço para <strong>criar sua própria pergunta</strong>.</p>
 
-<p><strong>Um ponto importante:</strong> Como fazer uma <strong>boa</strong> pergunta no Stack Overflow?</p>
+<p><strong>Um ponto importante:</strong> como fazer uma <strong>boa</strong> pergunta no Stack Overflow?</p>
 
-<p>No site tem um tutorial com uma lista de boas práticas, <a href="http://pt.stackoverflow.com/help/how-to-ask">que se encontra aqui</a>. Algumas dicas são</p>
+<p>No site, tem um tutorial com uma lista de boas práticas, <a href="http://pt.stackoverflow.com/help/how-to-ask">que se encontra aqui</a>. Algumas dicas são</p>
 
 <ul>
-<li>Ser conciso</li>
-<li>Ser específico</li>
-<li>Ter mente aberta</li>
-<li>Ser gentil</li>
+<li>ser conciso;</li>
+<li>ser específico;</li>
+<li>ter mente aberta; e</li>
+<li>ser gentil.</li>
 </ul>
 
-<p>Porém, no caso do R há outro requisito que vai aumentar muito sua chance de ter uma boa resposta: <strong>exemplinho minimal e reprodutível</strong>.</p>
+<p>Porém, no caso do R, há outro requisito que vai aumentar muito sua chance de ter uma boa resposta: <strong>exemplinho minimal e reprodutível</strong>.</p>
 
 <ul>
 <li><p>Ser <strong>minimal</strong>: usar bancos de dados menores e utilizar pedaços de códigos apenas suficientes para gerar o seu problema. Năo precisa de banco de dados de um milhăo de linhas e nem colocar o seu código inteiro para mostrar seu problema.</p></li>
 
-<li><p>Ser <strong>reprodutível</strong>: o seu código deve rodar fora da sua máquina. Se você não fornecer uma versão do seu problema que rode (ou que imite seu erro), as pessoas vão logo desistir de te ajudar. Por isso, nunca coloque bancos de dados que só você tem acesso. Em vez disso, use bancos de dados que já vem no R ou disponibilize um exemplo (possivelmente anonimizado) em <code>.csv</code> na web para baixar. E se precisar utilizar funções diferentes, coloque as <code>library</code>&rsquo;s correspondentes.</p></li>
+<li><p>Ser <strong>reprodutível</strong>: o seu código deve rodar fora da sua máquina. Se você não fornecer uma versão do seu problema que rode (ou que imite seu erro), as pessoas vão logo desistir de te ajudar. Por isso, nunca coloque bancos de dados que só você tem acesso. Use bancos de dados que já vem no R ou disponibilize um exemplo (possivelmente anonimizado) em <code>.csv</code> na web para baixar. E se precisar utilizar funções diferentes, coloque as <code>library</code>&rsquo;s correspondentes.</p></li>
 </ul>
 
 <hr />
 
 <h2 id="instalar-pacotes">Instalar pacotes</h2>
 
-<p>O grande trunfo do R são seus pacotes então é uma boa você ficar bastante à vontade em instalar e atualizar muitos e muitos pacotes ao longo da sua experiência com o R.</p>
+<p>O grande trunfo do R são seus pacotes. Assim, fique bastante à vontade para instalar e atualizar muitos e muitos pacotes ao longo da sua experiência com o R.</p>
 
 <p>Existem três principais maneiras de instalar pacotes. Em ordem de frequência, são:</p>
 
 <ul>
-<li>Via CRAN (Comprehensive R Archive Network) <code>install.packages(&quot;magrittr&quot;)</code></li>
-<li>Via Github <code>devtools::install_github(&quot;rstudio/shiny&quot;)</code></li>
-<li>Via arquivo .zip/.tar.gz <code>install.packages(&quot;C:/caminho/pacote.zip&quot;, repos = NULL)</code></li>
+<li>Via CRAN (Comprehensive R Archive Network): <code>install.packages(&quot;magrittr&quot;)</code>.</li>
+<li>Via Github: <code>devtools::install_github(&quot;rstudio/shiny&quot;)</code>.</li>
+<li>Via arquivo .zip/.tar.gz: <code>install.packages(&quot;C:/caminho/pacote.zip&quot;, repos = NULL)</code>.</li>
 </ul>
 
 <h3 id="via-cran">Via CRAN</h3>
 
-<p>Quando quiser utilizar um pacote, instale usando a função <code>install.packages(&quot;nome_do_pacote&quot;)</code>. Por exemplo:</p>
+<p>Instale pacotes que não estão na sua biblioteca usando a função <code>install.packages(&quot;nome_do_pacote&quot;)</code>. Por exemplo:</p>
 
 <pre><code class="language-r">install.packages(&quot;magrittr&quot;)
 </code></pre>
 
-<p>E de agora em diante basta carregar o pacote com <code>library(magrittr)</code>. Não precisa mais instalar.</p>
+<p>E, de agora em diante, basta carregar o pacote com <code>library(magrittr)</code>. Não precisa mais instalar.</p>
 
-<div class="dica">
-Dica! Escreva `nome_do_pacote::nome_da_funcao()` se quiser usar apenas uma função de um determinado pacote. O operador `::` serve para isso. Essa forma também é útil quando se tem duas funções com o mesmo nome e precisamos garantir que o código vá usar a função do pacote correto.
+<div class='admonition note'>
+<p class='admonition-title'>
+Dica!
+</p>
+<p>
+Escreva `nome_do_pacote::nome_da_funcao()` se quiser usar apenas uma função de um determinado pacote. O operador `::` serve para isso. Essa forma também é útil quando se tem duas funções com o mesmo nome, e precisamos garantir que o código vá usar a função do pacote correto.
+</p>
 </div>
 
 <h3 id="via-github">Via Github</h3>
 
-<p>Desenvolvedores costumam disponibilizar a última versão de seus pacotes no Github e alguns deles sequer estão no CRAN. Mesmo assim ainda é possível utilizá-los instalando diretamente pelo github. O comando é igualmente simples:</p>
+<p>Desenvolvedores costumam disponibilizar a última versão de seus pacotes no Github, e alguns deles sequer estão no CRAN. Mesmo assim ainda é possível utilizá-los instalando diretamente pelo github. O comando é igualmente simples:</p>
 
 <pre><code class="language-r">devtools::install_github(&quot;rstudio/shiny&quot;)
 </code></pre>
 
-<p>O que será necessário é o username e o nome do repositório. No exemplo o username foi &ldquo;rstudio&rdquo; e o pacote foi &ldquo;shiny&rdquo;.</p>
+<p>Apenas será necessário o username e o nome do repositório. No exemplo, o username foi &ldquo;rstudio&rdquo; e o pacote foi &ldquo;shiny&rdquo;.</p>
 
-<p>Não se preocupe, geralmente esses pacotes que ficam no github possuem um <code>README</code> cuja primeira instrução é de como instalar o pacote via github. Se não tiver, provavelmente este pacote não te merece =)!</p>
+<p>Não se preocupe! Os pacotes disponibilizados no github geralmente têm um <code>README</code> cuja primeira instrução é sobre a instalação. Se não tiver, provavelmente este pacote não te merece! =)</p>
 
 <h3 id="via-arquivo-zip-tar-gz">Via arquivo .zip/.tar.gz</h3>
 
-<p>Se você precisar instalar um pacote que está zipado no seu computador (ou em algum servidor) há a opção de assim o fazer sem maiores problemas.</p>
+<p>Se você precisar instalar um pacote que está zipado no seu computador (ou em algum servidor), utilize o seguinte comando:</p>
 
 <pre><code class="language-r">install.packages(&quot;C:/caminho/para/o/arquivo/zipapo/pacote.zip&quot;, repos = NULL)
 </code></pre>
 
-<p>É quase igual a instalar pacotes via CRAN, com a diferença que agora o nome do pacote é o caminho inteiro até o arquivo, e com o parâmetro <code>repos = NULL</code> para informar que estamos instalando a partir da máquina local.</p>
+<p>É semelhante a instalar pacotes via CRAN, com a diferença que agora o nome do pacote é o caminho inteiro até o arquivo. O parâmetro <code>repos = NULL</code> informa que estamos instalando a partir da máquina local.</p>
 
-<p>A aba <strong><em>Packages</em></strong> do RStudio ajuda a administrar seus pacotes também.</p>
+<p>A aba <strong><em>Packages</em></strong> do RStudio também ajuda a administrar os seus pacotes.</p>
 
 <p><img src="figures/instalar_pacote_rstudio.png" alt="" /></p>
 
@@ -700,9 +707,9 @@ Dica! Escreva `nome_do_pacote::nome_da_funcao()` se quiser usar apenas uma funç
 
 <h2 id="controles-de-fluxo">Controles de Fluxo</h2>
 
-<p>Como toda boa linguagem de programação, o R possui estruturas de <code>if</code>&rsquo;s, <code>else</code>&rsquo;s, <code>for</code>&rsquo;s e etc. (os controles de fluxo) que são importantes na hora de programar.</p>
+<p>Como toda boa linguagem de programação, o R possui estruturas de <code>if</code>&rsquo;s, <code>else</code>&rsquo;s, <code>for</code>&rsquo;s, <code>while</code>&rsquo;s etc. Esses <strong>controles de fluxo</strong> são importantes na hora de programar.</p>
 
-<h3 id="if-e-else"><code>if</code> e <code>else</code></h3>
+<h3 id="if-e-else">IF e ELSE</h3>
 
 <p>O seguinte trecho de código só será executado se o objeto <code>x</code> for igual a 1.</p>
 
@@ -739,9 +746,11 @@ if(x == 1) {
 Diferença entre SQL e R nas comparações lógicas
 </p>
 <p>
-- **Igualdade** no SQL é só um sinal de igual: `2 = 1`. No R são dois: `2 == 1`.
-- **Diferença** O teste de diferente no R é `!=` ao invés de de `<>`.
-- **Negação** ao invés de usar a palavra `not` que nem no SQL, usamos `!`. Por exemplo, `entidade_id not in ('100515')` fica `!entidade_id %in% c('100515')`.
+<b>Igualdade</b> no SQL é só um sinal de igual: 2 = 1. No R são dois: 2 == 1.
+
+<b>Diferença</b> O teste de diferente no R é != ao invés de de <>.
+
+<b>Negação</b> ao invés de usar a palavra "not" igual ao SQL, usamos !. Por exemplo, "entidade_id not in ('100515')" fica "!entidade_id %in% c('100515')".
 </p>
 </div>
 
@@ -1199,14 +1208,14 @@ y &lt;- 5 + 2 * x + rnorm(n, sd = 30)
 plot(x, y)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-59-1.png" alt="plot of chunk unnamed-chunk-59" /></p>
+<p><img src="figures//unnamed-chunk-58-1.png" alt="plot of chunk unnamed-chunk-58" /></p>
 
 <p>O parâmetro <code>type = &quot;l&quot;</code> indica que queremos que os pontos sejam interligados por linhas.</p>
 
 <pre><code class="language-r">plot(x, y, type = &quot;l&quot;)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-60-1.png" alt="plot of chunk unnamed-chunk-60" /></p>
+<p><img src="figures//unnamed-chunk-59-1.png" alt="plot of chunk unnamed-chunk-59" /></p>
 
 <h3 id="histograma">Histograma</h3>
 
@@ -1222,7 +1231,7 @@ plot(x, y)
 <pre><code class="language-r">hist(rnorm(1000))
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-61-1.png" alt="plot of chunk unnamed-chunk-61" /></p>
+<p><img src="figures//unnamed-chunk-60-1.png" alt="plot of chunk unnamed-chunk-60" /></p>
 
 <h3 id="boxplot">Boxplot</h3>
 
@@ -1235,14 +1244,14 @@ plot(x, y)
 <pre><code class="language-r">boxplot(InsectSprays$count, col = &quot;lightgray&quot;)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-62-1.png" alt="plot of chunk unnamed-chunk-62" /></p>
+<p><img src="figures//unnamed-chunk-61-1.png" alt="plot of chunk unnamed-chunk-61" /></p>
 
 <p><strong>Duas variáveis</strong> Usamos fórmula e o parâmetro <code>data</code>!</p>
 
 <pre><code class="language-r">boxplot(count ~ spray, data = InsectSprays, col = &quot;lightgray&quot;)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-63-1.png" alt="plot of chunk unnamed-chunk-63" /></p>
+<p><img src="figures//unnamed-chunk-62-1.png" alt="plot of chunk unnamed-chunk-62" /></p>
 
 <h3 id="gráfico-de-barras">Gráfico de barras</h3>
 
@@ -1274,7 +1283,7 @@ barplot(tabela)
 barplot(VADeaths) 
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-65-1.png" alt="plot of chunk unnamed-chunk-65" /></p>
+<p><img src="figures//unnamed-chunk-64-1.png" alt="plot of chunk unnamed-chunk-64" /></p>
 
 <hr />
 
