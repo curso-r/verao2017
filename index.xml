@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Wed, 01 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/rbase/</link>
-      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/rbase/</guid>
       <description>
@@ -171,7 +171,7 @@ Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de
 
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Simplicidade e foco&lt;/strong&gt;. Permite ao usuário o foco na análise e não na formatação do documento.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Versátil&lt;/strong&gt;. Pode ser utilizado para gerar documentos em $\LaTeX$, &lt;code&gt;Word&lt;/code&gt;, &lt;code&gt;HTML&lt;/code&gt; e apresentaçőes em &lt;code&gt;beamer&lt;/code&gt;, &lt;code&gt;pptx&lt;/code&gt; e &lt;code&gt;HTML&lt;/code&gt; (de vários tipos). Pode ainda gerar sites, livros, dissertaçőes de mestrado e até mesmo dashboards interativos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Versátil&lt;/strong&gt;. Pode ser utilizado para gerar documentos em $\LaTeX$, &lt;code&gt;Word&lt;/code&gt;, &lt;code&gt;HTML&lt;/code&gt; e apresentações em &lt;code&gt;beamer&lt;/code&gt;, &lt;code&gt;pptx&lt;/code&gt; e &lt;code&gt;HTML&lt;/code&gt; (de vários tipos). Pode ainda gerar sites, livros, dissertações de mestrado e até mesmo dashboards interativos.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Reprodutível&lt;/strong&gt;. O RMarkdown nada mais é que um arquivo de texto. Além disso, ele tenta te obrigar a fazer o documento mais autocontido possível. Assim, um documento &lt;code&gt;.Rmd&lt;/code&gt; é fácil de compartilhar e de ser utilizado pelo receptor. Lembre-se, o receptor pode ser o futuro você! Vale enfatizar que a reprodutibilidade é considerada como um dos princípios fundamentais da ciência. Então, só de usar RMarkdown, você já está colaborando com a ciência. :)&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Flexível&lt;/strong&gt;. É possível configurar e criar templates de análises para quaisquer tipos de aplicações e clientes. Os textos podem ser parametrizados por números que variam de versão para versão, mensalmente, por exemplo, tudo escrito somente em R.&lt;/li&gt;
 &lt;/ol&gt;
@@ -260,7 +260,7 @@ help(mean)
 &lt;ul&gt;
 &lt;li&gt;Os exemplos no final são particularmente úteis.&lt;/li&gt;
 &lt;li&gt;Atente-se na seção &lt;strong&gt;Usage&lt;/strong&gt; para ter noção de como usar.&lt;/li&gt;
-&lt;li&gt;Os parâmetros estăo descritos em &lt;strong&gt;Arguments&lt;/strong&gt;. Identifique quais tipos de objetos eles recebem.&lt;/li&gt;
+&lt;li&gt;Os parâmetros estão descritos em &lt;strong&gt;Arguments&lt;/strong&gt;. Identifique quais tipos de objetos eles recebem.&lt;/li&gt;
 &lt;li&gt;Caso essa função não atenda às suas necessidades, a seção &lt;strong&gt;See Also&lt;/strong&gt; sugere funções relacionadas.&lt;/li&gt;
 &lt;li&gt;Alguns pacotes possuem tutorias de uso mais completos. Esses textos são chamados de &lt;code&gt;vignettes&lt;/code&gt; e podem ser acessados com a função &lt;code&gt;vignette(package = &#39;nomeDoPacote&#39;)&lt;/code&gt;. Por exemplo, &lt;code&gt;vignette(package = &#39;dplyr&#39;)&lt;/code&gt;. Depois de ver a lista de artigos, escolha um nome e rode &lt;code&gt;vignette(topic = &#39;nome&#39;, package = &#39;nomeDoPacote&#39;)&lt;/code&gt;. Por exemplo, &lt;code&gt;vignette(topic = &#39;introduction&#39;, package = &#39;dplyr&#39;)&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -279,7 +279,7 @@ help(mean)
 
 &lt;h3 id=&#34;stack-overflow&#34;&gt;Stack Overflow&lt;/h3&gt;
 
-&lt;p&gt;O &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; e o &lt;a href=&#34;http://pt.stackoverflow.com/&#34;&gt;Stack Overflow em Português&lt;/a&gt; são sites de Pergunta e Resposta amplamente utilizados por todas as linguagens de programação, e R é uma delas. Nos EUA, chegam até a usar a reputaçăo dos usuários como diferencial no currículo!&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; e o &lt;a href=&#34;http://pt.stackoverflow.com/&#34;&gt;Stack Overflow em Português&lt;/a&gt; são sites de Pergunta e Resposta amplamente utilizados por todas as linguagens de programação, e R é uma delas. Nos EUA, chegam até a usar a reputação dos usuários como diferencial no currículo!&lt;/p&gt;
 
 &lt;p&gt;Provavelmente, o Google lhe indicará uma página deles quando você estiver procurando ajuda. E quando todas as fontes possíveis de ajuda falharem, o Stack Overflow lhe dará o espaço para &lt;strong&gt;criar sua própria pergunta&lt;/strong&gt;.&lt;/p&gt;
 
@@ -297,7 +297,7 @@ help(mean)
 &lt;p&gt;Porém, no caso do R, há outro requisito que vai aumentar muito sua chance de ter uma boa resposta: &lt;strong&gt;exemplinho minimal e reprodutível&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Ser &lt;strong&gt;minimal&lt;/strong&gt;: usar bancos de dados menores e utilizar pedaços de códigos apenas suficientes para gerar o seu problema. Năo precisa de banco de dados de um milhăo de linhas e nem colocar o seu código inteiro para mostrar seu problema.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Ser &lt;strong&gt;minimal&lt;/strong&gt;: usar bancos de dados menores e utilizar pedaços de códigos apenas suficientes para gerar o seu problema. Não precisa de banco de dados de um milhão de linhas e nem colocar o seu código inteiro para mostrar seu problema.&lt;/p&gt;&lt;/li&gt;
 
 &lt;li&gt;&lt;p&gt;Ser &lt;strong&gt;reprodutível&lt;/strong&gt;: o seu código deve rodar fora da sua máquina. Se você não fornecer uma versão do seu problema que rode (ou que imite seu erro), as pessoas vão logo desistir de te ajudar. Por isso, nunca coloque bancos de dados que só você tem acesso. Use bancos de dados que já vem no R ou disponibilize um exemplo (possivelmente anonimizado) em &lt;code&gt;.csv&lt;/code&gt; na web para baixar. E se precisar utilizar funções diferentes, coloque as &lt;code&gt;library&lt;/code&gt;&amp;rsquo;s correspondentes.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -401,10 +401,10 @@ if(x == 1) {
 Diferença entre SQL e R nas comparações lógicas
 &lt;/p&gt;
 &lt;p&gt;
-&lt;b&gt;Igualdade&lt;/b&gt; no SQL é só um sinal de igual: 2 = 1. No R são dois: 2 == 1.
-
+&lt;b&gt;Igualdade&lt;/b&gt; no SQL é só um sinal de igual: &lt;2 = 1. No R são dois: 2 == 1.
+&lt;br&gt;
 &lt;b&gt;Diferença&lt;/b&gt; O teste de diferente no R é != ao invés de de &lt;&gt;.
-
+&lt;br&gt;
 &lt;b&gt;Negação&lt;/b&gt; ao invés de usar a palavra &#34;not&#34; igual ao SQL, usamos !. Por exemplo, &#34;entidade_id not in (&#39;100515&#39;)&#34; fica &#34;!entidade_id %in% c(&#39;100515&#39;)&#34;.
 &lt;/p&gt;
 &lt;/div&gt;
@@ -450,16 +450,16 @@ a
 ## [1] 1
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;O R permite que você salve dados guardando estes dentro de um objeto.&lt;/p&gt;
+&lt;p&gt;O R te permite salvar dados dentro de um objeto.&lt;/p&gt;
 
-&lt;p&gt;No exemplo acima, salvamos o valor &lt;code&gt;1&lt;/code&gt; em &lt;code&gt;a&lt;/code&gt; e sempre que o R encontrar o nome &lt;code&gt;a&lt;/code&gt; ele vai substituir por &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;No exemplo acima, salvamos o valor &lt;code&gt;1&lt;/code&gt; em &lt;code&gt;a&lt;/code&gt;, e sempre que o R encontrar o nome &lt;code&gt;a&lt;/code&gt; ele vai substituir por &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&#39;admonition note&#39;&gt;
 &lt;p class=&#39;admonition-title&#39;&gt;
 Atenção!
 &lt;/p&gt;
 &lt;p&gt;
-O R entende letras maiúsculas e minúsculas, isto é `a` é considerado um objeto diferente de `A`.
+O R entende letras maiúsculas e minúsculas, isto é &lt;b&gt;a&lt;/b&gt; é considerado um objeto diferente de &lt;b&gt;A&lt;/b&gt;.
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -484,13 +484,13 @@ class(vetor)
 ## [1] &amp;quot;numeric&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;De forma bastante intuitiva você pode fazer operações com vetores.&lt;/p&gt;
+&lt;p&gt;De forma bastante intuitiva, você pode fazer operações com vetores.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor - 1
 ## [1] 0 1 2 3
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Quando você faz &lt;code&gt;vetor - 1&lt;/code&gt;, o R subtrai &lt;code&gt;1&lt;/code&gt; de cada um dos elementos do vetor. O mesmo acontece quando você faz qualquer operação aritmética com vetores no R. Tente jogar no console&lt;/p&gt;
+&lt;p&gt;Quando você faz &lt;code&gt;vetor - 1&lt;/code&gt;, o R subtrai &lt;code&gt;1&lt;/code&gt; de cada um dos elementos do vetor. O mesmo acontece quando você faz qualquer operação aritmética com vetores no R. Tente jogar o código abaixo no console.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor / 2
 vetor * 10
@@ -511,9 +511,9 @@ vetor * vetor2
 ## [1] 1 4 9 4
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Agora o R alinhou os dois vetores, e como eles não possuiam o mesmo tamanho, ele foi repetindo o menor vetor até completar o vetor maior.&lt;/p&gt;
+&lt;p&gt;Agora o R alinhou os dois vetores. Como eles não possuíam o mesmo tamanho, foi repetindo o vetor menor até completar o vetor maior.&lt;/p&gt;
 
-&lt;p&gt;Esse comportamento é chamado de &lt;strong&gt;reciclagem&lt;/strong&gt;. Isso é útil para fazer operações com os vetores elementos por elementos (vetorizadamente), mas as vezes pode ser confuso. Com o tempo você aprenderá a se aproveitar desse comportamento.&lt;/p&gt;
+&lt;p&gt;Esse comportamento é chamado de &lt;strong&gt;reciclagem&lt;/strong&gt; e é útil para fazer operações &lt;em&gt;elemento por elemento&lt;/em&gt; (vetorizadamente), mas às vezes pode ser confuso. Com o tempo, você aprenderá a se aproveitar dele.&lt;/p&gt;
 
 &lt;h3 id=&#34;misturando-objetos&#34;&gt;Misturando objetos&lt;/h3&gt;
 
@@ -522,18 +522,18 @@ vetor * vetor2
 Vetores são homogêneos
 &lt;/p&gt;
 &lt;p&gt;
-Os elementos de um vetor são sempre da mesma classe. Ou todos são numéricos, ou são todos character e assim por diante. Não dá para ter um número e um character no mesmo vetor, por exemplo.
+Os elementos de um vetor são sempre da mesma classe. Ou todos são numéricos, ou são todos character, ou todos são lógicos etc. Não dá para ter um número e um character no mesmo vetor, por exemplo.
 &lt;/p&gt;
 &lt;/div&gt;
+
+&lt;p&gt;Se colocarmos duas ou mais classes diferentes dentro de um mesmo vetor, o R vai forçar que todos os elementos passem a pertencer à mesma classe. O número &lt;code&gt;1.7&lt;/code&gt; viraria &lt;code&gt;&amp;quot;1.7&amp;quot;&lt;/code&gt; se fosse colocado ao lado de um &lt;code&gt;&amp;quot;a&amp;quot;&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;y &amp;lt;- c(1.7, &amp;quot;a&amp;quot;)  ## character
 y &amp;lt;- c(TRUE, 2)   ## numeric
 y &amp;lt;- c(TRUE, &amp;quot;a&amp;quot;) ## character
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Se colocarmos duas ou mais classes diferentes dentro de um mesmo vetor, o R vai forçar que todos os elementos passem a pertencer à mesma classe. O número &lt;code&gt;1.7&lt;/code&gt; viraria &lt;code&gt;&amp;quot;1.7&amp;quot;&lt;/code&gt; se fosse colocado ao lado de um &lt;code&gt;&amp;quot;a&amp;quot;&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;A ordem de precedência é&lt;/p&gt;
+&lt;p&gt;A ordem de precedência é:&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;DOMINANTE&lt;/strong&gt; &lt;code&gt;character &amp;gt; complex &amp;gt; numeric &amp;gt; integer &amp;gt; logical&lt;/code&gt; &lt;strong&gt;RECESSIVO&lt;/strong&gt;&lt;/p&gt;
 
@@ -552,7 +552,7 @@ as.character(x)
 ## [1] &amp;quot;0&amp;quot; &amp;quot;1&amp;quot; &amp;quot;2&amp;quot; &amp;quot;3&amp;quot; &amp;quot;4&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Se o R não entender como coagir uma classe na outra ele soltará um &lt;code&gt;warning&lt;/code&gt; informado que colocou &lt;code&gt;NA&lt;/code&gt; no lugar.&lt;/p&gt;
+&lt;p&gt;Se o R não entender como coagir uma classe na outra, ele soltará um &lt;code&gt;warning&lt;/code&gt; informado que colocou &lt;code&gt;NA&lt;/code&gt; no lugar.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- c(&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;)
 as.numeric(x)
@@ -565,13 +565,13 @@ as.numeric(x)
 Observação
 &lt;/p&gt;
 &lt;p&gt;
-O `NA` tem o mesmo papel que o `null` do SQL. Porém, há um `NULL` no R também, com diferenças sutis que vamos abordar mais adiante. Năo confundir!
+O &lt;b&gt;NA&lt;/b&gt; tem o mesmo papel que o &lt;b&gt;null&lt;/b&gt; do SQL. Porém, há um &lt;b&gt;NULL&lt;/b&gt; no R também, com diferenças sutis que vamos abordar mais adiante. Não confundir!
 &lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&#34;matrizes&#34;&gt;Matrizes&lt;/h3&gt;
 
-&lt;p&gt;Matrizes săo vetores com duas dimensőes (e por isso só possuem elementos de uma mesma classe).&lt;/p&gt;
+&lt;p&gt;Matrizes são vetores com duas dimensões (e por isso só possuem elementos de uma mesma classe).&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;m &amp;lt;- matrix(1:6, nrow = 2, ncol = 3)
 m
@@ -582,7 +582,7 @@ dim(m) # funçăo dim() retorna a dimensăo do objeto.
 ## [1] 2 3
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Repare que os números de 1 a 6 foram dispostos na matriz de coluna a coluna (&lt;em&gt;column-wise&lt;/em&gt;), ou seja, preenchendo de cima para baixo e depois da esquerda para a direita.&lt;/p&gt;
+&lt;p&gt;Repare que os números de 1 a 6 foram dispostos na matriz coluna por coluna (&lt;em&gt;column-wise&lt;/em&gt;), ou seja, preenchendo de cima para baixo e depois da esquerda para a direita.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Utilidades&lt;/strong&gt;&lt;/p&gt;
 
@@ -607,9 +607,9 @@ as.numeric(fator)
 ## [1] 2 1 1 1 2 2 1
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Eles são úteis para representar uma variável categórica (nominal e ordinal) e têm relevância em modelagem, onde serão tratados de maneira especial em funções como &lt;code&gt;glm()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Eles são úteis para representar uma variável categórica (nominal e ordinal). Na modelagem, eles serão tratados de maneira especial em funções como &lt;code&gt;lm()&lt;/code&gt; e &lt;code&gt;glm()&lt;/code&gt;.&lt;/p&gt;
 
-&lt;p&gt;A funçăo &lt;code&gt;levels()&lt;/code&gt; retorna os rótulos do fator:&lt;/p&gt;
+&lt;p&gt;A função &lt;code&gt;levels()&lt;/code&gt; retorna os rótulos do fator:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;levels(fator)
 ## [1] &amp;quot;H&amp;quot; &amp;quot;M&amp;quot;
@@ -622,7 +622,7 @@ as.numeric(fator)
 Um erro comum e desastroso
 &lt;/p&gt;
 &lt;p&gt;
-Quando um vetor de números está como `factor`. Ao tentar transformar o vetor em `numeric`, você receberá um vetor de inteiros que não tem nada a ver com os valores originais!
+Quando um vetor de números está como **factor**, ao tentar transformar o vetor em **numeric**, você receberá um vetor de inteiros que não tem nada a ver com os valores originais!
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -641,13 +641,13 @@ Quando um vetor de números está como `factor`. Ao tentar transformar o vetor e
 
 &lt;h3 id=&#34;valores-especiais&#34;&gt;Valores especiais&lt;/h3&gt;
 
-&lt;p&gt;Existem valores reservados para representar dados faltantes, infinitos, e indefiniçőes matemáticas.&lt;/p&gt;
+&lt;p&gt;Existem valores reservados para representar dados faltantes, infinitos, e indefinições matemáticas.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;NA&lt;/strong&gt; (Not Available) significa dado faltante/indisponível. É o &lt;code&gt;null&lt;/code&gt; do SQL ou o &lt;code&gt;.&lt;/code&gt; do SAS. O &lt;code&gt;NA&lt;/code&gt; tem uma classe, podemos ter &lt;code&gt;NA&lt;/code&gt; numeric, &lt;code&gt;NA&lt;/code&gt; character e etc.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NA&lt;/strong&gt; (Not Available) significa dado faltante/indisponível. É o &lt;code&gt;null&lt;/code&gt; do SQL ou o &lt;code&gt;.&lt;/code&gt; do SAS. O &lt;code&gt;NA&lt;/code&gt; tem uma classe, ou seja, podemos ter &lt;code&gt;NA&lt;/code&gt; numeric, &lt;code&gt;NA&lt;/code&gt; character etc.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;NaN&lt;/strong&gt; (Not a Number) representa indefinições matemáticas, como &lt;code&gt;0/0&lt;/code&gt; e &lt;code&gt;log(-1)&lt;/code&gt;. Um &lt;code&gt;NaN&lt;/code&gt; é um &lt;code&gt;NA&lt;/code&gt;, mas a recíproca não é verdadeira.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Inf&lt;/strong&gt; (Infinito) é um número muito grande ou o limite matemático, por exemplo, &lt;code&gt;1/0&lt;/code&gt; e &lt;code&gt;10^310&lt;/code&gt;. Aceita sinal negativo &lt;code&gt;-Inf&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;NULL&lt;/strong&gt; representa a ausęncia de informação. Conceitualmente, a diferença entre &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;NULL&lt;/code&gt; é sutil, mas no R o &lt;code&gt;NA&lt;/code&gt; está mais alinhado com os conceitos de estatística (ou como gostaríamos que os dados faltantes se comportassem em análise de dados) e o &lt;code&gt;NULL&lt;/code&gt; está em sintonia com comportamentos de lógica de programação.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;NULL&lt;/strong&gt; representa a ausência de informação. Conceitualmente, a diferença entre &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;NULL&lt;/code&gt; é sutil, mas, no R, o &lt;code&gt;NA&lt;/code&gt; está mais alinhado com os conceitos de estatística (ou como gostaríamos que os dados faltantes se comportassem em análise de dados) e o &lt;code&gt;NULL&lt;/code&gt; está em sintonia com comportamentos de lógica de programação.&lt;/li&gt;
 &lt;li&gt;Use as funções &lt;code&gt;is.na()&lt;/code&gt;, &lt;code&gt;is.nan()&lt;/code&gt;, &lt;code&gt;is.infinite()&lt;/code&gt; e &lt;code&gt;is.null()&lt;/code&gt; para testar se um objeto é um desses valores.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -677,11 +677,11 @@ x
 ## [1] &amp;quot;a&amp;quot; &amp;quot;b&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;É um dos objetos mais importantes para armazenar dados e vale a pena saber manuseá-los bem. Existem muitas funçães que fazem das listas objetos incrivelmente úteis.&lt;/p&gt;
+&lt;p&gt;É um dos objetos mais importantes para armazenar dados e vale a pena saber manuseá-los bem. Existem muitas funções que fazem das listas objetos incrivelmente úteis.&lt;/p&gt;
 
-&lt;p&gt;Criamos uma lista pela função &lt;code&gt;list()&lt;/code&gt;, que aceita um número arbitrário de elementos. Listas aceitam QUALQUER tipo de objeto. Podemos ter listas dentro de listas, por exemplo. Como para quase todos os objetos no R, as funçőes &lt;code&gt;is.list()&lt;/code&gt; e &lt;code&gt;as.list()&lt;/code&gt; também existem.&lt;/p&gt;
+&lt;p&gt;Criamos uma lista pela função &lt;code&gt;list()&lt;/code&gt;, que aceita um número arbitrário de elementos. Listas aceitam QUALQUER tipo de objeto. Podemos ter listas dentro de listas, por exemplo. Como para quase todos os objetos no R, as funções &lt;code&gt;is.list()&lt;/code&gt; e &lt;code&gt;as.list()&lt;/code&gt; também existem.&lt;/p&gt;
 
-&lt;p&gt;Na lista &lt;code&gt;pedido&lt;/code&gt; abaixo temos &lt;code&gt;numeric&lt;/code&gt;, &lt;code&gt;Date&lt;/code&gt;, &lt;code&gt;character&lt;/code&gt;, vetor de &lt;code&gt;character&lt;/code&gt; e &lt;code&gt;list&lt;/code&gt; contida em uma lista:&lt;/p&gt;
+&lt;p&gt;Na lista &lt;code&gt;pedido&lt;/code&gt; abaixo, temos &lt;code&gt;numeric&lt;/code&gt;, &lt;code&gt;Date&lt;/code&gt;, &lt;code&gt;character&lt;/code&gt;, vetor de &lt;code&gt;character&lt;/code&gt; e &lt;code&gt;list&lt;/code&gt; contida em uma lista:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pedido &amp;lt;- list(pedido_id = 8001406,
                pedido_registro = as.Date(&amp;quot;2016-12-12&amp;quot;),
@@ -716,26 +716,26 @@ pedido[[2]]    # segundo elemento
 pedido[&amp;quot;nome&amp;quot;] # nova lista com apenas o elemento chamado &#39;nome&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Certamente você se deparará com listas quando for fazer análise de dados com o R, nos tópicos mais aplicados iremos aprofundar sobre o tema. O pacote &lt;a href=&#34;https://github.com/hadley/purrr&#34;&gt;purrr&lt;/a&gt; contribui com funcionalidades incríveis para listas.&lt;/p&gt;
+&lt;p&gt;Certamente você se deparará com listas quando for fazer análise de dados com o R. Nos tópicos mais aplicados, iremos aprofundar sobre o tema. O pacote &lt;a href=&#34;https://github.com/hadley/purrr&#34;&gt;purrr&lt;/a&gt; contribui com funcionalidades incríveis para listas.&lt;/p&gt;
 
-&lt;h3 id=&#34;data-frame&#34;&gt;&lt;code&gt;data.frame&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;data-frame&#34;&gt;data.frame&lt;/h3&gt;
 
 &lt;p&gt;Um &lt;code&gt;data.frame&lt;/code&gt; é o mesmo que uma tabela do SQL ou um spreadsheet do Excel, por isso são objetos muito importantes.&lt;/p&gt;
 
-&lt;p&gt;Usualmente seus dados serão importados para um objeto &lt;code&gt;data.frame&lt;/code&gt; e em grande parte do curso os teremos como principal objeto de estudo.&lt;/p&gt;
+&lt;p&gt;Usualmente, seus dados serão importados para um objeto &lt;code&gt;data.frame&lt;/code&gt;. Em grande parte do curso, eles serão o principal objeto de estudo.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;data.frame&lt;/code&gt;s são listas especiais em que todos os seus elementos possuem &lt;strong&gt;o mesmo comprimento&lt;/strong&gt;. Cada elemento dessa lista pode ser pensado como uma coluna da tabela e seu comprimento representa o número de linhas.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;data.frame&lt;/code&gt;&amp;rsquo;s são listas especiais em que todos os seus elementos possuem &lt;strong&gt;o mesmo comprimento&lt;/strong&gt;. Cada elemento dessa lista pode ser pensado como uma coluna da tabela. Seu comprimento representa o número de linhas.&lt;/p&gt;
 
-&lt;p&gt;Já que são listas, essas colunas podem ser de classes diferentes. Essa é a grande diferença entre &lt;code&gt;data.frame&lt;/code&gt;s e matrizes. Algumas funções úteis:&lt;/p&gt;
+&lt;p&gt;Já que são listas, essas colunas podem ser de classes diferentes. Essa é a grande diferença entre &lt;code&gt;data.frame&lt;/code&gt;&amp;rsquo;s e matrizes. Algumas funções úteis:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;head()&lt;/code&gt; Mostra as primeiras 6 linhas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;tail()&lt;/code&gt; Mostra as últimas 6 linhas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;dim()&lt;/code&gt; Número de linhas e de colunas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;names()&lt;/code&gt; Os nomes das colunas (variáveis).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;str()&lt;/code&gt; Estrutura do data.frame. Mostra, entre outras coisas, as classes de cada coluna.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;cbind()&lt;/code&gt; Acopla duas tabelas lado a lado.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rbind()&lt;/code&gt; Empilha duas tabelas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;head()&lt;/code&gt; - Mostra as primeiras 6 linhas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;tail()&lt;/code&gt; - Mostra as últimas 6 linhas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dim()&lt;/code&gt; - Número de linhas e de colunas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;names()&lt;/code&gt; - Os nomes das colunas (variáveis).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;str()&lt;/code&gt; - Estrutura do data.frame. Mostra, entre outras coisas, as classes de cada coluna.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cbind()&lt;/code&gt; - Acopla duas tabelas lado a lado.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rbind()&lt;/code&gt; - Empilha duas tabelas.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;O exemplo abaixo mostra que uma lista pode virar &lt;code&gt;data.frame&lt;/code&gt; se todos os elementos tiverem o mesmo comprimento.&lt;/p&gt;
@@ -776,13 +776,13 @@ str(iris)
 
 &lt;h2 id=&#34;funções&#34;&gt;Funções&lt;/h2&gt;
 
-&lt;p&gt;O R vem com muitas funções implementadas com as quais você pode fazer muitas  tarefas complicadas, como gerar números aleatórios. Geralmente o nome das funções é bem intuitivo, por exemplo &lt;code&gt;mean&lt;/code&gt; é a função que calcula a média, &lt;code&gt;round&lt;/code&gt; é a função que arredonda um número, etc.&lt;/p&gt;
+&lt;p&gt;O R vem com muitas funções implementadas com as quais você pode fazer muitas  tarefas complicadas, como gerar números aleatórios. Geralmente, o nome das funções é bem intuitivo, por exemplo, &lt;code&gt;mean&lt;/code&gt; é a função que calcula a média, &lt;code&gt;round&lt;/code&gt; é a função que arredonda um número etc.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;round(5.634)
 ## [1] 6
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Para entender melhor o funcionamento das funções no R considere o seguinte exemplo.&lt;/p&gt;
+&lt;p&gt;Para entender melhor o funcionamento das funções no R, considere o seguinte exemplo:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;die &amp;lt;- 1:6
 round(mean(die))
@@ -805,16 +805,16 @@ round(mean(die))
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;A função acima tem&lt;/p&gt;
+&lt;p&gt;A função acima tem:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;o nome &lt;code&gt;soma&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;os argumentos &lt;code&gt;x&lt;/code&gt; e &lt;code&gt;y&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;o corpo &lt;code&gt;resposta &amp;lt;- x + y&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;o valor padrão &lt;code&gt;0&lt;/code&gt; para o argumento &lt;code&gt;y&lt;/code&gt; (&lt;code&gt;y = 0&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;o nome &lt;code&gt;soma&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;os argumentos &lt;code&gt;x&lt;/code&gt; e &lt;code&gt;y&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;o corpo &lt;code&gt;resposta &amp;lt;- x + y&lt;/code&gt;; e&lt;/li&gt;
+&lt;li&gt;o valor padrão &lt;code&gt;0&lt;/code&gt; para o argumento &lt;code&gt;y&lt;/code&gt; (&lt;code&gt;y = 0&lt;/code&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Para usá-la é como qualquer outra função:&lt;/p&gt;
+&lt;p&gt;Use-a como qualquer outra função:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;soma(2, 1) # soma de 2 + 1
 ## [1] 3
@@ -822,19 +822,19 @@ soma(2) # soma de 2 + 0
 ## [1] 2
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Atente-se que o argumento &lt;code&gt;y&lt;/code&gt; possui um valor padrão &lt;code&gt;0&lt;/code&gt;. Isso quer dizer que ele valerá zero caso o usuário não passe nenhum valor a ele explicitamente.&lt;/p&gt;
+&lt;p&gt;O argumento &lt;code&gt;y&lt;/code&gt; possui o valor padrão &lt;code&gt;0&lt;/code&gt;. Isso quer dizer que ele valerá zero caso o usuário não passe um valor explicitamente.&lt;/p&gt;
 
 &lt;p&gt;O &lt;a href=&#34;http://adv-r.had.co.nz/&#34;&gt;Advanced-R&lt;/a&gt; é um excelente livro para quem quiser masterizar a arte de se fazer funções.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;gráficos-base&#34;&gt;Gráficos - base&lt;/h2&gt;
+&lt;h2 id=&#34;gráficos-base&#34;&gt;Gráficos (base)&lt;/h2&gt;
 
 &lt;p&gt;O R já vem com funções básicas que fazem gráficos estatísticos de todas as naturezas.&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Vantagens: São rápidas e simples.&lt;/li&gt;
-&lt;li&gt;Desvantagens: São feias e difíceis para gerar gráficos complexos.&lt;/li&gt;
+&lt;li&gt;Vantagens: são rápidas e simples.&lt;/li&gt;
+&lt;li&gt;Desvantagens: são feias e difíceis para gerar gráficos complexos.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;gráfico-de-dispersão&#34;&gt;Gráfico de dispersão&lt;/h3&gt;
@@ -844,8 +844,8 @@ soma(2) # soma de 2 + 0
 &lt;p&gt;Parâmetros principais (ver &lt;code&gt;help(hist)&lt;/code&gt; para mais detalhes):&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; Vetores para representarem os eixos x e y.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;type&lt;/code&gt; Tipo de gráfico. Pode ser pontos, linhas, escada e etc.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;x&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; - Vetores para representarem os eixos x e y.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;type&lt;/code&gt; -  Tipo de gráfico. Pode ser pontos, linhas, escada etc.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;div class=&#39;admonition note&#39;&gt;
@@ -853,7 +853,7 @@ soma(2) # soma de 2 + 0
 Atenção!
 &lt;/p&gt;
 &lt;p&gt; 
-Além de gerar gráficos de dispersão, tentar chamar a função `plot(objeto_diferentao)` para qualquer tipo de objeto do R geralmente sai um gráfico interessante! Sempre tente fazer isso. A menos que seu objeto seja um `data.frame` com milhares de colunas!!!
+Além de gerar gráficos de dispersão, tentar chamar a função `plot(objeto_diferentao)` para qualquer tipo de objeto do R geralmente sai um gráfico interessante! Sempre tente fazer isso, a menos que seu objeto seja um `data.frame` com milhares de colunas!!!
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -879,8 +879,8 @@ plot(x, y)
 &lt;p&gt;Parâmetros principais (ver &lt;code&gt;help(hist)&lt;/code&gt; para mais detalhes):&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;x&lt;/code&gt; O vetor numérico pra histogramar.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;breaks&lt;/code&gt; O número (aproximado) de retângulos.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;x&lt;/code&gt; - O vetor numérico pra histogramar.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;breaks&lt;/code&gt; - O número (aproximado) de retângulos.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hist(rnorm(1000))
@@ -901,7 +901,7 @@ plot(x, y)
 
 &lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-61-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-61&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Duas variáveis&lt;/strong&gt; Usamos fórmula e o parâmetro &lt;code&gt;data&lt;/code&gt;!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Duas variáveis&lt;/strong&gt; - Usamos fórmula e o parâmetro &lt;code&gt;data&lt;/code&gt;!&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;boxplot(count ~ spray, data = InsectSprays, col = &amp;quot;lightgray&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
@@ -912,11 +912,13 @@ plot(x, y)
 
 &lt;p&gt;&lt;strong&gt;Função&lt;/strong&gt; &lt;code&gt;table()&lt;/code&gt;, &lt;code&gt;barplot()&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;Primeiro crie uma tabela de contagens (ou qualquer outro sumário) e depois crie o gráfico com &lt;code&gt;barplot()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Primeiro crie uma tabela de frequências (ou qualquer outro sumário). Então crie o gráfico com &lt;code&gt;barplot()&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Tabela com uma variável&lt;/strong&gt; usando &lt;code&gt;table()&lt;/code&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;data(diamonds, package = &amp;quot;ggplot2&amp;quot;)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+## Error in library(ggplot2): there is no package called &#39;ggplot2&#39;
+data(diamonds, package = &amp;quot;ggplot2&amp;quot;)
 ## Error in find.package(package, lib.loc, verbose = verbose): there is no package called &#39;ggplot2&#39;
 tabela &amp;lt;- table(diamonds$color)
 ## Error in table(diamonds$color): object &#39;diamonds&#39; not found
@@ -949,9 +951,9 @@ class(formula)
 ## [1] &amp;quot;formula&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Fórmulas são coisas do tipo &lt;code&gt;y ~ x&lt;/code&gt; e as funções as usam de maneiras diversas, mas o exemplo mais emblemático vem da modelagem estatística.&lt;/p&gt;
+&lt;p&gt;Fórmulas são coisas do tipo &lt;code&gt;y ~ x&lt;/code&gt;. As funções as usam de maneiras diversas, mas o exemplo mais emblemático vem da modelagem estatística.&lt;/p&gt;
 
-&lt;p&gt;A função &lt;code&gt;lm()&lt;/code&gt; é a que ajusta uma regressão linear no R e &lt;code&gt;lm(y ~ x)&lt;/code&gt; lê-se &amp;ldquo;regressão linear de y explicada por x&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;A função &lt;code&gt;lm()&lt;/code&gt; é a que ajusta uma regressão linear no R, e &lt;code&gt;lm(y ~ x)&lt;/code&gt; lê-se &amp;ldquo;regressão linear de y explicada por x&amp;rdquo;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;minha_formula &amp;lt;- Sepal.Width ~ Petal.Length + Petal.Width
 class(minha_formula)
@@ -968,7 +970,7 @@ lm(minha_formula, data = iris)
 
 &lt;p&gt;No caso específico das regressões lineares, são nas fórmulas que conseguimos descrever as variáveis explicativas e suas interações. A fórmula &lt;code&gt;y ~ x1 * x2&lt;/code&gt; significa &amp;ldquo;y regredido por x1, x2 e a interação entre x1 e x2&amp;rdquo;. Fórmulas aparecem frequentemente em tarefas de modelagem.&lt;/p&gt;
 
-&lt;p&gt;Demais usos de fórmulas aparecerão em outras funções (como o &lt;code&gt;ggplot&lt;/code&gt;) com outros significados e a documentação nos dirá como usá-las.&lt;/p&gt;
+&lt;p&gt;Demais usos de fórmulas aparecerão em outras funções (como o &lt;code&gt;ggplot&lt;/code&gt;) com outros significados, e a documentação nos dirá como usá-las.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -997,37 +999,37 @@ LETTERS
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;x + y&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Adição de x com y&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Adição de x com y.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;x - y&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Subtração de y em x&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Subtração de y em x.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;x * y&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Multiplicaçăo de x e y&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Multiplicaçăo de x e y.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;x / y&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Divisão de x por y&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Divisão de x por y.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;x^y ou x**y&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;x elevado a y-ésima potência&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;x elevado a y-ésima potência.&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;x%%y&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Resto da divisão de x por y (módulo)&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Resto da divisão de x por y (módulo).&lt;/td&gt;
 &lt;/tr&gt;
 
 &lt;tr&gt;
 &lt;td align=&#34;left&#34;&gt;x%/%y&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Parte inteira da divisão de x por y&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Parte inteira da divisão de x por y.&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -1144,7 +1146,7 @@ x
 &lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54In0=&lt;/div&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Como você faria para que o código da pergunta anterior fizesse com que &lt;code&gt;&#39;isso aqui apareceu&#39;&lt;/code&gt; fosse impresso no console mas nenhum erro aparecesse?&lt;/li&gt;
+&lt;li&gt;Como você faria para que o código da pergunta anterior fizesse com que &lt;code&gt;&#39;isso aqui apareceu&#39;&lt;/code&gt; fosse impresso no console, mas nenhum erro aparecesse?&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54Iiwic29sdXRpb24iOiJ4IDwtIDRcbmlmKHggPT0gNCkge1xuICAnaXNzbyBhcXVpIGFwYXJlY2V1J1xufVxueCIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiaXNzbyBhcXVpIGFwYXJlY2V1XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxudGVzdF9lcnJvcigpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
@@ -1170,6 +1172,8 @@ x
 &lt;/ol&gt;
 
 &lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE5hTiBcdTAwZTkgbyByZXN1bHRhZG8gZGUgdW1hIG9wZXJhXHUwMGU3XHUwMGUzbyBtYXRlbVx1MDBlMXRpY2EgaW52XHUwMGUxbGlkYS4gU2lnbmlmaWNhIE5vdCBBIE51bWJlclxuMC8wXG4jIE5VTEwgXHUwMGU5IG8gdmF6aW8gZG8gUi4gXHUwMGM5IGNvbW8gc2UgbyBvYmpldG8gblx1MDBlM28gZXhpc3Rpc3NlXG5OVUxMXG5hID0gTlVMTFxuaXMubnVsbChpbnRlZ2VyKGxlbmd0aCA9IDApKSAjIHZlamEgcXVlIHVtIHZldG9yLCBtZXNtbyBzZW0gZWxlbWVudG9zIG5cdTAwZTNvIFx1MDBlOSBOVUxMXG4jIE5BIFx1MDBlOSB1bWEgY29uc3RhbnRlIGxcdTAwZjNnaWNhIGRvIFIuIFNpZ2luaWZpY2EgTm90IEF2YWlsbGFibGUuIE5BIHBvZGUgc2VyIFxuIyBjb252ZXJ0aWRvIHBhcmEgcXVhc2UgdG9kb3Mgb3MgdGlwb3MgZGUgdmV0b3JlcyBkbyBSLiBcdTAwYzkgdXNhZG8gcHJpbmNpcGFsbWVudGUgcGFyYVxuIyBpbmRpY2FyIHZhbG9yZXMgZmFsdGFudGVzLlxuTkFcbiMgSW5mIFx1MDBlOSBzaWduaWZpY2EgaW5maW5pdG8uIFx1MDBjOSBvIHJlc3VsdGFkbyBkZSBvcGVyYVx1MDBlN1x1MDBmNWVzIG1hdGVtXHUwMGUxdGljYXMgY3VqbyBsaW1pdGUgXHUwMGU5IGluZmluaXRvLlxuMS8wXG4xL0luZiJ9&lt;/div&gt;
+
+&lt;p&gt;4.&lt;/p&gt;
 
 &lt;p&gt;5.&lt;/p&gt;
 
@@ -1226,7 +1230,7 @@ x
     <item>
       <title>Modelagem</title>
       <link>/modelos/</link>
-      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 02 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/modelos/</guid>
       <description>
@@ -1263,6 +1267,8 @@ Em seguida abordaremos superficialmente alguns conceitos de aprendizado
 não-supervisionado. Todos esses conceitos serão apresentados com exemplos práticos
 usando o R.&lt;/p&gt;
 
+&lt;p&gt;Uma introdução bem interessante ao tema pode ser encontrada &lt;a href=&#34;http://www.r2d3.us/visual-intro-to-machine-learning-part-1/&#34;&gt;aqui&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;Para se aprofundar mais no assunto os seguintes links são ótimas referências.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -1272,10 +1278,35 @@ usando o R.&lt;/p&gt;
 
 &lt;h2 id=&#34;aprendizado-supervisionado&#34;&gt;Aprendizado Supervisionado&lt;/h2&gt;
 
-&lt;p&gt;Suponha que você observou uma variável resposta $Y$ e $p$ diferentes variáveis
-explicativas $X_1, X_2, &amp;hellip;, X_p$. Assumimos que existe alguma relação entre $Y$
-e $X = (X_1, X_2, &amp;hellip;, X_p)$. Podemos denotar matematicamente esta relação como
-na seguinte equação:&lt;/p&gt;
+&lt;p&gt;Em aprendizado supervisionado é necessário em primeiro lugar definir qual é a sua variável
+resposta ou variável dependente (Frequentemente chamada de $Y$). Deve-se tomar muito
+cuidado ao definí-la para que o modelo responda exatamente o que você está
+querendo saber.&lt;/p&gt;
+
+&lt;p&gt;A variável resposta pode ser a quantidade de compras que um cliente fará no
+próximo mês, o preço do aluguel de uma casa, uma variável binária indicando se
+um cliente não pagará a fatura no próximo mês. Existem variáveis resposta que
+não são preditivas também, por exemplo: dada uma imagem de um número escrito a
+mão, qual número está escrito nela.&lt;/p&gt;
+
+&lt;p&gt;Em seguida, definimos quais serão as informações que auxiliarão a prever essa
+variável resposta. Essas variáveis são chamadas de variáveis explicativas, variáveis
+independentes ou simplesmente $X$.&lt;/p&gt;
+
+&lt;p&gt;Para a quantidade de compras que um cliente fará no próximo mês essas variáveis
+podem ser quantidade de compras que o cliente fez neste mês, o gasto que ele teve neste mês,
+quantas vezes ele frequentou a minha loja no último ano, etc.&lt;/p&gt;
+
+&lt;p&gt;Um vetor da forma $(Y, X_1, X_2, &amp;hellip;, X_p)$ representa uma observação. Para usar
+qualquer algoritmo de aprendizado de máquina, você precisará de um número suficiente
+de observações. O número de observações vai depender da complexidade do algoritmo
+que você quiser utilizar, da disponibilidade de observações entre outros motivos.&lt;/p&gt;
+
+&lt;p&gt;De uma forma um pouco mais formal, podemos explciar o Aprendizado Supervisionado
+da seguinte forma. Suponha que você observou uma variável resposta $Y$ e $p$
+diferentes variáveis explicativas $X_1, X_2, &amp;hellip;, X_p$. Assumimos que existe alguma
+relação entre $Y$ e $X = (X_1, X_2, &amp;hellip;, X_p)$. Podemos denotar matematicamente
+esta relação como na seguinte equação:&lt;/p&gt;
 
 &lt;p&gt;$$Y = f(X) + \epsilon$$&lt;/p&gt;
 
@@ -1300,6 +1331,9 @@ forma paramétrica para ela, em outros não. Alguns exemplos de algoritmos são:
 que trazem melhores resultados ou não.&lt;/p&gt;
 
 &lt;h2 id=&#34;regressão-linear&#34;&gt;Regressão Linear&lt;/h2&gt;
+
+&lt;p&gt;Na introdução ao aprendizado supervisionado, vimos que o objetivo é sempre estimar
+uma função $f$ tal que $y = f(x) + \epsilon$.&lt;/p&gt;
 
 &lt;p&gt;O modelo linear assume que a função $f$ é uma função linear de modo que a formulação
 do apredizado supervisionado pode ser reescrita da seguinte forma:&lt;/p&gt;
@@ -1412,7 +1446,7 @@ informações disponíveis quando vê a estrutura do objeto &lt;code&gt;ajuste&l
 ##   .. ..- attr(*, &amp;quot;order&amp;quot;)= int 1
 ##   .. ..- attr(*, &amp;quot;intercept&amp;quot;)= int 1
 ##   .. ..- attr(*, &amp;quot;response&amp;quot;)= int 1
-##   .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x39ddf40&amp;gt; 
+##   .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x2577f40&amp;gt; 
 ##   .. ..- attr(*, &amp;quot;predvars&amp;quot;)= language list(BODYFAT, WEIGHT)
 ##   .. ..- attr(*, &amp;quot;dataClasses&amp;quot;)= Named chr [1:2] &amp;quot;numeric&amp;quot; &amp;quot;numeric&amp;quot;
 ##   .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr [1:2] &amp;quot;BODYFAT&amp;quot; &amp;quot;WEIGHT&amp;quot;
@@ -1425,7 +1459,7 @@ informações disponíveis quando vê a estrutura do objeto &lt;code&gt;ajuste&l
 ##   .. .. ..- attr(*, &amp;quot;order&amp;quot;)= int 1
 ##   .. .. ..- attr(*, &amp;quot;intercept&amp;quot;)= int 1
 ##   .. .. ..- attr(*, &amp;quot;response&amp;quot;)= int 1
-##   .. .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x39ddf40&amp;gt; 
+##   .. .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x2577f40&amp;gt; 
 ##   .. .. ..- attr(*, &amp;quot;predvars&amp;quot;)= language list(BODYFAT, WEIGHT)
 ##   .. .. ..- attr(*, &amp;quot;dataClasses&amp;quot;)= Named chr [1:2] &amp;quot;numeric&amp;quot; &amp;quot;numeric&amp;quot;
 ##   .. .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr [1:2] &amp;quot;BODYFAT&amp;quot; &amp;quot;WEIGHT&amp;quot;
@@ -1536,6 +1570,19 @@ o erro dentro da mesma base de dados que utilizamos para ajustar o modelo. Isso 
 considerado uma má prática, pois podemos facilmente esbarrar em uma situação de
 &lt;em&gt;superajuste&lt;/em&gt; ou &lt;em&gt;overfitting&lt;/em&gt;.&lt;/p&gt;
 
+&lt;h3 id=&#34;recapitulando&#34;&gt;Recapitulando&lt;/h3&gt;
+
+&lt;p&gt;Ajustar um modelo de regressão linear no R é muito simples.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Usamos a função &lt;code&gt;lm&lt;/code&gt; que recebe uma fórmula de especificação do modelo e um data.frame.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;lm&lt;/code&gt; retorna um obejto do tipo &lt;code&gt;lm&lt;/code&gt;, que é uma &lt;code&gt;list&lt;/code&gt; que armazena diversas informações sobre o ajuste.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;summary&lt;/code&gt; e a função &lt;code&gt;str&lt;/code&gt; ajudam a identificar o conteúdo do objeto do modelo.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;predict&lt;/code&gt; é usada para aplicar o modelo em um novo banco de dados.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Essas funções são bem parecidas para qualquer modelo que você ajustar no R futuramente.&lt;/p&gt;
+
 &lt;h2 id=&#34;árvore-de-decisão&#34;&gt;Árvore  de Decisão&lt;/h2&gt;
 
 &lt;p&gt;Os modelos de árvore de decisão como vamos utilizar são implementados de acordo
@@ -1606,9 +1653,9 @@ usando a função &lt;code&gt;summary&lt;/code&gt;.&lt;/p&gt;
 ##           CP nsplit rel error    xerror       xstd
 ## 1 0.44444444      0 1.0000000 1.0000000 0.04244576
 ## 2 0.02339181      1 0.5555556 0.5555556 0.03574957
-## 3 0.01461988      2 0.5321637 0.5935673 0.03660811
-## 4 0.01169591      4 0.5029240 0.5672515 0.03602071
-## 5 0.01000000      6 0.4795322 0.5321637 0.03518794
+## 3 0.01461988      2 0.5321637 0.5760234 0.03621995
+## 4 0.01169591      4 0.5029240 0.5526316 0.03568079
+## 5 0.01000000      6 0.4795322 0.5058480 0.03452394
 ## 
 ## Variable importance
 ##    Sex Pclass    Age 

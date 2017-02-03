@@ -395,6 +395,8 @@ Em seguida abordaremos superficialmente alguns conceitos de aprendizado
 não-supervisionado. Todos esses conceitos serão apresentados com exemplos práticos
 usando o R.</p>
 
+<p>Uma introdução bem interessante ao tema pode ser encontrada <a href="http://www.r2d3.us/visual-intro-to-machine-learning-part-1/">aqui</a></p>
+
 <p>Para se aprofundar mais no assunto os seguintes links são ótimas referências.</p>
 
 <ul>
@@ -404,10 +406,35 @@ usando o R.</p>
 
 <h2 id="aprendizado-supervisionado">Aprendizado Supervisionado</h2>
 
-<p>Suponha que você observou uma variável resposta $Y$ e $p$ diferentes variáveis
-explicativas $X_1, X_2, &hellip;, X_p$. Assumimos que existe alguma relação entre $Y$
-e $X = (X_1, X_2, &hellip;, X_p)$. Podemos denotar matematicamente esta relação como
-na seguinte equação:</p>
+<p>Em aprendizado supervisionado é necessário em primeiro lugar definir qual é a sua variável
+resposta ou variável dependente (Frequentemente chamada de $Y$). Deve-se tomar muito
+cuidado ao definí-la para que o modelo responda exatamente o que você está
+querendo saber.</p>
+
+<p>A variável resposta pode ser a quantidade de compras que um cliente fará no
+próximo mês, o preço do aluguel de uma casa, uma variável binária indicando se
+um cliente não pagará a fatura no próximo mês. Existem variáveis resposta que
+não são preditivas também, por exemplo: dada uma imagem de um número escrito a
+mão, qual número está escrito nela.</p>
+
+<p>Em seguida, definimos quais serão as informações que auxiliarão a prever essa
+variável resposta. Essas variáveis são chamadas de variáveis explicativas, variáveis
+independentes ou simplesmente $X$.</p>
+
+<p>Para a quantidade de compras que um cliente fará no próximo mês essas variáveis
+podem ser quantidade de compras que o cliente fez neste mês, o gasto que ele teve neste mês,
+quantas vezes ele frequentou a minha loja no último ano, etc.</p>
+
+<p>Um vetor da forma $(Y, X_1, X_2, &hellip;, X_p)$ representa uma observação. Para usar
+qualquer algoritmo de aprendizado de máquina, você precisará de um número suficiente
+de observações. O número de observações vai depender da complexidade do algoritmo
+que você quiser utilizar, da disponibilidade de observações entre outros motivos.</p>
+
+<p>De uma forma um pouco mais formal, podemos explciar o Aprendizado Supervisionado
+da seguinte forma. Suponha que você observou uma variável resposta $Y$ e $p$
+diferentes variáveis explicativas $X_1, X_2, &hellip;, X_p$. Assumimos que existe alguma
+relação entre $Y$ e $X = (X_1, X_2, &hellip;, X_p)$. Podemos denotar matematicamente
+esta relação como na seguinte equação:</p>
 
 <p>$$Y = f(X) + \epsilon$$</p>
 
@@ -432,6 +459,9 @@ forma paramétrica para ela, em outros não. Alguns exemplos de algoritmos são:
 que trazem melhores resultados ou não.</p>
 
 <h2 id="regressão-linear">Regressão Linear</h2>
+
+<p>Na introdução ao aprendizado supervisionado, vimos que o objetivo é sempre estimar
+uma função $f$ tal que $y = f(x) + \epsilon$.</p>
 
 <p>O modelo linear assume que a função $f$ é uma função linear de modo que a formulação
 do apredizado supervisionado pode ser reescrita da seguinte forma:</p>
@@ -544,7 +574,7 @@ informações disponíveis quando vê a estrutura do objeto <code>ajuste</code> 
 ##   .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x39ddf40&gt; 
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x2577f40&gt; 
 ##   .. ..- attr(*, &quot;predvars&quot;)= language list(BODYFAT, WEIGHT)
 ##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
 ##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;BODYFAT&quot; &quot;WEIGHT&quot;
@@ -557,7 +587,7 @@ informações disponíveis quando vê a estrutura do objeto <code>ajuste</code> 
 ##   .. .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x39ddf40&gt; 
+##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x2577f40&gt; 
 ##   .. .. ..- attr(*, &quot;predvars&quot;)= language list(BODYFAT, WEIGHT)
 ##   .. .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
 ##   .. .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;BODYFAT&quot; &quot;WEIGHT&quot;
@@ -668,6 +698,19 @@ o erro dentro da mesma base de dados que utilizamos para ajustar o modelo. Isso 
 considerado uma má prática, pois podemos facilmente esbarrar em uma situação de
 <em>superajuste</em> ou <em>overfitting</em>.</p>
 
+<h3 id="recapitulando">Recapitulando</h3>
+
+<p>Ajustar um modelo de regressão linear no R é muito simples.</p>
+
+<ul>
+<li>Usamos a função <code>lm</code> que recebe uma fórmula de especificação do modelo e um data.frame.</li>
+<li>A função <code>lm</code> retorna um obejto do tipo <code>lm</code>, que é uma <code>list</code> que armazena diversas informações sobre o ajuste.</li>
+<li>A função <code>summary</code> e a função <code>str</code> ajudam a identificar o conteúdo do objeto do modelo.</li>
+<li>A função <code>predict</code> é usada para aplicar o modelo em um novo banco de dados.</li>
+</ul>
+
+<p>Essas funções são bem parecidas para qualquer modelo que você ajustar no R futuramente.</p>
+
 <h2 id="árvore-de-decisão">Árvore  de Decisão</h2>
 
 <p>Os modelos de árvore de decisão como vamos utilizar são implementados de acordo
@@ -738,9 +781,9 @@ usando a função <code>summary</code>.</p>
 ##           CP nsplit rel error    xerror       xstd
 ## 1 0.44444444      0 1.0000000 1.0000000 0.04244576
 ## 2 0.02339181      1 0.5555556 0.5555556 0.03574957
-## 3 0.01461988      2 0.5321637 0.5935673 0.03660811
-## 4 0.01169591      4 0.5029240 0.5672515 0.03602071
-## 5 0.01000000      6 0.4795322 0.5321637 0.03518794
+## 3 0.01461988      2 0.5321637 0.5760234 0.03621995
+## 4 0.01169591      4 0.5029240 0.5526316 0.03568079
+## 5 0.01000000      6 0.4795322 0.5058480 0.03452394
 ## 
 ## Variable importance
 ##    Sex Pclass    Age 

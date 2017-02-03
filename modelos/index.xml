@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Wed, 01 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 02 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/modelos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Modelagem</title>
       <link>/modelos/</link>
-      <pubDate>Wed, 01 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 02 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/modelos/</guid>
       <description>
@@ -50,6 +50,8 @@ Em seguida abordaremos superficialmente alguns conceitos de aprendizado
 não-supervisionado. Todos esses conceitos serão apresentados com exemplos práticos
 usando o R.&lt;/p&gt;
 
+&lt;p&gt;Uma introdução bem interessante ao tema pode ser encontrada &lt;a href=&#34;http://www.r2d3.us/visual-intro-to-machine-learning-part-1/&#34;&gt;aqui&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;Para se aprofundar mais no assunto os seguintes links são ótimas referências.&lt;/p&gt;
 
 &lt;ul&gt;
@@ -59,10 +61,35 @@ usando o R.&lt;/p&gt;
 
 &lt;h2 id=&#34;aprendizado-supervisionado&#34;&gt;Aprendizado Supervisionado&lt;/h2&gt;
 
-&lt;p&gt;Suponha que você observou uma variável resposta $Y$ e $p$ diferentes variáveis
-explicativas $X_1, X_2, &amp;hellip;, X_p$. Assumimos que existe alguma relação entre $Y$
-e $X = (X_1, X_2, &amp;hellip;, X_p)$. Podemos denotar matematicamente esta relação como
-na seguinte equação:&lt;/p&gt;
+&lt;p&gt;Em aprendizado supervisionado é necessário em primeiro lugar definir qual é a sua variável
+resposta ou variável dependente (Frequentemente chamada de $Y$). Deve-se tomar muito
+cuidado ao definí-la para que o modelo responda exatamente o que você está
+querendo saber.&lt;/p&gt;
+
+&lt;p&gt;A variável resposta pode ser a quantidade de compras que um cliente fará no
+próximo mês, o preço do aluguel de uma casa, uma variável binária indicando se
+um cliente não pagará a fatura no próximo mês. Existem variáveis resposta que
+não são preditivas também, por exemplo: dada uma imagem de um número escrito a
+mão, qual número está escrito nela.&lt;/p&gt;
+
+&lt;p&gt;Em seguida, definimos quais serão as informações que auxiliarão a prever essa
+variável resposta. Essas variáveis são chamadas de variáveis explicativas, variáveis
+independentes ou simplesmente $X$.&lt;/p&gt;
+
+&lt;p&gt;Para a quantidade de compras que um cliente fará no próximo mês essas variáveis
+podem ser quantidade de compras que o cliente fez neste mês, o gasto que ele teve neste mês,
+quantas vezes ele frequentou a minha loja no último ano, etc.&lt;/p&gt;
+
+&lt;p&gt;Um vetor da forma $(Y, X_1, X_2, &amp;hellip;, X_p)$ representa uma observação. Para usar
+qualquer algoritmo de aprendizado de máquina, você precisará de um número suficiente
+de observações. O número de observações vai depender da complexidade do algoritmo
+que você quiser utilizar, da disponibilidade de observações entre outros motivos.&lt;/p&gt;
+
+&lt;p&gt;De uma forma um pouco mais formal, podemos explciar o Aprendizado Supervisionado
+da seguinte forma. Suponha que você observou uma variável resposta $Y$ e $p$
+diferentes variáveis explicativas $X_1, X_2, &amp;hellip;, X_p$. Assumimos que existe alguma
+relação entre $Y$ e $X = (X_1, X_2, &amp;hellip;, X_p)$. Podemos denotar matematicamente
+esta relação como na seguinte equação:&lt;/p&gt;
 
 &lt;p&gt;$$Y = f(X) + \epsilon$$&lt;/p&gt;
 
@@ -87,6 +114,9 @@ forma paramétrica para ela, em outros não. Alguns exemplos de algoritmos são:
 que trazem melhores resultados ou não.&lt;/p&gt;
 
 &lt;h2 id=&#34;regressão-linear&#34;&gt;Regressão Linear&lt;/h2&gt;
+
+&lt;p&gt;Na introdução ao aprendizado supervisionado, vimos que o objetivo é sempre estimar
+uma função $f$ tal que $y = f(x) + \epsilon$.&lt;/p&gt;
 
 &lt;p&gt;O modelo linear assume que a função $f$ é uma função linear de modo que a formulação
 do apredizado supervisionado pode ser reescrita da seguinte forma:&lt;/p&gt;
@@ -199,7 +229,7 @@ informações disponíveis quando vê a estrutura do objeto &lt;code&gt;ajuste&l
 ##   .. ..- attr(*, &amp;quot;order&amp;quot;)= int 1
 ##   .. ..- attr(*, &amp;quot;intercept&amp;quot;)= int 1
 ##   .. ..- attr(*, &amp;quot;response&amp;quot;)= int 1
-##   .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x39ddf40&amp;gt; 
+##   .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x2577f40&amp;gt; 
 ##   .. ..- attr(*, &amp;quot;predvars&amp;quot;)= language list(BODYFAT, WEIGHT)
 ##   .. ..- attr(*, &amp;quot;dataClasses&amp;quot;)= Named chr [1:2] &amp;quot;numeric&amp;quot; &amp;quot;numeric&amp;quot;
 ##   .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr [1:2] &amp;quot;BODYFAT&amp;quot; &amp;quot;WEIGHT&amp;quot;
@@ -212,7 +242,7 @@ informações disponíveis quando vê a estrutura do objeto &lt;code&gt;ajuste&l
 ##   .. .. ..- attr(*, &amp;quot;order&amp;quot;)= int 1
 ##   .. .. ..- attr(*, &amp;quot;intercept&amp;quot;)= int 1
 ##   .. .. ..- attr(*, &amp;quot;response&amp;quot;)= int 1
-##   .. .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x39ddf40&amp;gt; 
+##   .. .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x2577f40&amp;gt; 
 ##   .. .. ..- attr(*, &amp;quot;predvars&amp;quot;)= language list(BODYFAT, WEIGHT)
 ##   .. .. ..- attr(*, &amp;quot;dataClasses&amp;quot;)= Named chr [1:2] &amp;quot;numeric&amp;quot; &amp;quot;numeric&amp;quot;
 ##   .. .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr [1:2] &amp;quot;BODYFAT&amp;quot; &amp;quot;WEIGHT&amp;quot;
@@ -323,6 +353,19 @@ o erro dentro da mesma base de dados que utilizamos para ajustar o modelo. Isso 
 considerado uma má prática, pois podemos facilmente esbarrar em uma situação de
 &lt;em&gt;superajuste&lt;/em&gt; ou &lt;em&gt;overfitting&lt;/em&gt;.&lt;/p&gt;
 
+&lt;h3 id=&#34;recapitulando&#34;&gt;Recapitulando&lt;/h3&gt;
+
+&lt;p&gt;Ajustar um modelo de regressão linear no R é muito simples.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Usamos a função &lt;code&gt;lm&lt;/code&gt; que recebe uma fórmula de especificação do modelo e um data.frame.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;lm&lt;/code&gt; retorna um obejto do tipo &lt;code&gt;lm&lt;/code&gt;, que é uma &lt;code&gt;list&lt;/code&gt; que armazena diversas informações sobre o ajuste.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;summary&lt;/code&gt; e a função &lt;code&gt;str&lt;/code&gt; ajudam a identificar o conteúdo do objeto do modelo.&lt;/li&gt;
+&lt;li&gt;A função &lt;code&gt;predict&lt;/code&gt; é usada para aplicar o modelo em um novo banco de dados.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Essas funções são bem parecidas para qualquer modelo que você ajustar no R futuramente.&lt;/p&gt;
+
 &lt;h2 id=&#34;árvore-de-decisão&#34;&gt;Árvore  de Decisão&lt;/h2&gt;
 
 &lt;p&gt;Os modelos de árvore de decisão como vamos utilizar são implementados de acordo
@@ -393,9 +436,9 @@ usando a função &lt;code&gt;summary&lt;/code&gt;.&lt;/p&gt;
 ##           CP nsplit rel error    xerror       xstd
 ## 1 0.44444444      0 1.0000000 1.0000000 0.04244576
 ## 2 0.02339181      1 0.5555556 0.5555556 0.03574957
-## 3 0.01461988      2 0.5321637 0.5935673 0.03660811
-## 4 0.01169591      4 0.5029240 0.5672515 0.03602071
-## 5 0.01000000      6 0.4795322 0.5321637 0.03518794
+## 3 0.01461988      2 0.5321637 0.5760234 0.03621995
+## 4 0.01169591      4 0.5029240 0.5526316 0.03568079
+## 5 0.01000000      6 0.4795322 0.5058480 0.03452394
 ## 
 ## Variable importance
 ##    Sex Pclass    Age 
