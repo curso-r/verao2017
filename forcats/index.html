@@ -369,24 +369,24 @@
 
 <p>Felizmente, depois de aprender a usar o <code>tidyverse</code> você não terá mais esse problema, pois o pacote <code>readr</code> não lê colunas de caracteres como fatores por padrão. Mas isso não significa que fatores são inúteis. Eles representam uma forma muito prática de lidar com variáveis categorizadas, tanto para fins de modelagem quanto para fins de visualização.</p>
 
-<p>Grande parte da frustração associada ao uso de fatores no R existe por conta da falta de algumas ferramentas úteis no pacote <code>base</code>. Para resolver esse o problema, Hadley Wickham ajudou a comunidade R (de novo) desenvolvendo o pacote <code>forcats</code>(<strong>for</strong> <strong>ca</strong>tegorial variable<strong>s</strong>), que implementa algumas dessas ferramentas.</p>
+<p>Grande parte da frustração associada ao uso de fatores no R existe por conta da falta de algumas ferramentas úteis no pacote <code>base</code>. Para resolver esse o problema, Hadley Wickham ajudou a comunidade R (de novo) desenvolvendo o pacote <code>forcats</code>(<strong>for</strong> <strong>cat</strong>egorial variable<strong>s</strong>), que implementa algumas dessas ferramentas.</p>
 
 <p>As principais funções do <code>forcats</code> servem para alterar a <strong>ordem</strong> e modificar os <strong>níveis</strong> de um fator. Para exemplificar a utilidade dessas funções, neste Power Up vamos utilizá-las em situações corriqueiras.</p>
 
 <h1 id="relembrando-o-que-são-fatores">Relembrando: o que são fatores?</h1>
 
-<p>Em R, fatores são estruturas de dados utilizadas para ordenar <code>strings</code>. Formalmente, um fator é definido como um vetor de <code>integers</code> com dois atributos específicos:</p>
+<p>No R, fatores são estruturas de dados utilizadas para ordenar <code>strings</code>. Formalmente, um fator é definido como um vetor de <code>integers</code> com dois atributos específicos:</p>
 
 <ul>
-<li><code>levels</code>: Um vetor de <code>strings</code> que indica a relação de ordem entre as variáveis.</li>
-<li><code>class</code>: A <code>string</code> atômica <code>&quot;factor&quot;</code>.</li>
+<li><code>levels</code>: m vetor de <code>strings</code> que indica a relação de ordem entre as variáveis.</li>
+<li><code>class</code>: a <code>string</code> atômica <code>&quot;factor&quot;</code>.</li>
 </ul>
 
 <p>Em modelos estatísticos clássicos, como ANOVA, é útil e adequado interpretar um vetor de textos como um vetor de números inteiros. O nome &ldquo;fator&rdquo;, inclusive, foi definido fazendo alusão à literatura estatística.</p>
 
 <h1 id="para-que-fatores-servem">Para que fatores servem?</h1>
 
-<p>Fatores são úteis porque facilitam a ordenação de vetores de texto, principalmente quando estamos fazendo gráficos. Nesta seção vamos exemplificar essa facilidade com um exemplo.</p>
+<p>Fatores são úteis porque facilitam a ordenação de vetores de texto, principalmente quando estamos fazendo gráficos. Nesta seção, vamos exemplificar essa facilidade com um exemplo.</p>
 
 <p>Considere que temos interesse em construir um gráfico que ilustre a diminuição da pressão sanguinea de um conjunto de indivíduos em função do restaurante em que acabaram de jantar. Para realizar esta tarefa, fomos à praça de alimentação de um shopping e anotamos as pressões arteriais de 10 voluntários conforme eles terminavam suas refeições nos restarantes Max Donalds, Frutaria da vila e Outlet.</p>
 
@@ -495,7 +495,7 @@ ggplot(aes(x = restaurante, y = pressao)) +
 <li>Funções que começam com <code>fct_</code>, que recebem uma lista de fatores e devolvem um fator.
 
 <ul>
-<li>Exemplo: <code>fct_c</code> recebe uma lista de fatores e devolve um fator que é a união dos anteriores.s
+<li>Exemplo: <code>fct_c</code> recebe uma lista de fatores e devolve um fator que é a união dos anteriores.
 <br /></li>
 </ul></li>
 </ul>
@@ -535,14 +535,14 @@ fator &lt;- forcats::lvls_revalue(fator, novos_niveis)
 
 <h2 id="principais-funções">Principais funções</h2>
 
-<p>Nesta seção vamos estudar o funcionamento das principais funções do <code>forcats</code> utilizando como motivação a visualização dos dados de uma base analisada pela Associação Brasileira de Jurimetria. A base foi simplificada para otimizar seu uso neste curso. Além disso, os dados passaram por um processo de anonimização, pois os resultados ainda não foram divulgados.</p>
+<p>Nesta seção, vamos estudar o funcionamento das principais funções do <code>forcats</code> utilizando como motivação a visualização dos dados de uma base analisada pela Associação Brasileira de Jurimetria. A base foi simplificada para otimizar seu uso neste curso. Além disso, os dados passaram por um processo de anonimização, pois os resultados ainda não foram divulgados.</p>
 
 <p>A base contém informações sobre uma amostra de vítimas de homicídios no município de São Paulo e é composta pelas seguintes variáveis:</p>
 
 <ul>
-<li><code>instrumento.usado</code>: Instrumento usado pelo crime.</li>
-<li><code>sexo.vítima</code>: Sexo da vítima.</li>
-<li><code>idade.vítima</code>: Idade da vítima.</li>
+<li><code>instrumento.usado</code>: instrumento usado pelo crime.</li>
+<li><code>sexo.vítima</code>: sexo da vítima.</li>
+<li><code>idade.vítima</code>: idade da vítima.</li>
 </ul>
 
 <h1 id="modificar-níveis-de-fatores">Modificar níveis de fatores</h1>
@@ -610,7 +610,7 @@ fator &lt;- forcats::lvls_revalue(fator, novos_niveis)
 </tbody>
 </table>
 
-<p>Como existe uma grande variabilidade de instrumentos, no que segue vamos reclassificar a variável <code>instrumento.usado</code> em um fator com níveis menos gerais.</p>
+<p>Como existe uma grande variabilidade de instrumentos, vamos reclassificar a variável <code>instrumento.usado</code> em um fator com níveis menos gerais.</p>
 
 <p>Para realizar essa tarefa, vamos utilizar a função <code>fct_collapse</code> e a função <code>fct_lump</code>. A função <code>fct_collapse</code> é uma generalização de uma outra função chamada <code>fct_recode</code>. A função <code>fct_collapse</code> recebe um fator e uma série nomeada de vetores de <code>strings</code>,  enquanto a função <code>fct_recode</code> recebe um fator e uma série de <code>strings</code> nomeadas. Já a função <code>fct_lump</code> transforma os níveis menos frequentes de um fator em um nível &ldquo;Outros&rdquo;.</p>
 
@@ -631,7 +631,7 @@ fct_lump(fator, 2, other_level = &quot;Outros&quot;)
 ## Levels: a b Outros
 </code></pre>
 
-<p>Voltando à nossa aplicação, vamos utilizar a função <code>fct_collapse</code> para recodificar a variável <code>instrumento.usado</code>. Após essa reclassificação, os níveis com poucas contagens serão convertido num nível &ldquo;Outros&rdquo; através do uso da função <code>fct_lump</code>:</p>
+<p>Voltando à nossa aplicação, vamos utilizar a função <code>fct_collapse</code> para recodificar a variável <code>instrumento.usado</code>. Após essa reclassificação, os níveis com poucas contagens serão convertidos em &ldquo;Outros&rdquo; por meio da função <code>fct_lump</code>:</p>
 
 <pre><code class="language-r">
 bd_enasp_abj &lt;- bd_enasp_abj %&gt;% 
@@ -731,7 +731,7 @@ bd_teste %&gt;%
 <p>No <code>forcats</code>, a reordenação equivalente a criar o fator novamente pode ser feita de três maneiras:</p>
 
 <ul>
-<li><code>lvl_reorder</code>, que reordena os níveis de um fator de acordo com um conjunto de índices. Recomenda-se o uso dessa função quando se quer reordenar os níveis de uma maneira facilmente parametrizável como uma permutação dos índices dos níveis. Um exemplo comum é quando se tem interesse em trocar a ordem dos níveis de crescente para decrescente.</li>
+<li><code>lvl_reorder</code>, que reordena os níveis de um fator de acordo com um conjunto de índices. Recomenda-se o uso dessa função quando se quer reordenar os níveis de uma maneira facilmente parametrizável, como uma permutação dos índices dos níveis. Um exemplo comum é trocar a ordem dos níveis de crescente para decrescente.</li>
 </ul>
 
 <pre><code class="language-r">
@@ -764,8 +764,7 @@ fct_reorder(fator, vetor, fun = mean)
 <pre><code class="language-r">
 fator &lt;- factor(c(&quot;a&quot;,&quot;a&quot;,&quot;a&quot;,&quot;b&quot;,&quot;b&quot;,&quot;c&quot;))
 
-
-#ordena os níveis de acordo com a média da variável vetor em cada nível
+#&quot;puxa&quot; os níveis &quot;b&quot; e &quot;c&quot; para o começo
 fct_relevel(fator, &quot;b&quot;,&quot;c&quot;)
 ## [1] a a a b b c
 ## Levels: b c a
@@ -773,14 +772,13 @@ fct_relevel(fator, &quot;b&quot;,&quot;c&quot;)
 
 <p>Na nossa aplicação, podemos utilizar tanto a função <code>lvls_reorder</code> quanto a função <code>fct_relevel</code>. O gráfico resultante ordena os níveis de instrumento.usado como queríamos.</p>
 
-<pre><code>## Error in mutate_impl(.data, dots): `idx` must contain one integer for each level of `f`
-</code></pre>
+<p><img src="figures//unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" width="60%" height="60%" /></p>
 
 <h1 id="fazendo-tudo-de-uma-vez">Fazendo tudo de uma vez</h1>
 
-<p>Nesta sessão vamos utilizar as funções para exemplificar utilizações do pacote <code>forcats</code> para visualizações.</p>
+<p>Nesta sessão, vamos utilizar as funções para exemplificar utilizações do pacote <code>forcats</code> para visualizações.</p>
 
-<p>A visualização abaixo ordena os níveis de &ldquo;instrumento.usado&rdquo; de acordo com a média de idade das vítimas de homicídio.</p>
+<p>A visualização abaixo ordena os níveis de &ldquo;instrumento.usado&rdquo; de acordo com a mediana da idade das vítimas de homicídio.</p>
 
 <pre><code class="language-r">bd_enasp_abj %&gt;%
   mutate(instrumento.usado = fct_reorder(instrumento.usado, `idade.vítima`, fun = median)) %&gt;% 
@@ -858,27 +856,11 @@ fct_relevel(fator, &quot;b&quot;,&quot;c&quot;)
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../modelos/" title="Modelagem">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Modelagem
-            </div>
-          </div>
-        </div>
-      </a>
-  
   </div>
 
   <div class="next">
   
-      <a href="../lubridate/" title="Introdução">
+      <a href="../rbase/" title="Introdução">
         <span class="direction">
           Next
         </span>

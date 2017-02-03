@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Tue, 31 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/forcats/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/forcats/</link>
-      <pubDate>Tue, 31 Jan 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/forcats/</guid>
       <description>
@@ -24,24 +24,24 @@
 
 &lt;p&gt;Felizmente, depois de aprender a usar o &lt;code&gt;tidyverse&lt;/code&gt; você não terá mais esse problema, pois o pacote &lt;code&gt;readr&lt;/code&gt; não lê colunas de caracteres como fatores por padrão. Mas isso não significa que fatores são inúteis. Eles representam uma forma muito prática de lidar com variáveis categorizadas, tanto para fins de modelagem quanto para fins de visualização.&lt;/p&gt;
 
-&lt;p&gt;Grande parte da frustração associada ao uso de fatores no R existe por conta da falta de algumas ferramentas úteis no pacote &lt;code&gt;base&lt;/code&gt;. Para resolver esse o problema, Hadley Wickham ajudou a comunidade R (de novo) desenvolvendo o pacote &lt;code&gt;forcats&lt;/code&gt;(&lt;strong&gt;for&lt;/strong&gt; &lt;strong&gt;ca&lt;/strong&gt;tegorial variable&lt;strong&gt;s&lt;/strong&gt;), que implementa algumas dessas ferramentas.&lt;/p&gt;
+&lt;p&gt;Grande parte da frustração associada ao uso de fatores no R existe por conta da falta de algumas ferramentas úteis no pacote &lt;code&gt;base&lt;/code&gt;. Para resolver esse o problema, Hadley Wickham ajudou a comunidade R (de novo) desenvolvendo o pacote &lt;code&gt;forcats&lt;/code&gt;(&lt;strong&gt;for&lt;/strong&gt; &lt;strong&gt;cat&lt;/strong&gt;egorial variable&lt;strong&gt;s&lt;/strong&gt;), que implementa algumas dessas ferramentas.&lt;/p&gt;
 
 &lt;p&gt;As principais funções do &lt;code&gt;forcats&lt;/code&gt; servem para alterar a &lt;strong&gt;ordem&lt;/strong&gt; e modificar os &lt;strong&gt;níveis&lt;/strong&gt; de um fator. Para exemplificar a utilidade dessas funções, neste Power Up vamos utilizá-las em situações corriqueiras.&lt;/p&gt;
 
 &lt;h1 id=&#34;relembrando-o-que-são-fatores&#34;&gt;Relembrando: o que são fatores?&lt;/h1&gt;
 
-&lt;p&gt;Em R, fatores são estruturas de dados utilizadas para ordenar &lt;code&gt;strings&lt;/code&gt;. Formalmente, um fator é definido como um vetor de &lt;code&gt;integers&lt;/code&gt; com dois atributos específicos:&lt;/p&gt;
+&lt;p&gt;No R, fatores são estruturas de dados utilizadas para ordenar &lt;code&gt;strings&lt;/code&gt;. Formalmente, um fator é definido como um vetor de &lt;code&gt;integers&lt;/code&gt; com dois atributos específicos:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;levels&lt;/code&gt;: Um vetor de &lt;code&gt;strings&lt;/code&gt; que indica a relação de ordem entre as variáveis.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: A &lt;code&gt;string&lt;/code&gt; atômica &lt;code&gt;&amp;quot;factor&amp;quot;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;levels&lt;/code&gt;: m vetor de &lt;code&gt;strings&lt;/code&gt; que indica a relação de ordem entre as variáveis.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: a &lt;code&gt;string&lt;/code&gt; atômica &lt;code&gt;&amp;quot;factor&amp;quot;&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Em modelos estatísticos clássicos, como ANOVA, é útil e adequado interpretar um vetor de textos como um vetor de números inteiros. O nome &amp;ldquo;fator&amp;rdquo;, inclusive, foi definido fazendo alusão à literatura estatística.&lt;/p&gt;
 
 &lt;h1 id=&#34;para-que-fatores-servem&#34;&gt;Para que fatores servem?&lt;/h1&gt;
 
-&lt;p&gt;Fatores são úteis porque facilitam a ordenação de vetores de texto, principalmente quando estamos fazendo gráficos. Nesta seção vamos exemplificar essa facilidade com um exemplo.&lt;/p&gt;
+&lt;p&gt;Fatores são úteis porque facilitam a ordenação de vetores de texto, principalmente quando estamos fazendo gráficos. Nesta seção, vamos exemplificar essa facilidade com um exemplo.&lt;/p&gt;
 
 &lt;p&gt;Considere que temos interesse em construir um gráfico que ilustre a diminuição da pressão sanguinea de um conjunto de indivíduos em função do restaurante em que acabaram de jantar. Para realizar esta tarefa, fomos à praça de alimentação de um shopping e anotamos as pressões arteriais de 10 voluntários conforme eles terminavam suas refeições nos restarantes Max Donalds, Frutaria da vila e Outlet.&lt;/p&gt;
 
@@ -150,7 +150,7 @@ ggplot(aes(x = restaurante, y = pressao)) +
 &lt;li&gt;Funções que começam com &lt;code&gt;fct_&lt;/code&gt;, que recebem uma lista de fatores e devolvem um fator.
 
 &lt;ul&gt;
-&lt;li&gt;Exemplo: &lt;code&gt;fct_c&lt;/code&gt; recebe uma lista de fatores e devolve um fator que é a união dos anteriores.s
+&lt;li&gt;Exemplo: &lt;code&gt;fct_c&lt;/code&gt; recebe uma lista de fatores e devolve um fator que é a união dos anteriores.
 &lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -190,14 +190,14 @@ fator &amp;lt;- forcats::lvls_revalue(fator, novos_niveis)
 
 &lt;h2 id=&#34;principais-funções&#34;&gt;Principais funções&lt;/h2&gt;
 
-&lt;p&gt;Nesta seção vamos estudar o funcionamento das principais funções do &lt;code&gt;forcats&lt;/code&gt; utilizando como motivação a visualização dos dados de uma base analisada pela Associação Brasileira de Jurimetria. A base foi simplificada para otimizar seu uso neste curso. Além disso, os dados passaram por um processo de anonimização, pois os resultados ainda não foram divulgados.&lt;/p&gt;
+&lt;p&gt;Nesta seção, vamos estudar o funcionamento das principais funções do &lt;code&gt;forcats&lt;/code&gt; utilizando como motivação a visualização dos dados de uma base analisada pela Associação Brasileira de Jurimetria. A base foi simplificada para otimizar seu uso neste curso. Além disso, os dados passaram por um processo de anonimização, pois os resultados ainda não foram divulgados.&lt;/p&gt;
 
 &lt;p&gt;A base contém informações sobre uma amostra de vítimas de homicídios no município de São Paulo e é composta pelas seguintes variáveis:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;instrumento.usado&lt;/code&gt;: Instrumento usado pelo crime.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sexo.vítima&lt;/code&gt;: Sexo da vítima.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;idade.vítima&lt;/code&gt;: Idade da vítima.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;instrumento.usado&lt;/code&gt;: instrumento usado pelo crime.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sexo.vítima&lt;/code&gt;: sexo da vítima.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idade.vítima&lt;/code&gt;: idade da vítima.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&#34;modificar-níveis-de-fatores&#34;&gt;Modificar níveis de fatores&lt;/h1&gt;
@@ -265,7 +265,7 @@ fator &amp;lt;- forcats::lvls_revalue(fator, novos_niveis)
 &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;Como existe uma grande variabilidade de instrumentos, no que segue vamos reclassificar a variável &lt;code&gt;instrumento.usado&lt;/code&gt; em um fator com níveis menos gerais.&lt;/p&gt;
+&lt;p&gt;Como existe uma grande variabilidade de instrumentos, vamos reclassificar a variável &lt;code&gt;instrumento.usado&lt;/code&gt; em um fator com níveis menos gerais.&lt;/p&gt;
 
 &lt;p&gt;Para realizar essa tarefa, vamos utilizar a função &lt;code&gt;fct_collapse&lt;/code&gt; e a função &lt;code&gt;fct_lump&lt;/code&gt;. A função &lt;code&gt;fct_collapse&lt;/code&gt; é uma generalização de uma outra função chamada &lt;code&gt;fct_recode&lt;/code&gt;. A função &lt;code&gt;fct_collapse&lt;/code&gt; recebe um fator e uma série nomeada de vetores de &lt;code&gt;strings&lt;/code&gt;,  enquanto a função &lt;code&gt;fct_recode&lt;/code&gt; recebe um fator e uma série de &lt;code&gt;strings&lt;/code&gt; nomeadas. Já a função &lt;code&gt;fct_lump&lt;/code&gt; transforma os níveis menos frequentes de um fator em um nível &amp;ldquo;Outros&amp;rdquo;.&lt;/p&gt;
 
@@ -286,7 +286,7 @@ fct_lump(fator, 2, other_level = &amp;quot;Outros&amp;quot;)
 ## Levels: a b Outros
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Voltando à nossa aplicação, vamos utilizar a função &lt;code&gt;fct_collapse&lt;/code&gt; para recodificar a variável &lt;code&gt;instrumento.usado&lt;/code&gt;. Após essa reclassificação, os níveis com poucas contagens serão convertido num nível &amp;ldquo;Outros&amp;rdquo; através do uso da função &lt;code&gt;fct_lump&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;Voltando à nossa aplicação, vamos utilizar a função &lt;code&gt;fct_collapse&lt;/code&gt; para recodificar a variável &lt;code&gt;instrumento.usado&lt;/code&gt;. Após essa reclassificação, os níveis com poucas contagens serão convertidos em &amp;ldquo;Outros&amp;rdquo; por meio da função &lt;code&gt;fct_lump&lt;/code&gt;:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
 bd_enasp_abj &amp;lt;- bd_enasp_abj %&amp;gt;% 
@@ -386,7 +386,7 @@ bd_teste %&amp;gt;%
 &lt;p&gt;No &lt;code&gt;forcats&lt;/code&gt;, a reordenação equivalente a criar o fator novamente pode ser feita de três maneiras:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;lvl_reorder&lt;/code&gt;, que reordena os níveis de um fator de acordo com um conjunto de índices. Recomenda-se o uso dessa função quando se quer reordenar os níveis de uma maneira facilmente parametrizável como uma permutação dos índices dos níveis. Um exemplo comum é quando se tem interesse em trocar a ordem dos níveis de crescente para decrescente.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lvl_reorder&lt;/code&gt;, que reordena os níveis de um fator de acordo com um conjunto de índices. Recomenda-se o uso dessa função quando se quer reordenar os níveis de uma maneira facilmente parametrizável, como uma permutação dos índices dos níveis. Um exemplo comum é trocar a ordem dos níveis de crescente para decrescente.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
@@ -419,8 +419,7 @@ fct_reorder(fator, vetor, fun = mean)
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
 fator &amp;lt;- factor(c(&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;a&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;))
 
-
-#ordena os níveis de acordo com a média da variável vetor em cada nível
+#&amp;quot;puxa&amp;quot; os níveis &amp;quot;b&amp;quot; e &amp;quot;c&amp;quot; para o começo
 fct_relevel(fator, &amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
 ## [1] a a a b b c
 ## Levels: b c a
@@ -428,14 +427,13 @@ fct_relevel(fator, &amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
 
 &lt;p&gt;Na nossa aplicação, podemos utilizar tanto a função &lt;code&gt;lvls_reorder&lt;/code&gt; quanto a função &lt;code&gt;fct_relevel&lt;/code&gt;. O gráfico resultante ordena os níveis de instrumento.usado como queríamos.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;## Error in mutate_impl(.data, dots): `idx` must contain one integer for each level of `f`
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-21-1.png&#34; title=&#34;plot of chunk unnamed-chunk-21&#34; alt=&#34;plot of chunk unnamed-chunk-21&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;fazendo-tudo-de-uma-vez&#34;&gt;Fazendo tudo de uma vez&lt;/h1&gt;
 
-&lt;p&gt;Nesta sessão vamos utilizar as funções para exemplificar utilizações do pacote &lt;code&gt;forcats&lt;/code&gt; para visualizações.&lt;/p&gt;
+&lt;p&gt;Nesta sessão, vamos utilizar as funções para exemplificar utilizações do pacote &lt;code&gt;forcats&lt;/code&gt; para visualizações.&lt;/p&gt;
 
-&lt;p&gt;A visualização abaixo ordena os níveis de &amp;ldquo;instrumento.usado&amp;rdquo; de acordo com a média de idade das vítimas de homicídio.&lt;/p&gt;
+&lt;p&gt;A visualização abaixo ordena os níveis de &amp;ldquo;instrumento.usado&amp;rdquo; de acordo com a mediana da idade das vítimas de homicídio.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bd_enasp_abj %&amp;gt;%
   mutate(instrumento.usado = fct_reorder(instrumento.usado, `idade.vítima`, fun = median)) %&amp;gt;% 

@@ -622,7 +622,7 @@ as.numeric(fator)
 Um erro comum e desastroso
 &lt;/p&gt;
 &lt;p&gt;
-Quando um vetor de números está como **factor**, ao tentar transformar o vetor em **numeric**, você receberá um vetor de inteiros que não tem nada a ver com os valores originais!
+Quando um vetor de números está como &lt;b&gt;factor&lt;/b&gt;, ao tentar transformar o vetor em &lt;b&gt;numeric&lt;/b&gt;, você receberá um vetor de inteiros que não tem nada a ver com os valores originais!
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -853,7 +853,7 @@ soma(2) # soma de 2 + 0
 Atenção!
 &lt;/p&gt;
 &lt;p&gt; 
-Além de gerar gráficos de dispersão, tentar chamar a função `plot(objeto_diferentao)` para qualquer tipo de objeto do R geralmente sai um gráfico interessante! Sempre tente fazer isso, a menos que seu objeto seja um `data.frame` com milhares de colunas!!!
+Além de gerar gráficos de dispersão, tentar chamar a função &lt;b&gt;plot(objeto_diferentao)&lt;b&gt; para qualquer tipo de objeto do R geralmente sai um gráfico interessante! Sempre tente fazer isso, a menos que seu objeto seja um &lt;b&gt;data.frame&lt;b&gt; com milhares de colunas!!!
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -916,9 +916,7 @@ plot(x, y)
 
 &lt;p&gt;&lt;strong&gt;Tabela com uma variável&lt;/strong&gt; usando &lt;code&gt;table()&lt;/code&gt;.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
-## Error in library(ggplot2): there is no package called &#39;ggplot2&#39;
-data(diamonds, package = &amp;quot;ggplot2&amp;quot;)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;data(diamonds, package = &amp;quot;ggplot2&amp;quot;)
 ## Error in find.package(package, lib.loc, verbose = verbose): there is no package called &#39;ggplot2&#39;
 tabela &amp;lt;- table(diamonds$color)
 ## Error in table(diamonds$color): object &#39;diamonds&#39; not found
