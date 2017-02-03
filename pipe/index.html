@@ -371,14 +371,14 @@
 x %&gt;% f(y)
 </code></pre>
 
-<p>O operador <code>%&gt;%</code> (<em>pipe</em> ) usa o resultado do seu lado esquerdo como primeiro argumento da funçăo do lado direito. Ele foi uma das grandes revoluções recentes do R, tornando a leitura de códigos mais lógica, fácil e compreensível. Este operador foi introduzido por Stefan Milton Bache no pacote <code>magrittr</code> e já existem diversos pacotes construidos para facilitar a sua utilizaçăo.</p>
+<p>O operador <code>%&gt;%</code> (<em>pipe</em> ) usa o resultado do seu lado esquerdo como primeiro argumento da funçăo do lado direito. Ele foi uma das grandes revoluções recentes do R, tornando a leitura de códigos mais lógica, fácil e compreensível. Este operador foi introduzido por Stefan Milton Bache no pacote <code>magrittr</code>, e já existem diversos pacotes construidos para facilitar a sua utilizaçăo.</p>
 
-<p>O operador <code>%&gt;%</code> pertence ao pacote <code>magrittr</code>. Certifique-se que esteja instalado.</p>
+<p>O operador <code>%&gt;%</code> pertence ao pacote <code>magrittr</code>. Instale este pacote para utilizá-lo.</p>
 
 <pre><code class="language-r">install.packages(&quot;magrittr&quot;)
 </code></pre>
 
-<p>No exemplo seguinte o operador calcula a raiz quadrada da soma dos valores de 1 a 4.</p>
+<p>No exemplo a seguir, o operador calcula a raiz quadrada da soma dos valores de 1 a 4.</p>
 
 <pre><code class="language-r">library(magrittr)
 
@@ -399,7 +399,7 @@ x %&gt;% sum %&gt;% sqrt
 
 <p>O caminho que o código <code>x %&gt;% sum %&gt;% sqrt</code> seguiu foi enviar o objeto <code>x</code> como argumento da função <code>sum()</code> e, em seguida, enviar a saida da expressão <code>sum(x)</code> como argumento da função <code>sqrt()</code>. Observe que não é necessário colocar os parênteses após o nome das funções.</p>
 
-<p>Pela simplicidade do exemplo, a utilização do <code>%&gt;%</code> não parece trazer grandes vantagens, pois a expressão <code>sqrt(sum(x))</code> é facilmente compreendida. No entanto, se tivermos um grande número de funções aninhadas, a utilizaçăo do <code>pipe</code> transforma um código confuso e difícil de ser lido em algo simples e intuitivo. Como exemplo, imagine que você precise escrever uma receita de um bolo usando o R, e cada passo da receita é uma função:</p>
+<p>Pela simplicidade do exemplo, a utilização do <code>%&gt;%</code> não parece trazer grandes vantagens, pois a expressão <code>sqrt(sum(x))</code> é facilmente compreendida. No entanto, se tivermos um grande número de funções aninhadas, a utilizaçăo do <code>pipe</code> transforma um código confuso e difícil de ser lido em algo simples e intuitivo. Como exemplo, imagine escrever uma receita de um bolo usando o R, e cada passo da receita é uma função:</p>
 
 <pre><code class="language-r">esfrie(asse(coloque(bata(acrescente(recipiente(rep(&quot;farinha&quot;, 2), &quot;água&quot;, &quot;fermento&quot;, &quot;leite&quot;, &quot;óleo&quot;), &quot;farinha&quot;, até = &quot;macio&quot;), duração = &quot;3min&quot;), lugar = &quot;forma&quot;, tipo = &quot;grande&quot;, untada = TRUE), duração = &quot;50min&quot;), &quot;geladeira&quot;, &quot;20min&quot;)
 </code></pre>
@@ -414,7 +414,7 @@ x %&gt;% sum %&gt;% sqrt
   esfrie(&quot;geladeira&quot;, &quot;20min&quot;)
 </code></pre>
 
-<p>Agora o código realmente parece uma receita de bolo.</p>
+<p>Agora, o código realmente parece uma receita de bolo.</p>
 
 <p>Para mais informações sobre o <code>pipe</code> e exemplos de utilização, visite a página <a href="http://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html">Ceci n&rsquo;est pas un pipe</a>.</p>
 
@@ -435,7 +435,7 @@ x %&gt;% sum %&gt;% sqrt
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../lubridate/" title="Introdução">
+      <a href="../forcats/" title="Introdução">
         <span class="direction">
           Previous
         </span>
@@ -455,7 +455,7 @@ x %&gt;% sum %&gt;% sqrt
 
   <div class="next">
   
-      <a href="../manip/" title="Introdução">
+      <a href="../rbase/" title="Introdução">
         <span class="direction">
           Next
         </span>

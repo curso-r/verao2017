@@ -574,7 +574,7 @@ informações disponíveis quando vê a estrutura do objeto <code>ajuste</code> 
 ##   .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x2577f40&gt; 
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x33bbf40&gt; 
 ##   .. ..- attr(*, &quot;predvars&quot;)= language list(BODYFAT, WEIGHT)
 ##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
 ##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;BODYFAT&quot; &quot;WEIGHT&quot;
@@ -587,7 +587,7 @@ informações disponíveis quando vê a estrutura do objeto <code>ajuste</code> 
 ##   .. .. ..- attr(*, &quot;order&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;intercept&quot;)= int 1
 ##   .. .. ..- attr(*, &quot;response&quot;)= int 1
-##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x2577f40&gt; 
+##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: 0x33bbf40&gt; 
 ##   .. .. ..- attr(*, &quot;predvars&quot;)= language list(BODYFAT, WEIGHT)
 ##   .. .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
 ##   .. .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;BODYFAT&quot; &quot;WEIGHT&quot;
@@ -714,25 +714,37 @@ considerado uma má prática, pois podemos facilmente esbarrar em uma situação
 <h2 id="árvore-de-decisão">Árvore  de Decisão</h2>
 
 <p>Os modelos de árvore de decisão como vamos utilizar são implementados de acordo
-com o livro <em>Classification and Regression Trees</em> de Breiman, Friedman, Olshen e Stone.
-No R, o pacote que usamos para fazer este tipo de análise é o <code>rpart</code>. Uma
-curiosidade é que gostariam que os autores do pacote gostariam de usar o nome <code>cart</code>,
-mas esse nome foi utilizado por uma implementação particular dessas ideias. No fim,
-ficou mais famoso o <code>rpart</code>, mostrando a importância do software livre.</p>
+com o livro <em>Classification and Regression Trees</em> de Breiman, Friedman, Olshen e Stone.</p>
 
-<p>Não vamos entrar matematicamente no detalhe de como funciona uma árvore de decisão.
-Para entender como funciona um árvore de decisão, imagine que você tem um nó com
-$N$ observações e que $n$ possuem $Resposta = 1$ e $N - n$ possuem $Resposta = 0$,
+<p>De certa forma, a árvore de decisão é o modelo mais intuitivo que existe, principalmente
+quando o objetivo é classificar uma observação em uma de duas classes. Considere
+que o seu objetivo é separar as observações azuis das observações laranjas no
+gráfico abaixo.</p>
+
+<p><img src="figures//unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="50%" height="50%" /></p>
+
+<p>Pelo gráfico acima, podemos ver que a variável $x$ fornece informação que ajuda
+a discriminar se a observação será azul ou laranja. Basta ver que as observações
+de cor laranja estão mais concentradas do lado direito e as azuis, mais para o
+lado esquerdo. O objetivo da árvore de decisão é encontrar o valor de $x$ que
+melhor separa as informações azuis e laranja.</p>
+
+<p>Para detalhar um pouco mais, imagine que você tem um nó com $N$ observações e que
+$n$ possuem $Resposta = 1$ (Exemplo Cor = &lsquo;Azul&rsquo;) e $N - n$ possuem $Resposta = 0$,
 ou seja, temos um problema de classificação binária. Então neste caso $p = \frac{n}{N}$
 é a proporção de resposta neste nó.</p>
 
-<p>O objetivo da árvore de decisão dividir este nó em 2 de forma que a diferença entre
-a proporção de respostas entre os dois nós resultantes seja a maior possível. Claro que
-cada um dos nós precisa ter uma quantidade significativa de observações de forma que $p$
-seja estimado corretamente.</p>
+<p>O objetivo da árvore de decisão dividir este <em>nó</em> (grupo de observações) em 2 de
+forma que a diferença entre a proporção de classes entre os dois nós resultantes
+seja a maior possível. Claro que cada um dos nós precisa ter uma quantidade
+significativa de observações de forma que $p$ seja estimado corretamente.</p>
 
-<p>Uma introdução mais formal a esses métodos pode ser encontrada na vignette do pacote
-<code>rpart</code>. Digite <code>vignette('longintro', package = 'rpart')</code> no console para encontrá-la.</p>
+<p>No R, o pacote que usamos para fazer este tipo de análise é o <a href="https://CRAN.R-project.org/package=rpart"><code>rpart</code></a>. Uma introdução
+mais formal a esses métodos pode ser encontrada na vignette do pacote <code>rpart</code>.
+Digite <code>vignette('longintro', package = 'rpart')</code> no console para encontrá-la.</p>
+
+<p>Existem ainda outras alternativas de pacotes como o <a href="https://CRAN.R-project.org/package=tree"><code>tree</code></a>,
+e <a href="https://CRAN.R-project.org/package=party"><code>party</code></a>.</p>
 
 <h3 id="exemplo-1">Exemplo</h3>
 
@@ -761,7 +773,7 @@ titanic &lt;- read_csv('data/titanic-train.csv')
 titanic$Survived &lt;- as.factor(titanic$Survived)
 </code></pre>
 
-<p>Usando o <code>rpart</code> podemos ajustar o modelo de árvore de cdecisão fazendo.
+<p>Usaremos o pacote <code>rpart</code> que por sua vez possui uma função chamada <code>rpart</code>.
 A função <code>rpart</code> recebe uma fórmula indicando a variável resposta e as
 variáveis que serão utilizadas no modelo, além de receber um argumento
 <code>data</code> que indica o banco de dados utilizado.</p>
@@ -781,9 +793,9 @@ usando a função <code>summary</code>.</p>
 ##           CP nsplit rel error    xerror       xstd
 ## 1 0.44444444      0 1.0000000 1.0000000 0.04244576
 ## 2 0.02339181      1 0.5555556 0.5555556 0.03574957
-## 3 0.01461988      2 0.5321637 0.5760234 0.03621995
-## 4 0.01169591      4 0.5029240 0.5526316 0.03568079
-## 5 0.01000000      6 0.4795322 0.5058480 0.03452394
+## 3 0.01461988      2 0.5321637 0.5964912 0.03667148
+## 4 0.01169591      4 0.5029240 0.5847953 0.03641573
+## 5 0.01000000      6 0.4795322 0.5555556 0.03574957
 ## 
 ## Variable importance
 ##    Sex Pclass    Age 
@@ -880,13 +892,13 @@ usando a função <code>summary</code>.</p>
 </code></pre>
 
 <p>Visualizar a árvore de decisão sempre dá bons <em>insights</em>. Um pacote que é interessante
-para visualizar a árvore de decisão construída com o <code>rpart</code> é o <code>rpart.plot</code>.</p>
+para visualizar a árvore de decisão construída com o <code>rpart</code> é o <a href="https://CRAN.R-project.org/package=rpart.plot"><code>rpart.plot</code></a>.</p>
 
 <pre><code class="language-r">library(rpart.plot)
 rpart.plot(arvore)
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="70%" height="70%" /></p>
+<p><img src="figures//unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" width="70%" height="70%" /></p>
 
 <p>A visualização é bem intuitiva. No topo, vemos o primeiro nó em que 38% dos indivíduos
 sobreviveram e que representa o total da base (100%). Em seguida, vemos que a primeira
@@ -949,7 +961,7 @@ ggplot(valores, aes(x = FPR, y = TPR)) +
   geom_abline(color = 'blue', linetype = 'dashed')
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-25-1.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" width="50%" height="50%" /></p>
+<p><img src="figures//unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="50%" /></p>
 
 <p>A função de custo pode ser calculada da seguinte forma. Veja que estamos considerando
 pesos iguais para ambos os erros.</p>
@@ -960,7 +972,7 @@ pesos iguais para ambos os erros.</p>
   geom_line()
 </code></pre>
 
-<p><img src="figures//unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="50%" /></p>
+<p><img src="figures//unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" width="50%" height="50%" /></p>
 
 <p>Neste caso, o ponto mínimo da função é obtido com qualquer corte entre um pouco menos de 25%
 até um pouco mais de 50%. Isso nem sempre é verdade e deve ser avaliado em cada modelo.</p>
@@ -1016,14 +1028,14 @@ $$</p>
 
   <div class="next">
   
-      <a href="../lubridate/" title="Introdução">
+      <a href="../stringr/" title="Stringr">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Introdução
+              Stringr
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

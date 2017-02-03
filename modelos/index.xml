@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Thu, 02 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/modelos/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Modelagem</title>
       <link>/modelos/</link>
-      <pubDate>Thu, 02 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/modelos/</guid>
       <description>
@@ -229,7 +229,7 @@ informações disponíveis quando vê a estrutura do objeto &lt;code&gt;ajuste&l
 ##   .. ..- attr(*, &amp;quot;order&amp;quot;)= int 1
 ##   .. ..- attr(*, &amp;quot;intercept&amp;quot;)= int 1
 ##   .. ..- attr(*, &amp;quot;response&amp;quot;)= int 1
-##   .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x2577f40&amp;gt; 
+##   .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x33bbf40&amp;gt; 
 ##   .. ..- attr(*, &amp;quot;predvars&amp;quot;)= language list(BODYFAT, WEIGHT)
 ##   .. ..- attr(*, &amp;quot;dataClasses&amp;quot;)= Named chr [1:2] &amp;quot;numeric&amp;quot; &amp;quot;numeric&amp;quot;
 ##   .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr [1:2] &amp;quot;BODYFAT&amp;quot; &amp;quot;WEIGHT&amp;quot;
@@ -242,7 +242,7 @@ informações disponíveis quando vê a estrutura do objeto &lt;code&gt;ajuste&l
 ##   .. .. ..- attr(*, &amp;quot;order&amp;quot;)= int 1
 ##   .. .. ..- attr(*, &amp;quot;intercept&amp;quot;)= int 1
 ##   .. .. ..- attr(*, &amp;quot;response&amp;quot;)= int 1
-##   .. .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x2577f40&amp;gt; 
+##   .. .. ..- attr(*, &amp;quot;.Environment&amp;quot;)=&amp;lt;environment: 0x33bbf40&amp;gt; 
 ##   .. .. ..- attr(*, &amp;quot;predvars&amp;quot;)= language list(BODYFAT, WEIGHT)
 ##   .. .. ..- attr(*, &amp;quot;dataClasses&amp;quot;)= Named chr [1:2] &amp;quot;numeric&amp;quot; &amp;quot;numeric&amp;quot;
 ##   .. .. .. ..- attr(*, &amp;quot;names&amp;quot;)= chr [1:2] &amp;quot;BODYFAT&amp;quot; &amp;quot;WEIGHT&amp;quot;
@@ -369,25 +369,37 @@ considerado uma má prática, pois podemos facilmente esbarrar em uma situação
 &lt;h2 id=&#34;árvore-de-decisão&#34;&gt;Árvore  de Decisão&lt;/h2&gt;
 
 &lt;p&gt;Os modelos de árvore de decisão como vamos utilizar são implementados de acordo
-com o livro &lt;em&gt;Classification and Regression Trees&lt;/em&gt; de Breiman, Friedman, Olshen e Stone.
-No R, o pacote que usamos para fazer este tipo de análise é o &lt;code&gt;rpart&lt;/code&gt;. Uma
-curiosidade é que gostariam que os autores do pacote gostariam de usar o nome &lt;code&gt;cart&lt;/code&gt;,
-mas esse nome foi utilizado por uma implementação particular dessas ideias. No fim,
-ficou mais famoso o &lt;code&gt;rpart&lt;/code&gt;, mostrando a importância do software livre.&lt;/p&gt;
+com o livro &lt;em&gt;Classification and Regression Trees&lt;/em&gt; de Breiman, Friedman, Olshen e Stone.&lt;/p&gt;
 
-&lt;p&gt;Não vamos entrar matematicamente no detalhe de como funciona uma árvore de decisão.
-Para entender como funciona um árvore de decisão, imagine que você tem um nó com
-$N$ observações e que $n$ possuem $Resposta = 1$ e $N - n$ possuem $Resposta = 0$,
+&lt;p&gt;De certa forma, a árvore de decisão é o modelo mais intuitivo que existe, principalmente
+quando o objetivo é classificar uma observação em uma de duas classes. Considere
+que o seu objetivo é separar as observações azuis das observações laranjas no
+gráfico abaixo.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-19-1.png&#34; title=&#34;plot of chunk unnamed-chunk-19&#34; alt=&#34;plot of chunk unnamed-chunk-19&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Pelo gráfico acima, podemos ver que a variável $x$ fornece informação que ajuda
+a discriminar se a observação será azul ou laranja. Basta ver que as observações
+de cor laranja estão mais concentradas do lado direito e as azuis, mais para o
+lado esquerdo. O objetivo da árvore de decisão é encontrar o valor de $x$ que
+melhor separa as informações azuis e laranja.&lt;/p&gt;
+
+&lt;p&gt;Para detalhar um pouco mais, imagine que você tem um nó com $N$ observações e que
+$n$ possuem $Resposta = 1$ (Exemplo Cor = &amp;lsquo;Azul&amp;rsquo;) e $N - n$ possuem $Resposta = 0$,
 ou seja, temos um problema de classificação binária. Então neste caso $p = \frac{n}{N}$
 é a proporção de resposta neste nó.&lt;/p&gt;
 
-&lt;p&gt;O objetivo da árvore de decisão dividir este nó em 2 de forma que a diferença entre
-a proporção de respostas entre os dois nós resultantes seja a maior possível. Claro que
-cada um dos nós precisa ter uma quantidade significativa de observações de forma que $p$
-seja estimado corretamente.&lt;/p&gt;
+&lt;p&gt;O objetivo da árvore de decisão dividir este &lt;em&gt;nó&lt;/em&gt; (grupo de observações) em 2 de
+forma que a diferença entre a proporção de classes entre os dois nós resultantes
+seja a maior possível. Claro que cada um dos nós precisa ter uma quantidade
+significativa de observações de forma que $p$ seja estimado corretamente.&lt;/p&gt;
 
-&lt;p&gt;Uma introdução mais formal a esses métodos pode ser encontrada na vignette do pacote
-&lt;code&gt;rpart&lt;/code&gt;. Digite &lt;code&gt;vignette(&#39;longintro&#39;, package = &#39;rpart&#39;)&lt;/code&gt; no console para encontrá-la.&lt;/p&gt;
+&lt;p&gt;No R, o pacote que usamos para fazer este tipo de análise é o &lt;a href=&#34;https://CRAN.R-project.org/package=rpart&#34;&gt;&lt;code&gt;rpart&lt;/code&gt;&lt;/a&gt;. Uma introdução
+mais formal a esses métodos pode ser encontrada na vignette do pacote &lt;code&gt;rpart&lt;/code&gt;.
+Digite &lt;code&gt;vignette(&#39;longintro&#39;, package = &#39;rpart&#39;)&lt;/code&gt; no console para encontrá-la.&lt;/p&gt;
+
+&lt;p&gt;Existem ainda outras alternativas de pacotes como o &lt;a href=&#34;https://CRAN.R-project.org/package=tree&#34;&gt;&lt;code&gt;tree&lt;/code&gt;&lt;/a&gt;,
+e &lt;a href=&#34;https://CRAN.R-project.org/package=party&#34;&gt;&lt;code&gt;party&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;exemplo-1&#34;&gt;Exemplo&lt;/h3&gt;
 
@@ -416,7 +428,7 @@ titanic &amp;lt;- read_csv(&#39;data/titanic-train.csv&#39;)
 titanic$Survived &amp;lt;- as.factor(titanic$Survived)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Usando o &lt;code&gt;rpart&lt;/code&gt; podemos ajustar o modelo de árvore de cdecisão fazendo.
+&lt;p&gt;Usaremos o pacote &lt;code&gt;rpart&lt;/code&gt; que por sua vez possui uma função chamada &lt;code&gt;rpart&lt;/code&gt;.
 A função &lt;code&gt;rpart&lt;/code&gt; recebe uma fórmula indicando a variável resposta e as
 variáveis que serão utilizadas no modelo, além de receber um argumento
 &lt;code&gt;data&lt;/code&gt; que indica o banco de dados utilizado.&lt;/p&gt;
@@ -436,9 +448,9 @@ usando a função &lt;code&gt;summary&lt;/code&gt;.&lt;/p&gt;
 ##           CP nsplit rel error    xerror       xstd
 ## 1 0.44444444      0 1.0000000 1.0000000 0.04244576
 ## 2 0.02339181      1 0.5555556 0.5555556 0.03574957
-## 3 0.01461988      2 0.5321637 0.5760234 0.03621995
-## 4 0.01169591      4 0.5029240 0.5526316 0.03568079
-## 5 0.01000000      6 0.4795322 0.5058480 0.03452394
+## 3 0.01461988      2 0.5321637 0.5964912 0.03667148
+## 4 0.01169591      4 0.5029240 0.5847953 0.03641573
+## 5 0.01000000      6 0.4795322 0.5555556 0.03574957
 ## 
 ## Variable importance
 ##    Sex Pclass    Age 
@@ -535,13 +547,13 @@ usando a função &lt;code&gt;summary&lt;/code&gt;.&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Visualizar a árvore de decisão sempre dá bons &lt;em&gt;insights&lt;/em&gt;. Um pacote que é interessante
-para visualizar a árvore de decisão construída com o &lt;code&gt;rpart&lt;/code&gt; é o &lt;code&gt;rpart.plot&lt;/code&gt;.&lt;/p&gt;
+para visualizar a árvore de decisão construída com o &lt;code&gt;rpart&lt;/code&gt; é o &lt;a href=&#34;https://CRAN.R-project.org/package=rpart.plot&#34;&gt;&lt;code&gt;rpart.plot&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(rpart.plot)
 rpart.plot(arvore)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-22-1.png&#34; title=&#34;plot of chunk unnamed-chunk-22&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; width=&#34;70%&#34; height=&#34;70%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-23-1.png&#34; title=&#34;plot of chunk unnamed-chunk-23&#34; alt=&#34;plot of chunk unnamed-chunk-23&#34; width=&#34;70%&#34; height=&#34;70%&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A visualização é bem intuitiva. No topo, vemos o primeiro nó em que 38% dos indivíduos
 sobreviveram e que representa o total da base (100%). Em seguida, vemos que a primeira
@@ -604,7 +616,7 @@ ggplot(valores, aes(x = FPR, y = TPR)) +
   geom_abline(color = &#39;blue&#39;, linetype = &#39;dashed&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-25-1.png&#34; title=&#34;plot of chunk unnamed-chunk-25&#34; alt=&#34;plot of chunk unnamed-chunk-25&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-26-1.png&#34; title=&#34;plot of chunk unnamed-chunk-26&#34; alt=&#34;plot of chunk unnamed-chunk-26&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;A função de custo pode ser calculada da seguinte forma. Veja que estamos considerando
 pesos iguais para ambos os erros.&lt;/p&gt;
@@ -615,7 +627,7 @@ pesos iguais para ambos os erros.&lt;/p&gt;
   geom_line()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-26-1.png&#34; title=&#34;plot of chunk unnamed-chunk-26&#34; alt=&#34;plot of chunk unnamed-chunk-26&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-27-1.png&#34; title=&#34;plot of chunk unnamed-chunk-27&#34; alt=&#34;plot of chunk unnamed-chunk-27&#34; width=&#34;50%&#34; height=&#34;50%&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Neste caso, o ponto mínimo da função é obtido com qualquer corte entre um pouco menos de 25%
 até um pouco mais de 50%. Isso nem sempre é verdade e deve ser avaliado em cada modelo.&lt;/p&gt;

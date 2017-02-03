@@ -917,14 +917,15 @@ plot(x, y)
 &lt;p&gt;&lt;strong&gt;Tabela com uma variável&lt;/strong&gt; usando &lt;code&gt;table()&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;data(diamonds, package = &amp;quot;ggplot2&amp;quot;)
-## Error in find.package(package, lib.loc, verbose = verbose): there is no package called &#39;ggplot2&#39;
 tabela &amp;lt;- table(diamonds$color)
-## Error in table(diamonds$color): object &#39;diamonds&#39; not found
 tabela
-## Error in eval(expr, envir, enclos): object &#39;tabela&#39; not found
+## 
+##     D     E     F     G     H     I     J 
+##  6775  9797  9542 11292  8304  5422  2808
 barplot(tabela)
-## Error in barplot(tabela): object &#39;tabela&#39; not found
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-63-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-63&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Tabela com duas variáveis&lt;/strong&gt; em uma tabela de dupla entrada.&lt;/p&gt;
 

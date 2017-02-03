@@ -1262,14 +1262,15 @@ plot(x, y)
 <p><strong>Tabela com uma variável</strong> usando <code>table()</code>.</p>
 
 <pre><code class="language-r">data(diamonds, package = &quot;ggplot2&quot;)
-## Error in find.package(package, lib.loc, verbose = verbose): there is no package called 'ggplot2'
 tabela &lt;- table(diamonds$color)
-## Error in table(diamonds$color): object 'diamonds' not found
 tabela
-## Error in eval(expr, envir, enclos): object 'tabela' not found
+## 
+##     D     E     F     G     H     I     J 
+##  6775  9797  9542 11292  8304  5422  2808
 barplot(tabela)
-## Error in barplot(tabela): object 'tabela' not found
 </code></pre>
+
+<p><img src="figures//unnamed-chunk-63-1.png" alt="plot of chunk unnamed-chunk-63" /></p>
 
 <p><strong>Tabela com duas variáveis</strong> em uma tabela de dupla entrada.</p>
 
@@ -1585,7 +1586,7 @@ x
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../forcats/" title="Introdução">
+      <a href="../pipe/" title="Introdução">
         <span class="direction">
           Previous
         </span>

@@ -365,16 +365,11 @@
 
 <p>Variáveis do tipo texto são muito comuns nos bancos de dados e geralmente são
 colunas que dão bastante trabalho para serem manipuladas. É muito comun encontrar
-bancos de dados em que os textos de uma coluna não estão padronizados, por exemplo
-uma coluna <code>Estado</code> em que são encontrados &ldquo;SP&rdquo;, &ldquo;sp&rdquo;, &ldquo;Sao Paulo&rdquo;, &ldquo;São Paulo&rdquo;, etc
-todas as variações indicando o mesmo estado.</p>
+bancos de dados em que os textos de uma coluna não estão padronizados, por exemplo, uma coluna <code>Estado</code> com &ldquo;SP&rdquo;, &ldquo;sp&rdquo;, &ldquo;Sao Paulo&rdquo;, &ldquo;São Paulo&rdquo; etc, todas as variações indicando o mesmo estado.</p>
 
-<p>Para manipular esses textos o R possui diversas funções para manipular textos, no entanto,
-as funções do <code>base</code> não possuem um interface consistente e parece que cada uma
-tem a sua forma de passar os parâmetros, dificultando o processo durante a análise.</p>
+<p>Para manipular esses textos, o R possui diversas funções para manipular textos. No entanto, as funções do <code>base</code> não possuem uma interface consistente e cada uma tem a sua forma de passar os parâmetros, dificultando a programação durante a análise.</p>
 
-<p>Por isso, é recomendado usar o pacote <code>stringr</code> que possui a sintaxe consistente
-permitindo que o usuário realize qualquer manipulação com textos com maior facilidade.</p>
+<p>Por isso, é recomendado usar o pacote <code>stringr</code>, que possui uma sintaxe consistente, permitindo que o usuário realize qualquer manipulação com textos com maior facilidade.</p>
 
 <h3 id="vantagens-do-stringr-em-relação-ao-base">Vantagens do stringr em relação ao base</h3>
 
@@ -395,22 +390,20 @@ permitindo que o usuário realize qualquer manipulação com textos com maior fa
 
 <p>Inicialmente, o <code>stringr</code> era um <em>wrapper</em> de funções do <code>base</code>. Depois disso,
 surgiu um novo pacote <code>stringi</code>, com sintaxe similar ao <code>stringr</code>, mas funcionando como
-<em>wrapper</em> da biblioteca ICU. No entanto, Wickham gostou tanto do pacote <code>stringi</code>
+<em>wrapper</em> da biblioteca ICU. Wickham gostou tanto do pacote <code>stringi</code>
 que decidiu reescrever o <code>stringr</code> como um <em>wrapper</em> do <code>stringi</code>.
 Veja <a href="https://github.com/tidyverse/stringr/blob/master/NEWS.md">essa página</a> para detalhes.</p>
 
 <h2 id="conceitos-básicos">Conceitos básicos</h2>
 
-<p>Todas as funções do <code>stringr</code> começam com o prefixo <code>str</code>, isso ajuda na hora de
-encontrar a função que você está procurando. No Rstudio, basta digitar <code>str_</code> e
-apertar tab que você verá algo parecido com a imagem a baixo. Você pode ir descendo
-com as setas do teclado e ver o que cada função faz até encontrar a função que estava
-procurando.</p>
+<p>Todas as funções do <code>stringr</code> começam com o prefixo <code>str</code>. Isso ajuda na hora de
+encontrar a função que você está procurando. No Rstudio, digite <code>str_</code> e
+aperte <em>tab</em> para visualizar a lista de funções com esse prefixo. Você pode verificar o que cada função faz até encontrar a que atende às suas necessidades.</p>
 
 <p><img src="figures/str_tab.png" alt="str_tab" /></p>
 
-<p>Nesta sessão vamos utilizar as funções mais simples do <code>stringr</code>, depois vamos
-ensinar um pouco de Regex e em seguida veremos as funções mais avançadas do
+<p>Nesta sessão, vamos utilizar as funções mais simples do <code>stringr</code>. Depois vamos
+ensinar um pouco de Regex e, em seguida, veremos as funções mais avançadas do
 pacote.</p>
 
 <h3 id="str-length">str_length</h3>
@@ -425,7 +418,7 @@ length(&quot;olá&quot;)
 ## [1] 1
 </code></pre>
 
-<p>Veja <code>str_length</code> é diferente de <code>length</code>. O primeiro retorna o número de caracteres
+<p>Veja: <code>str_length</code> é diferente de <code>length</code>. O primeiro retorna o número de caracteres
 e o segundo retorna o comprimento do objeto. Isso fica mais claro no seguinte exemplo:</p>
 
 <pre><code class="language-r">s &lt;- c(&quot;olá mundo&quot;, &quot;olá universo&quot;)
@@ -435,8 +428,7 @@ length(s)
 ## [1] 2
 </code></pre>
 
-<p>Agora o <code>str_length</code> retornou um vetor com o número de caracteres de cada elemento do vetor <code>s</code>,
-e o <code>length</code> retornou o comprimento do vetor <code>s</code>. Note que espaço é considerado como um caractere.</p>
+<p>Agora, o <code>str_length</code> retornou um vetor com o número de caracteres de cada elemento do vetor <code>s</code> e o <code>length</code> retornou o comprimento do vetor <code>s</code>. Note que espaço é considerado como um caractere.</p>
 
 <h3 id="str-trim">str_trim</h3>
 
@@ -452,20 +444,19 @@ str_trim(string)
 
 <h3 id="str-sub">str_sub</h3>
 
-<p>As vezes você precisa obter alguma parte fixa de uma string. Por exemplo, as vezes você
-encontra variáveis com valores da forma:</p>
+<p>Às vezes você precisa obter alguma parte fixa de uma string, como, por exemplo, encontrar variáveis com valores da forma:</p>
 
 <pre><code class="language-r">s &lt;- c(&quot;01-Feminino&quot;, &quot;02-Masculino&quot;, &quot;03-Indefinido&quot;)
 </code></pre>
 
-<p>Você pode querer manipular essa string para retirar obter apenas a parte final da string.
-Neste caso pode usar a função <code>str_sub</code></p>
+<p>Você pode querer manipular essa string para obter apenas a parte final da string.
+Neste caso, pode usar a função <code>str_sub</code>.</p>
 
 <pre><code class="language-r">str_sub(s, start = 4) # pegar do quarto até o último caractere
 ## [1] &quot;Feminino&quot;   &quot;Masculino&quot;  &quot;Indefinido&quot;
 </code></pre>
 
-<p>É possível obter também apenas os números</p>
+<p>Também é possível obter apenas os números:</p>
 
 <pre><code class="language-r">str_sub(s, end = 2) # pegar apenas os dois primeiros caracteres
 ## [1] &quot;01&quot; &quot;02&quot; &quot;03&quot;
@@ -480,7 +471,7 @@ str_sub(s, start = -2)
 ## [1] &quot;01&quot; &quot;02&quot; &quot;03&quot;
 </code></pre>
 
-<p>É possível também usar os argumentos <code>start</code> e <code>end</code> conjuntamente.</p>
+<p>É possível usar os argumentos <code>start</code> e <code>end</code> conjuntamente.</p>
 
 <pre><code class="language-r">s &lt;- c(&quot;__SP__&quot;, &quot;__MG__&quot;, &quot;__RJ__&quot;)
 str_sub(s, 3, 4)
@@ -500,9 +491,7 @@ str_to_title(s)
 ## [1] &quot;Olá, Tudo Bem?&quot;
 </code></pre>
 
-<p>Essas são as funções mais simples do pacote <code>stringr</code> e mão exigem nenhum conhecimento
-de regex. Note que nenhuma delas possui o parâmetro <code>pattern</code>, você verá como especificar
-esse parâmetros nas próximas sessões.</p>
+<p>Essas são as funções mais simples do pacote <code>stringr</code> e não exigem nenhum conhecimento de regex. Note que nenhuma delas possui o parâmetro <code>pattern</code>. Você verá como especificar esse parâmetros nas próximas sessões.</p>
 
 <h2 id="expressões-regulares">Expressões Regulares</h2>
 
@@ -861,7 +850,7 @@ Crie uma função que transforma um número de 11 dígitos em uma string com as 
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../manip/" title="Introdução">
+      <a href="../modelos/" title="Modelagem">
         <span class="direction">
           Previous
         </span>
@@ -871,7 +860,7 @@ Crie uma função que transforma um número de 11 dígitos em uma string com as 
           </div>
           <div class="stretch">
             <div class="title">
-              Introdução
+              Modelagem
             </div>
           </div>
         </div>
@@ -881,14 +870,14 @@ Crie uma função que transforma um número de 11 dígitos em uma string com as 
 
   <div class="next">
   
-      <a href="../ggplot/" title="ggplot">
+      <a href="../lubridate/" title="Introdução">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              ggplot
+              Introdução
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
