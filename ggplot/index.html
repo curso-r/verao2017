@@ -372,7 +372,7 @@ estéticos (cores, formas, tamanho) em formas geométricas (pontos, linhas, barr
 
 <p>Para mais informações sobre a Gramática dos Gráficos, você pode consultar o livro
 <a href="http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7"><em>The Grammar of graphics</em></a>,
-escrito pelo Leland Wilkinson, ou o livro <a href="http://ggplot2.org/book/">ggplot2: elegant graphics for data analysis</a>, do Hadley Wickham.
+escrito pelo Leland Wilkinson e o livro <a href="http://ggplot2.org/book/">ggplot2: elegant graphics for data analysis</a>, do Hadley Wickham.
 Um <a href="http://moderngraphics11.pbworks.com/f/ggplot2-Book09hWickham.pdf">pdf do livro</a> também está disponível.</p>
 
 <p>Para quem quiser se aprofundar mais com o <code>ggplot2</code>, o <a href="https://www.datacamp.com/">DataCamp</a> possui dois cursos
@@ -423,7 +423,7 @@ de 32 automóveis.</p>
 </code></pre>
 
 <p>No <code>ggplot2</code>, os gráficos são construídos camada por camada (ou, <em>layers</em>, em inglês),
-sendo que a primeira delas é dada pela função <code>ggplot</code> (não tem o &ldquo;2&rdquo;). Cada camada
+sendo que a primeira delas é dada pela função <code>ggplot()</code> (não tem o &ldquo;2&rdquo;). Cada camada
 representa um tipo de mapeamento ou personalização do gráfico. O código abaixo é um
 exemplo de um gráfico bem simples, construído a partir das duas principais camadas.</p>
 
@@ -456,7 +456,7 @@ ser mapeado nesse gráfico é a cor dos pontos</p>
 
 <p><img src="figures//mapear_am-1.png" title="plot of chunk mapear_am" alt="plot of chunk mapear_am" width="40%" height="40%" /></p>
 
-<p>Agora, a variável <code>am</code> (tipo de transmissão) foi mapeada à cor dos pontos, sendo que pontos vermelhos correspondem à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável <code>am</code> como um fator, pois temos interesse apenas nos valores &ldquo;0&rdquo; e &ldquo;1&rdquo;. No entanto, tambem podemos mapear uma variável contínua à cor dos pontos:</p>
+<p>Agora, a variável <code>am</code> (tipo de transmissão) foi mapeada à cor dos pontos, sendo que pontos vermelhos correspondem à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável <code>am</code> como um fator, pois temos interesse apenas nos valores &ldquo;0&rdquo; e &ldquo;1&rdquo;. No entanto, também podemos mapear uma variável contínua à cor dos pontos:</p>
 
 <pre><code class="language-r">ggplot(mtcars) + 
   geom_point(mapping = aes(x = disp, y = mpg, colour = cyl))
@@ -468,7 +468,7 @@ ser mapeado nesse gráfico é a cor dos pontos</p>
 
 <p><strong>Nota</strong>: por <em>default</em>, a legenda é insirida no gráfico automaticamente.</p>
 
-<p>Também podemos mapear o tamanho dos pontos à uma variável de interesse:</p>
+<p>Também podemos mapear o tamanho dos pontos a uma variável de interesse:</p>
 
 <pre><code class="language-r">ggplot(mtcars) +
   geom_point(mapping = aes(x = disp, y = mpg, colour = cyl, size = wt))
@@ -486,14 +486,14 @@ dados no gráfico. Como já vimos, a função <code>geom_point()</code> gera gr�
 transformando pares (x,y) em pontos. Veja a seguir outros <em>geoms</em> bastante utilizados:</p>
 
 <ul>
-<li><code>geom_line</code>: para linhas definidas por pares (x,y)</li>
-<li><code>geom_abline</code>: para retas definidas por um intercepto e uma inclinação</li>
-<li><code>geom_hline</code>: para retas horizontais</li>
-<li><code>geom_boxplot</code>: para boxplots</li>
-<li><code>geom_histogram</code>: para histogramas</li>
-<li><code>geom_density</code>: para densidades</li>
-<li><code>geom_area</code>: para áreas</li>
-<li><code>geom_bar</code>: para barras</li>
+<li><code>geom_line</code> - para linhas definidas por pares (x,y)</li>
+<li><code>geom_abline</code> - para retas definidas por um intercepto e uma inclinação</li>
+<li><code>geom_hline</code> - para retas horizontais</li>
+<li><code>geom_boxplot</code> - para boxplots</li>
+<li><code>geom_histogram</code> - para histogramas</li>
+<li><code>geom_density</code> - para densidades</li>
+<li><code>geom_area</code> - para áreas</li>
+<li><code>geom_bar</code> - para barras</li>
 </ul>
 
 <p>Veja a seguir como é fácil gerar diversos gráficos diferentes utilizando a mesma estrutura do gráfico de dispersão acima:</p>
@@ -525,16 +525,15 @@ x do gráfico uma variável do tipo <code>factor</code>.</p>
 Um padrão para os gráficos
 </p>
 <p>
-Você deve ter percebido que para fazer um gráfico usando `ggplot2` e a gramática
+Você deve ter percebido que, para fazer um gráfico usando `ggplot2` e a gramática
 dos gráficos, existe um padrão:
-
-```
-ggplot(data = <DATA>) + 
-  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
-```
-
-Para fazer um gráfico, basta substituir o que está entre `<` com um banco de dados,
-uma função geométrica e uma coleção de *mapas estéticos*. Isso será muito útil quando você for fazer o seu próprio gráfico.
+<br> 
+<br>
+ggplot(data = DATA) + GEOM_FUNCTION(mapping = aes(MAPPINGS))
+<br>
+<br>
+Para fazer um gráfico, basta substituir DATA por um banco de dados, GEOM_FUNCTION por
+uma função geométrica e MAPPINGS por uma coleção de <b>mapas estéticos</b>. Isso será muito útil quando você for fazer o seu próprio gráfico.
 </p>
 </div>
 
@@ -565,9 +564,9 @@ ggplot(mtcars) +
 <p><img src="figures//duplochunk-1.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" /><img src="figures//duplochunk-2.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" /></p>
 
 <p>Os gráficos são similares e completaam-se. O da esquerda, mostra como os pontos estão distribuídos. Ele mostra uma tendência de aumento do consumo de combustível de acordo
-com as cilindradas. Já o gráfico da direita, resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança.</p>
+com as cilindradas. Já o gráfico da direita resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança.</p>
 
-<p>Esses dois gráficos se completam, e ficam bons juntos. Com o <code>ggplot2</code> é muito fácil
+<p>Esses dois gráficos se completam e ficam bons juntos. Com o <code>ggplot2</code>, é muito fácil
 sobrepor os dois gráficos, pois ele é pensado para que cada gráfico seja feito com
 uma combinação de camadas. Veja o código abaixo.</p>
 
@@ -616,7 +615,7 @@ a cor em apenas uma das camadas do gráfico. Isso pode ser feito da seguinte for
 
 <p><img src="figures//unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="40%" height="40%" /></p>
 
-<p>Note que agora, cada grupo de pontos tem uma cor mas a reta é única, para todos os pontos.</p>
+<p>Agora, cada grupo de pontos tem uma cor, mas a reta é única para todos os pontos.</p>
 
 <h2 id="alterando-os-padrões-do-gráfico">Alterando os padrões do gráfico</h2>
 
@@ -631,7 +630,7 @@ Por exemplo, no gráfico a seguir, modificamos a cor de todos os pontos.</p>
 <p><img src="figures//unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="40%" height="40%" /></p>
 
 <p>A principal diferença aqui é que especificamos o argumento <code>colour</code> fora da função
-<code>aes</code> como estávamos fazendo antes. Dessa forma podemos controlar todos os parâmetros
+<code>aes</code>. Dessa forma, podemos controlar todos os parâmetros
 de cada forma geométrica.</p>
 
 <pre><code class="language-r">ggplot(mtcars, aes(y = mpg, x = disp)) + 
@@ -657,6 +656,8 @@ do grupo.</p>
 
 <p>No gráfico acima, rapidamente conseguimos visualizar que se o carro não é automático o consumo de combustível é muito menor do que quando o carro é automático. Também conseguimos ver que a inclinação das retas é bem diferente dependendo do carro ser
 automático/manual.</p>
+
+<h3 id="exercício"><strong>Exercício</strong></h3>
 
 <ol>
 <li>O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?</li>
@@ -720,7 +721,7 @@ bp + theme(legend.position=&quot;none&quot;)
 
 <p><img src="figures//unnamed-chunk-24-2.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="40%" height="40%" /></p>
 
-<p>Dependendo de os aspectos gráficos (Ex: cores, formatos, preenchimentos) foram especificados você pode precisar usar alguma das seguintes funções: <code>scale_fill_manual</code>, <code>scale_colour_hue</code>, <code>scale_colour_manual</code>, <code>scale_shape_discrete</code>, <code>scale_linetype_discrete</code> , e assim por diante.</p>
+<p>Dependendo dos aspectos gráficos (cores, formatos, preenchimentos) especificados, você pode precisar usar alguma das seguintes funções: <code>scale_fill_manual</code>, <code>scale_colour_hue</code>, <code>scale_colour_manual</code>, <code>scale_shape_discrete</code>, <code>scale_linetype_discrete</code>.</p>
 
 <p>Você pode também querer inverter a ordem dos itens da legenda. Isso pode ser feito de uma das seguintes maneiras.</p>
 
@@ -746,7 +747,7 @@ bp + theme(legend.title=element_blank())
 
 <h2 id="modificando-texto-cores-e-rótulos">Modificando texto, cores e rótulos</h2>
 
-<p>Para modificar os textos e rótulos das legendas existem duas formas. Uma delas é modificar o <code>data.frame</code> de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções de <code>scale</code>.</p>
+<p>Existem duas formas para modificar os textos e rótulos das legendas. Uma delas é modificar o <code>data.frame</code> de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções de <code>scale</code>.</p>
 
 <p>Veja algumas modificações que podem ser feitas por meio das funções de <code>scale</code>. Como a variável <code>group</code> está associada ao atributo <code>fill</code>, usamos as funções <code>scale_fill_xxx</code>.</p>
 
@@ -795,8 +796,7 @@ bp + theme(legend.text = element_text(colour=&quot;blue&quot;, size = 16, face =
 
 <p><img src="figures//unnamed-chunk-30-1.png" title="plot of chunk unnamed-chunk-30" alt="plot of chunk unnamed-chunk-30" width="40%" height="40%" /></p>
 
-<p>Também é possível controlar a posição da legenda de forma precisa usando o comando.
-Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o valor do argumento <code>legend.position</code>. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.</p>
+<p>Também é possível controlar a posição da legenda de forma precisa usando a função <code>theme()</code>. A legenda será posicionada dentro do gráfico com o ponto central sendo o valor do argumento <code>legend.position</code>. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.</p>
 
 <pre><code class="language-r">bp + theme(legend.position=c(.5, .5))
 </code></pre>
@@ -820,34 +820,18 @@ Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../manip/" title="Introdução">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Introdução
-            </div>
-          </div>
-        </div>
-      </a>
-  
   </div>
 
   <div class="next">
   
-      <a href="../" title="Curso-R">
+      <a href="../forcats/" title="Introdução">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Curso-R
+              Introdução
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

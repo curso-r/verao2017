@@ -3,11 +3,21 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/ggplot/</loc>
+    <lastmod>2017-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>/forcats/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/manip/</loc>
     <lastmod>2017-02-03T00:00:00+00:00</lastmod>
   </url>
   
@@ -34,16 +44,6 @@
   <url>
     <loc>/lubridate/</loc>
     <lastmod>2017-01-29T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/manip/</loc>
-    <lastmod>2017-01-28T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/ggplot/</loc>
-    <lastmod>2017-01-23T00:00:00+00:00</lastmod>
   </url>
   
   <url>

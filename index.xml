@@ -7,8 +7,458 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ggplot</title>
+      <link>/ggplot/</link>
+      <pubDate>Sun, 05 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/ggplot/</guid>
+      <description>
+
+&lt;p&gt;Para este tópico vamos utilizar o &lt;code&gt;ggplot2&lt;/code&gt;. O &lt;code&gt;ggplot2&lt;/code&gt; é um pacote do R voltado
+para a criação de gráficos estatísticos. Ele é baseado na Gramática dos Gráficos
+(&lt;em&gt;grammar of graphics&lt;/em&gt;, em inglês), criado por Leland Wilkinson, que é uma
+resposta para a pergunta: o que é um gráfico estatístico? Resumidamente, a gramática
+diz que um gráfico estatístico é um mapeamento dos dados a partir de atributos
+estéticos (cores, formas, tamanho) em formas geométricas (pontos, linhas, barras).&lt;/p&gt;
+
+&lt;p&gt;Para mais informações sobre a Gramática dos Gráficos, você pode consultar o livro
+&lt;a href=&#34;http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7&#34;&gt;&lt;em&gt;The Grammar of graphics&lt;/em&gt;&lt;/a&gt;,
+escrito pelo Leland Wilkinson e o livro &lt;a href=&#34;http://ggplot2.org/book/&#34;&gt;ggplot2: elegant graphics for data analysis&lt;/a&gt;, do Hadley Wickham.
+Um &lt;a href=&#34;http://moderngraphics11.pbworks.com/f/ggplot2-Book09hWickham.pdf&#34;&gt;pdf do livro&lt;/a&gt; também está disponível.&lt;/p&gt;
+
+&lt;p&gt;Para quem quiser se aprofundar mais com o &lt;code&gt;ggplot2&lt;/code&gt;, o &lt;a href=&#34;https://www.datacamp.com/&#34;&gt;DataCamp&lt;/a&gt; possui dois cursos
+focados em visualização. É possível começar o curso gratuitamente, mas para terminar,
+tem que pagar.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.datacamp.com/courses/data-visualization-with-ggplot2-1&#34;&gt;Data Visualization with ggplot2 (Part 1)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.datacamp.com/courses/data-visualization-with-ggplot2-2&#34;&gt;Data Visualization with ggplot2 (Part 2)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Antes de começar, instale o pacote digitando &lt;code&gt;install.packages(&amp;quot;ggplot2&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;banco-de-dados&#34;&gt;Banco de dados&lt;/h2&gt;
+
+&lt;p&gt;A seguir, vamos discutir os aspectos básicos para a construção de gráficos com o
+pacote &lt;code&gt;ggplot2&lt;/code&gt;. Para isso, utilizaremos o banco de dados contido no objeto &lt;code&gt;mtcars&lt;/code&gt;.
+Para visualizar as primeiras linhas deste banco, utilize o comando:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(mtcars)
+##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O &lt;code&gt;mtcars&lt;/code&gt; é um banco de dados de 1974 extraído da revista &lt;em&gt;Motor Trend US&lt;/em&gt; que
+compreende consumo de combustível e outros 10 aspectos de performance e engenharia
+de 32 automóveis.&lt;/p&gt;
+
+&lt;p&gt;Entre as variáveis deste banco de dados estão:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mpg&lt;/code&gt;: consumo de combustível (milhas por galão)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;disp&lt;/code&gt;: cilindrada, que é o &lt;a href=&#34;https://pt.wikipedia.org/wiki/Cilindrada&#34;&gt;volume de deslocamento do motor&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Para saber mais sobre o &lt;code&gt;mtcarts&lt;/code&gt;, digite &lt;code&gt;help(mtcars)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;as-camadas-de-um-gráfico&#34;&gt;As camadas de um gráfico&lt;/h2&gt;
+
+&lt;p&gt;Antes de mais nada, vamos carregar o &lt;code&gt;ggplot2&lt;/code&gt; usando:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No &lt;code&gt;ggplot2&lt;/code&gt;, os gráficos são construídos camada por camada (ou, &lt;em&gt;layers&lt;/em&gt;, em inglês),
+sendo que a primeira delas é dada pela função &lt;code&gt;ggplot()&lt;/code&gt; (não tem o &amp;ldquo;2&amp;rdquo;). Cada camada
+representa um tipo de mapeamento ou personalização do gráfico. O código abaixo é um
+exemplo de um gráfico bem simples, construído a partir das duas principais camadas.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data = mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//grafico1-1.png&#34; title=&#34;plot of chunk grafico1&#34; alt=&#34;plot of chunk grafico1&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Observe que o primeiro argumento da função &lt;code&gt;ggplot&lt;/code&gt; é um data frame. A função &lt;code&gt;aes()&lt;/code&gt;
+descreve como as variáveis são mapeadas em aspectos visuais de formas geométricas
+definidas pelos &lt;em&gt;geoms&lt;/em&gt;. Aqui, essas formas geométricas são pontos, selecionados pela
+função &lt;code&gt;geom_point()&lt;/code&gt;, gerando, assim, um gráfico de dispersão. A combinação dessas
+duas camadas define o tipo de gráfico que você deseja construir.&lt;/p&gt;
+
+&lt;h2 id=&#34;aesthetics&#34;&gt;Aesthetics&lt;/h2&gt;
+
+&lt;p&gt;A primeira camada de um gráfico deve indicar a relação entre os dados e cada aspecto
+visual do gráfico, como qual variável será representada no eixo x, qual será
+representada no eixo y, a cor e o tamanho dos componentes geométricos etc. Os aspectos
+que podem ou devem ser mapeados depende do tipo de gráfico que você deseja fazer.&lt;/p&gt;
+
+&lt;p&gt;No exemplo acima, atribuímos aspectos de posição: ao eixo y mapeamos a variável &lt;code&gt;mpg&lt;/code&gt;
+(milhas por galão) e ao eixo x a variável &lt;code&gt;disp&lt;/code&gt; (cilindradas). Outro aspecto que pode
+ser mapeado nesse gráfico é a cor dos pontos&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data = mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg, colour = as.factor(am)))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//mapear_am-1.png&#34; title=&#34;plot of chunk mapear_am&#34; alt=&#34;plot of chunk mapear_am&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora, a variável &lt;code&gt;am&lt;/code&gt; (tipo de transmissão) foi mapeada à cor dos pontos, sendo que pontos vermelhos correspondem à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável &lt;code&gt;am&lt;/code&gt; como um fator, pois temos interesse apenas nos valores &amp;ldquo;0&amp;rdquo; e &amp;ldquo;1&amp;rdquo;. No entanto, também podemos mapear uma variável contínua à cor dos pontos:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg, colour = cyl))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//mapear_cor-1.png&#34; title=&#34;plot of chunk mapear_cor&#34; alt=&#34;plot of chunk mapear_cor&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Aqui, o número de cilindros, &lt;code&gt;cyl&lt;/code&gt;, é representado pela tonalidade da cor azul.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: por &lt;em&gt;default&lt;/em&gt;, a legenda é insirida no gráfico automaticamente.&lt;/p&gt;
+
+&lt;p&gt;Também podemos mapear o tamanho dos pontos a uma variável de interesse:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) +
+  geom_point(mapping = aes(x = disp, y = mpg, colour = cyl, size = wt))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//mapear_tamanaho-1.png&#34; title=&#34;plot of chunk mapear_tamanaho&#34; alt=&#34;plot of chunk mapear_tamanaho&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Exercício&lt;/strong&gt;: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão. &lt;a href=&#34;http://ggplot2.tidyverse.org/articles/ggplot2-specs.html&#34;&gt;Essa&lt;/a&gt; é uma
+boa referência.&lt;/p&gt;
+
+&lt;h2 id=&#34;geoms&#34;&gt;Geoms&lt;/h2&gt;
+
+&lt;p&gt;Os &lt;em&gt;geoms&lt;/em&gt; definem qual forma geométrica será utilizada para a visualização dos
+dados no gráfico. Como já vimos, a função &lt;code&gt;geom_point()&lt;/code&gt; gera gráficos de dispersão
+transformando pares (x,y) em pontos. Veja a seguir outros &lt;em&gt;geoms&lt;/em&gt; bastante utilizados:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;geom_line&lt;/code&gt; - para linhas definidas por pares (x,y)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom_abline&lt;/code&gt; - para retas definidas por um intercepto e uma inclinação&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom_hline&lt;/code&gt; - para retas horizontais&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom_boxplot&lt;/code&gt; - para boxplots&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom_histogram&lt;/code&gt; - para histogramas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom_density&lt;/code&gt; - para densidades&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom_area&lt;/code&gt; - para áreas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geom_bar&lt;/code&gt; - para barras&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Veja a seguir como é fácil gerar diversos gráficos diferentes utilizando a mesma estrutura do gráfico de dispersão acima:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
+  geom_boxplot(aes(x = as.factor(cyl), y = mpg))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-7-1.png&#34; title=&#34;plot of chunk unnamed-chunk-7&#34; alt=&#34;plot of chunk unnamed-chunk-7&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; que para fazer um boxplot para cada grupo, precisamos passar para o aspecto
+x do gráfico uma variável do tipo &lt;code&gt;factor&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
+  geom_histogram(aes(x = mpg))
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-8-1.png&#34; title=&#34;plot of chunk unnamed-chunk-8&#34; alt=&#34;plot of chunk unnamed-chunk-8&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
+  geom_bar(aes(x = as.factor(cyl)))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-9-1.png&#34; title=&#34;plot of chunk unnamed-chunk-9&#34; alt=&#34;plot of chunk unnamed-chunk-9&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;div class=&#39;admonition note&#39;&gt;
+&lt;p class=&#39;admonition-title&#39;&gt;
+Um padrão para os gráficos
+&lt;/p&gt;
+&lt;p&gt;
+Você deve ter percebido que, para fazer um gráfico usando `ggplot2` e a gramática
+dos gráficos, existe um padrão:
+&lt;br&gt; 
+&lt;br&gt;
+ggplot(data = DATA) + GEOM_FUNCTION(mapping = aes(MAPPINGS))
+&lt;br&gt;
+&lt;br&gt;
+Para fazer um gráfico, basta substituir DATA por um banco de dados, GEOM_FUNCTION por
+uma função geométrica e MAPPINGS por uma coleção de &lt;b&gt;mapas estéticos&lt;/b&gt;. Isso será muito útil quando você for fazer o seu próprio gráfico.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&#34;exercícios&#34;&gt;Exercícios&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Rode &lt;code&gt;ggplot(data = mtcars)&lt;/code&gt;. O que você vê?&lt;/li&gt;
+&lt;li&gt;Quantas linhas existem no &lt;code&gt;mtcars&lt;/code&gt;. Quantas colunas? &lt;strong&gt;Dica&lt;/strong&gt;: use a função &lt;code&gt;nrows&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;O que a variável &lt;code&gt;qsec&lt;/code&gt; descreve. Leia o help do &lt;code&gt;mtcars&lt;/code&gt; para encontrar.&lt;/li&gt;
+&lt;li&gt;Faça um gráfico de dispersão de &lt;code&gt;mpg&lt;/code&gt; por &lt;code&gt;qsec&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;O que acontece se você fizer um gráfico de dispersão de &lt;code&gt;vs&lt;/code&gt; por &lt;code&gt;mpg&lt;/code&gt;? Porque o
+gráfico não é útil?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&#34;combinando-gráficos&#34;&gt;Combinando gráficos&lt;/h2&gt;
+
+&lt;p&gt;Considere os 2 gráficos a seguir.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# esquerda
+ggplot(mtcars) + 
+  geom_point(aes(y = mpg, x = disp))
+# direita
+ggplot(mtcars) + 
+  geom_smooth(aes(y = mpg, x = disp))
+## `geom_smooth()` using method = &#39;loess&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//duplochunk-1.png&#34; title=&#34;plot of chunk duplochunk&#34; alt=&#34;plot of chunk duplochunk&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//duplochunk-2.png&#34; title=&#34;plot of chunk duplochunk&#34; alt=&#34;plot of chunk duplochunk&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Os gráficos são similares e completaam-se. O da esquerda, mostra como os pontos estão distribuídos. Ele mostra uma tendência de aumento do consumo de combustível de acordo
+com as cilindradas. Já o gráfico da direita resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança.&lt;/p&gt;
+
+&lt;p&gt;Esses dois gráficos se completam e ficam bons juntos. Com o &lt;code&gt;ggplot2&lt;/code&gt;, é muito fácil
+sobrepor os dois gráficos, pois ele é pensado para que cada gráfico seja feito com
+uma combinação de camadas. Veja o código abaixo.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
+  geom_point(aes(y = mpg, x = disp)) +
+  geom_smooth(aes(y = mpg, x = disp))
+## `geom_smooth()` using method = &#39;loess&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-10-1.png&#34; title=&#34;plot of chunk unnamed-chunk-10&#34; alt=&#34;plot of chunk unnamed-chunk-10&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Desta forma, sobrepusemos os pontos e a linha de suavização. No entanto, duplicamos alguns trechos no nosso código, o que geralmente não é bom. Imagine se você precisar
+mudar a variável do eixo &lt;code&gt;y&lt;/code&gt;, você precisará trocar o nome da variável em mais de um
+lugar do código. Para resolver isso, você pode definir o &lt;em&gt;mapping&lt;/em&gt; apenas uma vez
+dentro da declaração do gráfico, conforme o código a seguir.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point() +
+  geom_smooth()
+## `geom_smooth()` using method = &#39;loess&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-11-1.png&#34; title=&#34;plot of chunk unnamed-chunk-11&#34; alt=&#34;plot of chunk unnamed-chunk-11&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Veja que isso gera o mesmo gráfico!&lt;/p&gt;
+
+&lt;p&gt;Veja que mesmo com dois &lt;code&gt;geom&lt;/code&gt;&amp;rsquo;s, o &lt;code&gt;ggplot&lt;/code&gt; segue a mesma regra para mapear as
+variáveis para as &lt;code&gt;aesthetics&lt;/code&gt;. Por exemplo, se você mapear uma variável para
+a cor, você obterá o seguinte gráfico.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp, colour = as.factor(cyl))) + 
+  geom_point() +
+  geom_smooth(method = &amp;quot;lm&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-12-1.png&#34; title=&#34;plot of chunk unnamed-chunk-12&#34; alt=&#34;plot of chunk unnamed-chunk-12&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;O &lt;code&gt;ggplot2&lt;/code&gt; agora desenhou uma reta para cada um dos grupos de pontos e coloriu
+cada grupo de pontos de uma cor diferente. Em alguns casos, você pode querer mapear
+a cor em apenas uma das camadas do gráfico. Isso pode ser feito da seguinte forma:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(aes(colour = as.factor(cyl))) +
+  geom_smooth(method = &amp;quot;lm&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-13-1.png&#34; title=&#34;plot of chunk unnamed-chunk-13&#34; alt=&#34;plot of chunk unnamed-chunk-13&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Agora, cada grupo de pontos tem uma cor, mas a reta é única para todos os pontos.&lt;/p&gt;
+
+&lt;h2 id=&#34;alterando-os-padrões-do-gráfico&#34;&gt;Alterando os padrões do gráfico&lt;/h2&gt;
+
+&lt;p&gt;Até agora, sempre &lt;em&gt;mapeamos&lt;/em&gt; uma forma estética à uma variável. Muitas vezes
+queremos apenas modificar esta forma estética sem mapeá-la a outra variável.
+Por exemplo, no gráfico a seguir, modificamos a cor de todos os pontos.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(colour = &amp;quot;red&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-14-1.png&#34; title=&#34;plot of chunk unnamed-chunk-14&#34; alt=&#34;plot of chunk unnamed-chunk-14&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;A principal diferença aqui é que especificamos o argumento &lt;code&gt;colour&lt;/code&gt; fora da função
+&lt;code&gt;aes&lt;/code&gt;. Dessa forma, podemos controlar todos os parâmetros
+de cada forma geométrica.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(colour = &amp;quot;red&amp;quot;, size = 2, shape = 3, alpha = 0.5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-15-1.png&#34; title=&#34;plot of chunk unnamed-chunk-15&#34; alt=&#34;plot of chunk unnamed-chunk-15&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;facets&#34;&gt;Facets&lt;/h2&gt;
+
+&lt;p&gt;Uma funcionalidade muito útil do &lt;code&gt;ggplot2&lt;/code&gt; é a possibilidade de usar &lt;code&gt;facets&lt;/code&gt;.
+Isso auxilia na visualização de diferentes subconjuntos dos dados em gráficos
+separados, permitindo a visualização de comportamentos diferentes dependendo
+do grupo.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point() +
+  geom_smooth(method = &amp;quot;lm&amp;quot;) + 
+  facet_wrap(~am)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-16-1.png&#34; title=&#34;plot of chunk unnamed-chunk-16&#34; alt=&#34;plot of chunk unnamed-chunk-16&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;No gráfico acima, rapidamente conseguimos visualizar que se o carro não é automático o consumo de combustível é muito menor do que quando o carro é automático. Também conseguimos ver que a inclinação das retas é bem diferente dependendo do carro ser
+automático/manual.&lt;/p&gt;
+
+&lt;h3 id=&#34;exercício&#34;&gt;&lt;strong&gt;Exercício&lt;/strong&gt;&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = &amp;quot;blue&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-19-1.png&#34; title=&#34;plot of chunk unnamed-chunk-19&#34; alt=&#34;plot of chunk unnamed-chunk-19&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
+estéticas se comportam diferente para variáveis categóricas vs. contínuas?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Começando de um simples boxplot feito no &lt;code&gt;ggplot2&lt;/code&gt; vamos fazer diversas alterações nas legendas. O gráfico inicial é construido da seguinte forma:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
+# boxplot simples
+bp &amp;lt;- ggplot(data=PlantGrowth, aes(x=group, y=weight, fill=group)) + geom_boxplot()
+bp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-21-1.png&#34; title=&#34;plot of chunk unnamed-chunk-21&#34; alt=&#34;plot of chunk unnamed-chunk-21&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;removendo-totalmente-a-legenda&#34;&gt;Removendo totalmente a legenda&lt;/h2&gt;
+
+&lt;p&gt;Existem diversas maneiras para remover a legenda de um gráfico no &lt;code&gt;ggplot2&lt;/code&gt;. A forma mais simples é usar &lt;code&gt;guides(fill = FALSE)&lt;/code&gt; com &lt;code&gt;fill&lt;/code&gt; sendo o atributo gráfico do qual você deseja remover a legenda.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# aqui definimos fill = FALSE, porque é o atributo do gráfico que relacionamos 
+# a alguma variável.
+bp + guides(fill = FALSE)
+
+# também é possível remover a legenda por meio da escala de cores
+# aqui também usamos o scale_fill_discrete, porque associamos fill
+# a uma variável anteriormente.
+bp + scale_fill_discrete(guide = F)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-22-1.png&#34; title=&#34;plot of chunk unnamed-chunk-22&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//unnamed-chunk-22-2.png&#34; title=&#34;plot of chunk unnamed-chunk-22&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# o comando a seguir remove todas as legendas, não importa o atributo que ela
+# esteja representando.
+bp + theme(legend.position=&amp;quot;none&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-23-1.png&#34; title=&#34;plot of chunk unnamed-chunk-23&#34; alt=&#34;plot of chunk unnamed-chunk-23&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;alterando-a-ordem-dos-itens&#34;&gt;Alterando a ordem dos itens&lt;/h2&gt;
+
+&lt;p&gt;Para alterar a ordem dos itens na legenda do gráfico no &lt;code&gt;ggplot2&lt;/code&gt;, usamos o comando da escala de cores.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp + scale_fill_discrete(breaks=c(&amp;quot;trt1&amp;quot;,&amp;quot;ctrl&amp;quot;,&amp;quot;trt2&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-24-1.png&#34; title=&#34;plot of chunk unnamed-chunk-24&#34; alt=&#34;plot of chunk unnamed-chunk-24&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-24-2.png&#34; title=&#34;plot of chunk unnamed-chunk-24&#34; alt=&#34;plot of chunk unnamed-chunk-24&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Dependendo dos aspectos gráficos (cores, formatos, preenchimentos) especificados, você pode precisar usar alguma das seguintes funções: &lt;code&gt;scale_fill_manual&lt;/code&gt;, &lt;code&gt;scale_colour_hue&lt;/code&gt;, &lt;code&gt;scale_colour_manual&lt;/code&gt;, &lt;code&gt;scale_shape_discrete&lt;/code&gt;, &lt;code&gt;scale_linetype_discrete&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Você pode também querer inverter a ordem dos itens da legenda. Isso pode ser feito de uma das seguintes maneiras.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp + guides(fill = guide_legend(reverse=TRUE))
+bp + scale_fill_discrete(guide = guide_legend(reverse=TRUE))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-25-1.png&#34; title=&#34;plot of chunk unnamed-chunk-25&#34; alt=&#34;plot of chunk unnamed-chunk-25&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//unnamed-chunk-25-2.png&#34; title=&#34;plot of chunk unnamed-chunk-25&#34; alt=&#34;plot of chunk unnamed-chunk-25&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;removendo-os-títulos-da-legenda&#34;&gt;Removendo os títulos da legenda&lt;/h2&gt;
+
+&lt;p&gt;Algumas vezes é necessário remover o título das legendas do gráfico feito no &lt;code&gt;ggplot2&lt;/code&gt;.
+Veja a seguir algumas maneiras:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Remove o título apenas da legenda do preenchimento (fill)
+bp + guides(fill=guide_legend(title=NULL))
+
+# Remove o título de todas as legendas
+bp + theme(legend.title=element_blank())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-26-1.png&#34; title=&#34;plot of chunk unnamed-chunk-26&#34; alt=&#34;plot of chunk unnamed-chunk-26&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//unnamed-chunk-26-2.png&#34; title=&#34;plot of chunk unnamed-chunk-26&#34; alt=&#34;plot of chunk unnamed-chunk-26&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;modificando-texto-cores-e-rótulos&#34;&gt;Modificando texto, cores e rótulos&lt;/h2&gt;
+
+&lt;p&gt;Existem duas formas para modificar os textos e rótulos das legendas. Uma delas é modificar o &lt;code&gt;data.frame&lt;/code&gt; de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções de &lt;code&gt;scale&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Veja algumas modificações que podem ser feitas por meio das funções de &lt;code&gt;scale&lt;/code&gt;. Como a variável &lt;code&gt;group&lt;/code&gt; está associada ao atributo &lt;code&gt;fill&lt;/code&gt;, usamos as funções &lt;code&gt;scale_fill_xxx&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# usamos scale_fill_discrete porque não queremos alterar as cores padrão,
+# mas queremos que cada fator esteja associado a uma cor de tom diferente.
+# mudamos aqui os rótulos e o título da legenda.
+bp + scale_fill_discrete(name=&amp;quot;Experimental\nCondition&amp;quot;,
+                         breaks=c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt1&amp;quot;, &amp;quot;trt2&amp;quot;),
+                         labels=c(&amp;quot;Control&amp;quot;, &amp;quot;Treatment 1&amp;quot;, &amp;quot;Treatment 2&amp;quot;))
+
+
+# usamos scale_fill_manual porque queremos alterar as cores padrão.
+# aqui escolhemos as cores da escala hexadecimal.
+bp + scale_fill_manual(values=c(&amp;quot;#999999&amp;quot;, &amp;quot;#E69F00&amp;quot;, &amp;quot;#56B4E9&amp;quot;), 
+                       name=&amp;quot;Experimental\nCondition&amp;quot;,
+                       breaks=c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt1&amp;quot;, &amp;quot;trt2&amp;quot;),
+                       labels=c(&amp;quot;Control&amp;quot;, &amp;quot;Treatment 1&amp;quot;, &amp;quot;Treatment 2&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-27-1.png&#34; title=&#34;plot of chunk unnamed-chunk-27&#34; alt=&#34;plot of chunk unnamed-chunk-27&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//unnamed-chunk-27-2.png&#34; title=&#34;plot of chunk unnamed-chunk-27&#34; alt=&#34;plot of chunk unnamed-chunk-27&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Veja que isso não aletrou o eixo X do gráfico.&lt;/p&gt;
+
+&lt;h2 id=&#34;modificando-a-aparência-da-legenda&#34;&gt;Modificando a aparência da legenda&lt;/h2&gt;
+
+&lt;p&gt;Existem inúmeras modificações que podem ser realizadas na aparência da legenda. Todas elas estão relacionadas à modificação do &lt;code&gt;element_text&lt;/code&gt;. Veja neste &lt;a href=&#34;http://docs.ggplot2.org/0.9.2.1/element_text.html&#34;&gt;link&lt;/a&gt; todos os atributos que podem ser modificados.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Mudando a aparência do título
+bp + theme(legend.title = element_text(colour=&amp;quot;blue&amp;quot;, size=16, face=&amp;quot;bold&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-28-1.png&#34; title=&#34;plot of chunk unnamed-chunk-28&#34; alt=&#34;plot of chunk unnamed-chunk-28&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Mudando a aparência dos rótulos
+bp + theme(legend.text = element_text(colour=&amp;quot;blue&amp;quot;, size = 16, face = &amp;quot;bold&amp;quot;))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-29-1.png&#34; title=&#34;plot of chunk unnamed-chunk-29&#34; alt=&#34;plot of chunk unnamed-chunk-29&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;modificando-a-posição-da-legenda&#34;&gt;Modificando a posição da legenda&lt;/h2&gt;
+
+&lt;p&gt;É possível controlar a posição da legenda facilmente escolhendo uma das posições (left/right/top/bottom).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp + theme(legend.position=&amp;quot;top&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-30-1.png&#34; title=&#34;plot of chunk unnamed-chunk-30&#34; alt=&#34;plot of chunk unnamed-chunk-30&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Também é possível controlar a posição da legenda de forma precisa usando a função &lt;code&gt;theme()&lt;/code&gt;. A legenda será posicionada dentro do gráfico com o ponto central sendo o valor do argumento &lt;code&gt;legend.position&lt;/code&gt;. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp + theme(legend.position=c(.5, .5))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-31-1.png&#34; title=&#34;plot of chunk unnamed-chunk-31&#34; alt=&#34;plot of chunk unnamed-chunk-31&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Introdução</title>
@@ -493,6 +943,478 @@ fct_relevel(fator, &amp;quot;b&amp;quot;,&amp;quot;c&amp;quot;)
 &lt;/ol&gt;
 
 &lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJsdmxzXy4uLiIsInNvbHV0aW9uIjoibHZsc19yZXZhbHVlKGYxLCByZXYobGV0dGVycykpIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCJmM1wiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Introdução</title>
+      <link>/manip/</link>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/manip/</guid>
+      <description>
+
+&lt;blockquote&gt;
+&lt;p&gt;&amp;rdquo;(&amp;hellip;) The fact that data science exists as a field is a colossal failure of statistics. To me, what I do is what statistics is all about. It is gaining insight from data using modelling and visualization. Data munging and manipulation is hard and statistics has just said that’s not our domain.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Hadley Wickham&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Esta seção trata do tema &lt;em&gt;transformação de dados&lt;/em&gt;. Trata-se de uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística. Essa etapa é essencial em qualquer análise de dados e, apesar de negligenciada pela academia, é decisiva para o sucesso de estudos aplicados.&lt;/p&gt;
+
+&lt;p&gt;Usualmente, o cientista de dados parte de uma base &amp;ldquo;crua&amp;rdquo; e a transforma até obter uma base de dados analítica. A base crua pode ser não estruturada, semi-estruturada ou estruturada. Já a base analítica é necessariamente estruturada e está preparada para passar por análises estatísticas a menos de transformações simples.&lt;/p&gt;
+
+&lt;p&gt;Um conceito importante para obtenção de uma base analítica é o &lt;em&gt;data tidying&lt;/em&gt;, ou arrumação de dados. Uma base é considerada &lt;em&gt;tidy&lt;/em&gt; se&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Cada linha da base representa uma observação.&lt;/li&gt;
+&lt;li&gt;Cada coluna da base representa uma variável.&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;Cada tabela considera informações de uma unidade amostral.&lt;/del&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;A base de dados analítica é estruturada de tal forma que pode ser colocada diretamente em sistemas de modelagem estatística ou de visualização. Nem sempre uma base de dados analítica está no formato &lt;em&gt;tidy&lt;/em&gt;, mas usualmente são necessários poucos passos para migrar de uma para outra.&lt;/p&gt;
+
+&lt;p&gt;A Figura \@ref(fig:transform) mostra a fase de &amp;ldquo;disputa&amp;rdquo; com os dados (&lt;em&gt;data wrangling&lt;/em&gt;) para deixá-los no formato analítico.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://r4ds.had.co.nz/diagrams/data-science-wrangle.png&#34; title=&#34;Transformação no ciclo da ciência de dados.&#34; alt=&#34;Transformação no ciclo da ciência de dados.&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;pacotes-dplyr-e-tidyr&#34;&gt;Pacotes &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;O &lt;code&gt;dplyr&lt;/code&gt; é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em &lt;code&gt;R&lt;/code&gt; que fazem uso inteligente dos verbos &lt;code&gt;dplyr&lt;/code&gt; e as facilidades do operador &lt;em&gt;pipe&lt;/em&gt; tendem a ficar mais legíveis e organizados sem perder velocidade de execução.&lt;/p&gt;
+
+&lt;p&gt;Antes de apresentar com as principais funções do &lt;code&gt;dplyr&lt;/code&gt; e do &lt;code&gt;tidyr&lt;/code&gt;, precisamos trabalhar com o conceito de &lt;code&gt;tibbles&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;trabalhando-com-tibble-s&#34;&gt;Trabalhando com &lt;code&gt;tibble&lt;/code&gt;s&lt;/h3&gt;
+
+&lt;p&gt;Uma &lt;code&gt;tibble&lt;/code&gt; nada mais é do que um &lt;code&gt;data.frame&lt;/code&gt;, mas com um método de impressão mais adequado. Outras diferenças podem ser estudadas &lt;a href=&#34;http://r4ds.had.co.nz/tibbles.html&#34;&gt;neste link&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Considere a seguinte base de dados.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min
+## # A tibble: 16,686 × 14
+##      ano                  muni    uf regiao  idhm idhm_e idhm_l idhm_r
+##    &amp;lt;int&amp;gt;                 &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1   1991 ALTA FLORESTA D&#39;OESTE    RO  Norte 0.329  0.112  0.617  0.516
+## 2   1991             ARIQUEMES    RO  Norte 0.432  0.199  0.684  0.593
+## 3   1991                CABIXI    RO  Norte 0.309  0.108  0.636  0.430
+## 4   1991                CACOAL    RO  Norte 0.407  0.171  0.667  0.593
+## 5   1991            CEREJEIRAS    RO  Norte 0.386  0.167  0.629  0.547
+## 6   1991     COLORADO DO OESTE    RO  Norte 0.376  0.151  0.658  0.536
+## 7   1991            CORUMBIARA    RO  Norte 0.203  0.039  0.572  0.373
+## 8   1991         COSTA MARQUES    RO  Norte 0.425  0.220  0.629  0.553
+## 9   1991       ESPIGÃO D&#39;OESTE    RO  Norte 0.388  0.159  0.653  0.561
+## 10  1991         GUAJARÁ-MIRIM    RO  Norte 0.468  0.247  0.662  0.625
+## # ... with 16,676 more rows, and 6 more variables: espvida &amp;lt;dbl&amp;gt;,
+## #   rdpc &amp;lt;dbl&amp;gt;, gini &amp;lt;dbl&amp;gt;, pop &amp;lt;int&amp;gt;, lat &amp;lt;dbl&amp;gt;, lon &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;base-idh-municipal-pnud&#34;&gt;Base IDH-Municipal - PNUD&lt;/h2&gt;
+
+&lt;p&gt;Nessa seção vamos trabalhar com uma base simplificada do &lt;a href=&#34;http://www.atlasbrasil.org.br/2013/pt/download/base/&#34;&gt;PNUD (Programa das Nações Unidas para o Desenvolvimento)&lt;/a&gt;, contendo informações socioeconômicas de todos os municípios do país. Os resultados foram obtidos a partir dos Censos de 1991, 2000 e 2010.&lt;/p&gt;
+
+&lt;p&gt;A base contém 16686 linhas e 14 colunas, descritas abaixo:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ano&lt;/code&gt; - ano do Censo utilizado como base para cálculo do IDH-Municipal e outras métricas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;muni&lt;/code&gt; - nome do município. Cada município aparece três vezes, um para cada ano.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;uf&lt;/code&gt; - Unidade Federativa.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;regiao&lt;/code&gt; - região brasileira.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idhm&lt;/code&gt; - IDH municipal, dividido em
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;idhm_e&lt;/code&gt; - IDH municipal - educação.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idhm_l&lt;/code&gt; - IDH municipal - longevidade.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;idhm_r&lt;/code&gt; - IDH municipal - renda.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;espvida&lt;/code&gt; - expectativa de vida.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rdpc&lt;/code&gt; - renda &lt;em&gt;per capita&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gini&lt;/code&gt; - coeficiente de gini municipal (mede desigualdade social).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pop&lt;/code&gt; - população residente do município.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lat&lt;/code&gt;, &lt;code&gt;lon&lt;/code&gt; - latitude e longitude do município (ponto médio).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;os-cinco-verbos-do-dplyr&#34;&gt;Os cinco verbos do &lt;code&gt;dplyr&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;As funções principais do &lt;code&gt;dplyr&lt;/code&gt; são&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;: filtrar linhas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt;: selecionar colunas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;: criar/modificar colunas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;: ordenar a base.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;summarise&lt;/code&gt;: sumarizar a base em uma linha.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;características&#34;&gt;Características&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;O &lt;em&gt;input&lt;/em&gt;  é sempre uma &lt;code&gt;tibble&lt;/code&gt; e o &lt;em&gt;output&lt;/em&gt;  é sempre um &lt;code&gt;tibble&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Colocamos o &lt;code&gt;tibble&lt;/code&gt; no primeiro argumento e o que queremos fazer nos outros argumentos.&lt;/li&gt;
+&lt;li&gt;A utilização é facilitada com o emprego do operador &lt;code&gt;%&amp;gt;%&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;O pacote faz uso extensivo de NSE (&lt;em&gt;non standard evaluation&lt;/em&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;vantagens&#34;&gt;Vantagens&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Utiliza &lt;code&gt;C&lt;/code&gt; e &lt;code&gt;C++&lt;/code&gt; por trás da maioria das funções, o que geralmente torna o código mais eficiente.&lt;/li&gt;
+&lt;li&gt;Pode trabalhar com diferentes fontes de dados, como bases relacionais (SQL) e &lt;code&gt;data.table&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;select&#34;&gt;&lt;code&gt;select&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Utilizar &lt;code&gt;starts_with(x)&lt;/code&gt;, &lt;code&gt;contains(x)&lt;/code&gt;, &lt;code&gt;matches(x)&lt;/code&gt;, &lt;code&gt;one_of(x)&lt;/code&gt; etc.&lt;/li&gt;
+&lt;li&gt;Possível colocar nomes, índices e intervalos de variáveis com &lt;code&gt;:&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano, regiao, muni)
+## # A tibble: 16,686 × 3
+##      ano regiao                  muni
+##    &amp;lt;int&amp;gt;  &amp;lt;chr&amp;gt;                 &amp;lt;chr&amp;gt;
+## 1   1991  Norte ALTA FLORESTA D&#39;OESTE
+## 2   1991  Norte             ARIQUEMES
+## 3   1991  Norte                CABIXI
+## 4   1991  Norte                CACOAL
+## 5   1991  Norte            CEREJEIRAS
+## 6   1991  Norte     COLORADO DO OESTE
+## 7   1991  Norte            CORUMBIARA
+## 8   1991  Norte         COSTA MARQUES
+## 9   1991  Norte       ESPIGÃO D&#39;OESTE
+## 10  1991  Norte         GUAJARÁ-MIRIM
+## # ... with 16,676 more rows
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano:regiao, rdpc)
+## # A tibble: 16,686 × 5
+##      ano                  muni    uf regiao   rdpc
+##    &amp;lt;int&amp;gt;                 &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1   1991 ALTA FLORESTA D&#39;OESTE    RO  Norte 198.46
+## 2   1991             ARIQUEMES    RO  Norte 319.47
+## 3   1991                CABIXI    RO  Norte 116.38
+## 4   1991                CACOAL    RO  Norte 320.24
+## 5   1991            CEREJEIRAS    RO  Norte 240.10
+## 6   1991     COLORADO DO OESTE    RO  Norte 224.82
+## 7   1991            CORUMBIARA    RO  Norte  81.38
+## 8   1991         COSTA MARQUES    RO  Norte 250.08
+## 9   1991       ESPIGÃO D&#39;OESTE    RO  Norte 263.03
+## 10  1991         GUAJARÁ-MIRIM    RO  Norte 391.37
+## # ... with 16,676 more rows
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano, starts_with(&#39;idhm&#39;))
+## # A tibble: 16,686 × 5
+##      ano  idhm idhm_e idhm_l idhm_r
+##    &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1   1991 0.329  0.112  0.617  0.516
+## 2   1991 0.432  0.199  0.684  0.593
+## 3   1991 0.309  0.108  0.636  0.430
+## 4   1991 0.407  0.171  0.667  0.593
+## 5   1991 0.386  0.167  0.629  0.547
+## 6   1991 0.376  0.151  0.658  0.536
+## 7   1991 0.203  0.039  0.572  0.373
+## 8   1991 0.425  0.220  0.629  0.553
+## 9   1991 0.388  0.159  0.653  0.561
+## 10  1991 0.468  0.247  0.662  0.625
+## # ... with 16,676 more rows
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;filter&#34;&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Parecido com &lt;code&gt;subset&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Condições separadas por vírgulas é o mesmo que separar por &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano, muni, uf) %&amp;gt;% 
+  filter(uf == &#39;AC&#39;)
+## # A tibble: 66 × 3
+##      ano            muni    uf
+##    &amp;lt;int&amp;gt;           &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;
+## 1   1991      ACRELÂNDIA    AC
+## 2   1991    ASSIS BRASIL    AC
+## 3   1991       BRASILÉIA    AC
+## 4   1991          BUJARI    AC
+## 5   1991        CAPIXABA    AC
+## 6   1991 CRUZEIRO DO SUL    AC
+## 7   1991  EPITACIOLÂNDIA    AC
+## 8   1991           FEIJÓ    AC
+## 9   1991          JORDÃO    AC
+## 10  1991     MÂNCIO LIMA    AC
+## # ... with 56 more rows
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para fazer várias condições, use os operadores lógicos (&lt;code&gt;&amp;amp;&lt;/code&gt; e &lt;code&gt;|&lt;/code&gt;) ou separe filtros entre vírgulas.&lt;/p&gt;
+
+&lt;div class=&#39;admonition note&#39;&gt;
+&lt;p class=&#39;admonition-title&#39;&gt;
+%in%
+&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;%in%&lt;/b&gt; é um operador muito útil para trabalhar com vetores. O resultado da operação é um vetor lógico do tamanho do vetor do elemento da esquerda, identificando quais elementos da esquerda batem com algum elemento da direita.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(ano, regiao, uf, idhm) %&amp;gt;% 
+  filter(uf %in% c(&#39;SP&#39;, &#39;MG&#39;) | idhm &amp;gt; .5, ano == 2010)
+## # A tibble: 5,527 × 4
+##      ano regiao    uf  idhm
+##    &amp;lt;int&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1   2010  Norte    RO 0.641
+## 2   2010  Norte    RO 0.702
+## 3   2010  Norte    RO 0.650
+## 4   2010  Norte    RO 0.718
+## 5   2010  Norte    RO 0.692
+## 6   2010  Norte    RO 0.685
+## 7   2010  Norte    RO 0.613
+## 8   2010  Norte    RO 0.611
+## 9   2010  Norte    RO 0.672
+## 10  2010  Norte    RO 0.657
+## # ... with 5,517 more rows
+  # é igual a
+  # filter(uf %in% c(&#39;SP&#39;, &#39;MG&#39;) | idhm &amp;gt; .5 &amp;amp; ano == 2010)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(stringr)
+pnud_min %&amp;gt;% 
+  select(muni, ano, uf) %&amp;gt;% 
+  filter(str_detect(muni, &#39;^[HG]|S$&#39;), 
+         ano == 1991)
+## # A tibble: 970 × 3
+##                         muni   ano    uf
+##                        &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;
+## 1                  ARIQUEMES  1991    RO
+## 2                 CEREJEIRAS  1991    RO
+## 3              COSTA MARQUES  1991    RO
+## 4              GUAJARÁ-MIRIM  1991    RO
+## 5    ALTO ALEGRE DOS PARECIS  1991    RO
+## 6                    BURITIS  1991    RO
+## 7               CASTANHEIRAS  1991    RO
+## 8  GOVERNADOR JORGE TEIXEIRA  1991    RO
+## 9                    PARECIS  1991    RO
+## 10              SERINGUEIRAS  1991    RO
+## # ... with 960 more rows
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;mutate&#34;&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Parecido com &lt;code&gt;transform&lt;/code&gt;, mas aceita várias novas colunas iterativamente.&lt;/li&gt;
+&lt;li&gt;Novas variáveis devem ter o mesmo &lt;code&gt;length&lt;/code&gt; que o &lt;code&gt;nrow&lt;/code&gt; do bd oridinal ou &lt;code&gt;1&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(muni, rdpc, pop, idhm_l, espvida) %&amp;gt;% 
+  mutate(renda = rdpc * pop, 
+         razao = idhm_l / espvida)
+## # A tibble: 16,686 × 7
+##                     muni   rdpc   pop idhm_l espvida      renda
+##                    &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;  &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;
+## 1  ALTA FLORESTA D&#39;OESTE 198.46 22835  0.617   62.01  4531834.1
+## 2              ARIQUEMES 319.47 55018  0.684   66.02 17576600.5
+## 3                 CABIXI 116.38  5846  0.636   63.16   680357.5
+## 4                 CACOAL 320.24 66534  0.667   65.03 21306848.2
+## 5             CEREJEIRAS 240.10 19030  0.629   62.73  4569103.0
+## 6      COLORADO DO OESTE 224.82 25070  0.658   64.46  5636237.4
+## 7             CORUMBIARA  81.38 10737  0.572   59.32   873777.1
+## 8          COSTA MARQUES 250.08  6902  0.629   62.76  1726052.2
+## 9        ESPIGÃO D&#39;OESTE 263.03 22505  0.653   64.18  5919490.1
+## 10         GUAJARÁ-MIRIM 391.37 31240  0.662   64.71 12226398.8
+## # ... with 16,676 more rows, and 1 more variables: razao &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;arrange&#34;&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Simplesmente ordena de acordo com as opções.&lt;/li&gt;
+&lt;li&gt;Utilizar &lt;code&gt;desc&lt;/code&gt; para ordem decrescente.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  filter(ano == 2010) %&amp;gt;% 
+  arrange(desc(espvida))
+## # A tibble: 5,562 × 14
+##      ano               muni    uf regiao  idhm idhm_e idhm_l idhm_r
+##    &amp;lt;int&amp;gt;              &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1   2010           BLUMENAU    SC    Sul 0.806  0.722  0.894  0.812
+## 2   2010            BRUSQUE    SC    Sul 0.795  0.707  0.894  0.794
+## 3   2010 BALNEÁRIO CAMBORIÚ    SC    Sul 0.845  0.789  0.894  0.854
+## 4   2010         RIO DO SUL    SC    Sul 0.802  0.727  0.894  0.793
+## 5   2010    RANCHO QUEIMADO    SC    Sul 0.753  0.644  0.893  0.743
+## 6   2010       RIO DO OESTE    SC    Sul 0.754  0.625  0.892  0.769
+## 7   2010             IOMERÊ    SC    Sul 0.795  0.749  0.891  0.754
+## 8   2010            JOAÇABA    SC    Sul 0.827  0.771  0.891  0.823
+## 9   2010        NOVA TRENTO    SC    Sul 0.748  0.628  0.891  0.749
+## 10  2010        PORTO UNIÃO    SC    Sul 0.786  0.724  0.891  0.752
+## # ... with 5,552 more rows, and 6 more variables: espvida &amp;lt;dbl&amp;gt;,
+## #   rdpc &amp;lt;dbl&amp;gt;, gini &amp;lt;dbl&amp;gt;, pop &amp;lt;int&amp;gt;, lat &amp;lt;dbl&amp;gt;, lon &amp;lt;dbl&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;summarise&#34;&gt;&lt;code&gt;summarise&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Retorna um vetor de tamanho &lt;code&gt;1&lt;/code&gt; a partir de uma conta com as variáveis.&lt;/li&gt;
+&lt;li&gt;Geralmente é utilizado em conjunto com &lt;code&gt;group_by&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Algumas funções importantes: &lt;code&gt;n()&lt;/code&gt;, &lt;code&gt;n_distinct()&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  group_by(regiao, uf) %&amp;gt;% 
+  summarise(n = n(), espvida = mean(espvida)) %&amp;gt;% 
+  arrange(regiao, desc(espvida))
+## Source: local data frame [27 x 4]
+## Groups: regiao [5]
+## 
+##          regiao    uf     n  espvida
+##           &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;
+## 1  Centro-Oeste    DF     3 73.36000
+## 2  Centro-Oeste    GO   735 69.95346
+## 3  Centro-Oeste    MS   234 69.94291
+## 4  Centro-Oeste    MT   423 69.42915
+## 5      Nordeste    CE   552 65.60627
+## 6      Nordeste    RN   501 65.11439
+## 7      Nordeste    PE   555 64.92721
+## 8      Nordeste    BA  1251 64.62361
+## 9      Nordeste    SE   225 64.26031
+## 10     Nordeste    PI   672 64.04028
+## # ... with 17 more rows
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  filter(ano == 2010) %&amp;gt;% 
+  count(regiao, sort = TRUE) %&amp;gt;% 
+  mutate(prop = n / sum(n), prop = scales::percent(prop))
+## # A tibble: 5 × 3
+##         regiao     n  prop
+##          &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;
+## 1     Nordeste  1794 32.3%
+## 2      Sudeste  1667 30.0%
+## 3          Sul  1187 21.3%
+## 4 Centro-Oeste   465  8.4%
+## 5        Norte   449  8.1%
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;gather&#34;&gt;&lt;code&gt;gather&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Empilha&amp;rdquo; o banco de dados&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(uf, muni, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  arrange(desc(idhm))
+## # A tibble: 50,058 × 5
+##       uf               muni   ano tipo_idhm  idhm
+##    &amp;lt;chr&amp;gt;              &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;     &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     SC BALNEÁRIO CAMBORIÚ  2010    idhm_l 0.894
+## 2     SC           BLUMENAU  2010    idhm_l 0.894
+## 3     SC            BRUSQUE  2010    idhm_l 0.894
+## 4     SC         RIO DO SUL  2010    idhm_l 0.894
+## 5     SC    RANCHO QUEIMADO  2010    idhm_l 0.893
+## 6     SC       RIO DO OESTE  2010    idhm_l 0.892
+## 7     SC             IOMERÊ  2010    idhm_l 0.891
+## 8     SC            JOAÇABA  2010    idhm_l 0.891
+## 9     SC        NOVA TRENTO  2010    idhm_l 0.891
+## 10    SC        PORTO UNIÃO  2010    idhm_l 0.891
+## # ... with 50,048 more rows
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;spread&#34;&gt;&lt;code&gt;spread&lt;/code&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Joga&amp;rdquo; uma variável nas colunas&lt;/li&gt;
+&lt;li&gt;É essencialmente a função inversa de &lt;code&gt;gather&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(muni, uf, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  spread(ano, idhm)
+## # A tibble: 16,686 × 6
+##                   muni    uf tipo_idhm `1991` `2000` `2010`
+## *                &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+## 1      ABADIA DE GOIÁS    GO    idhm_e  0.183  0.386  0.622
+## 2      ABADIA DE GOIÁS    GO    idhm_l  0.658  0.765  0.830
+## 3      ABADIA DE GOIÁS    GO    idhm_r  0.563  0.623  0.687
+## 4  Abadia dos Dourados    MG    idhm_e  0.225  0.387  0.563
+## 5  Abadia dos Dourados    MG    idhm_l  0.728  0.799  0.839
+## 6  Abadia dos Dourados    MG    idhm_r  0.551  0.616  0.693
+## 7            ABADIÂNIA    GO    idhm_e  0.188  0.292  0.579
+## 8            ABADIÂNIA    GO    idhm_l  0.656  0.730  0.841
+## 9            ABADIÂNIA    GO    idhm_r  0.560  0.598  0.671
+## 10              Abaeté    MG    idhm_e  0.180  0.385  0.556
+## # ... with 16,676 more rows
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;funções-auxiliares&#34;&gt;Funções auxiliares&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;unite&lt;/code&gt; junta duas ou mais colunas usando algum separador (&lt;code&gt;_&lt;/code&gt;, por exemplo).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;separate&lt;/code&gt; faz o inverso de &lt;code&gt;unite&lt;/code&gt;, e uma coluna em várias usando um separador.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
+  select(muni, uf, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
+  separate(tipo_idhm, c(&#39;idhm_nm&#39;, &#39;tipo&#39;), sep = &#39;_&#39;) %&amp;gt;% 
+  select(-idhm_nm) %&amp;gt;% 
+  filter(ano == 2010) %&amp;gt;% 
+  group_by(tipo) %&amp;gt;% 
+  summarise(maior = muni[which.max(idhm)], idhm = max(idhm)) %&amp;gt;% 
+  arrange(tipo, desc(idhm))
+## # A tibble: 3 × 3
+##    tipo              maior  idhm
+##   &amp;lt;chr&amp;gt;              &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
+## 1     e ÁGUAS DE SÃO PEDRO 0.825
+## 2     l BALNEÁRIO CAMBORIÚ 0.894
+## 3     r SÃO CAETANO DO SUL 0.891
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;um-pouco-mais-de-transformação-de-dados&#34;&gt;Um pouco mais de transformação de dados&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Para juntar tabelas, usar &lt;code&gt;inner_join&lt;/code&gt;, &lt;code&gt;left_join&lt;/code&gt;, &lt;code&gt;anti_join&lt;/code&gt; etc.&lt;/li&gt;
+&lt;li&gt;Para realizar operações mais gerais, usar &lt;code&gt;do&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Para retirar duplicatas, utilizar &lt;code&gt;distinct&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;$$
+\frac{1 + \sqrt{5}}{2}
+$$&lt;/p&gt;
+
+&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IigxICsgc3FydCg1KSkvMiIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiMS42MTgwMzRcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
 </description>
     </item>
     
@@ -2555,18 +3477,11 @@ str_to_title(s)
 
 &lt;h2 id=&#34;expressões-regulares&#34;&gt;Expressões Regulares&lt;/h2&gt;
 
-&lt;p&gt;Trabalhar com textos exige um certo conhecimento de expressões regulares (&lt;em&gt;regex&lt;/em&gt;).
-&lt;a href=&#34;https://pt.wikipedia.org/wiki/Express%C3%A3o_regular&#34;&gt;Expressões regulares&lt;/a&gt; permitem
-identificar conjuntos de caracters, palavras, e outros padrões por meio de uma sintaxe
-concisa.&lt;/p&gt;
+&lt;p&gt;Trabalhar com textos exige um certo conhecimento de expressões regulares (&lt;em&gt;regex&lt;/em&gt;). &lt;a href=&#34;https://pt.wikipedia.org/wiki/Express%C3%A3o_regular&#34;&gt;Expressões regulares&lt;/a&gt; permitem identificar conjuntos de caracteres, palavras e outros padrões por meio de uma sintaxe concisa.&lt;/p&gt;
 
-&lt;p&gt;O &lt;code&gt;stringr&lt;/code&gt; utiliza regex da forma descrita &lt;a href=&#34;http://www.gagolewski.com/software/stringi/manual/?manpage=stringi-search-regex&#34;&gt;neste documento&lt;/a&gt;.
-A própria &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html&#34;&gt;definição&lt;/a&gt; de
-regex do R é um ótimo manual.&lt;/p&gt;
+&lt;p&gt;O &lt;code&gt;stringr&lt;/code&gt; utiliza regex da forma descrita &lt;a href=&#34;http://www.gagolewski.com/software/stringi/manual/?manpage=stringi-search-regex&#34;&gt;neste documento&lt;/a&gt;. A própria &lt;a href=&#34;https://stat.ethz.ch/R-manual/R-devel/library/base/html/regex.html&#34;&gt;definição&lt;/a&gt; de regex do R é um ótimo manual.&lt;/p&gt;
 
-&lt;p&gt;Vamos estudar expressões regulares através de exemplos e com a função &lt;code&gt;str_detect()&lt;/code&gt;.
-Essa função retorna &lt;code&gt;TRUE&lt;/code&gt; se uma string atende à uma expressão regular e &lt;code&gt;FALSE&lt;/code&gt;
-em caso contrário.&lt;/p&gt;
+&lt;p&gt;Vamos estudar expressões regulares por meio de exemplos e da função &lt;code&gt;str_detect()&lt;/code&gt;. Ela retorna &lt;code&gt;TRUE&lt;/code&gt; se uma string atende a uma expressão regular e &lt;code&gt;FALSE&lt;/code&gt; caso contrário.&lt;/p&gt;
 
 &lt;p&gt;Por exemplo:&lt;/p&gt;
 
@@ -2577,13 +3492,9 @@ str_detect(&amp;quot;sao paulo sp&amp;quot;, pattern = &amp;quot;paulo$&amp;quot
 ## [1] FALSE
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;A regex/pattern &amp;ldquo;paulo$&amp;rdquo; indica que o texto deve ser terminado em &amp;ldquo;paulo&amp;rdquo;. Existem
-diversos de caracteres auxiliares que vão auxiliar na manipulação dos textos, assim como
-o &amp;ldquo;$&amp;rdquo; neste caso. É importante notar que sempre que você estiver passando algum
-valor para o argumento &lt;code&gt;pattern&lt;/code&gt; de qualquer função do &lt;code&gt;stringr&lt;/code&gt; ele o entenderá
-como uma regex.&lt;/p&gt;
+&lt;p&gt;A regex/pattern &amp;ldquo;paulo\$&amp;rdquo; indica que o texto deve ser terminado em &amp;ldquo;paulo&amp;rdquo;. Existem diversos de caracteres auxiliares que vão auxiliar na manipulação dos textos, assim como o &amp;ldquo;\$&amp;ldquo;. Importante: o valor passado para o argumento &lt;code&gt;pattern&lt;/code&gt; de qualquer função do pacote &lt;code&gt;stringr&lt;/code&gt; será entendido como uma regex.&lt;/p&gt;
 
-&lt;p&gt;A tabela abaixo mostra a aplicação de seis &lt;code&gt;regex&lt;/code&gt; a seis strings distintas.&lt;/p&gt;
+&lt;p&gt;A tabela abaixo mostra a aplicação de seis &lt;code&gt;regex&lt;/code&gt; em seis strings distintas.&lt;/p&gt;
 
 &lt;table&gt;
 &lt;thead&gt;
@@ -2660,7 +3571,7 @@ como uma regex.&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;ey+&lt;/code&gt; significa &lt;code&gt;e&lt;/code&gt; e depois &lt;code&gt;y&lt;/code&gt; &amp;ldquo;&lt;strong&gt;uma vez&lt;/strong&gt; ou mais&amp;rdquo;. Por exemplo, reconhece &lt;code&gt;hey&lt;/code&gt;, &lt;code&gt;heyy&lt;/code&gt;, &lt;code&gt;a eyyy&lt;/code&gt;, mas não reconhece &lt;code&gt;e&lt;/code&gt;, &lt;code&gt;y&lt;/code&gt; nem &lt;code&gt;yy&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ey*&lt;/code&gt; significa &amp;ldquo;&lt;strong&gt;zero vezes&lt;/strong&gt; ou mais&amp;rdquo;. Por exemplo, reconhece &lt;code&gt;hey&lt;/code&gt;, &lt;code&gt;heyy&lt;/code&gt;, &lt;code&gt;a eyyy&lt;/code&gt; e &lt;code&gt;e&lt;/code&gt;, mas não reconhece &lt;code&gt;y&lt;/code&gt; nem &lt;code&gt;yy&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ey*&lt;/code&gt; significa &amp;ldquo;&lt;strong&gt;nenhuma vez&lt;/strong&gt; ou mais&amp;rdquo;. Por exemplo, reconhece &lt;code&gt;hey&lt;/code&gt;, &lt;code&gt;heyy&lt;/code&gt;, &lt;code&gt;a eyyy&lt;/code&gt; e &lt;code&gt;e&lt;/code&gt;, mas não reconhece &lt;code&gt;y&lt;/code&gt; nem &lt;code&gt;yy&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ey{3}&lt;/code&gt; significa &amp;ldquo;exatamente três vezes&amp;rdquo;. Por exemplo, reconhece &lt;code&gt;eyyy&lt;/code&gt; e &lt;code&gt;eyyyy&lt;/code&gt;, mas não reconhece &lt;code&gt;eyy&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ey{1,3}&lt;/code&gt; significa &amp;ldquo;entre uma e três vezes&amp;rdquo;.&lt;/li&gt;
 &lt;/ul&gt;
@@ -2693,9 +3604,7 @@ Um bom lugar para testar o funcionamento de expressões regulares é o &lt;a hre
 
 &lt;h2 id=&#34;funções-avançadas&#34;&gt;Funções avançadas&lt;/h2&gt;
 
-&lt;p&gt;Agora que já vimos as funções básicas do &lt;code&gt;stringr&lt;/code&gt;, e aprendemos um pouco de regex,
-vamos às funções mais avançadas. Basicmante, essas funções buscarão &lt;code&gt;patterns&lt;/code&gt; em
-um vetor de strings e farão alguma coisa quando encontrá-lo.&lt;/p&gt;
+&lt;p&gt;Agora que já vimos as funções básicas do &lt;code&gt;stringr&lt;/code&gt; e aprendemos um pouco de regex, vamos às funções mais avançadas. Basicamante, essas funções buscarão &lt;code&gt;patterns&lt;/code&gt; emum vetor de strings e farão alguma coisa quando encontrá-lo.&lt;/p&gt;
 
 &lt;p&gt;Como já vimos na sessão sobre regex, a função mais simples que possui o argumento
 &lt;code&gt;pattern&lt;/code&gt; é a &lt;code&gt;str_detect&lt;/code&gt;.&lt;/p&gt;
@@ -2713,7 +3622,7 @@ str_detect(&amp;quot;sao paulo sp&amp;quot;, pattern = &amp;quot;paulo$&amp;quot
 
 &lt;h3 id=&#34;str-replace-e-str-replace-all&#34;&gt;str_replace() e str_replace_all()&lt;/h3&gt;
 
-&lt;p&gt;Substituem um padrão (ou todos) encontrado para um outro padrão&lt;/p&gt;
+&lt;p&gt;Substituem um padrão (ou todos) encontrado para um outro padrão.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;frutas &amp;lt;- c(&amp;quot;uma maçã&amp;quot;, &amp;quot;duas pêras&amp;quot;, &amp;quot;três bananas&amp;quot;)
 str_replace(frutas, &amp;quot;[aeiou]&amp;quot;, &amp;quot;-&amp;quot;) # substitui a primeira vogal de cada string por &amp;quot;-&amp;quot;
@@ -2722,9 +3631,9 @@ str_replace_all(frutas, &amp;quot;[aeiou]&amp;quot;, &amp;quot;-&amp;quot;) # su
 ## [1] &amp;quot;-m- m-çã&amp;quot;     &amp;quot;d--s pêr-s&amp;quot;   &amp;quot;três b-n-n-s&amp;quot;
 
 yyyy &amp;lt;- &amp;quot;yyyyy yyyyy ll zz&amp;quot;
-str_replace(yyyy, &#39;y+&#39;, &#39;x&#39;) # substitui o primeiro 1 ou mais y&#39;s por x
+str_replace(yyyy, &#39;y+&#39;, &#39;x&#39;) # substitui o primeiro y ou y&#39;s por x
 ## [1] &amp;quot;x yyyyy ll zz&amp;quot;
-str_replace_all(yyyy, &#39;y+&#39;, &#39;x&#39;) # substitui todos os 1 ou mais y por somente 1 x
+str_replace_all(yyyy, &#39;y+&#39;, &#39;x&#39;) # substitui todos os y ou y&#39;s por somente um x
 ## [1] &amp;quot;x x ll zz&amp;quot;
 str_replace_all(yyyy, &#39;y&#39;, &#39;x&#39;) # substitui y por x
 ## [1] &amp;quot;xxxxx xxxxx ll zz&amp;quot;
@@ -2775,8 +3684,7 @@ sobrenomes
 &lt;h3 id=&#34;str-match-e-str-match-all&#34;&gt;str_match() e str_match_all()&lt;/h3&gt;
 
 &lt;p&gt;Extrai pedaços da string identificados pela regex. Caso queira extrair
-somente a parte identificada, use parênteses. Isso é útil quando você
-está interessado em uma parte do padrão, mas para identificá-lo precisa&lt;/p&gt;
+somente a parte identificada, use parênteses.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Exemplo de pergunta SOPt: http://pt.stackoverflow.com/q/150024/6036
 presidentes &amp;lt;- c(&amp;quot;da Fonseca, DeodoroDeodoro da Fonseca&amp;quot;, 
@@ -3125,928 +4033,6 @@ library(dplyr)
 &lt;h2 id=&#34;operações-aritméticas-entre-datas&#34;&gt;Operações aritméticas entre datas&lt;/h2&gt;
 
 &lt;h2 id=&#34;gerar-datas&#34;&gt;Gerar datas&lt;/h2&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Introdução</title>
-      <link>/manip/</link>
-      <pubDate>Sat, 28 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/manip/</guid>
-      <description>
-
-&lt;blockquote&gt;
-&lt;p&gt;&amp;rdquo;(&amp;hellip;) The fact that data science exists as a field is a colossal failure of statistics. To me, what I do is what statistics is all about. It is gaining insight from data using modelling and visualization. Data munging and manipulation is hard and statistics has just said that’s not our domain.&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;Hadley Wickham&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Esta sessão trata do tema &lt;em&gt;transformação de dados&lt;/em&gt;. Trata-se de uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística. Essa etapa é essencial em qualquer análise de dados e, apesar de negligenciada pela academia, é decisiva para o sucesso de estudos aplicados.&lt;/p&gt;
-
-&lt;p&gt;Usualmente, o cientista de dados parte de uma base &amp;ldquo;crua&amp;rdquo; e a transforma até obter uma base de dados analítica. A base crua pode ser não estruturada, semi-estruturada ou estruturada. Já a base analítica é necessariamente estruturada e está preparada para passar por análises estatísticas a menos de transformações simples.&lt;/p&gt;
-
-&lt;p&gt;Um conceito importante para obtenção de uma base analítica é o &lt;em&gt;data tidying&lt;/em&gt;, ou arrumação de dados. Uma base é considerada &lt;em&gt;tidy&lt;/em&gt; se&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Cada linha da base representa uma observação.&lt;/li&gt;
-&lt;li&gt;Cada coluna da base representa uma variável.&lt;/li&gt;
-&lt;li&gt;&lt;del&gt;Cada tabela considera informações de uma unidade amostral.&lt;/del&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;A base de dados analítica é estruturada de tal forma que pode ser colocada diretamente em sistemas de modelagem estatística ou de visualização. Nem sempre uma base de dados analítica está no formato &lt;em&gt;tidy&lt;/em&gt;, mas usualmente são necessários poucos passos para migrar de uma para outra.&lt;/p&gt;
-
-&lt;p&gt;A Figura \@ref(fig:transform) mostra a fase de &amp;ldquo;disputa&amp;rdquo; com os dados (&lt;em&gt;data wrangling&lt;/em&gt;) para deixá-los no formato analítico.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;http://r4ds.had.co.nz/diagrams/data-science-wrangle.png&#34; title=&#34;Transformação no ciclo da ciência de dados.&#34; alt=&#34;Transformação no ciclo da ciência de dados.&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;pacotes-dplyr-e-tidyr&#34;&gt;Pacotes &lt;code&gt;dplyr&lt;/code&gt; e &lt;code&gt;tidyr&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;O &lt;code&gt;dplyr&lt;/code&gt; é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em &lt;code&gt;R&lt;/code&gt; que fazem uso inteligente dos verbos &lt;code&gt;dplyr&lt;/code&gt; e as facilidades do operador &lt;em&gt;pipe&lt;/em&gt; tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.&lt;/p&gt;
-
-&lt;p&gt;Antes de apresentar com as principais funções do &lt;code&gt;dplyr&lt;/code&gt; e do &lt;code&gt;tidyr&lt;/code&gt;, precisamos trabalhar com o conceito de &lt;code&gt;tibbles&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&#34;trabalhando-com-tibble-s&#34;&gt;Trabalhando com &lt;code&gt;tibble&lt;/code&gt;s&lt;/h3&gt;
-
-&lt;p&gt;Uma &lt;code&gt;tibble&lt;/code&gt; nada mais é do que um &lt;code&gt;data.frame&lt;/code&gt;, mas com um método de impressão mais adequado. Outras diferenças podem ser estudadas &lt;a href=&#34;http://r4ds.had.co.nz/tibbles.html&#34;&gt;neste link&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Considere a seguinte base de dados.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min
-## # A tibble: 16,686 × 14
-##      ano                  muni    uf regiao  idhm idhm_e idhm_l idhm_r
-##    &amp;lt;int&amp;gt;                 &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
-## 1   1991 ALTA FLORESTA D&#39;OESTE    RO  Norte 0.329  0.112  0.617  0.516
-## 2   1991             ARIQUEMES    RO  Norte 0.432  0.199  0.684  0.593
-## 3   1991                CABIXI    RO  Norte 0.309  0.108  0.636  0.430
-## 4   1991                CACOAL    RO  Norte 0.407  0.171  0.667  0.593
-## 5   1991            CEREJEIRAS    RO  Norte 0.386  0.167  0.629  0.547
-## 6   1991     COLORADO DO OESTE    RO  Norte 0.376  0.151  0.658  0.536
-## 7   1991            CORUMBIARA    RO  Norte 0.203  0.039  0.572  0.373
-## 8   1991         COSTA MARQUES    RO  Norte 0.425  0.220  0.629  0.553
-## 9   1991       ESPIGÃO D&#39;OESTE    RO  Norte 0.388  0.159  0.653  0.561
-## 10  1991         GUAJARÁ-MIRIM    RO  Norte 0.468  0.247  0.662  0.625
-## # ... with 16,676 more rows, and 6 more variables: espvida &amp;lt;dbl&amp;gt;,
-## #   rdpc &amp;lt;dbl&amp;gt;, gini &amp;lt;dbl&amp;gt;, pop &amp;lt;int&amp;gt;, lat &amp;lt;dbl&amp;gt;, lon &amp;lt;dbl&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;base-idh-municipal-pnud&#34;&gt;Base IDH-Municipal - PNUD&lt;/h2&gt;
-
-&lt;p&gt;Nessa seção vamos trabalhar com uma base simplificada do &lt;a href=&#34;http://www.atlasbrasil.org.br/2013/pt/download/base/&#34;&gt;PNUD (Programa das Nações Unidas para o Desenvolvimento)&lt;/a&gt;, contendo informações socioeconômicas de todos os municípios do país. Os resultados foram obtidos a partir dos Censos de 1991, 2000 e 2010.&lt;/p&gt;
-
-&lt;p&gt;A base contém 16686 linhas e 14 colunas, descritas abaixo:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ano&lt;/code&gt; ano do Censo utilizado como base para cálculo do IDH-Municipal e outras métricas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;muni&lt;/code&gt; nome do município. Cada município aparece três vezes, um para cada ano.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;uf&lt;/code&gt; Unidade Federativa.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;regiao&lt;/code&gt; região brasileira.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;idhm&lt;/code&gt; IDH municipal, dividido em
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;idhm_e&lt;/code&gt; IDH municipal - educação.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;idhm_l&lt;/code&gt; IDH municipal - longevidade.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;idhm_r&lt;/code&gt; IDH municipal - renda.&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;espvida&lt;/code&gt; expectativa de vida.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rdpc&lt;/code&gt; renda &lt;em&gt;per capita&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;gini&lt;/code&gt; coeficiente de gini municipal (mede desigualdade social).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pop&lt;/code&gt; população residente do município.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lat&lt;/code&gt;, &lt;code&gt;lon&lt;/code&gt; latitude e longitude do município (ponto médio).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&#34;os-cinco-verbos-do-dplyr&#34;&gt;Os cinco verbos do &lt;code&gt;dplyr&lt;/code&gt;&lt;/h2&gt;
-
-&lt;p&gt;As funções principais do &lt;code&gt;dplyr&lt;/code&gt; são&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;: filtrar linhas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;select&lt;/code&gt;: selecionar colunas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;: criar/modificar colunas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;: ordenar a base.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;summarise&lt;/code&gt;: sumarizar a base em uma linha.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;características&#34;&gt;Características&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;O &lt;em&gt;input&lt;/em&gt;  é sempre uma &lt;code&gt;tibble&lt;/code&gt;, e o &lt;em&gt;output&lt;/em&gt;  é sempre um &lt;code&gt;tibble&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;No primeiro argumento colocamos o &lt;code&gt;tibble&lt;/code&gt;, e nos outros argumentos colocamos o que queremos fazer.&lt;/li&gt;
-&lt;li&gt;A utilização é facilitada com o emprego do operador &lt;code&gt;%&amp;gt;%&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;O pacote faz uso extensivo de NSE (&lt;em&gt;non standard evaluation&lt;/em&gt;).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;vantagens&#34;&gt;Vantagens&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Utiliza &lt;code&gt;C&lt;/code&gt; e &lt;code&gt;C++&lt;/code&gt; por trás da maioria das funções, o que geralmente torna o código mais eficiente.&lt;/li&gt;
-&lt;li&gt;Pode trabalhar com diferentes fontes de dados, como bases relacionais (SQL) e &lt;code&gt;data.table&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;select&#34;&gt;&lt;code&gt;select&lt;/code&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Utilizar &lt;code&gt;starts_with(x)&lt;/code&gt;, &lt;code&gt;contains(x)&lt;/code&gt;, &lt;code&gt;matches(x)&lt;/code&gt;, &lt;code&gt;one_of(x)&lt;/code&gt;, etc.&lt;/li&gt;
-&lt;li&gt;Possível colocar nomes, índices, e intervalos de variáveis com &lt;code&gt;:&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  select(ano, regiao, muni)
-## # A tibble: 16,686 × 3
-##      ano regiao                  muni
-##    &amp;lt;int&amp;gt;  &amp;lt;chr&amp;gt;                 &amp;lt;chr&amp;gt;
-## 1   1991  Norte ALTA FLORESTA D&#39;OESTE
-## 2   1991  Norte             ARIQUEMES
-## 3   1991  Norte                CABIXI
-## 4   1991  Norte                CACOAL
-## 5   1991  Norte            CEREJEIRAS
-## 6   1991  Norte     COLORADO DO OESTE
-## 7   1991  Norte            CORUMBIARA
-## 8   1991  Norte         COSTA MARQUES
-## 9   1991  Norte       ESPIGÃO D&#39;OESTE
-## 10  1991  Norte         GUAJARÁ-MIRIM
-## # ... with 16,676 more rows
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  select(ano:regiao, rdpc)
-## # A tibble: 16,686 × 5
-##      ano                  muni    uf regiao   rdpc
-##    &amp;lt;int&amp;gt;                 &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;
-## 1   1991 ALTA FLORESTA D&#39;OESTE    RO  Norte 198.46
-## 2   1991             ARIQUEMES    RO  Norte 319.47
-## 3   1991                CABIXI    RO  Norte 116.38
-## 4   1991                CACOAL    RO  Norte 320.24
-## 5   1991            CEREJEIRAS    RO  Norte 240.10
-## 6   1991     COLORADO DO OESTE    RO  Norte 224.82
-## 7   1991            CORUMBIARA    RO  Norte  81.38
-## 8   1991         COSTA MARQUES    RO  Norte 250.08
-## 9   1991       ESPIGÃO D&#39;OESTE    RO  Norte 263.03
-## 10  1991         GUAJARÁ-MIRIM    RO  Norte 391.37
-## # ... with 16,676 more rows
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  select(ano, starts_with(&#39;idhm&#39;))
-## # A tibble: 16,686 × 5
-##      ano  idhm idhm_e idhm_l idhm_r
-##    &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
-## 1   1991 0.329  0.112  0.617  0.516
-## 2   1991 0.432  0.199  0.684  0.593
-## 3   1991 0.309  0.108  0.636  0.430
-## 4   1991 0.407  0.171  0.667  0.593
-## 5   1991 0.386  0.167  0.629  0.547
-## 6   1991 0.376  0.151  0.658  0.536
-## 7   1991 0.203  0.039  0.572  0.373
-## 8   1991 0.425  0.220  0.629  0.553
-## 9   1991 0.388  0.159  0.653  0.561
-## 10  1991 0.468  0.247  0.662  0.625
-## # ... with 16,676 more rows
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;filter&#34;&gt;&lt;code&gt;filter&lt;/code&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Parecido com &lt;code&gt;subset&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Condições separadas por vírgulas é o mesmo que separar por &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  select(ano, muni, uf) %&amp;gt;% 
-  filter(uf == &#39;AC&#39;)
-## # A tibble: 66 × 3
-##      ano            muni    uf
-##    &amp;lt;int&amp;gt;           &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;
-## 1   1991      ACRELÂNDIA    AC
-## 2   1991    ASSIS BRASIL    AC
-## 3   1991       BRASILÉIA    AC
-## 4   1991          BUJARI    AC
-## 5   1991        CAPIXABA    AC
-## 6   1991 CRUZEIRO DO SUL    AC
-## 7   1991  EPITACIOLÂNDIA    AC
-## 8   1991           FEIJÓ    AC
-## 9   1991          JORDÃO    AC
-## 10  1991     MÂNCIO LIMA    AC
-## # ... with 56 more rows
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Para fazer várias condições, use os operadores lógicos (&lt;code&gt;&amp;amp;&lt;/code&gt; e &lt;code&gt;|&lt;/code&gt;) ou separando filtros entre vírgulas.&lt;/p&gt;
-
-&lt;div class=&#39;admonition note&#39;&gt;
-&lt;p class=&#39;admonition-title&#39;&gt;
-`%in%`
-&lt;/p&gt;
-&lt;p&gt;
-`%in%` é um operador muito útil para trabalhar com vetores. O resultado da operação é um vetor lógico do tamanho do vetor do elemento da esquerda, identificando quais elementos da esquerda batem com algum elemento da direita.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  select(ano, regiao, uf, idhm) %&amp;gt;% 
-  filter(uf %in% c(&#39;SP&#39;, &#39;MG&#39;) | idhm &amp;gt; .5, ano == 2010)
-## # A tibble: 5,527 × 4
-##      ano regiao    uf  idhm
-##    &amp;lt;int&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
-## 1   2010  Norte    RO 0.641
-## 2   2010  Norte    RO 0.702
-## 3   2010  Norte    RO 0.650
-## 4   2010  Norte    RO 0.718
-## 5   2010  Norte    RO 0.692
-## 6   2010  Norte    RO 0.685
-## 7   2010  Norte    RO 0.613
-## 8   2010  Norte    RO 0.611
-## 9   2010  Norte    RO 0.672
-## 10  2010  Norte    RO 0.657
-## # ... with 5,517 more rows
-  # é igual a
-  # filter(uf %in% c(&#39;SP&#39;, &#39;MG&#39;) | idhm &amp;gt; .5 &amp;amp; ano == 2010)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(stringr)
-pnud_min %&amp;gt;% 
-  select(muni, ano, uf) %&amp;gt;% 
-  filter(str_detect(muni, &#39;^[HG]|S$&#39;), 
-         ano == 1991)
-## # A tibble: 970 × 3
-##                         muni   ano    uf
-##                        &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;
-## 1                  ARIQUEMES  1991    RO
-## 2                 CEREJEIRAS  1991    RO
-## 3              COSTA MARQUES  1991    RO
-## 4              GUAJARÁ-MIRIM  1991    RO
-## 5    ALTO ALEGRE DOS PARECIS  1991    RO
-## 6                    BURITIS  1991    RO
-## 7               CASTANHEIRAS  1991    RO
-## 8  GOVERNADOR JORGE TEIXEIRA  1991    RO
-## 9                    PARECIS  1991    RO
-## 10              SERINGUEIRAS  1991    RO
-## # ... with 960 more rows
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;mutate&#34;&gt;&lt;code&gt;mutate&lt;/code&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Parecido com &lt;code&gt;transform&lt;/code&gt;, mas aceita várias novas colunas iterativamente.&lt;/li&gt;
-&lt;li&gt;Novas variáveis devem ter o mesmo &lt;code&gt;length&lt;/code&gt; que o &lt;code&gt;nrow&lt;/code&gt; do bd oridinal ou &lt;code&gt;1&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  select(muni, rdpc, pop, idhm_l, espvida) %&amp;gt;% 
-  mutate(renda = rdpc * pop, 
-         razao = idhm_l / espvida)
-## # A tibble: 16,686 × 7
-##                     muni   rdpc   pop idhm_l espvida      renda
-##                    &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;int&amp;gt;  &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt;      &amp;lt;dbl&amp;gt;
-## 1  ALTA FLORESTA D&#39;OESTE 198.46 22835  0.617   62.01  4531834.1
-## 2              ARIQUEMES 319.47 55018  0.684   66.02 17576600.5
-## 3                 CABIXI 116.38  5846  0.636   63.16   680357.5
-## 4                 CACOAL 320.24 66534  0.667   65.03 21306848.2
-## 5             CEREJEIRAS 240.10 19030  0.629   62.73  4569103.0
-## 6      COLORADO DO OESTE 224.82 25070  0.658   64.46  5636237.4
-## 7             CORUMBIARA  81.38 10737  0.572   59.32   873777.1
-## 8          COSTA MARQUES 250.08  6902  0.629   62.76  1726052.2
-## 9        ESPIGÃO D&#39;OESTE 263.03 22505  0.653   64.18  5919490.1
-## 10         GUAJARÁ-MIRIM 391.37 31240  0.662   64.71 12226398.8
-## # ... with 16,676 more rows, and 1 more variables: razao &amp;lt;dbl&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;arrange&#34;&gt;&lt;code&gt;arrange&lt;/code&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Simplesmente ordena de acordo com as opções.&lt;/li&gt;
-&lt;li&gt;Utilizar &lt;code&gt;desc&lt;/code&gt; para ordem decrescente.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  filter(ano == 2010) %&amp;gt;% 
-  arrange(desc(espvida))
-## # A tibble: 5,562 × 14
-##      ano               muni    uf regiao  idhm idhm_e idhm_l idhm_r
-##    &amp;lt;int&amp;gt;              &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;  &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
-## 1   2010           BLUMENAU    SC    Sul 0.806  0.722  0.894  0.812
-## 2   2010            BRUSQUE    SC    Sul 0.795  0.707  0.894  0.794
-## 3   2010 BALNEÁRIO CAMBORIÚ    SC    Sul 0.845  0.789  0.894  0.854
-## 4   2010         RIO DO SUL    SC    Sul 0.802  0.727  0.894  0.793
-## 5   2010    RANCHO QUEIMADO    SC    Sul 0.753  0.644  0.893  0.743
-## 6   2010       RIO DO OESTE    SC    Sul 0.754  0.625  0.892  0.769
-## 7   2010             IOMERÊ    SC    Sul 0.795  0.749  0.891  0.754
-## 8   2010            JOAÇABA    SC    Sul 0.827  0.771  0.891  0.823
-## 9   2010        NOVA TRENTO    SC    Sul 0.748  0.628  0.891  0.749
-## 10  2010        PORTO UNIÃO    SC    Sul 0.786  0.724  0.891  0.752
-## # ... with 5,552 more rows, and 6 more variables: espvida &amp;lt;dbl&amp;gt;,
-## #   rdpc &amp;lt;dbl&amp;gt;, gini &amp;lt;dbl&amp;gt;, pop &amp;lt;int&amp;gt;, lat &amp;lt;dbl&amp;gt;, lon &amp;lt;dbl&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;summarise&#34;&gt;&lt;code&gt;summarise&lt;/code&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Retorna um vetor de tamanho &lt;code&gt;1&lt;/code&gt; a partir de uma conta com as variáveis.&lt;/li&gt;
-&lt;li&gt;Geralmente é utilizado em conjunto com &lt;code&gt;group_by&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Algumas funções importantes: &lt;code&gt;n()&lt;/code&gt;, &lt;code&gt;n_distinct()&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  group_by(regiao, uf) %&amp;gt;% 
-  summarise(n = n(), espvida = mean(espvida)) %&amp;gt;% 
-  arrange(regiao, desc(espvida))
-## Source: local data frame [27 x 4]
-## Groups: regiao [5]
-## 
-##          regiao    uf     n  espvida
-##           &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;    &amp;lt;dbl&amp;gt;
-## 1  Centro-Oeste    DF     3 73.36000
-## 2  Centro-Oeste    GO   735 69.95346
-## 3  Centro-Oeste    MS   234 69.94291
-## 4  Centro-Oeste    MT   423 69.42915
-## 5      Nordeste    CE   552 65.60627
-## 6      Nordeste    RN   501 65.11439
-## 7      Nordeste    PE   555 64.92721
-## 8      Nordeste    BA  1251 64.62361
-## 9      Nordeste    SE   225 64.26031
-## 10     Nordeste    PI   672 64.04028
-## # ... with 17 more rows
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  filter(ano == 2010) %&amp;gt;% 
-  count(regiao, sort = TRUE) %&amp;gt;% 
-  mutate(prop = n / sum(n), prop = scales::percent(prop))
-## # A tibble: 5 × 3
-##         regiao     n  prop
-##          &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt; &amp;lt;chr&amp;gt;
-## 1     Nordeste  1794 32.3%
-## 2      Sudeste  1667 30.0%
-## 3          Sul  1187 21.3%
-## 4 Centro-Oeste   465  8.4%
-## 5        Norte   449  8.1%
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;gather&#34;&gt;&lt;code&gt;gather&lt;/code&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;Empilha&amp;rdquo; o banco de dados&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  select(uf, muni, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
-  gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
-  arrange(desc(idhm))
-## # A tibble: 50,058 × 5
-##       uf               muni   ano tipo_idhm  idhm
-##    &amp;lt;chr&amp;gt;              &amp;lt;chr&amp;gt; &amp;lt;int&amp;gt;     &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
-## 1     SC BALNEÁRIO CAMBORIÚ  2010    idhm_l 0.894
-## 2     SC           BLUMENAU  2010    idhm_l 0.894
-## 3     SC            BRUSQUE  2010    idhm_l 0.894
-## 4     SC         RIO DO SUL  2010    idhm_l 0.894
-## 5     SC    RANCHO QUEIMADO  2010    idhm_l 0.893
-## 6     SC       RIO DO OESTE  2010    idhm_l 0.892
-## 7     SC             IOMERÊ  2010    idhm_l 0.891
-## 8     SC            JOAÇABA  2010    idhm_l 0.891
-## 9     SC        NOVA TRENTO  2010    idhm_l 0.891
-## 10    SC        PORTO UNIÃO  2010    idhm_l 0.891
-## # ... with 50,048 more rows
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;spread&#34;&gt;&lt;code&gt;spread&lt;/code&gt;&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;Joga&amp;rdquo; uma variável nas colunas&lt;/li&gt;
-&lt;li&gt;É essencialmente a função inversa de &lt;code&gt;gather&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  select(muni, uf, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
-  gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
-  spread(ano, idhm)
-## # A tibble: 16,686 × 6
-##                   muni    uf tipo_idhm `1991` `2000` `2010`
-## *                &amp;lt;chr&amp;gt; &amp;lt;chr&amp;gt;     &amp;lt;chr&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
-## 1      ABADIA DE GOIÁS    GO    idhm_e  0.183  0.386  0.622
-## 2      ABADIA DE GOIÁS    GO    idhm_l  0.658  0.765  0.830
-## 3      ABADIA DE GOIÁS    GO    idhm_r  0.563  0.623  0.687
-## 4  Abadia dos Dourados    MG    idhm_e  0.225  0.387  0.563
-## 5  Abadia dos Dourados    MG    idhm_l  0.728  0.799  0.839
-## 6  Abadia dos Dourados    MG    idhm_r  0.551  0.616  0.693
-## 7            ABADIÂNIA    GO    idhm_e  0.188  0.292  0.579
-## 8            ABADIÂNIA    GO    idhm_l  0.656  0.730  0.841
-## 9            ABADIÂNIA    GO    idhm_r  0.560  0.598  0.671
-## 10              Abaeté    MG    idhm_e  0.180  0.385  0.556
-## # ... with 16,676 more rows
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;funções-auxiliares&#34;&gt;Funções auxiliares&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;unite&lt;/code&gt; junta duas ou mais colunas usando algum separador (&lt;code&gt;_&lt;/code&gt;, por exemplo).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;separate&lt;/code&gt; faz o inverso de &lt;code&gt;unite&lt;/code&gt;, e uma coluna em várias usando um separador.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
-  select(muni, uf, ano, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
-  gather(tipo_idhm, idhm, starts_with(&#39;idhm_&#39;)) %&amp;gt;% 
-  separate(tipo_idhm, c(&#39;idhm_nm&#39;, &#39;tipo&#39;), sep = &#39;_&#39;) %&amp;gt;% 
-  select(-idhm_nm) %&amp;gt;% 
-  filter(ano == 2010) %&amp;gt;% 
-  group_by(tipo) %&amp;gt;% 
-  summarise(maior = muni[which.max(idhm)], idhm = max(idhm)) %&amp;gt;% 
-  arrange(tipo, desc(idhm))
-## # A tibble: 3 × 3
-##    tipo              maior  idhm
-##   &amp;lt;chr&amp;gt;              &amp;lt;chr&amp;gt; &amp;lt;dbl&amp;gt;
-## 1     e ÁGUAS DE SÃO PEDRO 0.825
-## 2     l BALNEÁRIO CAMBORIÚ 0.894
-## 3     r SÃO CAETANO DO SUL 0.891
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;hr /&gt;
-
-&lt;h2 id=&#34;um-pouco-mais-de-transformação-de-dados&#34;&gt;Um pouco mais de transformação de dados&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Para juntar tabelas, usar &lt;code&gt;inner_join&lt;/code&gt;, &lt;code&gt;left_join&lt;/code&gt;, &lt;code&gt;anti_join&lt;/code&gt;, etc.&lt;/li&gt;
-&lt;li&gt;Para realizar operações mais gerais, usar &lt;code&gt;do&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Para retirar duplicatas, utilizar &lt;code&gt;distinct&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
-
-&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;$$
-\frac{1 + \sqrt{5}}{2}
-$$&lt;/p&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IigxICsgc3FydCg1KSkvMiIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiMS42MTgwMzRcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>ggplot</title>
-      <link>/ggplot/</link>
-      <pubDate>Mon, 23 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/ggplot/</guid>
-      <description>
-
-&lt;p&gt;Para este tópico vamos utilizar o &lt;code&gt;ggplot2&lt;/code&gt;. O &lt;code&gt;ggplot2&lt;/code&gt; é um pacote do R voltado
-para a criação de gráficos estatísticos. Ele é baseado na Gramática dos Gráficos
-(&lt;em&gt;grammar of graphics&lt;/em&gt;, em inglês), criado por Leland Wilkinson, que é uma
-resposta para a pergunta: o que é um gráfico estatístico? Resumidamente, a gramática
-diz que um gráfico estatístico é um mapeamento dos dados a partir de atributos
-estéticos (cores, formas, tamanho) em formas geométricas (pontos, linhas, barras).&lt;/p&gt;
-
-&lt;p&gt;Para mais informações sobre a Gramática dos Gráficos, você pode consultar o livro
-&lt;a href=&#34;http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7&#34;&gt;&lt;em&gt;The Grammar of graphics&lt;/em&gt;&lt;/a&gt;,
-escrito pelo Leland Wilkinson, ou o livro &lt;a href=&#34;http://ggplot2.org/book/&#34;&gt;ggplot2: elegant graphics for data analysis&lt;/a&gt;, do Hadley Wickham.
-Um &lt;a href=&#34;http://moderngraphics11.pbworks.com/f/ggplot2-Book09hWickham.pdf&#34;&gt;pdf do livro&lt;/a&gt; também está disponível.&lt;/p&gt;
-
-&lt;p&gt;Para quem quiser se aprofundar mais com o &lt;code&gt;ggplot2&lt;/code&gt;, o &lt;a href=&#34;https://www.datacamp.com/&#34;&gt;DataCamp&lt;/a&gt; possui dois cursos
-focados em visualização. É possível começar o curso gratuitamente, mas para terminar,
-tem que pagar.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.datacamp.com/courses/data-visualization-with-ggplot2-1&#34;&gt;Data Visualization with ggplot2 (Part 1)&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://www.datacamp.com/courses/data-visualization-with-ggplot2-2&#34;&gt;Data Visualization with ggplot2 (Part 2)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Antes de começar, instale o pacote digitando &lt;code&gt;install.packages(&amp;quot;ggplot2&amp;quot;)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;banco-de-dados&#34;&gt;Banco de dados&lt;/h2&gt;
-
-&lt;p&gt;A seguir, vamos discutir os aspectos básicos para a construção de gráficos com o
-pacote &lt;code&gt;ggplot2&lt;/code&gt;. Para isso, utilizaremos o banco de dados contido no objeto &lt;code&gt;mtcars&lt;/code&gt;.
-Para visualizar as primeiras linhas deste banco, utilize o comando:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(mtcars)
-##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;O &lt;code&gt;mtcars&lt;/code&gt; é um banco de dados de 1974 extraído da revista &lt;em&gt;Motor Trend US&lt;/em&gt; que
-compreende consumo de combustível e outros 10 aspectos de performance e engenharia
-de 32 automóveis.&lt;/p&gt;
-
-&lt;p&gt;Entre as variáveis deste banco de dados estão:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;mpg&lt;/code&gt;: consumo de combustível (milhas por galão)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;disp&lt;/code&gt;: cilindrada, que é o &lt;a href=&#34;https://pt.wikipedia.org/wiki/Cilindrada&#34;&gt;volume de deslocamento do motor&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Para saber mais sobre o &lt;code&gt;mtcarts&lt;/code&gt;, digite &lt;code&gt;help(mtcars)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h2 id=&#34;as-camadas-de-um-gráfico&#34;&gt;As camadas de um gráfico&lt;/h2&gt;
-
-&lt;p&gt;Antes de mais nada, vamos carregar o &lt;code&gt;ggplot2&lt;/code&gt; usando:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;No &lt;code&gt;ggplot2&lt;/code&gt;, os gráficos são construídos camada por camada (ou, &lt;em&gt;layers&lt;/em&gt;, em inglês),
-sendo que a primeira delas é dada pela função &lt;code&gt;ggplot&lt;/code&gt; (não tem o &amp;ldquo;2&amp;rdquo;). Cada camada
-representa um tipo de mapeamento ou personalização do gráfico. O código abaixo é um
-exemplo de um gráfico bem simples, construído a partir das duas principais camadas.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data = mtcars) + 
-  geom_point(mapping = aes(x = disp, y = mpg))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//grafico1-1.png&#34; title=&#34;plot of chunk grafico1&#34; alt=&#34;plot of chunk grafico1&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Observe que o primeiro argumento da função &lt;code&gt;ggplot&lt;/code&gt; é um data frame. A função &lt;code&gt;aes()&lt;/code&gt;
-descreve como as variáveis são mapeadas em aspectos visuais de formas geométricas
-definidas pelos &lt;em&gt;geoms&lt;/em&gt;. Aqui, essas formas geométricas são pontos, selecionados pela
-função &lt;code&gt;geom_point()&lt;/code&gt;, gerando, assim, um gráfico de dispersão. A combinação dessas
-duas camadas define o tipo de gráfico que você deseja construir.&lt;/p&gt;
-
-&lt;h2 id=&#34;aesthetics&#34;&gt;Aesthetics&lt;/h2&gt;
-
-&lt;p&gt;A primeira camada de um gráfico deve indicar a relação entre os dados e cada aspecto
-visual do gráfico, como qual variável será representada no eixo x, qual será
-representada no eixo y, a cor e o tamanho dos componentes geométricos etc. Os aspectos
-que podem ou devem ser mapeados depende do tipo de gráfico que você deseja fazer.&lt;/p&gt;
-
-&lt;p&gt;No exemplo acima, atribuímos aspectos de posição: ao eixo y mapeamos a variável &lt;code&gt;mpg&lt;/code&gt;
-(milhas por galão) e ao eixo x a variável &lt;code&gt;disp&lt;/code&gt; (cilindradas). Outro aspecto que pode
-ser mapeado nesse gráfico é a cor dos pontos&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data = mtcars) + 
-  geom_point(mapping = aes(x = disp, y = mpg, colour = as.factor(am)))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//mapear_am-1.png&#34; title=&#34;plot of chunk mapear_am&#34; alt=&#34;plot of chunk mapear_am&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Agora, a variável &lt;code&gt;am&lt;/code&gt; (tipo de transmissão) foi mapeada à cor dos pontos, sendo que pontos vermelhos correspondem à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável &lt;code&gt;am&lt;/code&gt; como um fator, pois temos interesse apenas nos valores &amp;ldquo;0&amp;rdquo; e &amp;ldquo;1&amp;rdquo;. No entanto, tambem podemos mapear uma variável contínua à cor dos pontos:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
-  geom_point(mapping = aes(x = disp, y = mpg, colour = cyl))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//mapear_cor-1.png&#34; title=&#34;plot of chunk mapear_cor&#34; alt=&#34;plot of chunk mapear_cor&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Aqui, o número de cilindros, &lt;code&gt;cyl&lt;/code&gt;, é representado pela tonalidade da cor azul.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Nota&lt;/strong&gt;: por &lt;em&gt;default&lt;/em&gt;, a legenda é insirida no gráfico automaticamente.&lt;/p&gt;
-
-&lt;p&gt;Também podemos mapear o tamanho dos pontos à uma variável de interesse:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) +
-  geom_point(mapping = aes(x = disp, y = mpg, colour = cyl, size = wt))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//mapear_tamanaho-1.png&#34; title=&#34;plot of chunk mapear_tamanaho&#34; alt=&#34;plot of chunk mapear_tamanaho&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Exercício&lt;/strong&gt;: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão. &lt;a href=&#34;http://ggplot2.tidyverse.org/articles/ggplot2-specs.html&#34;&gt;Essa&lt;/a&gt; é uma
-boa referência.&lt;/p&gt;
-
-&lt;h2 id=&#34;geoms&#34;&gt;Geoms&lt;/h2&gt;
-
-&lt;p&gt;Os &lt;em&gt;geoms&lt;/em&gt; definem qual forma geométrica será utilizada para a visualização dos
-dados no gráfico. Como já vimos, a função &lt;code&gt;geom_point()&lt;/code&gt; gera gráficos de dispersão
-transformando pares (x,y) em pontos. Veja a seguir outros &lt;em&gt;geoms&lt;/em&gt; bastante utilizados:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;geom_line&lt;/code&gt;: para linhas definidas por pares (x,y)&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;geom_abline&lt;/code&gt;: para retas definidas por um intercepto e uma inclinação&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;geom_hline&lt;/code&gt;: para retas horizontais&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;geom_boxplot&lt;/code&gt;: para boxplots&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;geom_histogram&lt;/code&gt;: para histogramas&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;geom_density&lt;/code&gt;: para densidades&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;geom_area&lt;/code&gt;: para áreas&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;geom_bar&lt;/code&gt;: para barras&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Veja a seguir como é fácil gerar diversos gráficos diferentes utilizando a mesma estrutura do gráfico de dispersão acima:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
-  geom_boxplot(aes(x = as.factor(cyl), y = mpg))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-7-1.png&#34; title=&#34;plot of chunk unnamed-chunk-7&#34; alt=&#34;plot of chunk unnamed-chunk-7&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; que para fazer um boxplot para cada grupo, precisamos passar para o aspecto
-x do gráfico uma variável do tipo &lt;code&gt;factor&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
-  geom_histogram(aes(x = mpg))
-## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-8-1.png&#34; title=&#34;plot of chunk unnamed-chunk-8&#34; alt=&#34;plot of chunk unnamed-chunk-8&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
-  geom_bar(aes(x = as.factor(cyl)))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-9-1.png&#34; title=&#34;plot of chunk unnamed-chunk-9&#34; alt=&#34;plot of chunk unnamed-chunk-9&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;div class=&#39;admonition note&#39;&gt;
-&lt;p class=&#39;admonition-title&#39;&gt;
-Um padrão para os gráficos
-&lt;/p&gt;
-&lt;p&gt;
-Você deve ter percebido que para fazer um gráfico usando `ggplot2` e a gramática
-dos gráficos, existe um padrão:
-
-```
-ggplot(data = &lt;DATA&gt;) + 
-  &lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))
-```
-
-Para fazer um gráfico, basta substituir o que está entre `&lt;` com um banco de dados,
-uma função geométrica e uma coleção de *mapas estéticos*. Isso será muito útil quando você for fazer o seu próprio gráfico.
-&lt;/p&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&#34;exercícios&#34;&gt;Exercícios&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Rode &lt;code&gt;ggplot(data = mtcars)&lt;/code&gt;. O que você vê?&lt;/li&gt;
-&lt;li&gt;Quantas linhas existem no &lt;code&gt;mtcars&lt;/code&gt;. Quantas colunas? &lt;strong&gt;Dica&lt;/strong&gt;: use a função &lt;code&gt;nrows&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;O que a variável &lt;code&gt;qsec&lt;/code&gt; descreve. Leia o help do &lt;code&gt;mtcars&lt;/code&gt; para encontrar.&lt;/li&gt;
-&lt;li&gt;Faça um gráfico de dispersão de &lt;code&gt;mpg&lt;/code&gt; por &lt;code&gt;qsec&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;O que acontece se você fizer um gráfico de dispersão de &lt;code&gt;vs&lt;/code&gt; por &lt;code&gt;mpg&lt;/code&gt;? Porque o
-gráfico não é útil?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h2 id=&#34;combinando-gráficos&#34;&gt;Combinando gráficos&lt;/h2&gt;
-
-&lt;p&gt;Considere os 2 gráficos a seguir.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# esquerda
-ggplot(mtcars) + 
-  geom_point(aes(y = mpg, x = disp))
-# direita
-ggplot(mtcars) + 
-  geom_smooth(aes(y = mpg, x = disp))
-## `geom_smooth()` using method = &#39;loess&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//duplochunk-1.png&#34; title=&#34;plot of chunk duplochunk&#34; alt=&#34;plot of chunk duplochunk&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//duplochunk-2.png&#34; title=&#34;plot of chunk duplochunk&#34; alt=&#34;plot of chunk duplochunk&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Os gráficos são similares e completaam-se. O da esquerda, mostra como os pontos estão distribuídos. Ele mostra uma tendência de aumento do consumo de combustível de acordo
-com as cilindradas. Já o gráfico da direita, resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança.&lt;/p&gt;
-
-&lt;p&gt;Esses dois gráficos se completam, e ficam bons juntos. Com o &lt;code&gt;ggplot2&lt;/code&gt; é muito fácil
-sobrepor os dois gráficos, pois ele é pensado para que cada gráfico seja feito com
-uma combinação de camadas. Veja o código abaixo.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars) + 
-  geom_point(aes(y = mpg, x = disp)) +
-  geom_smooth(aes(y = mpg, x = disp))
-## `geom_smooth()` using method = &#39;loess&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-10-1.png&#34; title=&#34;plot of chunk unnamed-chunk-10&#34; alt=&#34;plot of chunk unnamed-chunk-10&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Desta forma, sobrepusemos os pontos e a linha de suavização. No entanto, duplicamos alguns trechos no nosso código, o que geralmente não é bom. Imagine se você precisar
-mudar a variável do eixo &lt;code&gt;y&lt;/code&gt;, você precisará trocar o nome da variável em mais de um
-lugar do código. Para resolver isso, você pode definir o &lt;em&gt;mapping&lt;/em&gt; apenas uma vez
-dentro da declaração do gráfico, conforme o código a seguir.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
-  geom_point() +
-  geom_smooth()
-## `geom_smooth()` using method = &#39;loess&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-11-1.png&#34; title=&#34;plot of chunk unnamed-chunk-11&#34; alt=&#34;plot of chunk unnamed-chunk-11&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Veja que isso gera o mesmo gráfico!&lt;/p&gt;
-
-&lt;p&gt;Veja que mesmo com dois &lt;code&gt;geom&lt;/code&gt;&amp;rsquo;s, o &lt;code&gt;ggplot&lt;/code&gt; segue a mesma regra para mapear as
-variáveis para as &lt;code&gt;aesthetics&lt;/code&gt;. Por exemplo, se você mapear uma variável para
-a cor, você obterá o seguinte gráfico.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp, colour = as.factor(cyl))) + 
-  geom_point() +
-  geom_smooth(method = &amp;quot;lm&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-12-1.png&#34; title=&#34;plot of chunk unnamed-chunk-12&#34; alt=&#34;plot of chunk unnamed-chunk-12&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;O &lt;code&gt;ggplot2&lt;/code&gt; agora desenhou uma reta para cada um dos grupos de pontos e coloriu
-cada grupo de pontos de uma cor diferente. Em alguns casos, você pode querer mapear
-a cor em apenas uma das camadas do gráfico. Isso pode ser feito da seguinte forma:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
-  geom_point(aes(colour = as.factor(cyl))) +
-  geom_smooth(method = &amp;quot;lm&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-13-1.png&#34; title=&#34;plot of chunk unnamed-chunk-13&#34; alt=&#34;plot of chunk unnamed-chunk-13&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Note que agora, cada grupo de pontos tem uma cor mas a reta é única, para todos os pontos.&lt;/p&gt;
-
-&lt;h2 id=&#34;alterando-os-padrões-do-gráfico&#34;&gt;Alterando os padrões do gráfico&lt;/h2&gt;
-
-&lt;p&gt;Até agora, sempre &lt;em&gt;mapeamos&lt;/em&gt; uma forma estética à uma variável. Muitas vezes
-queremos apenas modificar esta forma estética sem mapeá-la a outra variável.
-Por exemplo, no gráfico a seguir, modificamos a cor de todos os pontos.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
-  geom_point(colour = &amp;quot;red&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-14-1.png&#34; title=&#34;plot of chunk unnamed-chunk-14&#34; alt=&#34;plot of chunk unnamed-chunk-14&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;A principal diferença aqui é que especificamos o argumento &lt;code&gt;colour&lt;/code&gt; fora da função
-&lt;code&gt;aes&lt;/code&gt; como estávamos fazendo antes. Dessa forma podemos controlar todos os parâmetros
-de cada forma geométrica.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
-  geom_point(colour = &amp;quot;red&amp;quot;, size = 2, shape = 3, alpha = 0.5)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-15-1.png&#34; title=&#34;plot of chunk unnamed-chunk-15&#34; alt=&#34;plot of chunk unnamed-chunk-15&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;facets&#34;&gt;Facets&lt;/h2&gt;
-
-&lt;p&gt;Uma funcionalidade muito útil do &lt;code&gt;ggplot2&lt;/code&gt; é a possibilidade de usar &lt;code&gt;facets&lt;/code&gt;.
-Isso auxilia na visualização de diferentes subconjuntos dos dados em gráficos
-separados, permitindo a visualização de comportamentos diferentes dependendo
-do grupo.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(mtcars, aes(y = mpg, x = disp)) + 
-  geom_point() +
-  geom_smooth(method = &amp;quot;lm&amp;quot;) + 
-  facet_wrap(~am)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-16-1.png&#34; title=&#34;plot of chunk unnamed-chunk-16&#34; alt=&#34;plot of chunk unnamed-chunk-16&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;No gráfico acima, rapidamente conseguimos visualizar que se o carro não é automático o consumo de combustível é muito menor do que quando o carro é automático. Também conseguimos ver que a inclinação das retas é bem diferente dependendo do carro ser
-automático/manual.&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = displ, y = hwy, color = &amp;quot;blue&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-19-1.png&#34; title=&#34;plot of chunk unnamed-chunk-19&#34; alt=&#34;plot of chunk unnamed-chunk-19&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
-estéticas se comportam diferente para variáveis categóricas vs. contínuas?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;Começando de um simples boxplot feito no &lt;code&gt;ggplot2&lt;/code&gt; vamos fazer diversas alterações nas legendas. O gráfico inicial é construido da seguinte forma:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(ggplot2)
-# boxplot simples
-bp &amp;lt;- ggplot(data=PlantGrowth, aes(x=group, y=weight, fill=group)) + geom_boxplot()
-bp
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-21-1.png&#34; title=&#34;plot of chunk unnamed-chunk-21&#34; alt=&#34;plot of chunk unnamed-chunk-21&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;removendo-totalmente-a-legenda&#34;&gt;Removendo totalmente a legenda&lt;/h2&gt;
-
-&lt;p&gt;Existem diversas maneiras para remover a legenda de um gráfico no &lt;code&gt;ggplot2&lt;/code&gt;. A forma mais simples é usar &lt;code&gt;guides(fill = FALSE)&lt;/code&gt; com &lt;code&gt;fill&lt;/code&gt; sendo o atributo gráfico do qual você deseja remover a legenda.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# aqui definimos fill = FALSE, porque é o atributo do gráfico que relacionamos 
-# a alguma variável.
-bp + guides(fill = FALSE)
-
-# também é possível remover a legenda por meio da escala de cores
-# aqui também usamos o scale_fill_discrete, porque associamos fill
-# a uma variável anteriormente.
-bp + scale_fill_discrete(guide = F)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-22-1.png&#34; title=&#34;plot of chunk unnamed-chunk-22&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//unnamed-chunk-22-2.png&#34; title=&#34;plot of chunk unnamed-chunk-22&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# o comando a seguir remove todas as legendas, não importa o atributo que ela
-# esteja representando.
-bp + theme(legend.position=&amp;quot;none&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-23-1.png&#34; title=&#34;plot of chunk unnamed-chunk-23&#34; alt=&#34;plot of chunk unnamed-chunk-23&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;alterando-a-ordem-dos-itens&#34;&gt;Alterando a ordem dos itens&lt;/h2&gt;
-
-&lt;p&gt;Para alterar a ordem dos itens na legenda do gráfico no &lt;code&gt;ggplot2&lt;/code&gt;, usamos o comando da escala de cores.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp + scale_fill_discrete(breaks=c(&amp;quot;trt1&amp;quot;,&amp;quot;ctrl&amp;quot;,&amp;quot;trt2&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-24-1.png&#34; title=&#34;plot of chunk unnamed-chunk-24&#34; alt=&#34;plot of chunk unnamed-chunk-24&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-24-2.png&#34; title=&#34;plot of chunk unnamed-chunk-24&#34; alt=&#34;plot of chunk unnamed-chunk-24&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Dependendo de os aspectos gráficos (Ex: cores, formatos, preenchimentos) foram especificados você pode precisar usar alguma das seguintes funções: &lt;code&gt;scale_fill_manual&lt;/code&gt;, &lt;code&gt;scale_colour_hue&lt;/code&gt;, &lt;code&gt;scale_colour_manual&lt;/code&gt;, &lt;code&gt;scale_shape_discrete&lt;/code&gt;, &lt;code&gt;scale_linetype_discrete&lt;/code&gt; , e assim por diante.&lt;/p&gt;
-
-&lt;p&gt;Você pode também querer inverter a ordem dos itens da legenda. Isso pode ser feito de uma das seguintes maneiras.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp + guides(fill = guide_legend(reverse=TRUE))
-bp + scale_fill_discrete(guide = guide_legend(reverse=TRUE))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-25-1.png&#34; title=&#34;plot of chunk unnamed-chunk-25&#34; alt=&#34;plot of chunk unnamed-chunk-25&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//unnamed-chunk-25-2.png&#34; title=&#34;plot of chunk unnamed-chunk-25&#34; alt=&#34;plot of chunk unnamed-chunk-25&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;removendo-os-títulos-da-legenda&#34;&gt;Removendo os títulos da legenda&lt;/h2&gt;
-
-&lt;p&gt;Algumas vezes é necessário remover o título das legendas do gráfico feito no &lt;code&gt;ggplot2&lt;/code&gt;.
-Veja a seguir algumas maneiras:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Remove o título apenas da legenda do preenchimento (fill)
-bp + guides(fill=guide_legend(title=NULL))
-
-# Remove o título de todas as legendas
-bp + theme(legend.title=element_blank())
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-26-1.png&#34; title=&#34;plot of chunk unnamed-chunk-26&#34; alt=&#34;plot of chunk unnamed-chunk-26&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//unnamed-chunk-26-2.png&#34; title=&#34;plot of chunk unnamed-chunk-26&#34; alt=&#34;plot of chunk unnamed-chunk-26&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;modificando-texto-cores-e-rótulos&#34;&gt;Modificando texto, cores e rótulos&lt;/h2&gt;
-
-&lt;p&gt;Para modificar os textos e rótulos das legendas existem duas formas. Uma delas é modificar o &lt;code&gt;data.frame&lt;/code&gt; de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções de &lt;code&gt;scale&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Veja algumas modificações que podem ser feitas por meio das funções de &lt;code&gt;scale&lt;/code&gt;. Como a variável &lt;code&gt;group&lt;/code&gt; está associada ao atributo &lt;code&gt;fill&lt;/code&gt;, usamos as funções &lt;code&gt;scale_fill_xxx&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# usamos scale_fill_discrete porque não queremos alterar as cores padrão,
-# mas queremos que cada fator esteja associado a uma cor de tom diferente.
-# mudamos aqui os rótulos e o título da legenda.
-bp + scale_fill_discrete(name=&amp;quot;Experimental\nCondition&amp;quot;,
-                         breaks=c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt1&amp;quot;, &amp;quot;trt2&amp;quot;),
-                         labels=c(&amp;quot;Control&amp;quot;, &amp;quot;Treatment 1&amp;quot;, &amp;quot;Treatment 2&amp;quot;))
-
-
-# usamos scale_fill_manual porque queremos alterar as cores padrão.
-# aqui escolhemos as cores da escala hexadecimal.
-bp + scale_fill_manual(values=c(&amp;quot;#999999&amp;quot;, &amp;quot;#E69F00&amp;quot;, &amp;quot;#56B4E9&amp;quot;), 
-                       name=&amp;quot;Experimental\nCondition&amp;quot;,
-                       breaks=c(&amp;quot;ctrl&amp;quot;, &amp;quot;trt1&amp;quot;, &amp;quot;trt2&amp;quot;),
-                       labels=c(&amp;quot;Control&amp;quot;, &amp;quot;Treatment 1&amp;quot;, &amp;quot;Treatment 2&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-27-1.png&#34; title=&#34;plot of chunk unnamed-chunk-27&#34; alt=&#34;plot of chunk unnamed-chunk-27&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;img src=&#34;figures//unnamed-chunk-27-2.png&#34; title=&#34;plot of chunk unnamed-chunk-27&#34; alt=&#34;plot of chunk unnamed-chunk-27&#34; width=&#34;50%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Veja que isso não aletrou o eixo X do gráfico.&lt;/p&gt;
-
-&lt;h2 id=&#34;modificando-a-aparência-da-legenda&#34;&gt;Modificando a aparência da legenda&lt;/h2&gt;
-
-&lt;p&gt;Existem inúmeras modificações que podem ser realizadas na aparência da legenda. Todas elas estão relacionadas à modificação do &lt;code&gt;element_text&lt;/code&gt;. Veja neste &lt;a href=&#34;http://docs.ggplot2.org/0.9.2.1/element_text.html&#34;&gt;link&lt;/a&gt; todos os atributos que podem ser modificados.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Mudando a aparência do título
-bp + theme(legend.title = element_text(colour=&amp;quot;blue&amp;quot;, size=16, face=&amp;quot;bold&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-28-1.png&#34; title=&#34;plot of chunk unnamed-chunk-28&#34; alt=&#34;plot of chunk unnamed-chunk-28&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Mudando a aparência dos rótulos
-bp + theme(legend.text = element_text(colour=&amp;quot;blue&amp;quot;, size = 16, face = &amp;quot;bold&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-29-1.png&#34; title=&#34;plot of chunk unnamed-chunk-29&#34; alt=&#34;plot of chunk unnamed-chunk-29&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;modificando-a-posição-da-legenda&#34;&gt;Modificando a posição da legenda&lt;/h2&gt;
-
-&lt;p&gt;É possível controlar a posição da legenda facilmente escolhendo uma das posições (left/right/top/bottom).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp + theme(legend.position=&amp;quot;top&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-30-1.png&#34; title=&#34;plot of chunk unnamed-chunk-30&#34; alt=&#34;plot of chunk unnamed-chunk-30&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Também é possível controlar a posição da legenda de forma precisa usando o comando.
-Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o valor do argumento &lt;code&gt;legend.position&lt;/code&gt;. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bp + theme(legend.position=c(.5, .5))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-31-1.png&#34; title=&#34;plot of chunk unnamed-chunk-31&#34; alt=&#34;plot of chunk unnamed-chunk-31&#34; width=&#34;40%&#34; height=&#34;40%&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     

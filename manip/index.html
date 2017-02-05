@@ -369,7 +369,7 @@
 <p>Hadley Wickham</p>
 </blockquote>
 
-<p>Esta sessão trata do tema <em>transformação de dados</em>. Trata-se de uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística. Essa etapa é essencial em qualquer análise de dados e, apesar de negligenciada pela academia, é decisiva para o sucesso de estudos aplicados.</p>
+<p>Esta seção trata do tema <em>transformação de dados</em>. Trata-se de uma tarefa dolorosa e demorada, tomando muitas vezes a maior parte do tempo de uma análise estatística. Essa etapa é essencial em qualquer análise de dados e, apesar de negligenciada pela academia, é decisiva para o sucesso de estudos aplicados.</p>
 
 <p>Usualmente, o cientista de dados parte de uma base &ldquo;crua&rdquo; e a transforma até obter uma base de dados analítica. A base crua pode ser não estruturada, semi-estruturada ou estruturada. Já a base analítica é necessariamente estruturada e está preparada para passar por análises estatísticas a menos de transformações simples.</p>
 
@@ -389,7 +389,7 @@
 
 <h2 id="pacotes-dplyr-e-tidyr">Pacotes <code>dplyr</code> e <code>tidyr</code></h2>
 
-<p>O <code>dplyr</code> é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em <code>R</code> que fazem uso inteligente dos verbos <code>dplyr</code> e as facilidades do operador <em>pipe</em> tendem a ficar mais legíveis e organizados, sem perder velocidade de execução.</p>
+<p>O <code>dplyr</code> é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em <code>R</code> que fazem uso inteligente dos verbos <code>dplyr</code> e as facilidades do operador <em>pipe</em> tendem a ficar mais legíveis e organizados sem perder velocidade de execução.</p>
 
 <p>Antes de apresentar com as principais funções do <code>dplyr</code> e do <code>tidyr</code>, precisamos trabalhar com o conceito de <code>tibbles</code>.</p>
 
@@ -424,22 +424,22 @@
 <p>A base contém 16686 linhas e 14 colunas, descritas abaixo:</p>
 
 <ul>
-<li><code>ano</code> ano do Censo utilizado como base para cálculo do IDH-Municipal e outras métricas.</li>
-<li><code>muni</code> nome do município. Cada município aparece três vezes, um para cada ano.</li>
-<li><code>uf</code> Unidade Federativa.</li>
-<li><code>regiao</code> região brasileira.</li>
-<li><code>idhm</code> IDH municipal, dividido em
+<li><code>ano</code> - ano do Censo utilizado como base para cálculo do IDH-Municipal e outras métricas.</li>
+<li><code>muni</code> - nome do município. Cada município aparece três vezes, um para cada ano.</li>
+<li><code>uf</code> - Unidade Federativa.</li>
+<li><code>regiao</code> - região brasileira.</li>
+<li><code>idhm</code> - IDH municipal, dividido em
 
 <ul>
-<li><code>idhm_e</code> IDH municipal - educação.</li>
-<li><code>idhm_l</code> IDH municipal - longevidade.</li>
-<li><code>idhm_r</code> IDH municipal - renda.</li>
+<li><code>idhm_e</code> - IDH municipal - educação.</li>
+<li><code>idhm_l</code> - IDH municipal - longevidade.</li>
+<li><code>idhm_r</code> - IDH municipal - renda.</li>
 </ul></li>
-<li><code>espvida</code> expectativa de vida.</li>
-<li><code>rdpc</code> renda <em>per capita</em>.</li>
-<li><code>gini</code> coeficiente de gini municipal (mede desigualdade social).</li>
-<li><code>pop</code> população residente do município.</li>
-<li><code>lat</code>, <code>lon</code> latitude e longitude do município (ponto médio).</li>
+<li><code>espvida</code> - expectativa de vida.</li>
+<li><code>rdpc</code> - renda <em>per capita</em>.</li>
+<li><code>gini</code> - coeficiente de gini municipal (mede desigualdade social).</li>
+<li><code>pop</code> - população residente do município.</li>
+<li><code>lat</code>, <code>lon</code> - latitude e longitude do município (ponto médio).</li>
 </ul>
 
 <h2 id="os-cinco-verbos-do-dplyr">Os cinco verbos do <code>dplyr</code></h2>
@@ -457,8 +457,8 @@
 <h3 id="características">Características</h3>
 
 <ul>
-<li>O <em>input</em>  é sempre uma <code>tibble</code>, e o <em>output</em>  é sempre um <code>tibble</code>.</li>
-<li>No primeiro argumento colocamos o <code>tibble</code>, e nos outros argumentos colocamos o que queremos fazer.</li>
+<li>O <em>input</em>  é sempre uma <code>tibble</code> e o <em>output</em>  é sempre um <code>tibble</code>.</li>
+<li>Colocamos o <code>tibble</code> no primeiro argumento e o que queremos fazer nos outros argumentos.</li>
 <li>A utilização é facilitada com o emprego do operador <code>%&gt;%</code>.</li>
 <li>O pacote faz uso extensivo de NSE (<em>non standard evaluation</em>).</li>
 </ul>
@@ -475,8 +475,8 @@
 <h2 id="select"><code>select</code></h2>
 
 <ul>
-<li>Utilizar <code>starts_with(x)</code>, <code>contains(x)</code>, <code>matches(x)</code>, <code>one_of(x)</code>, etc.</li>
-<li>Possível colocar nomes, índices, e intervalos de variáveis com <code>:</code>.</li>
+<li>Utilizar <code>starts_with(x)</code>, <code>contains(x)</code>, <code>matches(x)</code>, <code>one_of(x)</code> etc.</li>
+<li>Possível colocar nomes, índices e intervalos de variáveis com <code>:</code>.</li>
 </ul>
 
 <pre><code class="language-r">pnud_min %&gt;% 
@@ -561,14 +561,14 @@
 ## # ... with 56 more rows
 </code></pre>
 
-<p>Para fazer várias condições, use os operadores lógicos (<code>&amp;</code> e <code>|</code>) ou separando filtros entre vírgulas.</p>
+<p>Para fazer várias condições, use os operadores lógicos (<code>&amp;</code> e <code>|</code>) ou separe filtros entre vírgulas.</p>
 
 <div class='admonition note'>
 <p class='admonition-title'>
-`%in%`
+%in%
 </p>
 <p>
-`%in%` é um operador muito útil para trabalhar com vetores. O resultado da operação é um vetor lógico do tamanho do vetor do elemento da esquerda, identificando quais elementos da esquerda batem com algum elemento da direita.
+<b>%in%</b> é um operador muito útil para trabalhar com vetores. O resultado da operação é um vetor lógico do tamanho do vetor do elemento da esquerda, identificando quais elementos da esquerda batem com algum elemento da direita.
 </p>
 </div>
 
@@ -806,7 +806,7 @@ pnud_min %&gt;%
 <h2 id="um-pouco-mais-de-transformação-de-dados">Um pouco mais de transformação de dados</h2>
 
 <ul>
-<li>Para juntar tabelas, usar <code>inner_join</code>, <code>left_join</code>, <code>anti_join</code>, etc.</li>
+<li>Para juntar tabelas, usar <code>inner_join</code>, <code>left_join</code>, <code>anti_join</code> etc.</li>
 <li>Para realizar operações mais gerais, usar <code>do</code>.</li>
 <li>Para retirar duplicatas, utilizar <code>distinct</code>.</li>
 </ul>
@@ -842,7 +842,7 @@ $$</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../lubridate/" title="Introdução">
+      <a href="../forcats/" title="Introdução">
         <span class="direction">
           Previous
         </span>
@@ -862,14 +862,14 @@ $$</p>
 
   <div class="next">
   
-      <a href="../ggplot/" title="ggplot">
+      <a href="../pipe/" title="Introdução">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              ggplot
+              Introdução
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">
