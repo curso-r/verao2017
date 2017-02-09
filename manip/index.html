@@ -383,7 +383,7 @@
 
 <p>A base de dados analítica é estruturada de tal forma que pode ser colocada diretamente em sistemas de modelagem estatística ou de visualização. Nem sempre uma base de dados analítica está no formato <em>tidy</em>, mas usualmente são necessários poucos passos para migrar de uma para outra.</p>
 
-<p>A Figura \@ref(fig:transform) mostra a fase de &ldquo;disputa&rdquo; com os dados (<em>data wrangling</em>) para deixá-los no formato analítico.</p>
+<p>A Figura abaixo mostra a fase de &ldquo;disputa&rdquo; com os dados (<em>data wrangling</em>) para deixá-los no formato analítico.</p>
 
 <p><img src="http://r4ds.had.co.nz/diagrams/data-science-wrangle.png" title="Transformação no ciclo da ciência de dados." alt="Transformação no ciclo da ciência de dados." width="60%" height="60%" /></p>
 
@@ -391,9 +391,9 @@
 
 <p>O <code>dplyr</code> é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em <code>R</code> que fazem uso inteligente dos verbos <code>dplyr</code> e as facilidades do operador <em>pipe</em> tendem a ficar mais legíveis e organizados sem perder velocidade de execução.</p>
 
-<p>Antes de apresentar com as principais funções do <code>dplyr</code> e do <code>tidyr</code>, precisamos trabalhar com o conceito de <code>tibbles</code>.</p>
+<p>Antes de apresentar as principais funções do <code>dplyr</code> e do <code>tidyr</code>, precisamos trabalhar com o conceito de <code>tibbles</code>.</p>
 
-<h3 id="trabalhando-com-tibble-s">Trabalhando com <code>tibble</code>s</h3>
+<h3 id="trabalhando-com-tibble-s">Trabalhando com <code>tibble</code>&rsquo;s</h3>
 
 <p>Uma <code>tibble</code> nada mais é do que um <code>data.frame</code>, mas com um método de impressão mais adequado. Outras diferenças podem ser estudadas <a href="http://r4ds.had.co.nz/tibbles.html">neste link</a>.</p>
 
@@ -419,15 +419,15 @@
 
 <h2 id="base-idh-municipal-pnud">Base IDH-Municipal - PNUD</h2>
 
-<p>Nessa seção vamos trabalhar com uma base simplificada do <a href="http://www.atlasbrasil.org.br/2013/pt/download/base/">PNUD (Programa das Nações Unidas para o Desenvolvimento)</a>, contendo informações socioeconômicas de todos os municípios do país. Os resultados foram obtidos a partir dos Censos de 1991, 2000 e 2010.</p>
+<p>Nessa seção, vamos trabalhar com uma base simplificada do <a href="http://www.atlasbrasil.org.br/2013/pt/download/base/">PNUD (Programa das Nações Unidas para o Desenvolvimento)</a>, contendo informações socioeconômicas de todos os municípios do país. Os resultados foram obtidos a partir dos Censos de 1991, 2000 e 2010.</p>
 
 <p>A base contém 16686 linhas e 14 colunas, descritas abaixo:</p>
 
 <ul>
-<li><code>ano</code> - ano do Censo utilizado como base para cálculo do IDH-Municipal e outras métricas.</li>
-<li><code>muni</code> - nome do município. Cada município aparece três vezes, um para cada ano.</li>
+<li><code>ano</code> - Ano do Censo utilizado como base para cálculo do IDH-Municipal e outras métricas.</li>
+<li><code>muni</code> - Nome do município. Cada município aparece três vezes, um para cada ano.</li>
 <li><code>uf</code> - Unidade Federativa.</li>
-<li><code>regiao</code> - região brasileira.</li>
+<li><code>regiao</code> - Região brasileira.</li>
 <li><code>idhm</code> - IDH municipal, dividido em
 
 <ul>
@@ -435,23 +435,23 @@
 <li><code>idhm_l</code> - IDH municipal - longevidade.</li>
 <li><code>idhm_r</code> - IDH municipal - renda.</li>
 </ul></li>
-<li><code>espvida</code> - expectativa de vida.</li>
-<li><code>rdpc</code> - renda <em>per capita</em>.</li>
-<li><code>gini</code> - coeficiente de gini municipal (mede desigualdade social).</li>
-<li><code>pop</code> - população residente do município.</li>
-<li><code>lat</code>, <code>lon</code> - latitude e longitude do município (ponto médio).</li>
+<li><code>espvida</code> - Expectativa de vida.</li>
+<li><code>rdpc</code> - Renda <em>per capita</em>.</li>
+<li><code>gini</code> - Coeficiente de gini municipal (mede desigualdade social).</li>
+<li><code>pop</code> - População residente do município.</li>
+<li><code>lat</code>, <code>lon</code> - Latitude e longitude do município (ponto médio).</li>
 </ul>
 
 <h2 id="os-cinco-verbos-do-dplyr">Os cinco verbos do <code>dplyr</code></h2>
 
-<p>As funções principais do <code>dplyr</code> são</p>
+<p>As funções principais do <code>dplyr</code> são:</p>
 
 <ul>
-<li><code>filter</code>: filtrar linhas.</li>
-<li><code>select</code>: selecionar colunas.</li>
-<li><code>mutate</code>: criar/modificar colunas.</li>
-<li><code>arrange</code>: ordenar a base.</li>
-<li><code>summarise</code>: sumarizar a base em uma linha.</li>
+<li><code>filter</code> - filtra linhas</li>
+<li><code>select</code> - seleciona colunas</li>
+<li><code>mutate</code> - cria/modifica colunas</li>
+<li><code>arrange</code> - ordena a base</li>
+<li><code>summarise</code> - sumariza a base</li>
 </ul>
 
 <h3 id="características">Características</h3>
@@ -475,7 +475,7 @@
 <h2 id="select"><code>select</code></h2>
 
 <ul>
-<li>Utilizar <code>starts_with(x)</code>, <code>contains(x)</code>, <code>matches(x)</code>, <code>one_of(x)</code> etc.</li>
+<li>Utilizar as funções <code>starts_with(x)</code>, <code>contains(x)</code>, <code>matches(x)</code>, <code>one_of(x)</code>.</li>
 <li>Possível colocar nomes, índices e intervalos de variáveis com <code>:</code>.</li>
 </ul>
 
@@ -539,7 +539,7 @@
 
 <ul>
 <li>Parecido com <code>subset</code>.</li>
-<li>Condições separadas por vírgulas é o mesmo que separar por <code>&amp;</code>.</li>
+<li>Condições separadas por vírgulas equivalem a separar por <code>&amp;</code>.</li>
 </ul>
 
 <pre><code class="language-r">pnud_min %&gt;% 
@@ -561,7 +561,7 @@
 ## # ... with 56 more rows
 </code></pre>
 
-<p>Para fazer várias condições, use os operadores lógicos (<code>&amp;</code> e <code>|</code>) ou separe filtros entre vírgulas.</p>
+<p>Para fazer várias condições, use os operadores lógicos <code>&amp;</code> e <code>|</code> ou separe filtros entre vírgulas.</p>
 
 <div class='admonition note'>
 <p class='admonition-title'>
@@ -781,7 +781,7 @@ pnud_min %&gt;%
 
 <ul>
 <li><code>unite</code> junta duas ou mais colunas usando algum separador (<code>_</code>, por exemplo).</li>
-<li><code>separate</code> faz o inverso de <code>unite</code>, e uma coluna em várias usando um separador.</li>
+<li><code>separate</code> faz o inverso de <code>unite</code>, transforma uma coluna em várias usando um separador.</li>
 </ul>
 
 <pre><code class="language-r">pnud_min %&gt;% 
@@ -813,18 +813,6 @@ pnud_min %&gt;%
 
 <script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
 
-<script src="https://cdn.datacamp.com/datacamp-light-latest.min.js"></script>
-
-<ol>
-<li>Calcule o número de ouro no R.</li>
-</ol>
-
-<p>$$
-\frac{1 + \sqrt{5}}{2}
-$$</p>
-
-<div data-datacamp-exercise data-height="300" data-encoded="true">eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IigxICsgc3FydCg1KSkvMiIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiMS42MTgwMzRcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=</div>
-
 
 			<aside class="copyright" role="note">
 				
@@ -842,34 +830,18 @@ $$</p>
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../forcats/" title="Introdução">
-        <span class="direction">
-          Previous
-        </span>
-        <div class="page">
-          <div class="button button-previous" role="button" aria-label="Previous">
-            <i class="icon icon-back"></i>
-          </div>
-          <div class="stretch">
-            <div class="title">
-              Introdução
-            </div>
-          </div>
-        </div>
-      </a>
-  
   </div>
 
   <div class="next">
   
-      <a href="../pipe/" title="Introdução">
+      <a href="../modelos/" title="Modelagem">
         <span class="direction">
           Next
         </span>
         <div class="page">
           <div class="stretch">
             <div class="title">
-              Introdução
+              Modelagem
             </div>
           </div>
           <div class="button button-next" role="button" aria-label="Next">

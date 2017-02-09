@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Feb 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/manip/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/manip/</link>
-      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>/manip/</guid>
       <description>
@@ -38,7 +38,7 @@
 
 &lt;p&gt;A base de dados analítica é estruturada de tal forma que pode ser colocada diretamente em sistemas de modelagem estatística ou de visualização. Nem sempre uma base de dados analítica está no formato &lt;em&gt;tidy&lt;/em&gt;, mas usualmente são necessários poucos passos para migrar de uma para outra.&lt;/p&gt;
 
-&lt;p&gt;A Figura \@ref(fig:transform) mostra a fase de &amp;ldquo;disputa&amp;rdquo; com os dados (&lt;em&gt;data wrangling&lt;/em&gt;) para deixá-los no formato analítico.&lt;/p&gt;
+&lt;p&gt;A Figura abaixo mostra a fase de &amp;ldquo;disputa&amp;rdquo; com os dados (&lt;em&gt;data wrangling&lt;/em&gt;) para deixá-los no formato analítico.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;http://r4ds.had.co.nz/diagrams/data-science-wrangle.png&#34; title=&#34;Transformação no ciclo da ciência de dados.&#34; alt=&#34;Transformação no ciclo da ciência de dados.&#34; width=&#34;60%&#34; height=&#34;60%&#34; /&gt;&lt;/p&gt;
 
@@ -46,9 +46,9 @@
 
 &lt;p&gt;O &lt;code&gt;dplyr&lt;/code&gt; é o pacote mais útil para realizar transformação de dados, aliando simplicidade e eficiência de uma forma elegante. Os scripts em &lt;code&gt;R&lt;/code&gt; que fazem uso inteligente dos verbos &lt;code&gt;dplyr&lt;/code&gt; e as facilidades do operador &lt;em&gt;pipe&lt;/em&gt; tendem a ficar mais legíveis e organizados sem perder velocidade de execução.&lt;/p&gt;
 
-&lt;p&gt;Antes de apresentar com as principais funções do &lt;code&gt;dplyr&lt;/code&gt; e do &lt;code&gt;tidyr&lt;/code&gt;, precisamos trabalhar com o conceito de &lt;code&gt;tibbles&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Antes de apresentar as principais funções do &lt;code&gt;dplyr&lt;/code&gt; e do &lt;code&gt;tidyr&lt;/code&gt;, precisamos trabalhar com o conceito de &lt;code&gt;tibbles&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;trabalhando-com-tibble-s&#34;&gt;Trabalhando com &lt;code&gt;tibble&lt;/code&gt;s&lt;/h3&gt;
+&lt;h3 id=&#34;trabalhando-com-tibble-s&#34;&gt;Trabalhando com &lt;code&gt;tibble&lt;/code&gt;&amp;rsquo;s&lt;/h3&gt;
 
 &lt;p&gt;Uma &lt;code&gt;tibble&lt;/code&gt; nada mais é do que um &lt;code&gt;data.frame&lt;/code&gt;, mas com um método de impressão mais adequado. Outras diferenças podem ser estudadas &lt;a href=&#34;http://r4ds.had.co.nz/tibbles.html&#34;&gt;neste link&lt;/a&gt;.&lt;/p&gt;
 
@@ -74,15 +74,15 @@
 
 &lt;h2 id=&#34;base-idh-municipal-pnud&#34;&gt;Base IDH-Municipal - PNUD&lt;/h2&gt;
 
-&lt;p&gt;Nessa seção vamos trabalhar com uma base simplificada do &lt;a href=&#34;http://www.atlasbrasil.org.br/2013/pt/download/base/&#34;&gt;PNUD (Programa das Nações Unidas para o Desenvolvimento)&lt;/a&gt;, contendo informações socioeconômicas de todos os municípios do país. Os resultados foram obtidos a partir dos Censos de 1991, 2000 e 2010.&lt;/p&gt;
+&lt;p&gt;Nessa seção, vamos trabalhar com uma base simplificada do &lt;a href=&#34;http://www.atlasbrasil.org.br/2013/pt/download/base/&#34;&gt;PNUD (Programa das Nações Unidas para o Desenvolvimento)&lt;/a&gt;, contendo informações socioeconômicas de todos os municípios do país. Os resultados foram obtidos a partir dos Censos de 1991, 2000 e 2010.&lt;/p&gt;
 
 &lt;p&gt;A base contém 16686 linhas e 14 colunas, descritas abaixo:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ano&lt;/code&gt; - ano do Censo utilizado como base para cálculo do IDH-Municipal e outras métricas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;muni&lt;/code&gt; - nome do município. Cada município aparece três vezes, um para cada ano.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ano&lt;/code&gt; - Ano do Censo utilizado como base para cálculo do IDH-Municipal e outras métricas.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;muni&lt;/code&gt; - Nome do município. Cada município aparece três vezes, um para cada ano.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;uf&lt;/code&gt; - Unidade Federativa.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;regiao&lt;/code&gt; - região brasileira.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;regiao&lt;/code&gt; - Região brasileira.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;idhm&lt;/code&gt; - IDH municipal, dividido em
 
 &lt;ul&gt;
@@ -90,23 +90,23 @@
 &lt;li&gt;&lt;code&gt;idhm_l&lt;/code&gt; - IDH municipal - longevidade.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;idhm_r&lt;/code&gt; - IDH municipal - renda.&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;espvida&lt;/code&gt; - expectativa de vida.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;rdpc&lt;/code&gt; - renda &lt;em&gt;per capita&lt;/em&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;gini&lt;/code&gt; - coeficiente de gini municipal (mede desigualdade social).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;pop&lt;/code&gt; - população residente do município.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;lat&lt;/code&gt;, &lt;code&gt;lon&lt;/code&gt; - latitude e longitude do município (ponto médio).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;espvida&lt;/code&gt; - Expectativa de vida.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;rdpc&lt;/code&gt; - Renda &lt;em&gt;per capita&lt;/em&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gini&lt;/code&gt; - Coeficiente de gini municipal (mede desigualdade social).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;pop&lt;/code&gt; - População residente do município.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;lat&lt;/code&gt;, &lt;code&gt;lon&lt;/code&gt; - Latitude e longitude do município (ponto médio).&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&#34;os-cinco-verbos-do-dplyr&#34;&gt;Os cinco verbos do &lt;code&gt;dplyr&lt;/code&gt;&lt;/h2&gt;
 
-&lt;p&gt;As funções principais do &lt;code&gt;dplyr&lt;/code&gt; são&lt;/p&gt;
+&lt;p&gt;As funções principais do &lt;code&gt;dplyr&lt;/code&gt; são:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;filter&lt;/code&gt;: filtrar linhas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;select&lt;/code&gt;: selecionar colunas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt;: criar/modificar colunas.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt;: ordenar a base.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;summarise&lt;/code&gt;: sumarizar a base em uma linha.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;filter&lt;/code&gt; - filtra linhas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;select&lt;/code&gt; - seleciona colunas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mutate&lt;/code&gt; - cria/modifica colunas&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;arrange&lt;/code&gt; - ordena a base&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;summarise&lt;/code&gt; - sumariza a base&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;características&#34;&gt;Características&lt;/h3&gt;
@@ -130,7 +130,7 @@
 &lt;h2 id=&#34;select&#34;&gt;&lt;code&gt;select&lt;/code&gt;&lt;/h2&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Utilizar &lt;code&gt;starts_with(x)&lt;/code&gt;, &lt;code&gt;contains(x)&lt;/code&gt;, &lt;code&gt;matches(x)&lt;/code&gt;, &lt;code&gt;one_of(x)&lt;/code&gt; etc.&lt;/li&gt;
+&lt;li&gt;Utilizar as funções &lt;code&gt;starts_with(x)&lt;/code&gt;, &lt;code&gt;contains(x)&lt;/code&gt;, &lt;code&gt;matches(x)&lt;/code&gt;, &lt;code&gt;one_of(x)&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Possível colocar nomes, índices e intervalos de variáveis com &lt;code&gt;:&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -194,7 +194,7 @@
 
 &lt;ul&gt;
 &lt;li&gt;Parecido com &lt;code&gt;subset&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Condições separadas por vírgulas é o mesmo que separar por &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Condições separadas por vírgulas equivalem a separar por &lt;code&gt;&amp;amp;&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
@@ -216,7 +216,7 @@
 ## # ... with 56 more rows
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Para fazer várias condições, use os operadores lógicos (&lt;code&gt;&amp;amp;&lt;/code&gt; e &lt;code&gt;|&lt;/code&gt;) ou separe filtros entre vírgulas.&lt;/p&gt;
+&lt;p&gt;Para fazer várias condições, use os operadores lógicos &lt;code&gt;&amp;amp;&lt;/code&gt; e &lt;code&gt;|&lt;/code&gt; ou separe filtros entre vírgulas.&lt;/p&gt;
 
 &lt;div class=&#39;admonition note&#39;&gt;
 &lt;p class=&#39;admonition-title&#39;&gt;
@@ -436,7 +436,7 @@ pnud_min %&amp;gt;%
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;unite&lt;/code&gt; junta duas ou mais colunas usando algum separador (&lt;code&gt;_&lt;/code&gt;, por exemplo).&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;separate&lt;/code&gt; faz o inverso de &lt;code&gt;unite&lt;/code&gt;, e uma coluna em várias usando um separador.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;separate&lt;/code&gt; faz o inverso de &lt;code&gt;unite&lt;/code&gt;, transforma uma coluna em várias usando um separador.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pnud_min %&amp;gt;% 
@@ -467,18 +467,6 @@ pnud_min %&amp;gt;%
 &lt;/ul&gt;
 
 &lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
-
-&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;$$
-\frac{1 + \sqrt{5}}{2}
-$$&lt;/p&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IigxICsgc3FydCg1KSkvMiIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiMS42MTgwMzRcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
 </description>
     </item>
     
