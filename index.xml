@@ -4176,9 +4176,15 @@ library(dplyr)
       <pubDate>Wed, 09 Nov 2016 00:00:00 +0000</pubDate>
       
       <guid>/</guid>
-      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 
-/BLOGDOWN-BODY-BEFORE --&gt;
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
 
 &lt;p&gt;O curso-r te ajudará a usar o R na execução de tarefas corriqueiras de forma eficiente e concisa. Ao final do curso, será possível:&lt;/p&gt;
 &lt;ul&gt;
@@ -4257,14 +4263,6 @@ devtools::install_github(&amp;#39;curso-r/pu.deps&amp;#39;)&lt;/code&gt;&lt;/pre
 &lt;p&gt;&lt;a href=&#39;http://www.marketdata.com.br&#39;&gt;&lt;br /&gt;
 &lt;img src=&#34;logo-marketdata.jpg&#34; alt=&#34;Marketdata&#34; width=&#34;200&#34;&gt; &lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-
-
-&lt;!-- BLOGDOWN-HEAD
-
-
-
-
-/BLOGDOWN-HEAD --&gt;
 </description>
     </item>
     
@@ -4274,9 +4272,15 @@ devtools::install_github(&amp;#39;curso-r/pu.deps&amp;#39;)&lt;/code&gt;&lt;/pre
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/questionario/</guid>
-      <description>&lt;!-- BLOGDOWN-BODY-BEFORE
+      <description>&lt;!-- BLOGDOWN-HEAD --&gt;
 
-/BLOGDOWN-BODY-BEFORE --&gt;
+
+
+&lt;!-- /BLOGDOWN-HEAD --&gt;
+
+&lt;!-- BLOGDOWN-BODY-BEFORE --&gt;
+
+&lt;!-- /BLOGDOWN-BODY-BEFORE --&gt;
 
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tibble)
 library(readr)
@@ -4356,14 +4360,6 @@ d_alunos %&amp;gt;%
 &lt;p&gt;&lt;img src=&#34;/questionario/figures/unnamed-chunk-3-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;!-- ---------------------------------------------------------------------- --&gt;
 &lt;/div&gt;
-
-
-&lt;!-- BLOGDOWN-HEAD
-
-
-
-
-/BLOGDOWN-HEAD --&gt;
 </description>
     </item>
     
