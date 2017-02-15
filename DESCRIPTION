@@ -42,5 +42,5 @@ PowerUps:
     curso-r/pu.lubridate,
     curso-r/pu.forcats,
     curso-r/pu.modelos,
-    curso-r/pu.pipe
+    curso-r/pu.pipe,
     curso-r/pu.scrape
