@@ -513,9 +513,6 @@ library(dplyr)
 library(ggplot2)
 </code></pre>
 
-<pre><code>## Error in library(ggplot2): there is no package called 'ggplot2'
-</code></pre>
-
 <h2 id="parte-1-acessando-a-página-de-um-ano">Parte 1: acessando a página de um ano</h2>
 
 <pre><code class="language-r">ano &lt;- 2015
@@ -743,12 +740,7 @@ dts &lt;- as.Date('2017-02-14') - lubridate::days(0:13 * 30)
 d_sabesp &lt;- sabesp_dias(dts)
 
 library(ggplot2)
-</code></pre>
-
-<pre><code>## Error in library(ggplot2): there is no package called 'ggplot2'
-</code></pre>
-
-<pre><code class="language-r">d_sabesp %&gt;% 
+d_sabesp %&gt;% 
   filter(titulo == 'volume armazenado') %&gt;% 
   mutate(data = ymd(data)) %&gt;% 
   ggplot(aes(x = data, y = info, colour = lugar)) +
@@ -756,8 +748,7 @@ library(ggplot2)
   theme_bw()
 </code></pre>
 
-<pre><code>## Error in function_list[[k]](value): could not find function &quot;ggplot&quot;
-</code></pre>
+<p><img src="figures//unnamed-chunk-16-1.png" alt="plot of chunk unnamed-chunk-16" /></p>
 
 <hr />
 
@@ -1294,12 +1285,7 @@ decisoes &lt;- d_decisoes %&gt;%
   dplyr::select(n_processo, tipo_decisao)
 
 library(ggplot2)
-</code></pre>
-
-<pre><code>## Error in library(ggplot2): there is no package called 'ggplot2'
-</code></pre>
-
-<pre><code class="language-r">d_cjsg %&gt;%
+d_cjsg %&gt;%
   mutate(n_processo = str_replace_all(n_processo, '[^0-9]', '')) %&gt;% 
   inner_join(decisoes, 'n_processo') %&gt;% 
   filter(tipo_decisao != 'outros') %&gt;% 
@@ -1318,8 +1304,7 @@ library(ggplot2)
   theme(legend.position = &quot;bottom&quot;)
 </code></pre>
 
-<pre><code>## Error in mutate_impl(.data, dots): there is no package called 'readr'
-</code></pre>
+<p><img src="figures//unnamed-chunk-36-1.png" alt="plot of chunk unnamed-chunk-36" /></p>
 
 
 			<aside class="copyright" role="note">

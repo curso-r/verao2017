@@ -150,9 +150,6 @@ library(dplyr)
 library(ggplot2)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## Error in library(ggplot2): there is no package called &#39;ggplot2&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
 &lt;h2 id=&#34;parte-1-acessando-a-página-de-um-ano&#34;&gt;Parte 1: acessando a página de um ano&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ano &amp;lt;- 2015
@@ -380,12 +377,7 @@ dts &amp;lt;- as.Date(&#39;2017-02-14&#39;) - lubridate::days(0:13 * 30)
 d_sabesp &amp;lt;- sabesp_dias(dts)
 
 library(ggplot2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## Error in library(ggplot2): there is no package called &#39;ggplot2&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;d_sabesp %&amp;gt;% 
+d_sabesp %&amp;gt;% 
   filter(titulo == &#39;volume armazenado&#39;) %&amp;gt;% 
   mutate(data = ymd(data)) %&amp;gt;% 
   ggplot(aes(x = data, y = info, colour = lugar)) +
@@ -393,8 +385,7 @@ library(ggplot2)
   theme_bw()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## Error in function_list[[k]](value): could not find function &amp;quot;ggplot&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-16-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-16&#34; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -931,12 +922,7 @@ decisoes &amp;lt;- d_decisoes %&amp;gt;%
   dplyr::select(n_processo, tipo_decisao)
 
 library(ggplot2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## Error in library(ggplot2): there is no package called &#39;ggplot2&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;d_cjsg %&amp;gt;%
+d_cjsg %&amp;gt;%
   mutate(n_processo = str_replace_all(n_processo, &#39;[^0-9]&#39;, &#39;&#39;)) %&amp;gt;% 
   inner_join(decisoes, &#39;n_processo&#39;) %&amp;gt;% 
   filter(tipo_decisao != &#39;outros&#39;) %&amp;gt;% 
@@ -955,8 +941,7 @@ library(ggplot2)
   theme(legend.position = &amp;quot;bottom&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## Error in mutate_impl(.data, dots): there is no package called &#39;readr&#39;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-36-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-36&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
