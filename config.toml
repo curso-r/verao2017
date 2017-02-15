@@ -91,6 +91,11 @@ googleAnalytics = "UA-87272102-1"
   url    = "modelos/"
   weight = 50
 
+[[menu.main]]
+  name   = "Web Scraping"
+  url    = "scrape/"
+  weight = 60
+
 [blackfriday]
   smartypants  = true
   fractions = true
