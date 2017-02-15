@@ -5,7 +5,8 @@ library(magrittr)
 power_ups <- desc::desc_get('PowerUps') %>%
   stringr::str_split(",") %>%
   unlist() %>%
-  stringr::str_trim()
+  stringr::str_trim() %>%
+  stringr::str_replace_all('\n', '')
 
 download_and_extract_pu <- function(power_up){
   
