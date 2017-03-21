@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=10" />
     <meta name="google-site-verification" content="3wpHHnuvp_52dDrXvZoNa5_Vs4BWcyVoeM62GbQ7llc" />
     <title>Questionário - Curso-R</title>
-    <meta name="generator" content="Hugo 0.17" />
+    <meta name="generator" content="Hugo 0.19" />
 
     
     <meta name="description" content="Materiais para o Curso-R de verão 2017">
@@ -165,42 +165,6 @@
 
 
 
-<a  title="Curso R" href="../">
-	
-	Curso R
-</a>
-
-
-
-  
-</li>
-
-
-
-<li>
-  
-    
-
-
-
-<a  title="Questionário" href="../questionario">
-	
-	Questionário
-</a>
-
-
-
-  
-</li>
-
-
-
-<li>
-  
-    
-
-
-
 <a  title="R básico" href="../rbase/">
 	
 	R básico
@@ -330,6 +294,42 @@
 <a  title="Web Scraping" href="../scrape/">
 	
 	Web Scraping
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Curso R" href="../">
+	
+	Curso R
+</a>
+
+
+
+  
+</li>
+
+
+
+<li>
+  
+    
+
+
+
+<a  title="Questionário" href="../questionario">
+	
+	Questionário
 </a>
 
 
@@ -472,7 +472,7 @@ d_alunos %&gt;%
 <nav class="pagination" aria-label="Footer">
   <div class="previous">
   
-      <a href="../" title="Curso-R">
+      <a href="../pipe/" title="Pipes">
         <span class="direction">
           Previous
         </span>
@@ -482,7 +482,7 @@ d_alunos %&gt;%
           </div>
           <div class="stretch">
             <div class="title">
-              Curso-R
+              Pipes
             </div>
           </div>
         </div>
@@ -491,6 +491,22 @@ d_alunos %&gt;%
   </div>
 
   <div class="next">
+  
+      <a href="../rbase/" title="Rbases">
+        <span class="direction">
+          Next
+        </span>
+        <div class="page">
+          <div class="stretch">
+            <div class="title">
+              Rbases
+            </div>
+          </div>
+          <div class="button button-next" role="button" aria-label="Next">
+            <i class="icon icon-forward"></i>
+          </div>
+        </div>
+      </a>
   
   </div>
 </nav>
@@ -629,11 +645,11 @@ d_alunos %&gt;%
 
     <script type="text/x-mathjax-config">
       MathJax.Hub.Queue(function() {
-        
-        
-        
+        // Fix <code> tags after MathJax finishes running. This is a
+        // hack to overcome a shortcoming of Markdown. Discussion at
+        // https://github.com/mojombo/jekyll/issues/199
         var all = MathJax.Hub.getAllJax(), i;
-        for(i = 0; i < all.length; i += 1) {
+        for(i = 0; i &lt; all.length; i += 1) {
             all[i].SourceElement().parentNode.className += ' has-jax';
         }
     });
