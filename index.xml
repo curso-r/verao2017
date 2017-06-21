@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Sat, 17 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Jun 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/rbase/</link>
-      <pubDate>Sat, 17 Jun 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 21 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>/rbase/</guid>
       <description>
@@ -23,6 +23,8 @@
 &lt;p&gt;A linguagem &lt;code&gt;R&lt;/code&gt; é bem intuitiva. É possível fazer bastante coisa à base da tentativa e erro! Além disso, grande parte do conhecimento é escalável, isto é, quando você aprende a utilizar um certo tipo de função, o aprendizado pode ser replicado para funções parecidas. Essa ideia ficará bem clara quando falarmos dos pacotes do &lt;code&gt;tidyverse&lt;/code&gt;, como o &lt;code&gt;dplyr&lt;/code&gt; e o &lt;code&gt;ggplot2&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Quando o aprendizado não for muito intuitivo ou a utilização de uma função for muito complicada, demandando às vezes conhecimento de Estatística ou Programação, você pode acabar precisando de uma forcinha. Felizmente, a comunidade R é bem ativa, e há várias formas de se conseguir ajuda. Nesta seção, vamos listar algumas dessas maneiras. Em seguida, faremos uma introdução ao RStudio, mostrando as suas principais funcionalidades. Então começaremos a conhecer o R, explorando diversos conceitos básicos.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;pedindo-ajuda&#34;&gt;Pedindo Ajuda&lt;/h2&gt;
 
@@ -72,9 +74,9 @@ help(mean)
 
 &lt;h3 id=&#34;stack-overflow&#34;&gt;Stack Overflow&lt;/h3&gt;
 
-&lt;p&gt;O &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; e o &lt;a href=&#34;http://pt.stackoverflow.com/&#34;&gt;Stack Overflow em Português&lt;/a&gt; são sites de Pergunta e Resposta amplamente utilizados por todas as linguagens de programação, e R é uma delas. Nos EUA, chegam até a usar a reputação dos usuários como diferencial no currículo!&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Stack Overflow&lt;/a&gt; e o &lt;a href=&#34;http://pt.stackoverflow.com/&#34;&gt;Stack Overflow em Português&lt;/a&gt; são sites de Pergunta e Resposta amplamente utilizados por todas as linguagens de programação, e o R é uma delas. Nos EUA, chegam até a usar a reputação dos usuários como diferencial no currículo!&lt;/p&gt;
 
-&lt;p&gt;Provavelmente, o Google lhe indicará uma página deles quando você estiver procurando ajuda. E quando todas as fontes possíveis de ajuda falharem, o Stack Overflow lhe dará o espaço para &lt;strong&gt;criar sua própria pergunta&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Provavelmente o Google lhe indicará uma página deles quando você estiver procurando ajuda. E quando todas as fontes possíveis de ajuda falharem, o Stack Overflow lhe dará o espaço para &lt;strong&gt;criar sua própria pergunta&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Um ponto importante&lt;/strong&gt;: como fazer uma &lt;strong&gt;boa&lt;/strong&gt; pergunta no Stack Overflow?&lt;/p&gt;
 
@@ -95,13 +97,11 @@ help(mean)
 &lt;li&gt;&lt;p&gt;Ser &lt;strong&gt;reprodutível&lt;/strong&gt;: o seu código deve rodar fora da sua máquina. Se você não fornecer uma versão do seu problema que rode (ou que imite seu erro), as pessoas vão logo desistir de te ajudar. Por isso, nunca coloque bancos de dados que só você tem acesso. Use bancos de dados que já vem no R ou disponibilize um exemplo (possivelmente anonimizado) em &lt;code&gt;.csv&lt;/code&gt; na web para baixar. E se precisar utilizar funções diferentes, coloque as &lt;code&gt;library&lt;/code&gt;&amp;rsquo;s correspondentes.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;hr /&gt;
-
 &lt;h2 id=&#34;rstudio&#34;&gt;RStudio&lt;/h2&gt;
 
-&lt;p&gt;O RStudio é o melhor ambiente de desenvolvimento de R disponível. Você pode &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;baixá-lo aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;O RStudio é o melhor ambiente de desenvolvimento de códigos em R disponível. Você pode &lt;a href=&#34;https://www.rstudio.com/products/rstudio/download/preview/&#34;&gt;baixá-lo aqui&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;Muitas das ferramentas são aprendidas conforme o uso, e há bons materiais sobre o Rstudio na internet (por exemplo, &lt;a href=&#34;https://csgillespie.github.io/efficientR/set-up.html#rstudio&#34;&gt;esta página&lt;/a&gt;). Uma funcionalidade importante é a criação de projetos. Uma estrutura sugerida para a organização de um projeto é:&lt;/p&gt;
+&lt;p&gt;Muitas das ferramentas são aprendidas conforme o uso, e há bons materiais sobre o Rstudio na internet (por exemplo, &lt;a href=&#34;https://csgillespie.github.io/efficientR/set-up.html#rstudio&#34;&gt;esta página&lt;/a&gt;). Uma funcionalidade importante é a criação de projetos, permitindo dividir o trabalho em múltiplos ambientes, cada um com o seu diretório, documentos e &lt;em&gt;workspace&lt;/em&gt;. A seguir, apresentamos algumas estruturas para a organização de um projeto.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Estrutura 1&lt;/strong&gt;. Por extensão de arquivo.&lt;/p&gt;
 
@@ -143,18 +143,41 @@ help(mean)
 
 &lt;p&gt;&lt;img src=&#34;figures/rstudio-editor.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Esses quadrantes representam o &lt;strong&gt;editor&lt;/strong&gt;, o &lt;strong&gt;console&lt;/strong&gt;, o &lt;strong&gt;environment&lt;/strong&gt; e o &lt;strong&gt;output&lt;/strong&gt;.  Eles vêm nesta ordem, e depois você pode organizá-los da forma que preferir. O R vive no quadrante &lt;strong&gt;console&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;Esses quadrantes representam o &lt;strong&gt;editor&lt;/strong&gt;, o &lt;strong&gt;console&lt;/strong&gt;, o &lt;strong&gt;environment&lt;/strong&gt; e o &lt;strong&gt;output&lt;/strong&gt;.  Eles vêm nesta ordem, e depois você pode organizá-los da forma que preferir.&lt;/p&gt;
+
+&lt;p&gt;Listamos abaixo as funções dos principais paineis:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Editor/Scripts&lt;/strong&gt;: é onde escrevemos nossos códigos.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Console&lt;/strong&gt;: é onde rodamos o código e recebemos as saídas. O R vive aqui!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Environment&lt;/strong&gt;: painel com todos os objetos criados na sessão.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Files&lt;/strong&gt;: mostra os arquivos no diretório de trabalho. É possível navegar entre diretórios.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Plots&lt;/strong&gt;: painel onde os gráficos serão apresentados.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Help&lt;/strong&gt;: janela onde a documentação das funções serão apresentadas.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;History&lt;/strong&gt;: painel com um histórico dos comandos rodados.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Saber atalhos ajuda bastante quando estamos programando no RStudio. Veja os principais:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CTRL+ENTER&lt;/strong&gt;: roda a linha selecionada no script. Os atalhos mais utilizado.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ALT+-&lt;/strong&gt;: (&amp;lt;-) sinal de atribuição. Você usará o tempo todo.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CTRL+SHIFT+M&lt;/strong&gt;: (%&amp;gt;%) operador &lt;em&gt;pipe&lt;/em&gt;. Guarde esse atalho, você usará bastante.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CTRL+1&lt;/strong&gt;: altera cursor para o script.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CTRL+2&lt;/strong&gt;: altera cursor para o console.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CTRL+ALT+I&lt;/strong&gt;: cria um chunk no R Markdown.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ALT+SHIFT+K&lt;/strong&gt;: janela com todos os atalhos disponíveis.&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;hr /&gt;
 
-&lt;h2 id=&#34;rmarkdown&#34;&gt;RMarkdown&lt;/h2&gt;
+&lt;h2 id=&#34;r-markdown&#34;&gt;R Markdown&lt;/h2&gt;
 
-&lt;p&gt;O RMarkdown é um tipo de documento especial que contém tanto textos quanto códigos de R, tudo escrito em um mesmo lugar.&lt;/p&gt;
+&lt;p&gt;O R Markdown é um tipo de documento especial que contém tanto textos quanto códigos em R, tudo escrito no mesmo lugar.&lt;/p&gt;
 
 &lt;p&gt;O &lt;em&gt;markdown&lt;/em&gt; nada mais é do que um documento de texto com alguns padrões básicos de formatação, como negrito, itálico, títulos, subtítulos, itens e referências cruzadas. Já os &lt;em&gt;chunks&lt;/em&gt; são pedaços de códigos em R encapsulados por três crases (```). Os códigos são executados sempre que o documento é processado.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;## ```{r}
-## 
 ## isto é um chunk. 
 ## ```
 &lt;/code&gt;&lt;/pre&gt;
@@ -164,27 +187,27 @@ help(mean)
 Nota
 &lt;/p&gt;
 &lt;p&gt;
-Este site foi escrito em RMarkdown. Toda vez que aparecer exemplos de código de R é porque havia um chunk no .Rmd original.
+Este site foi escrito em R Markdown. Toda vez que aparecer exemplos de código de R, havia um chunk no .Rmd original.
 &lt;/p&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Para produção de relatórios, o RMarkdown possui algumas vantagens, como:&lt;/p&gt;
+&lt;p&gt;Para produção de relatórios, o R Markdown possui algumas vantagens, como:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Simplicidade e foco&lt;/strong&gt;. Permite ao usuário o foco na análise e não na formatação do documento.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Versátil&lt;/strong&gt;. Pode ser utilizado para gerar documentos em $\LaTeX$, &lt;code&gt;Word&lt;/code&gt;, &lt;code&gt;HTML&lt;/code&gt; e apresentações em &lt;code&gt;beamer&lt;/code&gt;, &lt;code&gt;pptx&lt;/code&gt; e &lt;code&gt;HTML&lt;/code&gt; (de vários tipos). Pode ainda gerar sites, livros, dissertações de mestrado e até mesmo dashboards interativos.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Reprodutível&lt;/strong&gt;. O RMarkdown nada mais é que um arquivo de texto. Além disso, ele tenta te obrigar a fazer o documento mais autocontido possível. Assim, um documento &lt;code&gt;.Rmd&lt;/code&gt; é fácil de compartilhar e de ser utilizado pelo receptor. Lembre-se, o receptor pode ser o futuro você! Vale enfatizar que a reprodutibilidade é considerada como um dos princípios fundamentais da ciência. Então, só de usar RMarkdown, você já está colaborando com a ciência. :)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Flexível&lt;/strong&gt;. É possível configurar e criar templates de análises para quaisquer tipos de aplicações e clientes. Os textos podem ser parametrizados por números que variam de versão para versão, mensalmente, por exemplo, tudo escrito somente em R.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Reprodutível&lt;/strong&gt;. O R Markdown nada mais é que um arquivo de texto. Além disso, ele tenta te obrigar a fazer o documento mais autocontido possível. Assim, um documento &lt;code&gt;.Rmd&lt;/code&gt; é fácil de compartilhar e de ser utilizado pelo receptor. Lembre-se, o receptor pode ser o futuro você! Vale enfatizar que a reprodutibilidade é considerada como um dos princípios fundamentais da ciência. Então, só de usar R Markdown, você já está colaborando com o método científico. :)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Flexível&lt;/strong&gt;. É possível configurar e criar &lt;em&gt;templates&lt;/em&gt; de análises para quaisquer tipos de aplicações e clientes. Os textos podem ser parametrizados por números que variam de versão para versão, mensalmente, por exemplo, tudo escrito somente em R.&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Criar um RMarkdown novo no RStudio é fácil. Clique no botão de criar arquivo e selecione RMarkdown.&lt;/p&gt;
+&lt;p&gt;Criar um R Markdown novo no RStudio é fácil. Clique no botão de criar arquivo e selecione R Markdown.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;knitr::include_graphics(&amp;quot;figures/criar_rmarkdown.png&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;img src=&#34;figures/criar_rmarkdown.png&#34; alt=&#34;plot of chunk unnamed-chunk-22&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Para detalhes sobre como utilizar o RMarkdown, leia  &lt;a href=&#34;http://r4ds.had.co.nz/r-markdown.html&#34;&gt;aqui&lt;/a&gt; e &lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-1.html&#34;&gt; aqui&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Para detalhes sobre como utilizar o R Markdown, leia o  &lt;a href=&#34;http://r4ds.had.co.nz/r-markdown.html&#34;&gt;r4ds&lt;/a&gt; e &lt;a href=&#34;http://rmarkdown.rstudio.com/lesson-1.html&#34;&gt;o tutorial do RStudio&lt;/a&gt;.&lt;/p&gt;
 
 &lt;hr /&gt;
 
