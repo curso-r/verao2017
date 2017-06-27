@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Thu, 22 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 27 Jun 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/rbase/</link>
-      <pubDate>Thu, 22 Jun 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 27 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>/rbase/</guid>
       <description>
@@ -336,60 +336,133 @@ Error: unexpected input in &amp;quot;5 % 5&amp;quot;
 
 &lt;h2 id=&#34;objetos&#34;&gt;Objetos&lt;/h2&gt;
 
+&lt;p&gt;O R te permite salvar dados dentro de um objeto. Para isso, utilizamos o operador &lt;code&gt;&amp;lt;-&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;No exemplo abaixo, salvamos o valor 1 em &lt;code&gt;a&lt;/code&gt;. Sempre que o R encontrar o símbolo &lt;code&gt;a&lt;/code&gt;, ele vai substituí-lo por 1.&lt;/p&gt;
+
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;a &amp;lt;- 1
 a
 ## [1] 1
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;O R te permite salvar dados dentro de um objeto.&lt;/p&gt;
-
-&lt;p&gt;No exemplo acima, salvamos o valor &lt;code&gt;1&lt;/code&gt; em &lt;code&gt;a&lt;/code&gt;, e sempre que o R encontrar o nome &lt;code&gt;a&lt;/code&gt; ele vai substituir por &lt;code&gt;1&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&#39;admonition note&#39;&gt;
 &lt;p class=&#39;admonition-title&#39;&gt;
 Atenção!
 &lt;/p&gt;
 &lt;p&gt;
-O R entende letras maiúsculas e minúsculas, isto é &lt;b&gt;a&lt;/b&gt; é considerado um objeto diferente de &lt;b&gt;A&lt;/b&gt;.
+O R diferencia letras maiúsculas e minúsculas, isto é, &lt;b&gt;a&lt;/b&gt; é considerado um objeto diferente de &lt;b&gt;A&lt;/b&gt;.
 &lt;/p&gt;
 &lt;/div&gt;
 
 &lt;h3 id=&#34;objetos-atômicos&#34;&gt;Objetos atômicos&lt;/h3&gt;
 
-&lt;p&gt;Existem cinco classes básicas ou &amp;ldquo;atômicas&amp;rdquo; no R:&lt;/p&gt;
+&lt;p&gt;Existem cinco classes básicas ou “atômicas” no R:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;character &lt;code&gt;&amp;quot;UAH!&amp;quot;&lt;/code&gt; (é o varchar do SQL)&lt;/li&gt;
-&lt;li&gt;numeric &lt;code&gt;0.95&lt;/code&gt; (números reais)&lt;/li&gt;
-&lt;li&gt;integer &lt;code&gt;100515&lt;/code&gt; (inteiros)&lt;/li&gt;
-&lt;li&gt;complex &lt;code&gt;2 + 5i&lt;/code&gt; (números complexos, a + bi)&lt;/li&gt;
-&lt;li&gt;logical &lt;code&gt;TRUE&lt;/code&gt; (booleanos, TRUE/FALSE)&lt;/li&gt;
+&lt;li&gt;character&lt;/li&gt;
+&lt;li&gt;numeric&lt;/li&gt;
+&lt;li&gt;integer&lt;/li&gt;
+&lt;li&gt;complex&lt;/li&gt;
+&lt;li&gt;logical&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;Veja alguns exemplos:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# characters
+
+&amp;quot;a&amp;quot;
+## [1] &amp;quot;a&amp;quot;
+&amp;quot;1&amp;quot;
+## [1] &amp;quot;1&amp;quot;
+&amp;quot;positivo&amp;quot;
+## [1] &amp;quot;positivo&amp;quot;
+&amp;quot;Error: objeto x não encontrado&amp;quot;
+## [1] &amp;quot;Error: objeto x não encontrado&amp;quot;
+
+# numeric
+
+1
+## [1] 1
+0.10
+## [1] 0.1
+0.95
+## [1] 0.95
+pi
+## [1] 3.141593
+
+# integer
+
+1L
+## [1] 1
+5L
+## [1] 5
+10L
+## [1] 10
+
+# complex (raramente utilizado para análise de dados)
+
+2 + 5i
+## [1] 2+5i
+
+# logical
+
+TRUE
+## [1] TRUE
+FALSE
+## [1] FALSE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para saber a classe de um objetivo, você pode usar a função &lt;code&gt;class()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 1
+class(x)
+## [1] &amp;quot;numeric&amp;quot;
+
+y &amp;lt;- &amp;quot;a&amp;quot;
+class(y)
+## [1] &amp;quot;character&amp;quot;
+
+z &amp;lt;- TRUE
+class(z)
+## [1] &amp;quot;logical&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;vetores&#34;&gt;Vetores&lt;/h3&gt;
 
 &lt;p&gt;Vetores no R são os objetos mais simples que podem guardar objetos atômicos.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor &amp;lt;- c(1, 2, 3, 4)
-class(vetor)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor1 &amp;lt;- c(1, 2, 3, 4)
+vetor2 &amp;lt;- c(&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;)
+
+vetor1
+## [1] 1 2 3 4
+vetor2
+## [1] &amp;quot;a&amp;quot; &amp;quot;b&amp;quot; &amp;quot;c&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Um vetor tem sempre a mesma classe dos objetos que guarda.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;class(vetor1)
 ## [1] &amp;quot;numeric&amp;quot;
+class(vetor2)
+## [1] &amp;quot;character&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;De forma bastante intuitiva, você pode fazer operações com vetores.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor - 1
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor1 - 1
 ## [1] 0 1 2 3
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Quando você faz &lt;code&gt;vetor - 1&lt;/code&gt;, o R subtrai &lt;code&gt;1&lt;/code&gt; de cada um dos elementos do vetor. O mesmo acontece quando você faz qualquer operação aritmética com vetores no R. Tente jogar o código abaixo no console.&lt;/p&gt;
+&lt;p&gt;Quando você faz &lt;code&gt;vetor1 - 1&lt;/code&gt;, o R subtrai &lt;code&gt;1&lt;/code&gt; de cada um dos elementos do vetor. O mesmo acontece quando você faz qualquer operação aritmética com vetores no R.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor / 2
-vetor * 10
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor1 / 2
+vetor1 * 10
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Você também pode fazer operações que envolvem mais de um vetor:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor * vetor
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor1 * vetor1
 ## [1]  1  4  9 16
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -397,14 +470,10 @@ vetor * 10
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;vetor2 &amp;lt;- 1:3
 vetor * vetor2
-## Warning in vetor * vetor2: longer object length is not a multiple of
-## shorter object length
-## [1] 1 4 9 4
+## Error in eval(expr, envir, enclos): object &#39;vetor&#39; not found
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Agora o R alinhou os dois vetores. Como eles não possuíam o mesmo tamanho, foi repetindo o vetor menor até completar o vetor maior.&lt;/p&gt;
-
-&lt;p&gt;Esse comportamento é chamado de &lt;strong&gt;reciclagem&lt;/strong&gt; e é útil para fazer operações &lt;em&gt;elemento por elemento&lt;/em&gt; (vetorizadamente), mas às vezes pode ser confuso. Com o tempo, você aprenderá a se aproveitar dele.&lt;/p&gt;
+&lt;p&gt;O R alinhou os dois vetores e, como eles não possuíam o mesmo tamanho, foi repetindo o vetor menor até completar o vetor maior. Esse comportamento é chamado de &lt;strong&gt;reciclagem&lt;/strong&gt; e é útil para fazer operações elemento por elemento (vetorizadamente), mas às vezes pode ser confuso. Com o tempo, você aprenderá a se aproveitar dele.&lt;/p&gt;
 
 &lt;h3 id=&#34;misturando-objetos&#34;&gt;Misturando objetos&lt;/h3&gt;
 
@@ -430,7 +499,7 @@ y &amp;lt;- c(TRUE, &amp;quot;a&amp;quot;) ## character
 
 &lt;h3 id=&#34;forçando-classes-explicitamente&#34;&gt;Forçando classes explicitamente&lt;/h3&gt;
 
-&lt;p&gt;Assim como o &lt;code&gt;convert()&lt;/code&gt; do SQL faz, você pode coagir um objeto a ser de uma classe da sua escolha com as funções &lt;code&gt;as.character()&lt;/code&gt;, &lt;code&gt;as.numeric()&lt;/code&gt;, &lt;code&gt;as.integer()&lt;/code&gt; e &lt;code&gt;as.logical()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Você pode coagir um objeto a ser de uma classe específica com as funções &lt;code&gt;as.character()&lt;/code&gt;, &lt;code&gt;as.numeric()&lt;/code&gt;, &lt;code&gt;as.integer()&lt;/code&gt; e &lt;code&gt;as.logical()&lt;/code&gt;. É equivalente à função &lt;code&gt;convert()&lt;/code&gt; do SQL.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 0:4
 class(x)
@@ -456,7 +525,7 @@ as.numeric(x)
 Observação
 &lt;/p&gt;
 &lt;p&gt;
-O &lt;b&gt;NA&lt;/b&gt; tem o mesmo papel que o &lt;b&gt;null&lt;/b&gt; do SQL. Porém, há um &lt;b&gt;NULL&lt;/b&gt; no R também, com diferenças sutis que vamos abordar mais adiante. Não confundir!
+O &lt;b&gt;NA&lt;/b&gt; tem o mesmo papel que o &lt;b&gt;null&lt;/b&gt; do SQL. Porém, há um &lt;b&gt;NULL&lt;/b&gt; no R também, com diferenças sutis que vamos abordar mais adiante.
 &lt;/p&gt;
 &lt;/div&gt;
 
@@ -475,19 +544,19 @@ dim(m) # funçăo dim() retorna a dimensăo do objeto.
 
 &lt;p&gt;Repare que os números de 1 a 6 foram dispostos na matriz coluna por coluna (&lt;em&gt;column-wise&lt;/em&gt;), ou seja, preenchendo de cima para baixo e depois da esquerda para a direita.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Utilidades&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Operações úteis&lt;/strong&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;m[3,  ]   # seleciona uma linha
-m[ , 2]   # seleciona uma coluna
-m[1, 2]   # seleciona um elemento
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;m[3,  ]   # seleciona a terceira linha
+m[ , 2]   # seleciona a segunda coluna
+m[1, 2]   # seleciona o primeiro elemento da segunda coluna
 t(m)      # matriz transposta
 m %*% n   # multiplicação matricial
-solve(m)  # matriz inversa
+solve(m)  # matriz inversa de m
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;fatores&#34;&gt;Fatores&lt;/h3&gt;
 
-&lt;p&gt;Fatores podem ser vistos como vetores de inteiros que possuem rótulos (labels).&lt;/p&gt;
+&lt;p&gt;Fatores podem ser vistos como vetores de inteiros que possuem rótulos (levels).&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sexo &amp;lt;- c(&amp;quot;M&amp;quot;, &amp;quot;H&amp;quot;, &amp;quot;H&amp;quot;, &amp;quot;H&amp;quot;, &amp;quot;M&amp;quot;, &amp;quot;M&amp;quot;, &amp;quot;H&amp;quot;)
 fator &amp;lt;- as.factor(sexo)
@@ -513,21 +582,21 @@ as.numeric(fator)
 Um erro comum e desastroso
 &lt;/p&gt;
 &lt;p&gt;
-Quando um vetor de números está como &lt;b&gt;factor&lt;/b&gt;, ao tentar transformar o vetor em &lt;b&gt;numeric&lt;/b&gt;, você receberá um vetor de inteiros que não tem nada a ver com os valores originais!
+Quando um vetor de números está como &lt;b&gt;factor&lt;/b&gt;, ao tentar transformá-lo em &lt;b&gt;numeric&lt;/b&gt;, você receberá um vetor de inteiros que não tem nada a ver com os valores originais!
 &lt;/p&gt;
 &lt;/div&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;numeros &amp;lt;- factor(c(&amp;quot;10&amp;quot;, &amp;quot;55&amp;quot;, &amp;quot;55&amp;quot;, &amp;quot;12&amp;quot;, &amp;quot;10&amp;quot;, &amp;quot;-5&amp;quot;, &amp;quot;-90&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;as.numeric(numeros)
-## [1] 3 5 5 4 3 1 2    # &amp;lt;-- Por essa eu năo esperava!
+as.numeric(numeros)
+#Por essa eu năo esperava!
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Para evitar isso, use &lt;code&gt;as.character()&lt;/code&gt; antes de transformar para número.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;as.numeric(as.character(numeros))
-## [1]  10  55  55  12  10  -5 -90   # &amp;lt;-- Agora está OK
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;as.numeric(as.character(numeros))
+## Error in eval(expr, envir, enclos): object &#39;numeros&#39; not found
+# Agora está OK!
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;valores-especiais&#34;&gt;Valores especiais&lt;/h3&gt;
@@ -570,12 +639,12 @@ x
 
 &lt;p&gt;É um dos objetos mais importantes para armazenar dados e vale a pena saber manuseá-los bem. Existem muitas funções que fazem das listas objetos incrivelmente úteis.&lt;/p&gt;
 
-&lt;p&gt;Criamos uma lista pela função &lt;code&gt;list()&lt;/code&gt;, que aceita um número arbitrário de elementos. Listas aceitam QUALQUER tipo de objeto. Podemos ter listas dentro de listas, por exemplo. Como para quase todos os objetos no R, as funções &lt;code&gt;is.list()&lt;/code&gt; e &lt;code&gt;as.list()&lt;/code&gt; também existem.&lt;/p&gt;
+&lt;p&gt;Criamos uma lista com a função &lt;code&gt;list()&lt;/code&gt;, que aceita um número arbitrário de elementos. Listas aceitam QUALQUER tipo de objeto. Podemos ter listas dentro de listas, por exemplo. Como para quase todas as classes de objetos no R, as funções &lt;code&gt;is.list()&lt;/code&gt; e &lt;code&gt;as.list()&lt;/code&gt; também existem.&lt;/p&gt;
 
 &lt;p&gt;Na lista &lt;code&gt;pedido&lt;/code&gt; abaixo, temos &lt;code&gt;numeric&lt;/code&gt;, &lt;code&gt;Date&lt;/code&gt;, &lt;code&gt;character&lt;/code&gt;, vetor de &lt;code&gt;character&lt;/code&gt; e &lt;code&gt;list&lt;/code&gt; contida em uma lista:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pedido &amp;lt;- list(pedido_id = 8001406,
-               pedido_registro = as.Date(&amp;quot;2016-12-12&amp;quot;),
+               pedido_registro = as.Date(&amp;quot;2017-05-25&amp;quot;),
                nome = &amp;quot;Athos&amp;quot;, 
                sobrenome = &amp;quot;Petri Damiani&amp;quot;, 
                cpf = &amp;quot;12345678900&amp;quot;, 
@@ -599,7 +668,7 @@ x
 )
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;strong&gt;Utilidades&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Operações úteis&lt;/strong&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;pedido$cpf     # elemento chamado &#39;cpf&#39;
 pedido[1]      # nova lista com apenas o primeiro elemento
@@ -615,7 +684,7 @@ pedido[&amp;quot;nome&amp;quot;] # nova lista com apenas o elemento chamado &#39
 
 &lt;p&gt;Usualmente, seus dados serão importados para um objeto &lt;code&gt;data.frame&lt;/code&gt;. Em grande parte do curso, eles serão o principal objeto de estudo.&lt;/p&gt;
 
-&lt;p&gt;&lt;code&gt;data.frame&lt;/code&gt;&amp;rsquo;s são listas especiais em que todos os seus elementos possuem &lt;strong&gt;o mesmo comprimento&lt;/strong&gt;. Cada elemento dessa lista pode ser pensado como uma coluna da tabela. Seu comprimento representa o número de linhas.&lt;/p&gt;
+&lt;p&gt;Os &lt;code&gt;data.frame&lt;/code&gt;&amp;rsquo;s são listas especiais em que todos os elementos possuem &lt;strong&gt;o mesmo comprimento&lt;/strong&gt;. Cada elemento dessa lista pode ser pensado como uma coluna da tabela. Seu comprimento representa o número de linhas.&lt;/p&gt;
 
 &lt;p&gt;Já que são listas, essas colunas podem ser de classes diferentes. Essa é a grande diferença entre &lt;code&gt;data.frame&lt;/code&gt;&amp;rsquo;s e matrizes. Algumas funções úteis:&lt;/p&gt;
 
@@ -644,25 +713,6 @@ as.data.frame(minha_lista)
 ## 3 3 c
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;exemplo-de-data-frame-iris&#34;&gt;Exemplo de data.frame: iris {-}&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(iris)  
-##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1          5.1         3.5          1.4         0.2  setosa
-## 2          4.9         3.0          1.4         0.2  setosa
-## 3          4.7         3.2          1.3         0.2  setosa
-## 4          4.6         3.1          1.5         0.2  setosa
-## 5          5.0         3.6          1.4         0.2  setosa
-## 6          5.4         3.9          1.7         0.4  setosa
-str(iris)
-## &#39;data.frame&#39;:	150 obs. of  5 variables:
-##  $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
-##  $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
-##  $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
-##  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
-##  $ Species     : Factor w/ 3 levels &amp;quot;setosa&amp;quot;,&amp;quot;versicolor&amp;quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
-&lt;/code&gt;&lt;/pre&gt;
-
 &lt;hr /&gt;
 
 &lt;h2 id=&#34;controles-de-fluxo&#34;&gt;Controles de Fluxo&lt;/h2&gt;
@@ -685,7 +735,7 @@ if(x == 1) {
 if(x == 1) {
   Sys.time()
 }
-## [1] &amp;quot;2017-06-22 00:45:40 UTC&amp;quot;
+## [1] &amp;quot;2017-06-27 01:21:06 UTC&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;O R só vai executar o que está na expressão dentro das chaves &lt;code&gt;{}&lt;/code&gt; se o que estiver dentro dos parênteses &lt;code&gt;()&lt;/code&gt; retornar &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
@@ -946,14 +996,14 @@ y &amp;lt;- 5 + 2 * x + rnorm(n, sd = 30)
 plot(x, y)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-62-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-62&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-65-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-65&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;O parâmetro &lt;code&gt;type = &amp;quot;l&amp;quot;&lt;/code&gt; indica que queremos que os pontos sejam interligados por linhas.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;plot(x, y, type = &amp;quot;l&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-63-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-63&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-66-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-66&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;histograma&#34;&gt;Histograma&lt;/h3&gt;
 
@@ -969,7 +1019,7 @@ plot(x, y)
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;hist(rnorm(1000))
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-64-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-64&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-67-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-67&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;boxplot&#34;&gt;Boxplot&lt;/h3&gt;
 
@@ -982,14 +1032,14 @@ plot(x, y)
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;boxplot(InsectSprays$count, col = &amp;quot;lightgray&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-65-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-65&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-68-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-68&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Duas variáveis&lt;/strong&gt; - Usamos fórmula e o parâmetro &lt;code&gt;data&lt;/code&gt;!&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;boxplot(count ~ spray, data = InsectSprays, col = &amp;quot;lightgray&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-66-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-66&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-69-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-69&#34; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&#34;gráfico-de-barras&#34;&gt;Gráfico de barras&lt;/h3&gt;
 
@@ -1008,7 +1058,7 @@ tabela
 barplot(tabela)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-67-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-67&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-70-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-70&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Tabela com duas variáveis&lt;/strong&gt; em uma tabela de dupla entrada.&lt;/p&gt;
 
@@ -1022,7 +1072,7 @@ barplot(tabela)
 barplot(VADeaths) 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-68-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-68&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;figures//unnamed-chunk-71-1.png&#34; alt=&#34;plot of chunk unnamed-chunk-71&#34; /&gt;&lt;/p&gt;
 
 &lt;hr /&gt;
 
