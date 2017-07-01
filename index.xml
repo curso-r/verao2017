@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Tue, 27 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 30 Jun 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/rbase/</link>
-      <pubDate>Tue, 27 Jun 2017 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 30 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>/rbase/</guid>
       <description>
@@ -721,7 +721,7 @@ as.data.frame(minha_lista)
 
 &lt;h3 id=&#34;if-e-else&#34;&gt;IF e ELSE&lt;/h3&gt;
 
-&lt;p&gt;O seguinte trecho de código só será executado se o objeto &lt;code&gt;x&lt;/code&gt; for igual a 1. Repare que a condição de igualdade é representada por dois iguais (==).&lt;/p&gt;
+&lt;p&gt;O seguinte trecho de código só será executado se o objeto &lt;code&gt;x&lt;/code&gt; for igual a 1. Repare que a condição de igualdade é representada por dois iguais &lt;code&gt;==&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 2
 
@@ -735,7 +735,7 @@ if(x == 1) {
 if(x == 1) {
   Sys.time()
 }
-## [1] &amp;quot;2017-06-27 01:21:06 UTC&amp;quot;
+## [1] &amp;quot;2017-06-30 21:52:43 UTC&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;O R só vai executar o que está na expressão dentro das chaves &lt;code&gt;{}&lt;/code&gt; se o que estiver dentro dos parênteses &lt;code&gt;()&lt;/code&gt; retornar &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
@@ -879,10 +879,12 @@ for(i in indices) {
 
 &lt;h2 id=&#34;funções&#34;&gt;Funções&lt;/h2&gt;
 
-&lt;p&gt;O R vem com muitas funções implementadas com as quais você pode fazer muitas  tarefas complicadas, como gerar números aleatórios. Geralmente, o nome das funções é bem intuitivo, por exemplo, &lt;code&gt;mean&lt;/code&gt; é a função que calcula a média, &lt;code&gt;round&lt;/code&gt; é a função que arredonda um número etc.&lt;/p&gt;
+&lt;p&gt;O R vem com muitas funções implementadas, com as quais você pode fazer facilmente muitas  tarefas complicadas, como gerar números aleatórios. Em geral, o nome das funções é bem intuitivo, por exemplo, &lt;code&gt;mean()&lt;/code&gt; é a função que calcula a média e &lt;code&gt;round()&lt;/code&gt; é a função que arredonda um número.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;round(5.634)
-## [1] 6
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;mean(1:10)
+## [1] 5.5
+round(pi) #Note que &#39;pi&#39; é um objeto pré-definido pelo R.
+## [1] 3
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Para entender melhor o funcionamento das funções no R, considere o seguinte exemplo:&lt;/p&gt;
@@ -900,7 +902,7 @@ round(mean(die))
 
 &lt;h3 id=&#34;criando-suas-próprias-funções&#34;&gt;Criando suas próprias funções&lt;/h3&gt;
 
-&lt;p&gt;Sintaxe:&lt;/p&gt;
+&lt;p&gt;No R, você pode (e deve) criar as suas próprias funções. É uma prática que evita retrabalho, simplifica o código e, eventualmente, diminui o tempo de execução das análises. Veja abaixo um exemplo de como criar uma função.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;soma &amp;lt;- function(x, y = 0) {
   resposta &amp;lt;- x + y
@@ -917,30 +919,30 @@ round(mean(die))
 &lt;li&gt;o valor padrão &lt;code&gt;0&lt;/code&gt; para o argumento &lt;code&gt;y&lt;/code&gt; (&lt;code&gt;y = 0&lt;/code&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Use-a como qualquer outra função:&lt;/p&gt;
+&lt;p&gt;Após rodar o código anterior, você pode usá-la como qualquer outra função:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;soma(2, 1) # soma de 2 + 1
 ## [1] 3
-soma(2) # soma de 2 + 0
+soma(2) # soma de 2 + 0, pois y = 0 por default.
 ## [1] 2
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;O argumento &lt;code&gt;y&lt;/code&gt; possui o valor padrão &lt;code&gt;0&lt;/code&gt;. Isso quer dizer que ele valerá zero caso o usuário não passe um valor explicitamente.&lt;/p&gt;
 
-&lt;p&gt;O &lt;a href=&#34;http://adv-r.had.co.nz/&#34;&gt;Advanced-R&lt;/a&gt; é um excelente livro para quem quiser masterizar a arte de se fazer funções.&lt;/p&gt;
+&lt;p&gt;O &lt;a href=&#34;http://adv-r.had.co.nz/&#34;&gt;Advanced-R&lt;/a&gt; é um excelente livro para quem quiser masterizar a arte de criar funções.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;h2 id=&#34;fórmulas&#34;&gt;Fórmulas&lt;/h2&gt;
+
+&lt;p&gt;Fórmulas são objetos do tipo &lt;code&gt;y ~ x&lt;/code&gt;. Em geral, elas representam associações entre objetos, como em um modelo de regressão. As funções as usam de diversas maneiras, mas o exemplo mais emblemático vem da modelagem estatística.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;formula &amp;lt;- y ~ x1 + x2
 class(formula)
 ## [1] &amp;quot;formula&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Fórmulas são coisas do tipo &lt;code&gt;y ~ x&lt;/code&gt;. As funções as usam de maneiras diversas, mas o exemplo mais emblemático vem da modelagem estatística.&lt;/p&gt;
-
-&lt;p&gt;A função &lt;code&gt;lm()&lt;/code&gt; é a que ajusta uma regressão linear no R, e &lt;code&gt;lm(y ~ x)&lt;/code&gt; lê-se &amp;ldquo;regressão linear de y explicada por x&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;A função &lt;code&gt;lm()&lt;/code&gt; é a que ajusta um modelo linear no R, e &lt;code&gt;lm(y ~ x)&lt;/code&gt; lê-se &amp;ldquo;regressão linear de y explicada por x&amp;rdquo;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;minha_formula &amp;lt;- Sepal.Width ~ Petal.Length + Petal.Width
 class(minha_formula)
@@ -955,9 +957,9 @@ lm(minha_formula, data = iris)
 ##       3.5870       -0.2571        0.3640
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;No caso específico das regressões lineares, são nas fórmulas que conseguimos descrever as variáveis explicativas e suas interações. A fórmula &lt;code&gt;y ~ x1 * x2&lt;/code&gt; significa &amp;ldquo;y regredido por x1, x2 e a interação entre x1 e x2&amp;rdquo;. Fórmulas aparecem frequentemente em tarefas de modelagem.&lt;/p&gt;
+&lt;p&gt;No caso específico dos modelos lineares, são nas fórmulas que conseguimos descrever as variáveis explicativas e suas interações. A fórmula &lt;code&gt;y ~ x1 * x2&lt;/code&gt; significa &amp;ldquo;y regredido por x1, x2 e a interação entre x1 e x2&amp;rdquo;. Fórmulas aparecem frequentemente em tarefas de modelagem.&lt;/p&gt;
 
-&lt;p&gt;Demais usos de fórmulas aparecerão em outras funções (como o &lt;code&gt;ggplot&lt;/code&gt;) com outros significados, e a documentação nos dirá como usá-las.&lt;/p&gt;
+&lt;p&gt;Demais usos de fórmulas aparecerão em outras funções, como o &lt;code&gt;ggplot&lt;/code&gt;, com outros significados, e a documentação nos dirá como usá-las.&lt;/p&gt;
 
 &lt;hr /&gt;
 
