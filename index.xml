@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Sun, 02 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Jul 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/rbase/</link>
-      <pubDate>Sun, 02 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 04 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/rbase/</guid>
       <description>
@@ -735,7 +735,7 @@ if(x == 1) {
 if(x == 1) {
   Sys.time()
 }
-## [1] &amp;quot;2017-07-02 17:56:05 UTC&amp;quot;
+## [1] &amp;quot;2017-07-04 00:57:30 UTC&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;O R só vai executar o que está na expressão dentro das chaves &lt;code&gt;{}&lt;/code&gt; se o que estiver dentro dos parênteses &lt;code&gt;()&lt;/code&gt; retornar &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
@@ -1085,131 +1085,323 @@ barplot(tabela)
 
 &lt;hr /&gt;
 
-&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+&lt;h2 id=&#34;exercícios&#34;&gt;Exercícios&lt;/h2&gt;
 
-&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Calcule o número de ouro no R.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;$$ \frac{1 + \sqrt{5}}{2} $$&lt;/p&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIERpZ2l0ZSBhIGV4cHJlc3NcdTAwZTNvIHF1ZSBjYWxjdWxhIG8gblx1MDBmYW1lcm8gZGUgb3Vyby4iLCJzb2x1dGlvbiI6IiMgRGlnaXRlIGEgZXhwcmVzc1x1MDBlM28gcXVlIGNhbGN1bGEgbyBuXHUwMGZhbWVybyBkZSBvdXJvLlxuKDEgKyBzcXJ0KDUpKS8yIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCIxLjYxODAzNFwiLCBpbmNvcnJlY3RfbXNnID0gXCJUZW0gY2VydGV6YSBkZSBxdWUgaW5kaWNvdSBhIGV4cHJlc3NcdTAwZTNvIGNvcnJldGFtZW50ZT9cIilcbnN1Y2Nlc3NfbXNnKFwiQ29ycmV0byFcIikifQ==&lt;/div&gt;
-
-&lt;ol&gt;
-&lt;li&gt;O que dá divisão de 1 por 0 no R? E -1 por 0?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIgMS8wXG4tMS8wIiwic2N0IjoidGVzdF9vdXRwdXRfY29udGFpbnMoXCJJbmZcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG50ZXN0X291dHB1dF9jb250YWlucyhcIi1JbmZcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Quais as diferenças entre &lt;code&gt;NaN&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;Inf&lt;/code&gt;? Digite expressões que
-retornam cada um desses resultados.&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE5hTlxuXG4jIE5VTExcblxuIyBOQVxuXG4jIEluZlxuIiwic29sdXRpb24iOiIjIE5hTiBcdTAwZTkgbyByZXN1bHRhZG8gZGUgdW1hIG9wZXJhXHUwMGU3XHUwMGUzbyBtYXRlbVx1MDBlMXRpY2EgaW52XHUwMGUxbGlkYS4gU2lnbmlmaWNhIE5vdCBBIE51bWJlclxuMC8wXG4jIE5VTEwgXHUwMGU5IG8gdmF6aW8gZG8gUi4gXHUwMGM5IGNvbW8gc2UgbyBvYmpldG8gblx1MDBlM28gZXhpc3Rpc3NlXG5OVUxMXG5hID0gTlVMTFxuaXMubnVsbChpbnRlZ2VyKGxlbmd0aCA9IDApKSAjIHZlamEgcXVlIHVtIHZldG9yLCBtZXNtbyBzZW0gZWxlbWVudG9zIG5cdTAwZTNvIFx1MDBlOSBOVUxMXG4jIE5BIFx1MDBlOSB1bWEgY29uc3RhbnRlIGxcdTAwZjNnaWNhIGRvIFIuIFNpZ2luaWZpY2EgTm90IEF2YWlsbGFibGUuIE5BIHBvZGUgc2VyIFxuIyBjb252ZXJ0aWRvIHBhcmEgcXVhc2UgdG9kb3Mgb3MgdGlwb3MgZGUgdmV0b3JlcyBkbyBSLiBcdTAwYzkgdXNhZG8gcHJpbmNpcGFsbWVudGUgcGFyYVxuIyBpbmRpY2FyIHZhbG9yZXMgZmFsdGFudGVzLlxuTkFcbiMgSW5mIFx1MDBlOSBzaWduaWZpY2EgaW5maW5pdG8uIFx1MDBjOSBvIHJlc3VsdGFkbyBkZSBvcGVyYVx1MDBlN1x1MDBmNWVzIG1hdGVtXHUwMGUxdGljYXMgY3VqbyBsaW1pdGUgXHUwMGU5IGluZmluaXRvLlxuMS8wXG4xL0luZiJ9&lt;/div&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Tente mentalmente calcular o que dá a conta &lt;code&gt;5 + 3 * 10 %/% 3 == 15&lt;/code&gt; no R, sem rodar.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Adicionando apenas parênteses, faça a expressão acima retornar o resultado contrário.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI1ICsgMyAqIDEwICUvJSAzID09IDE1Iiwic29sdXRpb24iOiI1ICsgKDMgKiAxMCkgJS8lIDMgPT0gMTUiLCJzY3QiOiJ0ZXN0X291dHB1dF9jb250YWlucyhcIlRSVUVcIiwgaW5jb3JyZWN0X21zZyA9IFwiVGVtIGNlcnRlemEgZGUgcXVlIGluZGljb3UgYSBleHByZXNzXHUwMGUzbyBjb3JyZXRhbWVudGU/XCIpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
-
-&lt;ol&gt;
-&lt;li&gt;O que acontece se você rodar:&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 4
-if(x = 4) {
-  &#39;isso aqui apareceu&#39;
-}
-x
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54In0=&lt;/div&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Como você faria para que o código da pergunta anterior fizesse com que &lt;code&gt;&#39;isso aqui apareceu&#39;&lt;/code&gt; fosse impresso no console, mas nenhum erro aparecesse?&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPSA0KSB7XG4gICdpc3NvIGFxdWkgYXBhcmVjZXUnXG59XG54Iiwic29sdXRpb24iOiJ4IDwtIDRcbmlmKHggPT0gNCkge1xuICAnaXNzbyBhcXVpIGFwYXJlY2V1J1xufVxueCIsInNjdCI6InRlc3Rfb3V0cHV0X2NvbnRhaW5zKFwiaXNzbyBhcXVpIGFwYXJlY2V1XCIsIGluY29ycmVjdF9tc2cgPSBcIlRlbSBjZXJ0ZXphIGRlIHF1ZSBpbmRpY291IGEgZXhwcmVzc1x1MDBlM28gY29ycmV0YW1lbnRlP1wiKVxudGVzdF9lcnJvcigpXG5zdWNjZXNzX21zZyhcIkNvcnJldG8hXCIpIn0=&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Sugestão&lt;/strong&gt;: resolva os exercícios em arquivo R Markdown, aproveitando para fazer anotações e registrar suas dúvidas ao longo do caminho.&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;script src=&#34;https://cdn.datacamp.com/datacamp-light-latest.min.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Calculo o número de ouro no R.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;Dica: o número de ouro é dado pela expressão $\frac{1 + \sqrt{5}}{2}$.&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIoMSArIHNxcnQoNSkpLzIifQ==&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; Qual o resultado da divisão de 1 por 0 no R? E de -1 por 0?&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIxLzBcbi0xLzAifQ==&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Quais as diferenças entre &lt;code&gt;NaN&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;Inf&lt;/code&gt;? Digite expressões que retornam cada um desses resultados.&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiIjIE5hTiBcdTAwZTkgbyByZXN1bHRhZG8gZGUgdW1hIG9wZXJhXHUwMGU3XHUwMGUzbyBtYXRlbVx1MDBlMXRpY2EgaW52XHUwMGUxbGlkYS4gU2lnbmlmaWNhIE5vdCBBIE51bWJlclxuMC8wXG4jIE5VTEwgXHUwMGU5IG8gdmF6aW8gZG8gUi4gXHUwMGM5IGNvbW8gc2UgbyBvYmpldG8gblx1MDBlM28gZXhpc3Rpc3NlXG5OVUxMXG5hID0gTlVMTFxuaXMubnVsbChpbnRlZ2VyKGxlbmd0aCA9IDApKSAjIHZlamEgcXVlIHVtIHZldG9yLCBtZXNtbyBzZW0gZWxlbWVudG9zIG5cdTAwZTNvIFx1MDBlOSBOVUxMXG4jIE5BIFx1MDBlOSB1bWEgY29uc3RhbnRlIGxcdTAwZjNnaWNhIGRvIFIuIFNpZ2luaWZpY2EgTm90IEF2YWlsbGFibGUuIE5BIHBvZGUgc2VyIFxuIyBjb252ZXJ0aWRvIHBhcmEgcXVhc2UgdG9kb3Mgb3MgdGlwb3MgZGUgdmV0b3JlcyBkbyBSLiBcdTAwYzkgdXNhZG8gcHJpbmNpcGFsbWVudGUgcGFyYVxuIyBpbmRpY2FyIHZhbG9yZXMgZmFsdGFudGVzLlxuTkFcbiMgSW5mIFx1MDBlOSBzaWduaWZpY2EgaW5maW5pdG8uIFx1MDBjOSBvIHJlc3VsdGFkbyBkZSBvcGVyYVx1MDBlN1x1MDBmNWVzIG1hdGVtXHUwMGUxdGljYXMgY3VqbyBsaW1pdGUgXHUwMGU5IGluZmluaXRvLlxuMS8wXG4xL0luZiJ9&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;4.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; Sem rodar o código, calcule o que a expressão &lt;code&gt;5 + 3 * 10 %/% 3 == 15&lt;/code&gt; vai resultar no R. Em seguida, apenas utilizando parênteses, faço a expressão retornar o valore contrário (i.e., se originariamente for &lt;code&gt;TRUE&lt;/code&gt;, faça retornar &lt;code&gt;FALSE&lt;/code&gt;).&lt;/p&gt;
 
-&lt;p&gt;5.&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI1ICsgKDMgKiAxMCkgJS8lIDMgPT0gMTUifQ==&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt; Por que o código abaixo retorna erro? Arrume o código para retornar o valor &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
 
-&lt;ol&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 4
+if(x = 4) {
+  TRUE
+}
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiI+IHggPC0gNFxuPiBpZih4ID0gNCkge1xuRXJybzogJz0nIGluZXNwZXJhZG8gaW4gXCJpZih4ID1cIlxuPiAgICdpc3NvIGFxdWkgYXBhcmVjZXUnXG5bMV0gXCJpc3NvIGFxdWkgYXBhcmVjZXVcIlxuPiB9XG5FcnJvOiAnfScgaW5lc3BlcmFkbyBpbiBcIn1cIlxuPiB4XG5bMV0gNCJ9&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;7.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt; Usando &lt;code&gt;if&lt;/code&gt; e &lt;code&gt;else&lt;/code&gt;, escreva um código que retorne a string &amp;ldquo;número&amp;rdquo; caso o valor seja da classe &lt;code&gt;numeric&lt;/code&gt; ou &lt;code&gt;integer&lt;/code&gt;; a string &amp;ldquo;palavra&amp;rdquo; caso o valor seja da classe &lt;code&gt;character&lt;/code&gt;; e &lt;code&gt;NULL&lt;/code&gt; caso contrário.&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIDRcbmlmKHggPT0gNCkge1xuICAnaXNzbyBhcXVpIGFwYXJlY2V1J1xufVxueCJ9&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;8.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt; Use o &lt;code&gt;for&lt;/code&gt; para retornar o valor mínimo do seguinte vetor: &lt;code&gt;vetor &amp;lt;- c(4, 2, 1, 5, 3)&lt;/code&gt;. Modifique o seu código para receber vetores de qualquer tamanho.&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJmb3IgKGkgaW4gMTo0KXtcbiAgaWYoaSAlJSAyID09IDApe1xuICAgIHByaW50KHBhc3RlKGksIFwiZWxlZmFudGUocylcIiwgcGFzdGUocmVwKFwiaW5jb21vZGEobSlcIiwgdGltZXMgPSBpKSwgY29sbGFwc2UgPSBcIiBcIiksIFwibXVpdG8gbWFpc1wiKSlcbiAgfSBlbHNlIHtcbiAgIHByaW50KHBhc3RlKGksIFwiZWxlZmFudGUocykgaW5jb21vZGEobSkgbXVpdGEgZ2VudGVcIikpIFxuICB9XG59In0=&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;9.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;8.&lt;/strong&gt; Usando apenas &lt;code&gt;for&lt;/code&gt; e a função &lt;code&gt;length()&lt;/code&gt;, construa uma função que calcule a média de um vetor número qualquer. Construa uma condição para a função retornar &lt;code&gt;NULL&lt;/code&gt; caso o vetor não seja numérico.&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIGMoMSwgMjAsIDQwLCA1MCwgNjApIn0=&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;10.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;9.&lt;/strong&gt; Rode &lt;code&gt;help(runif)&lt;/code&gt; para descobrir o que a função &lt;code&gt;runif()&lt;/code&gt; faz. Em seguida, use-a para escrever uma função que retorne um número aleatório inteiro entre 0 e 10 (0 e 10 inclusive).&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIHJ1bmlmKDEwMCkifQ==&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;11.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;10.&lt;/strong&gt; Rode &lt;code&gt;help(sample)&lt;/code&gt; para descobrir o que a função &lt;code&gt;sample()&lt;/code&gt; faz. Em seguida, use-a para escrever uma função que escolha uma linha aleatoriamente de uma matriz e devolva os seus valores.&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtZWFuKHgpIn0=&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;12.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;11.&lt;/strong&gt; Rode &lt;code&gt;help(paste)&lt;/code&gt; e &lt;code&gt;help(names)&lt;/code&gt; para descobrir o que as funções &lt;code&gt;paste()&lt;/code&gt; e &lt;code&gt;names()&lt;/code&gt; fazem. Em seguida, use-as para escrever um código para gerar a fórmula &lt;code&gt;mpg ~ cyl + disp + hp + drat + wt + qsec + vs + am + gear + carb&lt;/code&gt; a partir do data frame &lt;code&gt;mtcars&lt;/code&gt;.&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJ4IDwtIGMocnVuaWYoOTkpLCBOQSlcbm1lYW4oeCwgbmEucm0gPSBUKSJ9&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;13.&lt;/p&gt;
+&lt;h2 id=&#34;respostas&#34;&gt;Respostas&lt;/h2&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJtZWRpYSA8LSBmdW5jdGlvbih4KXtcbiAgaSA8LSAxXG4gIHRhbWFuaG8gPC0gbGVuZ3RoKHgpXG4gIHNvbWEgPC0gMFxuICBmb3IoaSBpbiAxOnRhbWFuaG8pe1xuICAgIHNvbWEgPC0gc29tYSArIHhbaV1cbiAgfVxuICByZXR1cm4oc29tYS90YW1hbmhvKVxufSJ9&lt;/div&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;14.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt; Calculo o número de ouro no R.&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJkYWRvIDwtIGZ1bmN0aW9uKCl7XG4gIHNhbXBsZSgxOjYsIDEpXG59In0=&lt;/div&gt;
+&lt;p&gt;Dica: o número de ouro é dado pela expressão $\frac{1 + \sqrt{5}}{2}$.&lt;/p&gt;
 
-&lt;p&gt;15.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJzb21hX2RhZG9zIDwtIGZ1bmN0aW9uKG4pe1xuICBzb21hIDwtIDBcbiAgZm9yKGkgaW4gMTpuKXtcbiAgICBzb21hIDwtIHNvbWEgKyBzYW1wbGUoMTo2LCAxKVxuICB9XG4gIHJldHVybihzb21hKVxufSJ9&lt;/div&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;(1 + sqrt(5))/2
+## [1] 1.618034
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;16.&lt;/p&gt;
+&lt;hr /&gt;
 
-&lt;div data-datacamp-exercise data-height=&#34;300&#34; data-encoded=&#34;true&#34;&gt;eyJsYW5ndWFnZSI6InIiLCJzYW1wbGUiOiJyZXN1bHRhZG9zIDwtIGludGVnZXIobGVuZ3RoID0gMTAwMClcbmZvcihpIGluIDE6MTAwMCl7XG4gIHJlc3VsdGFkb3NbaV0gPC0gc29tYV9kYWRvcygzKVxufVxuaGlzdChyZXN1bHRhZG9zKSJ9&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt; Qual o resultado da divisão de 1 por 0 no R? E de -1 por 0?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Infinito e -Infinito.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;1/0
+## [1] Inf
+-1/0
+## [1] -Inf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt; Quais as diferenças entre &lt;code&gt;NaN&lt;/code&gt;, &lt;code&gt;NULL&lt;/code&gt;, &lt;code&gt;NA&lt;/code&gt; e &lt;code&gt;Inf&lt;/code&gt;? Digite expressões que retornam cada um desses resultados.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# NaN é o resultado de uma operação matemática inválida. 
+# Significa Not A Number.
+
+0/0
+## [1] NaN
+
+# NULL é o vazio do R. É como se o objeto não existisse.
+
+NULL
+## NULL
+a = NULL
+
+
+# veja que um vetor, mesmo sem elementos não é NULL
+
+is.null(integer(length = 0)) 
+## [1] FALSE
+
+# NA é uma constante lógica do R. Siginifica Not Availlable. 
+# NA pode ser convertido para quase todos os tipos de vetores do R. 
+# É usado principalmente para indicar valores faltantes.
+
+NA
+## [1] NA
+as.numeric(c(&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;a&amp;quot;))
+## Warning: NAs introduced by coercion
+## [1]  1  2 NA
+
+# Inf é significa infinito. É o resultado de operações matemáticas 
+# cujo limite é infinito.
+
+1/0
+## [1] Inf
+1/Inf
+## [1] 0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt; Sem rodar o código, calcule o que a expressão &lt;code&gt;5 + 3 * 10 %/% 3 == 15&lt;/code&gt; vai resultar no R. Em seguida, apenas utilizando parênteses, faço a expressão retornar o valore contrário (i.e., se originariamente for &lt;code&gt;TRUE&lt;/code&gt;, faça retornar &lt;code&gt;FALSE&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;O resultado da parte esquerda é 14, por isso a expressão retornará &lt;code&gt;FALSE&lt;/code&gt;. Para fazê-la retornar &lt;code&gt;TRUE&lt;/code&gt;, basta colocar parênteses em volta de &lt;code&gt;3 * 10&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;5 + (3 * 10) %/% 3 == 15
+## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt; Por que o código abaixo retorna erro? Arrume o código para retornar o valor &lt;code&gt;TRUE&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 4
+if(x = 4) {
+  TRUE
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A expressão &lt;code&gt;x = 4&lt;/code&gt; está tentando atribuir o valor 4 ao objeto &lt;code&gt;x&lt;/code&gt; dentro do if, o que não é permitido pois o controlador &lt;code&gt;if&lt;/code&gt; só aceita valores lógicos. Para corrigir o código e fazê-lo retornar &lt;code&gt;TRUE&lt;/code&gt;, basta trocar &lt;code&gt;=&lt;/code&gt; por &lt;code&gt;==&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 4
+if(x == 4) {
+  TRUE
+}
+## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt; Usando &lt;code&gt;if&lt;/code&gt; e &lt;code&gt;else&lt;/code&gt;, escreva um código que retorne a string &amp;ldquo;número&amp;rdquo; caso o objeto &lt;code&gt;x&lt;/code&gt; seja da classe &lt;code&gt;numeric&lt;/code&gt; ou &lt;code&gt;integer&lt;/code&gt;; a string &amp;ldquo;palavra&amp;rdquo; caso o objeto seja da classe &lt;code&gt;character&lt;/code&gt;; e &lt;code&gt;NULL&lt;/code&gt; caso contrário.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;x &amp;lt;- 1
+# x &amp;lt;- 1L
+# x &amp;lt;- &amp;quot;1&amp;quot;
+
+if(is.numeric(x)) {
+  &amp;quot;número&amp;quot;
+} else if(is.character(x)) {
+  &amp;quot;palavra&amp;quot;
+} else { 
+  NULL
+}
+## [1] &amp;quot;número&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note que a função &lt;code&gt;is.numeric()&lt;/code&gt; retorna &lt;code&gt;TRUE&lt;/code&gt; para as classes &lt;code&gt;integer&lt;/code&gt; e &lt;code&gt;numeric&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt; Use o &lt;code&gt;for&lt;/code&gt; para retornar o valor mínimo do seguinte vetor: &lt;code&gt;vetor &amp;lt;- c(4, 2, 1, 5, 3)&lt;/code&gt;. Modifique o seu código para receber vetores de qualquer tamanho.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+vetor &amp;lt;- c(4, 2, 1, 5, 3)
+minimo &amp;lt;- Inf
+
+for(i in 1:5) {
+  
+  if(minimo &amp;gt; vetor[i]) {
+    minimo &amp;lt;- vetor[i]
+  }
+  
+}
+
+minimo
+## [1] 1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Lembrete&lt;/strong&gt;: o R já possui a função &lt;code&gt;min()&lt;/code&gt; para calcular o mínimo de um conjunto de valores.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;8.&lt;/strong&gt; Usando apenas &lt;code&gt;for&lt;/code&gt; e a função &lt;code&gt;length()&lt;/code&gt;, construa uma função que calcule a média de um vetor número qualquer. Construa uma condição para a função retornar &lt;code&gt;NULL&lt;/code&gt; caso o vetor não seja numérico.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;media &amp;lt;- function(x) {
+  
+  i &amp;lt;- 1
+  tamanho &amp;lt;- length(x)
+  soma &amp;lt;- 0
+  
+  for(i in 1:tamanho){
+    soma &amp;lt;- soma + x[i]
+  }
+  
+  return(soma/tamanho)
+}
+
+media(1:3)
+## [1] 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;9.&lt;/strong&gt; Rode &lt;code&gt;help(runif)&lt;/code&gt; para descobrir o que a função &lt;code&gt;runif()&lt;/code&gt; faz. Em seguida, use-a para escrever uma função que retorne um número aleatório inteiro entre 0 e 10 (0 e 10 inclusive).&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;A função &lt;code&gt;runif()&lt;/code&gt; gera números reais aleatórios entre um valor mínimo e um valor máximo.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;alea &amp;lt;- function() {
+  
+  x &amp;lt;- runif(n = 1, min = 0, max = 10)
+  x &amp;lt;- round(x)
+  
+  return(x)
+}
+
+alea()
+## [1] 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Veja que construímos uma função sem argumentos. Podemos generalizá-la incluindo os argumentos da função &lt;code&gt;runif()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;alea &amp;lt;- function(n, min, max) {
+  
+  x &amp;lt;- runif(n = n, min = min, max = max)
+  x &amp;lt;- round(x)
+  
+  return(x)
+}
+
+alea(2, 2, 5)
+## [1] 5 2
+alea(5, 100, 105)
+## [1] 105 105 104 100 103
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Observe que não há problema em usar os mesmos nomes para os argumentos. Isso se deve aos &lt;em&gt;environments&lt;/em&gt;. Para saber mais, confira &lt;a href=&#34;http://curso-r.com/blog/2017/06/19/2017-06-19-environments/&#34;&gt;este post&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;10.&lt;/strong&gt; Rode &lt;code&gt;help(sample)&lt;/code&gt; para descobrir o que a função &lt;code&gt;sample()&lt;/code&gt; faz. Em seguida, use-a para escrever uma função que escolha uma linha aleatoriamente de uma matriz e devolva os seus valores.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;matriz &amp;lt;- matrix(runif(20), nrow = 5, ncol = 4)
+
+linha_alea &amp;lt;- function(matriz) {
+  
+  x &amp;lt;- 1:nrow(matriz)
+  
+  linha &amp;lt;- sample(x, size = 1)
+  
+  return(matriz[linha,])
+}
+
+matriz
+##           [,1]      [,2]      [,3]      [,4]
+## [1,] 0.3892763 0.7633635 0.3707031 0.7381129
+## [2,] 0.7848258 0.6510383 0.1397464 0.8971824
+## [3,] 0.5232812 0.0180222 0.1419734 0.7114565
+## [4,] 0.5092140 0.9650082 0.3545131 0.5984268
+## [5,] 0.4442231 0.6210985 0.1462894 0.4045183
+linha_alea(matriz)
+## [1] 0.7848258 0.6510383 0.1397464 0.8971824
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;11.&lt;/strong&gt; Rode &lt;code&gt;help(paste)&lt;/code&gt; e &lt;code&gt;help(names)&lt;/code&gt; para descobrir o que as funções &lt;code&gt;paste()&lt;/code&gt; e &lt;code&gt;names()&lt;/code&gt; fazem. Em seguida, use-as para escrever um código para gerar a fórmula &lt;code&gt;mpg ~ cyl + disp + hp + drat + wt + qsec + vs + am + gear + carb&lt;/code&gt; a partir do data frame &lt;code&gt;mtcars&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Resposta:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;variaveis &amp;lt;- names(mtcars)
+
+esq &amp;lt;- &amp;quot;mpg ~ &amp;quot;
+dir &amp;lt;- paste(variaveis[-1], collapse = &amp;quot; + &amp;quot;)
+
+formula &amp;lt;- paste0(esq, dir)
+as.formula(formula)
+## mpg ~ cyl + disp + hp + drat + wt + qsec + vs + am + gear + carb
+## &amp;lt;environment: 0x4327790&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Observe que a função &lt;code&gt;paste0()&lt;/code&gt; é equivalente à função &lt;code&gt;paste()&lt;/code&gt; com o argumento &lt;code&gt;sep = &amp;quot;&amp;quot;&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
 </description>
     </item>
     
