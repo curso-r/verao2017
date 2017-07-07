@@ -7,83 +7,85 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Jul 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/stringr/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Stringr</title>
       <link>/stringr/</link>
-      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 06 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/stringr/</guid>
       <description>
 
-&lt;p&gt;Variáveis do tipo texto são muito comuns nos bancos de dados e geralmente são
-colunas que dão bastante trabalho para serem manipuladas. É muito comun encontrar
-bancos de dados em que os textos de uma coluna não estão padronizados, por exemplo, uma coluna &lt;code&gt;Estado&lt;/code&gt; com &amp;ldquo;SP&amp;rdquo;, &amp;ldquo;sp&amp;rdquo;, &amp;ldquo;Sao Paulo&amp;rdquo;, &amp;ldquo;São Paulo&amp;rdquo; etc, todas as variações indicando o mesmo estado.&lt;/p&gt;
+&lt;p&gt;Variáveis de texto são muito comuns nos bancos de dados e, geralmente, dão bastante trabalho para serem manipuladas. É muito comum encontrarmos colunas com categorias não padronizadas, como, por exemplo, uma variável &lt;code&gt;Estado&lt;/code&gt; com &amp;ldquo;SP&amp;rdquo;, &amp;ldquo;sp&amp;rdquo;, &amp;ldquo;Sao Paulo&amp;rdquo;, &amp;ldquo;São Paulo&amp;rdquo; etc, todas indicando o mesmo estado.&lt;/p&gt;
 
-&lt;p&gt;Para manipular esses textos, o R possui diversas funções para manipular textos. No entanto, as funções do &lt;code&gt;base&lt;/code&gt; não possuem uma interface consistente e cada uma tem a sua forma de passar os parâmetros, dificultando a programação durante a análise.&lt;/p&gt;
+&lt;p&gt;O R possui várias funções para manipular textos (ou &lt;em&gt;strings&lt;/em&gt;). No entanto, as funções do &lt;code&gt;base&lt;/code&gt; não possuem uma interface consistente e cada uma tem a sua forma de passar os parâmetros, dificultando a programação durante a análise.&lt;/p&gt;
 
-&lt;p&gt;Por isso, é recomendado usar o pacote &lt;code&gt;stringr&lt;/code&gt;, que possui uma sintaxe consistente, permitindo que o usuário realize qualquer manipulação com textos com maior facilidade.&lt;/p&gt;
+&lt;p&gt;Pensando nisso, Hadley Wickham deu aquela força para a comunidade R e criou o pacote &lt;code&gt;stringr&lt;/code&gt;, que possui uma sintaxe consistente, permitindo o usuário manipular textos com muito mais facilidade.&lt;/p&gt;
 
 &lt;h3 id=&#34;vantagens-do-stringr-em-relação-ao-base&#34;&gt;Vantagens do stringr em relação ao base&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;Sintaxe unificada, o que auxilia na memorização e leitura do código.&lt;/li&gt;
 &lt;li&gt;Todas as funções são vetorizadas.&lt;/li&gt;
-&lt;li&gt;Construído sobre a &lt;a href=&#34;http://site.icu-project.org/&#34;&gt;biblioteca ICU&lt;/a&gt;, implementada em &lt;code&gt;C&lt;/code&gt; e &lt;code&gt;C++&lt;/code&gt;, apresentando resultados rápidos e confiáveis.&lt;/li&gt;
+&lt;li&gt;Construído sobre a &lt;a href=&#34;http://site.icu-project.org/&#34;&gt;biblioteca ICU&lt;/a&gt;, implementada em &lt;code&gt;C&lt;/code&gt; e &lt;code&gt;C++&lt;/code&gt;. É uma garantia de resultados mais rápidos e confiáveis.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;regras-básicas-do-pacote&#34;&gt;Regras básicas do pacote&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;As funções de manipulação de texto começam com &lt;code&gt;str_&lt;/code&gt;. Caso esqueça o nome de uma função, basta digitar &lt;code&gt;stringr::str_&lt;/code&gt; e apertar &lt;code&gt;TAB&lt;/code&gt; para ver quais são as opções.&lt;/li&gt;
-&lt;li&gt;O primeiro argumento da função é sempre uma &lt;code&gt;string&lt;/code&gt; ou um vetor de &lt;code&gt;strings&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;O primeiro argumento da função é sempre uma &lt;em&gt;string&lt;/em&gt; ou um vetor de &lt;em&gt;strings&lt;/em&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;curiosidade&#34;&gt;Curiosidade&lt;/h3&gt;
 
 &lt;p&gt;Inicialmente, o &lt;code&gt;stringr&lt;/code&gt; era um &lt;em&gt;wrapper&lt;/em&gt; de funções do &lt;code&gt;base&lt;/code&gt;. Depois disso,
-surgiu um novo pacote &lt;code&gt;stringi&lt;/code&gt;, com sintaxe similar ao &lt;code&gt;stringr&lt;/code&gt;, mas funcionando como
-&lt;em&gt;wrapper&lt;/em&gt; da biblioteca ICU. Wickham gostou tanto do pacote &lt;code&gt;stringi&lt;/code&gt;
+surgiu um novo pacote &lt;code&gt;stringi&lt;/code&gt;, com sintaxe similar ao &lt;code&gt;stringr&lt;/code&gt;, mas funcionando como &lt;em&gt;wrapper&lt;/em&gt; da biblioteca ICU. Wickham gostou tanto do pacote &lt;code&gt;stringi&lt;/code&gt;
 que decidiu reescrever o &lt;code&gt;stringr&lt;/code&gt; como um &lt;em&gt;wrapper&lt;/em&gt; do &lt;code&gt;stringi&lt;/code&gt;.
 Veja &lt;a href=&#34;https://github.com/tidyverse/stringr/blob/master/NEWS.md&#34;&gt;essa página&lt;/a&gt; para detalhes.&lt;/p&gt;
 
 &lt;h2 id=&#34;conceitos-básicos&#34;&gt;Conceitos básicos&lt;/h2&gt;
 
-&lt;p&gt;Todas as funções do &lt;code&gt;stringr&lt;/code&gt; começam com o prefixo &lt;code&gt;str&lt;/code&gt;. Isso ajuda na hora de
+&lt;p&gt;Todas as funções do &lt;code&gt;stringr&lt;/code&gt; começam com o prefixo &lt;code&gt;str_&lt;/code&gt;. Isso ajuda na hora de
 encontrar a função que você está procurando. No Rstudio, digite &lt;code&gt;str_&lt;/code&gt; e
-aperte &lt;em&gt;tab&lt;/em&gt; para visualizar a lista de funções com esse prefixo. Você pode verificar o que cada função faz até encontrar a que atende às suas necessidades.&lt;/p&gt;
+aperte &lt;strong&gt;TAB&lt;/strong&gt; para visualizar a lista de funções com esse prefixo. Você pode verificar o que cada função faz até encontrar a que atende às suas necessidades.&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&#34;figures/str_tab.png&#34; alt=&#34;str_tab&#34; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Nesta sessão, vamos utilizar as funções mais simples do &lt;code&gt;stringr&lt;/code&gt;. Depois vamos
-ensinar um pouco de Regex e, em seguida, veremos as funções mais avançadas do
-pacote.&lt;/p&gt;
+&lt;p&gt;Nesta seção, vamos utilizar as funções mais simples do &lt;code&gt;stringr&lt;/code&gt;. Em seguida, vamos falar um pouco de Regex e então veremos funções mais avançadas do pacote.&lt;/p&gt;
+
+&lt;p&gt;Antes de mais nada, innstale e carregue o pacote &lt;code&gt;stringr&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;stringr&amp;quot;)
+library(stringr)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;str-length&#34;&gt;str_length&lt;/h3&gt;
 
-&lt;p&gt;A função mais simples do &lt;code&gt;stringr&lt;/code&gt; é a função &lt;code&gt;str_length&lt;/code&gt;. Esta função recebe
-apenas uma string como argumento e retorna o número de caracteres. Por exemplo:&lt;/p&gt;
+&lt;p&gt;A função mais simples do &lt;code&gt;stringr()&lt;/code&gt; é a função &lt;code&gt;str_length()&lt;/code&gt;. Esta função recebe como argumento um vetor de &lt;em&gt;strings&lt;/em&gt; e retorna o número de caracteres de cada &lt;em&gt;string&lt;/em&gt;. Repare que o espaço &lt;code&gt;&amp;quot; &amp;quot;&lt;/code&gt; é considerado um caracter.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(stringr)
-str_length(&amp;quot;olá&amp;quot;)
-## [1] 3
-length(&amp;quot;olá&amp;quot;)
-## [1] 1
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;str_length(&amp;quot;São Paulo&amp;quot;)
+## Error in str_length(&amp;quot;São Paulo&amp;quot;): could not find function &amp;quot;str_length&amp;quot;
+str_length(c(&amp;quot;São Paulo&amp;quot;, &amp;quot;Rio de Janeiro&amp;quot;, 
+             &amp;quot;Rio Grande do Norte&amp;quot;, &amp;quot;Acre&amp;quot;))
+## Error in str_length(c(&amp;quot;São Paulo&amp;quot;, &amp;quot;Rio de Janeiro&amp;quot;, &amp;quot;Rio Grande do Norte&amp;quot;, : could not find function &amp;quot;str_length&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Veja: &lt;code&gt;str_length&lt;/code&gt; é diferente de &lt;code&gt;length&lt;/code&gt;. O primeiro retorna o número de caracteres
-e o segundo retorna o comprimento do objeto. Isso fica mais claro no seguinte exemplo:&lt;/p&gt;
+&lt;p&gt;Note que &lt;code&gt;str_length()&lt;/code&gt; é diferente de &lt;code&gt;length()&lt;/code&gt;. O primeiro retorna o número de caracteres e o segundo retorna o comprimento do objeto. Isso fica mais claro no seguinte exemplo:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;s &amp;lt;- c(&amp;quot;olá mundo&amp;quot;, &amp;quot;olá universo&amp;quot;)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;s &amp;lt;- str_length(c(&amp;quot;São Paulo&amp;quot;, &amp;quot;Rio de Janeiro&amp;quot;, 
+                  &amp;quot;Rio Grande do Norte&amp;quot;, &amp;quot;Acre&amp;quot;))
+## Error in str_length(c(&amp;quot;São Paulo&amp;quot;, &amp;quot;Rio de Janeiro&amp;quot;, &amp;quot;Rio Grande do Norte&amp;quot;, : could not find function &amp;quot;str_length&amp;quot;
+
 str_length(s)
-## [1]  9 12
+## Error in str_length(s): could not find function &amp;quot;str_length&amp;quot;
 length(s)
-## [1] 2
+## Error in eval(expr, envir, enclos): object &#39;s&#39; not found
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Agora, o &lt;code&gt;str_length&lt;/code&gt; retornou um vetor com o número de caracteres de cada elemento do vetor &lt;code&gt;s&lt;/code&gt; e o &lt;code&gt;length&lt;/code&gt; retornou o comprimento do vetor &lt;code&gt;s&lt;/code&gt;. Note que espaço é considerado como um caractere.&lt;/p&gt;
+&lt;p&gt;A função &lt;code&gt;str_length()&lt;/code&gt; retornou um vetor com o número de caracteres de cada elemento do vetor &lt;code&gt;s&lt;/code&gt;, enquanto &lt;code&gt;length()&lt;/code&gt; retornou o comprimento do vetor &lt;code&gt;s&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h3 id=&#34;str-trim&#34;&gt;str_trim&lt;/h3&gt;
 
@@ -92,7 +94,7 @@ provenientes de formulários em que cada usuário escreve da forma que prefere.&
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;string &amp;lt;- &#39;\nessa      string é muito suja       \n&#39;
 str_trim(string)
-## [1] &amp;quot;essa      string é muito suja&amp;quot;
+## Error in str_trim(string): could not find function &amp;quot;str_trim&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;A função &lt;code&gt;str_trim&lt;/code&gt; ajuda removendo os espaços excedetes antes e depois da string.&lt;/p&gt;
@@ -108,29 +110,29 @@ str_trim(string)
 Neste caso, pode usar a função &lt;code&gt;str_sub&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;str_sub(s, start = 4) # pegar do quarto até o último caractere
-## [1] &amp;quot;Feminino&amp;quot;   &amp;quot;Masculino&amp;quot;  &amp;quot;Indefinido&amp;quot;
+## Error in str_sub(s, start = 4): could not find function &amp;quot;str_sub&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Também é possível obter apenas os números:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;str_sub(s, end = 2) # pegar apenas os dois primeiros caracteres
-## [1] &amp;quot;01&amp;quot; &amp;quot;02&amp;quot; &amp;quot;03&amp;quot;
+## Error in str_sub(s, end = 2): could not find function &amp;quot;str_sub&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Em outros casos você precisa obter os últimos 2 caracteres.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;s &amp;lt;- c(&amp;quot;Feminino-01&amp;quot;, &amp;quot;Masculino-02&amp;quot;, &amp;quot;Indefinido-03&amp;quot;)
 str_sub(s, end = -4)
-## [1] &amp;quot;Feminino&amp;quot;   &amp;quot;Masculino&amp;quot;  &amp;quot;Indefinido&amp;quot;
+## Error in str_sub(s, end = -4): could not find function &amp;quot;str_sub&amp;quot;
 str_sub(s, start = -2)
-## [1] &amp;quot;01&amp;quot; &amp;quot;02&amp;quot; &amp;quot;03&amp;quot;
+## Error in str_sub(s, start = -2): could not find function &amp;quot;str_sub&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;É possível usar os argumentos &lt;code&gt;start&lt;/code&gt; e &lt;code&gt;end&lt;/code&gt; conjuntamente.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;s &amp;lt;- c(&amp;quot;__SP__&amp;quot;, &amp;quot;__MG__&amp;quot;, &amp;quot;__RJ__&amp;quot;)
 str_sub(s, 3, 4)
-## [1] &amp;quot;SP&amp;quot; &amp;quot;MG&amp;quot; &amp;quot;RJ&amp;quot;
+## Error in str_sub(s, 3, 4): could not find function &amp;quot;str_sub&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;str-to-upper-str-to-lower-str-to-title&#34;&gt;str_to_upper, str_to_lower, str_to_title&lt;/h3&gt;
@@ -139,11 +141,11 @@ str_sub(s, 3, 4)
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;s &amp;lt;- &amp;quot;Olá, tudo bem?&amp;quot;
 str_to_lower(s)
-## [1] &amp;quot;olá, tudo bem?&amp;quot;
+## Error in str_to_lower(s): could not find function &amp;quot;str_to_lower&amp;quot;
 str_to_upper(s)
-## [1] &amp;quot;OLÁ, TUDO BEM?&amp;quot;
+## Error in str_to_upper(s): could not find function &amp;quot;str_to_upper&amp;quot;
 str_to_title(s)
-## [1] &amp;quot;Olá, Tudo Bem?&amp;quot;
+## Error in str_to_title(s): could not find function &amp;quot;str_to_title&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Essas são as funções mais simples do pacote &lt;code&gt;stringr&lt;/code&gt; e não exigem nenhum conhecimento de regex. Note que nenhuma delas possui o parâmetro &lt;code&gt;pattern&lt;/code&gt;. Você verá como especificar esse parâmetros nas próximas sessões.&lt;/p&gt;
