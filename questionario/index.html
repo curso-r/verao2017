@@ -405,7 +405,7 @@ d_alunos %&gt;%
                 x = as_datetime(Sys.Date())), 
             data = tot_periodo, nudge_y = 1) +
   theme_bw(16)</code></pre>
-<p><img src="questionario_files/figure-html/unnamed-chunk-1-1.png" width="864" /></p>
+<p><img src="content/questionario_files/figure-html/unnamed-chunk-1-1.png" width="864" /></p>
 <p>Perguntas sobre utilização do R.</p>
 <pre class="r"><code>d_alunos %&gt;% 
   gather(questao, resposta, matches(&#39;situaria|mercado&#39;)) %&gt;% 
@@ -426,7 +426,7 @@ d_alunos %&gt;%
   theme(strip.background = element_blank()) +
   xlab(&#39;&#39;) +
   ylab(&#39;Proporção de inscritos&#39;)</code></pre>
-<p><img src="questionario_files/figure-html/unnamed-chunk-2-1.png" width="864" /></p>
+<p><img src="content/questionario_files/figure-html/unnamed-chunk-2-1.png" width="864" /></p>
 <p>Pergunta sobre conhecimento em outras linguagens. Não soma 100%!</p>
 <pre class="r"><code>d_alunos %&gt;% 
   gather(questao, resposta, matches(&#39;software&#39;)) %&gt;% 
@@ -451,7 +451,7 @@ d_alunos %&gt;%
   theme_bw(14) +
   xlab(&#39;Linguagem de programação&#39;) +
   ylab(&#39;Proporção de alunos&#39;)</code></pre>
-<p><img src="questionario_files/figure-html/unnamed-chunk-3-1.png" width="864" /></p>
+<p><img src="content/questionario_files/figure-html/unnamed-chunk-3-1.png" width="864" /></p>
 <!-- ---------------------------------------------------------------------- -->
 </div>
 
