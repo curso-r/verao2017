@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Wed, 19 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Jul 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Stringr</title>
       <link>/stringr/</link>
-      <pubDate>Wed, 19 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 20 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>/stringr/</guid>
       <description>
@@ -61,7 +61,9 @@ aperte &lt;strong&gt;TAB&lt;/strong&gt; para visualizar a lista de funções com
 &lt;p&gt;Antes de mais nada, instale e carregue o pacote &lt;code&gt;stringr&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;stringr&amp;quot;)
-library(stringr)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(stringr)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;str-length&#34;&gt;str_length&lt;/h3&gt;
@@ -69,10 +71,10 @@ library(stringr)
 &lt;p&gt;A função mais simples do &lt;code&gt;stringr()&lt;/code&gt; é a função &lt;code&gt;str_length()&lt;/code&gt;. Esta função recebe como argumento um vetor de &lt;em&gt;strings&lt;/em&gt; e retorna o número de caracteres de cada &lt;em&gt;string&lt;/em&gt;. Repare que o espaço &lt;code&gt;&amp;quot; &amp;quot;&lt;/code&gt; é considerado um caracter.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;str_length(&amp;quot;São Paulo&amp;quot;)
-## Error in str_length(&amp;quot;São Paulo&amp;quot;): could not find function &amp;quot;str_length&amp;quot;
+## [1] 9
 str_length(c(&amp;quot;São Paulo&amp;quot;, &amp;quot;Rio de Janeiro&amp;quot;, 
              &amp;quot;Rio Grande do Norte&amp;quot;, &amp;quot;Acre&amp;quot;))
-## Error in str_length(c(&amp;quot;São Paulo&amp;quot;, &amp;quot;Rio de Janeiro&amp;quot;, &amp;quot;Rio Grande do Norte&amp;quot;, : could not find function &amp;quot;str_length&amp;quot;
+## [1]  9 14 19  4
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Note que &lt;code&gt;str_length()&lt;/code&gt; é diferente de &lt;code&gt;length()&lt;/code&gt;. O primeiro retorna o número de caracteres e o segundo retorna o comprimento do objeto. Isso fica mais claro no seguinte exemplo:&lt;/p&gt;
@@ -81,7 +83,7 @@ str_length(c(&amp;quot;São Paulo&amp;quot;, &amp;quot;Rio de Janeiro&amp;quot;,
        &amp;quot;Rio Grande do Norte&amp;quot;, &amp;quot;Acre&amp;quot;)
 
 str_length(s)
-## Error in str_length(s): could not find function &amp;quot;str_length&amp;quot;
+## [1]  9 14 19  4
 length(s)
 ## [1] 4
 &lt;/code&gt;&lt;/pre&gt;
@@ -94,11 +96,11 @@ length(s)
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;s &amp;lt;- &amp;quot;Somos a curso-r&amp;quot;
 str_to_lower(s)
-## Error in str_to_lower(s): could not find function &amp;quot;str_to_lower&amp;quot;
+## [1] &amp;quot;somos a curso-r&amp;quot;
 str_to_upper(s)
-## Error in str_to_upper(s): could not find function &amp;quot;str_to_upper&amp;quot;
+## [1] &amp;quot;SOMOS A CURSO-R&amp;quot;
 str_to_title(s)
-## Error in str_to_title(s): could not find function &amp;quot;str_to_title&amp;quot;
+## [1] &amp;quot;Somos A Curso-R&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;str-trim&#34;&gt;str_trim&lt;/h3&gt;
@@ -115,9 +117,9 @@ as.factor(s)
 &lt;p&gt;A função &lt;code&gt;str_trim()&lt;/code&gt; ajuda removendo os espaços excedentes antes e depois da string.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;string_aparada &amp;lt;- str_trim(s)
-## Error in str_trim(s): could not find function &amp;quot;str_trim&amp;quot;
 as.factor(string_aparada)
-## Error in is.factor(x): object &#39;string_aparada&#39; not found
+## [1] M F F M F M
+## Levels: F M
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;str-sub&#34;&gt;str_sub&lt;/h3&gt;
@@ -130,29 +132,29 @@ as.factor(string_aparada)
 &lt;p&gt;Você pode querer apenas a parte final da string. Neste caso, pode usar a função &lt;code&gt;str_sub()&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;str_sub(s, start = 4) # pegar do quarto até o último caractere
-## Error in str_sub(s, start = 4): could not find function &amp;quot;str_sub&amp;quot;
+## [1] &amp;quot;Feminino&amp;quot;   &amp;quot;Masculino&amp;quot;  &amp;quot;Indefinido&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Também é possível obter apenas os números.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;str_sub(s, end = 2) # pegar apenas os dois primeiros caracteres
-## Error in str_sub(s, end = 2): could not find function &amp;quot;str_sub&amp;quot;
+## [1] &amp;quot;01&amp;quot; &amp;quot;02&amp;quot; &amp;quot;03&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Em outros casos você precisa obter os últimos 2 caracteres.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;s &amp;lt;- c(&amp;quot;Feminino-01&amp;quot;, &amp;quot;Masculino-02&amp;quot;, &amp;quot;Indefinido-03&amp;quot;)
 str_sub(s, end = -4)
-## Error in str_sub(s, end = -4): could not find function &amp;quot;str_sub&amp;quot;
+## [1] &amp;quot;Feminino&amp;quot;   &amp;quot;Masculino&amp;quot;  &amp;quot;Indefinido&amp;quot;
 str_sub(s, start = -2)
-## Error in str_sub(s, start = -2): could not find function &amp;quot;str_sub&amp;quot;
+## [1] &amp;quot;01&amp;quot; &amp;quot;02&amp;quot; &amp;quot;03&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;É possível usar os argumentos &lt;code&gt;start&lt;/code&gt; e &lt;code&gt;end&lt;/code&gt; conjuntamente.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;s &amp;lt;- c(&amp;quot;__SP__&amp;quot;, &amp;quot;__MG__&amp;quot;, &amp;quot;__RJ__&amp;quot;)
 str_sub(s, 3, 4)
-## Error in str_sub(s, 3, 4): could not find function &amp;quot;str_sub&amp;quot;
+## [1] &amp;quot;SP&amp;quot; &amp;quot;MG&amp;quot; &amp;quot;RJ&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;str-c&#34;&gt;str_c&lt;/h3&gt;
@@ -164,7 +166,7 @@ string1 &amp;lt;- &amp;quot;O valor p é: &amp;quot;
 string2 &amp;lt;- 0.03
 
 str_c(string1, string2)     # Números serão transformados em caracteres.
-## Error in str_c(string1, string2): could not find function &amp;quot;str_c&amp;quot;
+## [1] &amp;quot;O valor p é: 0.03&amp;quot;
 
 
 # Pode misturar objetos com strings definidas diretamente na função.
@@ -175,7 +177,7 @@ string3 &amp;lt;- &amp;quot;melhor&amp;quot;
 
 str_c(string1, &amp;quot; é a prova de que não existe nada tão &amp;quot;, string2,
       &amp;quot; que não pode ficar &amp;quot;, string3, &amp;quot;.&amp;quot;)
-## Error in str_c(string1, &amp;quot; é a prova de que não existe nada tão &amp;quot;, string2, : could not find function &amp;quot;str_c&amp;quot;
+## [1] &amp;quot;Brigadeiro é a prova de que não existe nada tão bom que não pode ficar melhor.&amp;quot;
 
 # A função é vetorizada.
 
@@ -185,7 +187,8 @@ string3 &amp;lt;- c(&amp;quot;melhor&amp;quot;, &amp;quot;pior&amp;quot;)
 
 str_c(string1, &amp;quot; é a prova de que não existe nada tão &amp;quot;, string2,
       &amp;quot; que não pode ficar &amp;quot;, string3, &amp;quot;.&amp;quot;)
-## Error in str_c(string1, &amp;quot; é a prova de que não existe nada tão &amp;quot;, string2, : could not find function &amp;quot;str_c&amp;quot;
+## [1] &amp;quot;Brigadeiro é a prova de que não existe nada tão bom que não pode ficar melhor.&amp;quot;          
+## [2] &amp;quot;A política brasileira é a prova de que não existe nada tão ruim que não pode ficar pior.&amp;quot;
 
 # Pode ser usada para &amp;quot;criar código&amp;quot;. 
 
@@ -195,15 +198,10 @@ variaveis
 ## [11] &amp;quot;carb&amp;quot;
 
 variaveis_explicativas &amp;lt;- str_c(variaveis[-1], collapse = &amp;quot; + &amp;quot;)
-## Error in str_c(variaveis[-1], collapse = &amp;quot; + &amp;quot;): could not find function &amp;quot;str_c&amp;quot;
 
 formula &amp;lt;- str_c(variaveis[1], &amp;quot; ~ &amp;quot;, variaveis_explicativas)
-## Error in str_c(variaveis[1], &amp;quot; ~ &amp;quot;, variaveis_explicativas): could not find function &amp;quot;str_c&amp;quot;
 formula
-## function (x, ...) 
-## UseMethod(&amp;quot;formula&amp;quot;)
-## &amp;lt;bytecode: 0x4272c48&amp;gt;
-## &amp;lt;environment: namespace:stats&amp;gt;
+## [1] &amp;quot;mpg ~ cyl + disp + hp + drat + wt + qsec + vs + am + gear + carb&amp;quot;
 as.formula
 ## function (object, env = parent.frame()) 
 ## {
@@ -216,17 +214,44 @@ as.formula
 ##         rval
 ##     }
 ## }
-## &amp;lt;bytecode: 0x4144048&amp;gt;
+## &amp;lt;bytecode: 0x2c5ed20&amp;gt;
 ## &amp;lt;environment: namespace:stats&amp;gt;
 
 # Modeloo linear (Off-topic)
 fit &amp;lt;- lm(formula, data = mtcars)
-## Error: object of type &#39;closure&#39; is not subsettable
 summary(fit)
-## Error in summary(fit): object &#39;fit&#39; not found
+## 
+## Call:
+## lm(formula = formula, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.4506 -1.6044 -0.1196  1.2193  4.6271 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&amp;gt;|t|)  
+## (Intercept) 12.30337   18.71788   0.657   0.5181  
+## cyl         -0.11144    1.04502  -0.107   0.9161  
+## disp         0.01334    0.01786   0.747   0.4635  
+## hp          -0.02148    0.02177  -0.987   0.3350  
+## drat         0.78711    1.63537   0.481   0.6353  
+## wt          -3.71530    1.89441  -1.961   0.0633 .
+## qsec         0.82104    0.73084   1.123   0.2739  
+## vs           0.31776    2.10451   0.151   0.8814  
+## am           2.52023    2.05665   1.225   0.2340  
+## gear         0.65541    1.49326   0.439   0.6652  
+## carb        -0.19942    0.82875  -0.241   0.8122  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.65 on 21 degrees of freedom
+## Multiple R-squared:  0.869,	Adjusted R-squared:  0.8066 
+## F-statistic: 13.93 on 10 and 21 DF,  p-value: 3.793e-07
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;essas-são-as-funções-mais-simples-do-pacote-stringr-e-não-exigem-nenhum-conhecimento-de-expressões-regulares-note-que-nenhuma-delas-possui-o-parâmetro-pattern-você-verá-como-especificar-esse-parâmetro-nas-próximas-seções&#34;&gt;Essas são as funções mais simples do pacote &lt;code&gt;stringr&lt;/code&gt; e não exigem nenhum conhecimento de &lt;strong&gt;expressões regulares&lt;/strong&gt;. Note que nenhuma delas possui o parâmetro &lt;code&gt;pattern&lt;/code&gt;. Você verá como especificar esse parâmetro nas próximas seções.&lt;/h2&gt;
+&lt;p&gt;Essas são as funções mais simples do pacote &lt;code&gt;stringr&lt;/code&gt; e não exigem nenhum conhecimento de &lt;strong&gt;expressões regulares&lt;/strong&gt;. Note que nenhuma delas possui o parâmetro &lt;code&gt;pattern&lt;/code&gt;. Você verá como especificar esse parâmetro nas próximas seções.&lt;/p&gt;
+
+&lt;hr /&gt;
 
 &lt;h2 id=&#34;expressões-regulares&#34;&gt;Expressões Regulares&lt;/h2&gt;
 
@@ -597,16 +622,6 @@ str_subset(frases, &#39;d[eo]&#39;)
 &lt;p&gt;Crie uma regra para identificar se o texto refere-se a um feedback positivo ou negativo sobre o produto (considere não bom = ruim e não ruim = bom). Retorne um vetor lógico que vale &lt;code&gt;TRUE&lt;/code&gt; se o feedback é positivo e &lt;code&gt;FALSE&lt;/code&gt; caso contrário.&lt;/p&gt;
 
 &lt;hr /&gt;
-
-&lt;pre&gt;&lt;code&gt;## 
-## Attaching package: &#39;magrittr&#39;
-## The following object is masked from &#39;package:tidyr&#39;:
-## 
-##     extract
-## The following object is masked from &#39;package:purrr&#39;:
-## 
-##     set_names
-&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;respostas&#34;&gt;Respostas&lt;/h2&gt;
 
