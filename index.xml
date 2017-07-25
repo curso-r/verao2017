@@ -7,8 +7,269 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Thu, 20 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Jul 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Introdução</title>
+      <link>/lubridate/</link>
+      <pubDate>Tue, 25 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/lubridate/</guid>
+      <description>
+
+&lt;h2 id=&#34;introdução&#34;&gt;Introdução&lt;/h2&gt;
+
+&lt;p&gt;Trabalhar com datas no R pode ser uma chateação. As funções do R base são, em geral, contraintuitivas e podem mudar de acordo com o tipo do objeto que você está usando. Além disso, características como fusos horários, anos bissextos, horários de verão, entre outras, podem não estar bem especificadas pelos métodos criados ou nem mesmo sendo levadas em conta.&lt;/p&gt;
+
+&lt;p&gt;O pacote lubridate lida com esses problemas, fazendo o trabalho com datas ser muito mais fácil. Ele foi criado por Garrett Grolemund e Hadley Wickham.&lt;/p&gt;
+
+&lt;p&gt;Para instalar, siga uma das opções abaixo:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Instale ao lado de outros pacotes do tidyverse.
+install.packages(&amp;quot;tidyverse&amp;quot;)
+
+# Instale apenas o lubridate.
+install.packages(&amp;quot;lubridate&amp;quot;)
+
+# Instale a versão de desenvolvimento direto do Github.
+# Caso não tenha o devtools instalado: install.packages(&amp;quot;devtools&amp;quot;).
+devtools::install_github(&amp;quot;tidyverse/lubridate&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para carregar o pacote, basta rodar&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(lubridate)
+## Loading required package: methods
+## 
+## Attaching package: &#39;lubridate&#39;
+## The following object is masked from &#39;package:base&#39;:
+## 
+##     date
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Neste seção, aprenderemos:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Transformar e extrair datas.&lt;/li&gt;
+&lt;li&gt;Algumas funções úteis para trabalhar com datas.&lt;/li&gt;
+&lt;li&gt;Trabalhar com fusos horários.&lt;/li&gt;
+&lt;li&gt;Operações aritméticas com datas.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;a-classe-date&#34;&gt;A classe &amp;ldquo;date&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;Datas no R são tratadas como um tipo especial de objeto, com classe &lt;code&gt;date&lt;/code&gt;. Há várias formas de criar objetos dessa classe:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;data_string &amp;lt;- &amp;quot;21-10-2015&amp;quot;
+class(data_string)
+## [1] &amp;quot;character&amp;quot;
+
+data_date &amp;lt;- date(data_string)
+## Error in date(data_string): unused argument (data_string)
+class(data_date)
+## Error in eval(expr, envir, enclos): object &#39;data_date&#39; not found
+
+data_as_date &amp;lt;- as_date(data_string)
+class(data_as_date)
+## [1] &amp;quot;Date&amp;quot;
+
+data_mdy &amp;lt;- dmy(data_string)
+class(data_mdy)
+## [1] &amp;quot;Date&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Veja que as funções &lt;code&gt;date()&lt;/code&gt; e &lt;code&gt;as_date()&lt;/code&gt; converteram a &lt;em&gt;string&lt;/em&gt; para data, mas não devolveram o valor esperado. A função &lt;code&gt;dmy()&lt;/code&gt; resolve esse problema estabelecendo explicitamente a ordem dia-mês-ano. Existem funções para todas as ordens possíveis: &lt;code&gt;dmy()&lt;/code&gt;, &lt;code&gt;mdy()&lt;/code&gt;, &lt;code&gt;myd()&lt;/code&gt;, &lt;code&gt;ymd()&lt;/code&gt;, &lt;code&gt;ydm()&lt;/code&gt; etc.&lt;/p&gt;
+
+&lt;p&gt;As funções &lt;code&gt;date()&lt;/code&gt; e &lt;code&gt;as_date()&lt;/code&gt; assumem que a ordem é ano-mês-dia (ymd).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;date(&amp;quot;2015-10-21&amp;quot;)
+## Error in date(&amp;quot;2015-10-21&amp;quot;): unused argument (&amp;quot;2015-10-21&amp;quot;)
+as_date(&amp;quot;2015-10-21&amp;quot;)
+## [1] &amp;quot;2015-10-21&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Uma grande facilidade que essas funções trazem é poder criar objetos com classe &lt;code&gt;date&lt;/code&gt; a partir de números e &lt;em&gt;strings&lt;/em&gt; em diversos formatos.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;dmy(21102015)
+## [1] &amp;quot;2015-10-21&amp;quot;
+dmy(&amp;quot;21102015&amp;quot;)
+## [1] &amp;quot;2015-10-21&amp;quot;
+dmy(&amp;quot;21/10/2015&amp;quot;)
+## [1] &amp;quot;2015-10-21&amp;quot;
+dmy(&amp;quot;21.10.2015&amp;quot;)
+## [1] &amp;quot;2015-10-21&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Se além da data você precisar especificar o horário, basta usar as funções do tipo &lt;code&gt;ymd_h()&lt;/code&gt;, &lt;code&gt;ymd_hm()&lt;/code&gt;, &lt;code&gt;ymd_hms()&lt;/code&gt;, sendo que também há uma função para cada formato de dia-mês-ano.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;ymd_hms(20151021165411)
+## [1] &amp;quot;2015-10-21 16:54:11 UTC&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;funções-úteis&#34;&gt;Funções úteis&lt;/h2&gt;
+
+&lt;p&gt;O &lt;code&gt;lubridate&lt;/code&gt; traz diversas funções para extrair os componentes de um objeto da classe &lt;code&gt;date&lt;/code&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;second()&lt;/code&gt; - extrai os segundos.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;minute()&lt;/code&gt; - extrai os minutos.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hour()&lt;/code&gt; - extrai a hora.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wday()&lt;/code&gt; - extrai o dia da semana.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mday()&lt;/code&gt; - extrai o dia do mês.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;month()&lt;/code&gt; - extrai o mês.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;year()&lt;/code&gt; - extrai o ano.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Os nomes são tão óbvios que a explicação do que cada função faz é praticamente desnecessária.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;bday &amp;lt;- ymd_hms(19890729030142)
+bday
+## [1] &amp;quot;1989-07-29 03:01:42 UTC&amp;quot;
+
+second(bday)
+## [1] 42
+day(bday)
+## [1] 29
+month(bday)
+## [1] 7
+year(bday)
+## [1] 1989
+
+wday(bday)
+## [1] 7
+wday(bday, label = TRUE)
+## [1] Sat
+## Levels: Sun &amp;lt; Mon &amp;lt; Tues &amp;lt; Wed &amp;lt; Thurs &amp;lt; Fri &amp;lt; Sat
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Você também pode usar essas funções para atribuir esses componentes a uma data:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;data &amp;lt;- dmy(01041991)
+data
+## [1] &amp;quot;1991-04-01&amp;quot;
+
+hour(data) &amp;lt;- 20
+data
+## [1] &amp;quot;1991-04-01 20:00:00 UTC&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Também existem funções para extrair a data no instante da execução.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;today() 
+## [1] &amp;quot;2017-07-25&amp;quot;
+now()
+## [1] &amp;quot;2017-07-25 05:14:37 UTC&amp;quot;
+
+# Data e horário do dia em que essa página foi editada pela última vez.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;fusos-horários&#34;&gt;Fusos horários&lt;/h2&gt;
+
+&lt;p&gt;Uma característica inerente das datas é o fuso horário. Se você tiver trabalhando com datas de eventos no Brasil e na Escócia, por exemplo, é preciso verificar se os valores seguem o mesmo fuso horário. Além disso, quando a data exata de um evento for relevante, você pode precisar converter horários para outros fusos para comunicar seus resultados em outros países.&lt;/p&gt;
+
+&lt;p&gt;Para fazer essas coisas, o &lt;code&gt;lubridate&lt;/code&gt; fornece as funções &lt;code&gt;with_tz()&lt;/code&gt; e &lt;code&gt;force_tz()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;estreia_GoT &amp;lt;- ymd_hms(&amp;quot;2017-07-16 22:00:00&amp;quot;, tz = &amp;quot;America/Sao_Paulo&amp;quot;)
+estreia_GoT
+## [1] &amp;quot;2017-07-16 22:00:00 BRT&amp;quot;
+
+# Calcula qual seria a data em outro fuso
+
+with_tz(estreia_GoT, tzone = &amp;quot;GMT&amp;quot;)
+## [1] &amp;quot;2017-07-17 01:00:00 GMT&amp;quot;
+with_tz(estreia_GoT, tzone = &amp;quot;US/Alaska&amp;quot;)  
+## [1] &amp;quot;2017-07-16 17:00:00 AKDT&amp;quot;
+
+# Altera o fuso sem mudar a data
+
+force_tz(estreia_GoT, tzone = &amp;quot;GMT&amp;quot;)
+## [1] &amp;quot;2017-07-16 22:00:00 GMT&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;operações-com-datas&#34;&gt;Operações com datas&lt;/h2&gt;
+
+&lt;p&gt;O pacote &lt;code&gt;lubridate&lt;/code&gt; possui ainda funções para calcular intervalos e fazer operações aritméticas com datas.&lt;/p&gt;
+
+&lt;h3 id=&#34;intervalos&#34;&gt;Intervalos&lt;/h3&gt;
+
+&lt;p&gt;Intervalos podem ser salvos em objetos com classe &lt;code&gt;interval&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;inicio &amp;lt;- dmy(&amp;quot;01-04-1991&amp;quot;)
+evento &amp;lt;- dmy(&amp;quot;31-10-1993&amp;quot;)
+
+sobrev &amp;lt;- interval(inicio, evento)
+sobrev
+## [1] 1991-04-01 UTC--1993-10-31 UTC
+class(sobrev)
+## [1] &amp;quot;Interval&amp;quot;
+## attr(,&amp;quot;package&amp;quot;)
+## [1] &amp;quot;lubridate&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Você pode verificar se dois intervalos tem intersecção com a função &lt;code&gt;int_overlaps()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Outra forma de definir um intervalo: o operador %--%
+intervalo_1 &amp;lt;- dmy(&amp;quot;01-02-2003&amp;quot;) %--% dmy(&amp;quot;02-03-2005&amp;quot;)  
+
+intervalo_2 &amp;lt;- dmy(&amp;quot;04-05-2004&amp;quot;) %--% dmy(&amp;quot;12-03-2012&amp;quot;)  
+
+int_overlaps(intervalo_1, intervalo_2)
+## [1] TRUE
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;aritmética-com-datas&#34;&gt;Aritmética com datas&lt;/h3&gt;
+
+&lt;p&gt;Veja alguns exemplos de operações aritméticas que você pode fazer utilizando funções do &lt;code&gt;lubridate&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+# Somando datas
+
+data &amp;lt;- dmy(31012000)
+
+data + ddays(1)
+## [1] &amp;quot;2000-02-01&amp;quot;
+data + dyears(1)
+## [1] &amp;quot;2001-01-30&amp;quot;
+
+data + months(1)  # Operações que resultam em datas inválidas geram NAs.
+## [1] NA
+
+# Criando datas recorrentes
+
+reuniao &amp;lt;- dmy(&amp;quot;18-03-2017&amp;quot;)
+reunioes &amp;lt;- reuniao + weeks(0:10)
+reunioes
+##  [1] &amp;quot;2017-03-18&amp;quot; &amp;quot;2017-03-25&amp;quot; &amp;quot;2017-04-01&amp;quot; &amp;quot;2017-04-08&amp;quot; &amp;quot;2017-04-15&amp;quot;
+##  [6] &amp;quot;2017-04-22&amp;quot; &amp;quot;2017-04-29&amp;quot; &amp;quot;2017-05-06&amp;quot; &amp;quot;2017-05-13&amp;quot; &amp;quot;2017-05-20&amp;quot;
+## [11] &amp;quot;2017-05-27&amp;quot;
+
+# Duração de um intervalo 
+
+intervalo &amp;lt;-dmy(&amp;quot;01-03-2003&amp;quot;) %--% dmy(&amp;quot;31-03-2003&amp;quot;) 
+
+intervalo / ddays(1)               # Número de dias
+## [1] 30
+intervalo / dminutes(1)            # Número de minutos
+## [1] 43200
+
+as.period(intervalo)
+## [1] &amp;quot;30d 0H 0M 0S&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para mais informações sobre o&lt;code&gt;lubridate&lt;/code&gt;, visite o &lt;a href=&#34;https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html&#34;&gt;vignette do pacote&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+</description>
+    </item>
     
     <item>
       <title>Stringr</title>
@@ -5463,239 +5724,6 @@ x %&amp;gt;% sum %&amp;gt;% sqrt
 &lt;p&gt;Agora, o código realmente parece uma receita de bolo.&lt;/p&gt;
 
 &lt;p&gt;Para mais informações sobre o &lt;code&gt;pipe&lt;/code&gt; e exemplos de utilização, visite a página &lt;a href=&#34;http://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html&#34;&gt;Ceci n&amp;rsquo;est pas un pipe&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Introdução</title>
-      <link>/lubridate/</link>
-      <pubDate>Sun, 29 Jan 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/lubridate/</guid>
-      <description>
-
-&lt;h2 id=&#34;lubridate&#34;&gt;Lubridate&lt;/h2&gt;
-
-&lt;p&gt;O pacote lubridate faz o trabalho com datas ser muito mais fácil. Ela foi criada por Garrett Grolemund e Hadley Wickham.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(lubridate)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## Loading required package: methods
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## 
-## Attaching package: &#39;lubridate&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## The following object is masked from &#39;package:base&#39;:
-## 
-##     date
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(magrittr)
-library(dplyr)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## 
-## Attaching package: &#39;dplyr&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## The following objects are masked from &#39;package:lubridate&#39;:
-## 
-##     intersect, setdiff, union
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## The following objects are masked from &#39;package:stats&#39;:
-## 
-##     filter, lag
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## The following objects are masked from &#39;package:base&#39;:
-## 
-##     intersect, setdiff, setequal, union
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Resumo do que aprenderemos:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;transformar character de diversos formatos em data.&lt;/li&gt;
-&lt;li&gt;transformar data em character de diversos formatos.&lt;/li&gt;
-&lt;li&gt;extrair informações das datas &lt;code&gt;y m d h m s&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;funções úteis (&lt;code&gt;today()&lt;/code&gt;, &lt;code&gt;now()&lt;/code&gt;, etc)&lt;/li&gt;
-&lt;li&gt;timezones&lt;/li&gt;
-&lt;li&gt;operações aritméticas com datas&lt;/li&gt;
-&lt;li&gt;gerar datas&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Vamos usar o banco de dados &lt;code&gt;lakers&lt;/code&gt; para os exemplos.&lt;/p&gt;
-
-&lt;h2 id=&#34;transformar-character-em-date&#34;&gt;Transformar &lt;code&gt;character&lt;/code&gt; em &lt;code&gt;date&lt;/code&gt;&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;df &amp;lt;- data_frame(`entrada` = c(&amp;quot;&amp;quot;)
-                 , `função` = c(&amp;quot;&amp;quot;)
-                 , `saída` = c(&amp;quot;&amp;quot;))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Exemplos com datas&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;lakers %&amp;gt;% 
-  select(date) %&amp;gt;% 
-  mutate(`date %&amp;gt;% ymd` = date %&amp;gt;% ymd,
-         `date %&amp;gt;% ymd_hm` = date %&amp;gt;% ymd_hm) %&amp;gt;% 
-  head %&amp;gt;%
-  knitr::kable()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## Warning: All formats failed to parse. No formats found.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;right&#34;&gt;date&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;date %&amp;gt;% ymd&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;date %&amp;gt;% ymd_hm&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Exemplos com datas e horas&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;lakers %&amp;gt;% 
-  select(date, time) %&amp;gt;% 
-  mutate(`paste(date, time) %&amp;gt;% ymd` = paste(date, time) %&amp;gt;% ymd,
-         `paste(date, time) %&amp;gt;% ymd_hm` = paste(date, time) %&amp;gt;% ymd_hm,
-         `time %&amp;gt;% hm` = time %&amp;gt;% hm,
-         `time %&amp;gt;% hms` = time %&amp;gt;% hms
-         ) %&amp;gt;% 
-  head %&amp;gt;%
-  knitr::kable()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## Warning: All formats failed to parse. No formats found.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;## Warning in .parse_hms(..., order = &amp;quot;HMS&amp;quot;, quiet = quiet): Some strings
-## failed to parse
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th align=&#34;right&#34;&gt;date&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;time&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;paste(date, time) %&amp;gt;% ymd&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;paste(date, time) %&amp;gt;% ymd_hm&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;time %&amp;gt;% hm&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;time %&amp;gt;% hms&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;12:00&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28 12:00:00&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;12H 0M 0S&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;11:39&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28 11:39:00&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;11H 39M 0S&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;11:37&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28 11:37:00&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;11H 37M 0S&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;11:25&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28 11:25:00&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;11H 25M 0S&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;11:23&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28 11:23:00&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;11H 23M 0S&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-
-&lt;tr&gt;
-&lt;td align=&#34;right&#34;&gt;20081028&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;11:22&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;NA&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;2008-10-28 11:22:00&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;11H 22M 0S&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;NA&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&#34;transformar-date-em-character&#34;&gt;Transformar &lt;code&gt;date&lt;/code&gt; em &lt;code&gt;character&lt;/code&gt;&lt;/h2&gt;
-
-&lt;h2 id=&#34;extrair-informações-de-datas&#34;&gt;Extrair informações de datas&lt;/h2&gt;
-
-&lt;h2 id=&#34;funções-úteis&#34;&gt;Funções úteis&lt;/h2&gt;
-
-&lt;h2 id=&#34;operações-aritméticas-entre-datas&#34;&gt;Operações aritméticas entre datas&lt;/h2&gt;
-
-&lt;h2 id=&#34;gerar-datas&#34;&gt;Gerar datas&lt;/h2&gt;
 </description>
     </item>
     
