@@ -5848,7 +5848,7 @@ d_alunos %&amp;gt;%
                 x = as_datetime(Sys.Date())), 
             data = tot_periodo, nudge_y = 1) +
   theme_bw(16)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;content/questionario_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./questionario_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Perguntas sobre utilização do R.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_alunos %&amp;gt;% 
   gather(questao, resposta, matches(&amp;#39;situaria|mercado&amp;#39;)) %&amp;gt;% 
@@ -5869,7 +5869,7 @@ d_alunos %&amp;gt;%
   theme(strip.background = element_blank()) +
   xlab(&amp;#39;&amp;#39;) +
   ylab(&amp;#39;Proporção de inscritos&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;content/questionario_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./questionario_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Pergunta sobre conhecimento em outras linguagens. Não soma 100%!&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;d_alunos %&amp;gt;% 
   gather(questao, resposta, matches(&amp;#39;software&amp;#39;)) %&amp;gt;% 
@@ -5894,7 +5894,7 @@ d_alunos %&amp;gt;%
   theme_bw(14) +
   xlab(&amp;#39;Linguagem de programação&amp;#39;) +
   ylab(&amp;#39;Proporção de alunos&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;content/questionario_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;./questionario_files/figure-html/unnamed-chunk-3-1.png&#34; width=&#34;864&#34; /&gt;&lt;/p&gt;
 &lt;!-- ---------------------------------------------------------------------- --&gt;
 &lt;/div&gt;
 </description>
