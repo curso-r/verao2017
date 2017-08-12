@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Fri, 11 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Aug 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/lubridate/</link>
-      <pubDate>Fri, 11 Aug 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>/lubridate/</guid>
       <description>
@@ -22,7 +22,7 @@
 
 &lt;p&gt;Trabalhar com datas no R pode ser uma chateação. As funções do R base são, em geral, contraintuitivas e podem mudar de acordo com o tipo do objeto que você está usando. Além disso, características como fusos horários, anos bissextos, horários de verão, entre outras, podem não estar bem especificadas pelos métodos criados ou nem mesmo sendo levadas em conta.&lt;/p&gt;
 
-&lt;p&gt;O pacote lubridate lida com esses problemas, fazendo o trabalho com datas ser muito mais fácil. Ele foi criado por Garrett Grolemund e Hadley Wickham.&lt;/p&gt;
+&lt;p&gt;O pacote &lt;code&gt;lubridate&lt;/code&gt;, criado por &lt;a href=&#34;https://github.com/garrettgman&#34;&gt;Garrett Grolemund&lt;/a&gt; e &lt;a href=&#34;https://github.com/hadley&#34;&gt;Hadley Wickham&lt;/a&gt;, lida com esses problemas, fazendo o trabalho com datas ser muito mais fácil.&lt;/p&gt;
 
 &lt;p&gt;Para instalar, siga uma das opções abaixo:&lt;/p&gt;
 
@@ -33,28 +33,25 @@ install.packages(&amp;quot;tidyverse&amp;quot;)
 install.packages(&amp;quot;lubridate&amp;quot;)
 
 # Instale a versão de desenvolvimento direto do Github.
-# Caso não tenha o devtools instalado: install.packages(&amp;quot;devtools&amp;quot;).
 devtools::install_github(&amp;quot;tidyverse/lubridate&amp;quot;)
+
+# Se você não tiver o pacote devtools instalado...
+install.packages(&amp;quot;devtools&amp;quot;)
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Para carregar o pacote, basta rodar&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(lubridate)
-## Loading required package: methods
-## 
-## Attaching package: &#39;lubridate&#39;
-## The following object is masked from &#39;package:base&#39;:
-## 
-##     date
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Neste seção, aprenderemos:&lt;/p&gt;
+&lt;p&gt;Neste seção, falaremos sobre:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Transformar e extrair datas.&lt;/li&gt;
-&lt;li&gt;Algumas funções úteis para trabalhar com datas.&lt;/li&gt;
-&lt;li&gt;Trabalhar com fusos horários.&lt;/li&gt;
-&lt;li&gt;Operações aritméticas com datas.&lt;/li&gt;
+&lt;li&gt;transformar e extrair datas;&lt;/li&gt;
+&lt;li&gt;algumas funções úteis para trabalhar com datas;&lt;/li&gt;
+&lt;li&gt;trabalhar com fusos horários; e&lt;/li&gt;
+&lt;li&gt;operações aritméticas com datas.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -83,7 +80,7 @@ class(data_mdy)
 
 &lt;p&gt;Veja que as funções &lt;code&gt;date()&lt;/code&gt; e &lt;code&gt;as_date()&lt;/code&gt; converteram a &lt;em&gt;string&lt;/em&gt; para data, mas não devolveram o valor esperado. A função &lt;code&gt;dmy()&lt;/code&gt; resolve esse problema estabelecendo explicitamente a ordem dia-mês-ano. Existem funções para todas as ordens possíveis: &lt;code&gt;dmy()&lt;/code&gt;, &lt;code&gt;mdy()&lt;/code&gt;, &lt;code&gt;myd()&lt;/code&gt;, &lt;code&gt;ymd()&lt;/code&gt;, &lt;code&gt;ydm()&lt;/code&gt; etc.&lt;/p&gt;
 
-&lt;p&gt;As funções &lt;code&gt;date()&lt;/code&gt; e &lt;code&gt;as_date()&lt;/code&gt; assumem que a ordem é ano-mês-dia (ymd).&lt;/p&gt;
+&lt;p&gt;As funções &lt;code&gt;date()&lt;/code&gt; e &lt;code&gt;as_date()&lt;/code&gt; assumem que a ordem segue o padrão da língua inglesa: ano-mês-dia (ymd).&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;date(&amp;quot;2015-10-21&amp;quot;)
 ## Error in date(&amp;quot;2015-10-21&amp;quot;): unused argument (&amp;quot;2015-10-21&amp;quot;)
@@ -161,9 +158,9 @@ data
 &lt;p&gt;Também existem funções para extrair a data no instante da execução.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;today() 
-## [1] &amp;quot;2017-08-11&amp;quot;
+## [1] &amp;quot;2017-08-12&amp;quot;
 now()
-## [1] &amp;quot;2017-08-11 04:17:58 UTC&amp;quot;
+## [1] &amp;quot;2017-08-12 00:27:28 UTC&amp;quot;
 
 # Data e horário do dia em que essa página foi editada pela última vez.
 &lt;/code&gt;&lt;/pre&gt;
@@ -172,22 +169,22 @@ now()
 
 &lt;h2 id=&#34;fusos-horários&#34;&gt;Fusos horários&lt;/h2&gt;
 
-&lt;p&gt;Uma característica inerente das datas é o fuso horário. Se você tiver trabalhando com datas de eventos no Brasil e na Escócia, por exemplo, é preciso verificar se os valores seguem o mesmo fuso horário. Além disso, quando a data exata de um evento for relevante, você pode precisar converter horários para outros fusos para comunicar seus resultados em outros países.&lt;/p&gt;
+&lt;p&gt;Uma característica inerente das datas é o fuso horário. Se você estiver trabalhando com datas de eventos no Brasil e na Escócia, por exemplo, é preciso verificar se os valores seguem o mesmo fuso horário. Além disso, quando a data exata de um evento for relevante, você pode precisar converter horários para outros fusos para comunicar seus resultados em outros países.&lt;/p&gt;
 
-&lt;p&gt;Para fazer essas coisas, o &lt;code&gt;lubridate&lt;/code&gt; fornece as funções &lt;code&gt;with_tz()&lt;/code&gt; e &lt;code&gt;force_tz()&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Para fazer essas coisas, o &lt;code&gt;lubridate&lt;/code&gt; fornece as funções &lt;code&gt;with_tz()&lt;/code&gt; e &lt;code&gt;force_tz()&lt;/code&gt;. Veja um exemplo de como usá-las.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;estreia_GoT &amp;lt;- ymd_hms(&amp;quot;2017-07-16 22:00:00&amp;quot;, tz = &amp;quot;America/Sao_Paulo&amp;quot;)
 estreia_GoT
 ## [1] &amp;quot;2017-07-16 22:00:00 BRT&amp;quot;
 
-# Calcula qual seria a data em outro fuso
+# Devolve qual seria a data em outro fuso
 
 with_tz(estreia_GoT, tzone = &amp;quot;GMT&amp;quot;)
 ## [1] &amp;quot;2017-07-17 01:00:00 GMT&amp;quot;
 with_tz(estreia_GoT, tzone = &amp;quot;US/Alaska&amp;quot;)  
 ## [1] &amp;quot;2017-07-16 17:00:00 AKDT&amp;quot;
 
-# Altera o fuso sem mudar a data
+# Altera o fuso sem mudar a hora
 
 force_tz(estreia_GoT, tzone = &amp;quot;GMT&amp;quot;)
 ## [1] &amp;quot;2017-07-16 22:00:00 GMT&amp;quot;
@@ -266,6 +263,171 @@ as.period(intervalo)
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Para mais informações sobre o&lt;code&gt;lubridate&lt;/code&gt;, visite o &lt;a href=&#34;https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html&#34;&gt;vignette do pacote&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;exercícios&#34;&gt;Exercícios&lt;/h2&gt;
+
+&lt;p&gt;Nos exercícios a seguir, vamos utilizar a base &lt;code&gt;lakers&lt;/code&gt;, que contém estatísticas jogo a jogo do &lt;a href=&#34;http://www.nba.com/lakers/&#34;&gt;Los Angeles Lakers&lt;/a&gt; na temporada 2008-2009.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(lakers)
+##       date opponent game_type  time period     etype team
+## 1 20081028      POR      home 12:00      1 jump ball  OFF
+## 2 20081028      POR      home 11:39      1      shot  LAL
+## 3 20081028      POR      home 11:37      1   rebound  LAL
+## 4 20081028      POR      home 11:25      1      shot  LAL
+## 5 20081028      POR      home 11:23      1   rebound  LAL
+## 6 20081028      POR      home 11:22      1      shot  LAL
+##                player result points  type  x  y
+## 1                                 0       NA NA
+## 2           Pau Gasol missed      0  hook 23 13
+## 3 Vladimir Radmanovic             0   off NA NA
+## 4        Derek Fisher missed      0 layup 25  6
+## 5           Pau Gasol             0   off NA NA
+## 6           Pau Gasol   made      2  hook 25 10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Repare que a coluna &lt;code&gt;date&lt;/code&gt; no data.frame é um vetor de inteiros. Transforme essa coluna em um vetor de valores com classe &lt;code&gt;date&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Crie uma coluna que junte as informações de data e tempo de jogo (colunas &lt;code&gt;date&lt;/code&gt; e &lt;code&gt;time&lt;/code&gt;) em objetos da classe &lt;code&gt;date&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Crie as colunas &lt;code&gt;dia&lt;/code&gt;, &lt;code&gt;mês&lt;/code&gt; e &lt;code&gt;ano&lt;/code&gt; com as respectivas informações sobre a data do jogo.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Em média, quanto tempo o Lakers demora para arremessar a primeira bola no primeiro período?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dica&lt;/strong&gt;: arremessos são representados pela categoria &lt;code&gt;shot&lt;/code&gt; da coluna &lt;code&gt;etype&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Em média, quanto tempo demora para sair a primeira cesta de três pontos? Considere toda a base, e cestas de ambos os times.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Construa boxplots do tempo entre pontos consecultivos para cada períodos. Considere toda a base de dados e apenas pontos do Lakers.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Qual foi o dia e mês do jogo que o Lakers demorou mais tempo para fazer uma cesta? Quanto tempo foi?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;pre&gt;&lt;code&gt;## Error in library(dplyr): there is no package called &#39;dplyr&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;respostas&#34;&gt;Respostas&lt;/h2&gt;
+
+&lt;div class=&#39;admonition note&#39;&gt;
+&lt;p class=&#39;admonition-title&#39;&gt;
+Nota
+&lt;/p&gt;
+&lt;p&gt;
+Não há apenas uma maneira de resolver os exercícios. Você pode encontrar soluções diferentes das nossas, algumas vezes mais eficientes, outras vezes menos. Quando estiver fazendo suas análises, tente buscar o equilíbrio entre eficiência e praticidade. Economizar 1 hora com a execução do código pode não valer a pena se você demorou 2 horas a mais para programá-lo.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Crie uma nova coluna no data.frame com as datas no formato dia-mês-ano.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;lakers %&amp;gt;% 
+  mutate(date = ymd(date))
+## Error in mutate(., date = ymd(date)): could not find function &amp;quot;mutate&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Repare que &lt;code&gt;as_date()&lt;/code&gt; não funciona neste caso.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;lakers %&amp;gt;%
+  mutate(date = as_date(date))
+## Error in mutate(., date = as_date(date)): could not find function &amp;quot;mutate&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Para entender porque a função devolveu um dia do ano 56949, rode os códigos abaixo.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;as_date(0)
+## [1] &amp;quot;1970-01-01&amp;quot;
+as_date(-3:3)
+## [1] &amp;quot;1969-12-29&amp;quot; &amp;quot;1969-12-30&amp;quot; &amp;quot;1969-12-31&amp;quot; &amp;quot;1970-01-01&amp;quot; &amp;quot;1970-01-02&amp;quot;
+## [6] &amp;quot;1970-01-03&amp;quot; &amp;quot;1970-01-04&amp;quot;
+as_date(20081027:20081029)
+## [1] &amp;quot;56949-12-26&amp;quot; &amp;quot;56949-12-27&amp;quot; &amp;quot;56949-12-28&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Crie uma coluna que junte as informações de data e hora (colunas &lt;code&gt;date&lt;/code&gt; e &lt;code&gt;time&lt;/code&gt;) em objetos da classe &lt;code&gt;date&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;lakers %&amp;gt;% 
+  mutate(date_time = paste0(date, &amp;quot; 00:&amp;quot;, time) %&amp;gt;% ymd_hms) %&amp;gt;% 
+  select(date_time)
+## Error in mutate(., date_time = paste0(date, &amp;quot; 00:&amp;quot;, time) %&amp;gt;% ymd_hms): could not find function &amp;quot;mutate&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Crie as colunas &lt;code&gt;dia&lt;/code&gt;, &lt;code&gt;mes&lt;/code&gt; e &lt;code&gt;ano&lt;/code&gt; com as respectivas informações sobre a data do jogo.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;lakers %&amp;gt;%
+  mutate(date = ymd(date),
+         dia = day(date),
+         mes = month(date),
+         ano = year(date)) %&amp;gt;% 
+  select(date, dia, mes, ano)
+## Error in mutate(., date = ymd(date), dia = day(date), mes = month(date), : could not find function &amp;quot;mutate&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Em média, quanto tempo o Lakers demora para arremessar a primeira bola no primeiro período?&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Dica&lt;/strong&gt;: arremessos são representados pela categoria &lt;code&gt;shot&lt;/code&gt; da coluna &lt;code&gt;etype&lt;/code&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Em média, quanto tempo demora para sair a primeira cesta de três pontos? Considere toda a base, e cestas de ambos os times.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;6.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Construa boxplots do tempo entre pontos consecultivos para cada períodos. Considere toda a base de dados e apenas pontos do Lakers.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;7.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Qual foi o dia e mês do jogo que o Lakers demorou mais tempo para fazer uma cesta? Quanto tempo foi?&lt;/p&gt;
 
 &lt;hr /&gt;
 </description>
