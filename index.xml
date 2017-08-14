@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Sat, 12 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Aug 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/lubridate/</link>
-      <pubDate>Sat, 12 Aug 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>/lubridate/</guid>
       <description>
@@ -158,9 +158,9 @@ data
 &lt;p&gt;Também existem funções para extrair a data no instante da execução.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;today() 
-## [1] &amp;quot;2017-08-12&amp;quot;
+## [1] &amp;quot;2017-08-14&amp;quot;
 now()
-## [1] &amp;quot;2017-08-12 00:27:28 UTC&amp;quot;
+## [1] &amp;quot;2017-08-14 21:30:21 UTC&amp;quot;
 
 # Data e horário do dia em que essa página foi editada pela última vez.
 &lt;/code&gt;&lt;/pre&gt;
@@ -270,21 +270,8 @@ as.period(intervalo)
 
 &lt;p&gt;Nos exercícios a seguir, vamos utilizar a base &lt;code&gt;lakers&lt;/code&gt;, que contém estatísticas jogo a jogo do &lt;a href=&#34;http://www.nba.com/lakers/&#34;&gt;Los Angeles Lakers&lt;/a&gt; na temporada 2008-2009.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;head(lakers)
-##       date opponent game_type  time period     etype team
-## 1 20081028      POR      home 12:00      1 jump ball  OFF
-## 2 20081028      POR      home 11:39      1      shot  LAL
-## 3 20081028      POR      home 11:37      1   rebound  LAL
-## 4 20081028      POR      home 11:25      1      shot  LAL
-## 5 20081028      POR      home 11:23      1   rebound  LAL
-## 6 20081028      POR      home 11:22      1      shot  LAL
-##                player result points  type  x  y
-## 1                                 0       NA NA
-## 2           Pau Gasol missed      0  hook 23 13
-## 3 Vladimir Radmanovic             0   off NA NA
-## 4        Derek Fisher missed      0 layup 25  6
-## 5           Pau Gasol             0   off NA NA
-## 6           Pau Gasol   made      2  hook 25 10
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;lakers %&amp;gt;% as_tibble()
+## Error in lakers %&amp;gt;% as_tibble(): could not find function &amp;quot;%&amp;gt;%&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;hr /&gt;
@@ -409,13 +396,52 @@ as_date(20081027:20081029)
 
 &lt;p&gt;Em média, quanto tempo o Lakers demora para arremessar a primeira bola no primeiro período?&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Dica&lt;/strong&gt;: arremessos são representados pela categoria &lt;code&gt;shot&lt;/code&gt; da coluna &lt;code&gt;etype&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Dicas&lt;/strong&gt;: arremessos são representados pela categoria &lt;code&gt;shot&lt;/code&gt; da coluna &lt;code&gt;etype&lt;/code&gt; e cada período tem 12 minutos.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;lakers %&amp;gt;% 
+  dplyr::filter(etype == &amp;quot;shot&amp;quot;, period == 1, team == &amp;quot;LAL&amp;quot;) %&amp;gt;% 
+  dplyr::mutate(time = hms(paste0(&amp;quot;00:&amp;quot;, time)),
+                cronometro = 12*60 - minute(time)*60 - second(time)) %&amp;gt;% 
+  dplyr::group_by(date) %&amp;gt;% 
+  dplyr::filter(cronometro == min(cronometro)) %&amp;gt;% 
+  dplyr::ungroup() %&amp;gt;% 
+  dplyr::summarise(media = mean(cronometro))
+## Error in loadNamespace(name): there is no package called &#39;dplyr&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O que foi feito:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Primeiro filtramos a base para arremessos, &lt;code&gt;etype == &amp;quot;shot&amp;quot;&lt;/code&gt;, do primeiro período, &lt;code&gt;period ==&lt;/code&gt;, que fossem do Lakers, &lt;code&gt;team == &amp;quot;LAL&amp;quot;&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Em seguida, mudamos a classe da coluna &lt;code&gt;time&lt;/code&gt;, de &lt;code&gt;character&lt;/code&gt; para &lt;code&gt;period&lt;/code&gt;, e criamos a coluna &lt;code&gt;cronometro&lt;/code&gt;, que contém o tempo passado (em segundos) até o instante do evento.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Então agrupamos a base pelo dia e a filtramos apenas para o primeiro evento de cada dia, isto é, o evento que tem o menor valor na coluna &lt;code&gt;cronometro&lt;/code&gt;. Assim, a coluna &lt;code&gt;cronometro&lt;/code&gt; da base resultante terá o tempo do primeiro arremesso de cada jogo.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Por fim, desagrupamos a base e calculamos a média da coluna &lt;code&gt;cronometro&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;hr /&gt;
 
 &lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Em média, quanto tempo demora para sair a primeira cesta de três pontos? Considere toda a base, e cestas de ambos os times.&lt;/p&gt;
+&lt;p&gt;Em média, quanto tempo demora para sair a primeira cesta de três pontos em cada um dos quatro períodos? Considere toda a base, e cestas de ambos os times.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;lakers %&amp;gt;% 
+  dplyr::filter(etype == &amp;quot;shot&amp;quot;, period %in% 1:4, points == &amp;quot;3&amp;quot;) %&amp;gt;% 
+  dplyr::mutate(time = hms(paste0(&amp;quot;00:&amp;quot;, time)),
+                cronometro = 12*60 - minute(time)*60 - second(time)) %&amp;gt;% 
+  dplyr::group_by(date, period) %&amp;gt;% 
+  dplyr::filter(cronometro == min(cronometro)) %&amp;gt;% 
+  dplyr::ungroup() %&amp;gt;%
+  dplyr::group_by(period) %&amp;gt;% 
+  dplyr::summarise(media = mean(cronometro))
+## Error in loadNamespace(name): there is no package called &#39;dplyr&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A resolução desse exercício é análoga ao anterior, só mudamos o filtro inicial e o agrupamento. Se você ficou com dúvidas, consulte o passo a passo na resolução do exercício 4.&lt;/p&gt;
+
+&lt;p&gt;Repare que não precisarímos filtrar por &lt;code&gt;etype == &amp;quot;shot&amp;quot;&lt;/code&gt;, já que o único evento que gera 3 pontos é a cesta de 3 pontos.&lt;/p&gt;
 
 &lt;hr /&gt;
 
