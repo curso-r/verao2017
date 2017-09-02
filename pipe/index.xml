@@ -7,71 +7,239 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 02 Sep 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/pipe/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Introdução</title>
       <link>/pipe/</link>
-      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 02 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>/pipe/</guid>
       <description>
 
-&lt;h2 id=&#34;pipe&#34;&gt;Pipe &lt;code&gt;%&amp;gt;%&lt;/code&gt;&lt;/h2&gt;
+&lt;h2 id=&#34;o-operador&#34;&gt;O operador &lt;code&gt;%&amp;gt;%&lt;/code&gt;&lt;/h2&gt;
 
-&lt;p&gt;As duas linhas abaixo são equivalentes:&lt;/p&gt;
+&lt;p&gt;O operador &lt;code&gt;%&amp;gt;%&lt;/code&gt; (&lt;em&gt;pipe&lt;/em&gt;) foi uma das grandes revoluções recentes do R, tornando a leitura de códigos mais lógica, fácil e compreensível. Ele foi introduzido por &lt;a href=&#34;https://github.com/smbache&#34;&gt;Stefan Milton Bache&lt;/a&gt; no pacote &lt;code&gt;magrittr&lt;/code&gt; e já existem diversos pacotes construidos para facilitar a sua utilizaçăo.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;f(x, y)
+&lt;p&gt;Para começar a utilizar o &lt;em&gt;pipe&lt;/em&gt;, instale e carregue o pacote &lt;code&gt;magrittr&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;magrittr&amp;quot;)
+library(magrittr)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;A ideia do operador &lt;code&gt;%&amp;gt;%&lt;/code&gt; (&lt;em&gt;pipe&lt;/em&gt;) é bem simples: usar o valor resultante da expressão do lado esquerdo como primeiro argumento da função do lado direito.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# As duas linhas abaixo são equivalentes.
+
+f(x, y)
 x %&amp;gt;% f(y)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;O operador &lt;code&gt;%&amp;gt;%&lt;/code&gt; (&lt;em&gt;pipe&lt;/em&gt; ) usa o resultado do seu lado esquerdo como primeiro argumento da funçăo do lado direito. Ele foi uma das grandes revoluções recentes do R, tornando a leitura de códigos mais lógica, fácil e compreensível. Este operador foi introduzido por Stefan Milton Bache no pacote &lt;code&gt;magrittr&lt;/code&gt;, e já existem diversos pacotes construidos para facilitar a sua utilizaçăo.&lt;/p&gt;
+&lt;p&gt;Nos casos mais simples, o &lt;em&gt;pipe&lt;/em&gt; parece não trazer grandes vantagens. Agora, veja como fica um caso mais etapas.&lt;/p&gt;
 
-&lt;p&gt;O operador &lt;code&gt;%&amp;gt;%&lt;/code&gt; pertence ao pacote &lt;code&gt;magrittr&lt;/code&gt;. Instale este pacote para utilizá-lo.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;install.packages(&amp;quot;magrittr&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;No exemplo a seguir, o operador calcula a raiz quadrada da soma dos valores de 1 a 4.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;library(magrittr)
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Vamos calcular a raiz quadrada da soma dos valores de 1 a 4. Primeiro, sem o pipe.
 
 x &amp;lt;- c(1, 2, 3, 4)
+sqrt(sum(x))
+## [1] 3.162278
+
+# Agora com o pipe.
+
 x %&amp;gt;% sum %&amp;gt;% sqrt
+## [1] 3.162278
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;## [1] 3.162278
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;O caminho que o código &lt;code&gt;x %&amp;gt;% sum %&amp;gt;% sqrt&lt;/code&gt; seguiu foi enviar o objeto &lt;code&gt;x&lt;/code&gt; como argumento da função &lt;code&gt;sum()&lt;/code&gt; e, em seguida, enviar a saida da expressão &lt;code&gt;sum(x)&lt;/code&gt; como argumento da função &lt;code&gt;sqrt()&lt;/code&gt;. Observe que escrevemos o código na mesma ordem das operações e que não é necessário colocar os parênteses após o nome das funções.&lt;/p&gt;
 
-&lt;p&gt;Escrever esse cálculo na forma usual ficaria da seguinte forma:&lt;/p&gt;
+&lt;p&gt;Se você ainda não está convencido com o poder do &lt;em&gt;pipe&lt;/em&gt;, fica que vai ter bolo!&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;sqrt(sum(x))
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;No exemplo abaixo, vamos ilustrar um caso em que temos um grande número de funções aninhadas. Veja como a utilização do &lt;em&gt;pipe&lt;/em&gt; transforma um código confuso e difícil de ser lido em algo simples e intuitivo.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;## [1] 3.162278
-&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Receita de bolo sem pipe. Tente entender o que é preciso fazer.
 
-&lt;p&gt;O caminho que o código &lt;code&gt;x %&amp;gt;% sum %&amp;gt;% sqrt&lt;/code&gt; seguiu foi enviar o objeto &lt;code&gt;x&lt;/code&gt; como argumento da função &lt;code&gt;sum()&lt;/code&gt; e, em seguida, enviar a saida da expressão &lt;code&gt;sum(x)&lt;/code&gt; como argumento da função &lt;code&gt;sqrt()&lt;/code&gt;. Observe que não é necessário colocar os parênteses após o nome das funções.&lt;/p&gt;
+esfrie(asse(coloque(bata(acrescente(recipiente(rep(&amp;quot;farinha&amp;quot;, 2), &amp;quot;água&amp;quot;, &amp;quot;fermento&amp;quot;, &amp;quot;leite&amp;quot;, &amp;quot;óleo&amp;quot;), &amp;quot;farinha&amp;quot;, até = &amp;quot;macio&amp;quot;), duração = &amp;quot;3min&amp;quot;), lugar = &amp;quot;forma&amp;quot;, tipo = &amp;quot;grande&amp;quot;, untada = TRUE), duração = &amp;quot;50min&amp;quot;), &amp;quot;geladeira&amp;quot;, &amp;quot;20min&amp;quot;)
 
-&lt;p&gt;Pela simplicidade do exemplo, a utilização do &lt;code&gt;%&amp;gt;%&lt;/code&gt; não parece trazer grandes vantagens, pois a expressão &lt;code&gt;sqrt(sum(x))&lt;/code&gt; é facilmente compreendida. No entanto, se tivermos um grande número de funções aninhadas, a utilizaçăo do &lt;code&gt;pipe&lt;/code&gt; transforma um código confuso e difícil de ser lido em algo simples e intuitivo. Como exemplo, imagine escrever uma receita de um bolo usando o R, e cada passo da receita é uma função:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;esfrie(asse(coloque(bata(acrescente(recipiente(rep(&amp;quot;farinha&amp;quot;, 2), &amp;quot;água&amp;quot;, &amp;quot;fermento&amp;quot;, &amp;quot;leite&amp;quot;, &amp;quot;óleo&amp;quot;), &amp;quot;farinha&amp;quot;, até = &amp;quot;macio&amp;quot;), duração = &amp;quot;3min&amp;quot;), lugar = &amp;quot;forma&amp;quot;, tipo = &amp;quot;grande&amp;quot;, untada = TRUE), duração = &amp;quot;50min&amp;quot;), &amp;quot;geladeira&amp;quot;, &amp;quot;20min&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
+# Veja como o código acima pode ser reescrito utilizando-se o pipe. Agora realmente se parece com uma receita de bolo.
 
-&lt;p&gt;Tente entender o que é preciso fazer. Depois de desistir, veja como fica escrevendo com o operador &lt;code&gt;%&amp;gt;%&lt;/code&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;recipiente(rep(&amp;quot;farinha&amp;quot;, 2), &amp;quot;água&amp;quot;, &amp;quot;fermento&amp;quot;, &amp;quot;leite&amp;quot;, &amp;quot;óleo&amp;quot;) %&amp;gt;%
+recipiente(rep(&amp;quot;farinha&amp;quot;, 2), &amp;quot;água&amp;quot;, &amp;quot;fermento&amp;quot;, &amp;quot;leite&amp;quot;, &amp;quot;óleo&amp;quot;) %&amp;gt;%
   acrescente(&amp;quot;farinha&amp;quot;, até = &amp;quot;macio&amp;quot;) %&amp;gt;%
   bata(duraço = &amp;quot;3min&amp;quot;) %&amp;gt;%
   coloque(lugar = &amp;quot;forma&amp;quot;, tipo = &amp;quot;grande&amp;quot;, untada = TRUE) %&amp;gt;%
   asse(duração = &amp;quot;50min&amp;quot;) %&amp;gt;%
   esfrie(&amp;quot;geladeira&amp;quot;, &amp;quot;20min&amp;quot;)
+
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Agora, o código realmente parece uma receita de bolo.&lt;/p&gt;
+&lt;p&gt;Às vezes, queremos que o resultado do lado esquerdo vá para outro argumento do lado direito que não o primeiro. Para isso, utilizamos um &lt;code&gt;.&lt;/code&gt; como marcador.&lt;/p&gt;
 
-&lt;p&gt;Para mais informações sobre o &lt;code&gt;pipe&lt;/code&gt; e exemplos de utilização, visite a página &lt;a href=&#34;http://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html&#34;&gt;Ceci n&amp;rsquo;est pas un pipe&lt;/a&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# Queremos que o dataset seja recebido pelo segundo argumento (data=) da função &amp;quot;lm&amp;quot;.
+
+airquality %&amp;gt;%
+  na.omit %&amp;gt;% 
+  lm(Ozone ~ Wind + Temp + Solar.R, data = .) %&amp;gt;% 
+  summary
+## 
+## Call:
+## lm(formula = Ozone ~ Wind + Temp + Solar.R, data = .)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -40.485 -14.219  -3.551  10.097  95.619 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&amp;gt;|t|)    
+## (Intercept) -64.34208   23.05472  -2.791  0.00623 ** 
+## Wind         -3.33359    0.65441  -5.094 1.52e-06 ***
+## Temp          1.65209    0.25353   6.516 2.42e-09 ***
+## Solar.R       0.05982    0.02319   2.580  0.01124 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 21.18 on 107 degrees of freedom
+## Multiple R-squared:  0.6059,	Adjusted R-squared:  0.5948 
+## F-statistic: 54.83 on 3 and 107 DF,  p-value: &amp;lt; 2.2e-16
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;O &lt;em&gt;pipe&lt;/em&gt; é a força da gravidade dentro do &lt;code&gt;tidyverse&lt;/code&gt;. Veremos nas próximas seções como as funções de diferentes pacotes interagem perfeitamente graças a esse operador.&lt;/p&gt;
+
+&lt;p&gt;Para mais informações sobre o &lt;code&gt;pipe&lt;/code&gt;, outros operadores relacionados e exemplos de utilização, visite a página &lt;a href=&#34;http://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html&#34;&gt;Ceci n&amp;rsquo;est pas un pipe&lt;/a&gt;.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;exercícios&#34;&gt;Exercícios&lt;/h2&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Reescreva a expressão abaixo utilizando o &lt;code&gt;%&amp;gt;%&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;round(mean(sum(1:10)/3), digits = 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Dica&lt;/strong&gt;: utilize a função &lt;code&gt;magrittr::divide_by()&lt;/code&gt;. Veja o help da função para mais informações.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Reescreva o código abaixo utilizando o &lt;code&gt;%&amp;gt;%&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+x &amp;lt;- rnorm(100)
+
+x.pos &amp;lt;- x[x&amp;gt;0]
+
+media &amp;lt;- mean(x.pos)
+
+saida &amp;lt;- round(media, 1)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sem rodar, diga qual a saída do código abaixo. Consulte o help das funções caso precise.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;2 %&amp;gt;% 
+  add(2) %&amp;gt;% 
+  c(6, NA) %&amp;gt;% 
+  mean(na.rm = T) %&amp;gt;% 
+  equals(5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;4.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Leia o capítulo sobre &lt;em&gt;pipes&lt;/em&gt; do &lt;a href=&#34;http://r4ds.had.co.nz/pipes.html&#34;&gt;R for data science&lt;/a&gt;. É curto e vale muito a pena.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;5.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Pegue algum script que você já tenha programado em R e o reescreva utilizando o operador &lt;em&gt;pipe&lt;/em&gt;. Se você não tiver nenhum, não se preocupe. Utilizaremos &lt;strong&gt;bastante&lt;/strong&gt; o &lt;em&gt;pipe&lt;/em&gt; daqui pra frente.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;respostas&#34;&gt;Respostas&lt;/h2&gt;
+
+&lt;div class=&#39;admonition note&#39;&gt;
+&lt;p class=&#39;admonition-title&#39;&gt;
+Nota
+&lt;/p&gt;
+&lt;p&gt;
+Não há apenas uma maneira de resolver os exercícios. Você pode encontrar soluções diferentes das nossas, algumas vezes mais eficientes, outras vezes menos. Quando estiver fazendo suas análises, tente buscar o equilíbrio entre eficiência e praticidade. Economizar 1 hora com a execução do código pode não valer a pena se você demorou 2 horas a mais para programá-lo.
+&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;1.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Reescreva a expressão abaixo utilizando o &lt;code&gt;%&amp;gt;%&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;round(mean(sum(1:10)/3), digits = 1)
+## [1] 18.3
+
+1:10 %&amp;gt;% 
+  sum %&amp;gt;% 
+  divide_by(3) %&amp;gt;% 
+  round(digits = 1)
+## [1] 18.3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;2.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Reescreva o código abaixo utilizando o &lt;code&gt;%&amp;gt;%&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;
+# Setamos a semente que gera números aleatórios para deixar o resultado reprodutível
+
+set.seed(137)
+
+x &amp;lt;- rnorm(100)
+x.pos &amp;lt;- x[x&amp;gt;0]
+media &amp;lt;- mean(x.pos)
+saida &amp;lt;- round(media, 2)
+saida
+## [1] 0.78
+
+set.seed(137)
+
+rnorm(100) %&amp;gt;% 
+  extract(. &amp;gt; 0) %&amp;gt;% 
+  mean %&amp;gt;%
+  round(digits = 2)
+## [1] 0.78
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;&lt;strong&gt;3.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Sem rodar, diga qual a saída do código abaixo. Consulte o help das funções caso precise.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;2 %&amp;gt;% 
+  add(2) %&amp;gt;% 
+  c(6, NA) %&amp;gt;% 
+  mean(na.rm = T) %&amp;gt;% 
+  equals(5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Primeiro, somamos 2 com 2, gerando o valor 4.&lt;/li&gt;
+&lt;li&gt;Então colocamos esse valor em um vetor com os valores 6 e &lt;code&gt;NA&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Em seguida, tiramos a média desse vetor, desconsiderando o &lt;code&gt;NA&lt;/code&gt;, obtendo o valor 5.&lt;/li&gt;
+&lt;li&gt;Por fim, testemos se o valor é igual a 5, obtendo o valor &lt;code&gt;TRUE&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
 </description>
     </item>
     
