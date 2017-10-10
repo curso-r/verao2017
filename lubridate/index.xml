@@ -7,13 +7,13 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
     <copyright>Disponível sobre Licença MIT</copyright>
-    <lastBuildDate>Mon, 14 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Oct 2017 00:00:00 +0000</lastBuildDate>
     <atom:link href="/lubridate/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Introdução</title>
+      <title>Manipulando datas</title>
       <link>/lubridate/</link>
-      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>/lubridate/</guid>
       <description>
@@ -158,9 +158,9 @@ data
 &lt;p&gt;Também existem funções para extrair a data no instante da execução.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;today() 
-## [1] &amp;quot;2017-08-14&amp;quot;
+## [1] &amp;quot;2017-10-10&amp;quot;
 now()
-## [1] &amp;quot;2017-08-14 21:30:21 UTC&amp;quot;
+## [1] &amp;quot;2017-10-10 14:21:21 UTC&amp;quot;
 
 # Data e horário do dia em que essa página foi editada pela última vez.
 &lt;/code&gt;&lt;/pre&gt;
