@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>/forcats/</loc>
+    <lastmod>2018-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/scrape/</loc>
+    <lastmod>2018-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/manip/</loc>
     <lastmod>2017-12-06T00:00:00+00:00</lastmod>
   </url>
@@ -13,11 +23,6 @@
   
   <url>
     <loc>/lubridate/</loc>
-    <lastmod>2017-10-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/forcats/</loc>
     <lastmod>2017-10-10T00:00:00+00:00</lastmod>
   </url>
   
@@ -37,11 +42,6 @@
   </url>
   
   <url>
-    <loc>/scrape/</loc>
-    <lastmod>2017-10-10T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/modelos/</loc>
     <lastmod>2017-02-06T00:00:00+00:00</lastmod>
   </url>
@@ -53,13 +53,13 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2017-12-06T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/forcats/</loc>
-    <lastmod>2017-10-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -105,7 +105,7 @@
   
   <url>
     <loc>/scrape/</loc>
-    <lastmod>2017-10-10T00:00:00+00:00</lastmod>
+    <lastmod>2018-07-13T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
